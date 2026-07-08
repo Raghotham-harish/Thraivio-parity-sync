@@ -1,0 +1,414 @@
+import { useState } from "react";
+
+import {
+  BadgeCheck,
+  Bell,
+  FileCheck2,
+  ShieldCheck,
+} from "lucide-react";
+
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+
+import type { AdminMentor } from "@/types/admin-mentors";
+
+interface VerificationDialogProps {
+  open: boolean;
+
+  mentor: AdminMentor | null;
+
+  onOpenChange: (open: boolean) => void;
+
+  onConfirm: (
+    mentor: AdminMentor,
+    status: string,
+    remarks: string,
+    notify: boolean
+  ) => void;
+}
+
+export default function VerificationDialog({
+  open,
+  mentor,
+  onOpenChange,
+  onConfirm,
+}: VerificationDialogProps) {
+  const [status, setStatus] =
+    useState("verified");
+
+  const [remarks, setRemarks] =
+    useState("");
+
+  const [notify, setNotify] =
+    useState(true);
+
+  if (!mentor) return null;
+
+  return (
+    <Dialog
+      open={open}
+      onOpenChange={onOpenChange}
+    >
+      <DialogContent
+        className="
+          flex
+          max-h-[90vh]
+          max-w-2xl
+          flex-col
+          overflow-hidden
+          rounded-[32px]
+          p-0
+        "
+      >
+
+        {/* Header */}
+
+        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 p-8 text-white">
+
+          <div className="flex items-center gap-5">
+
+            <div className="rounded-3xl bg-white/20 p-4">
+
+              <ShieldCheck className="h-10 w-10" />
+
+            </div>
+
+            <div>
+
+              <DialogHeader>
+
+                <DialogTitle className="text-3xl font-bold text-white">
+
+                  Verify Mentor
+
+                </DialogTitle>
+
+                <DialogDescription className="mt-2 text-blue-100">
+
+                  Review mentor identity, documents and
+                  verification status before approving.
+
+                </DialogDescription>
+
+              </DialogHeader>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        {/* Body */}
+
+        <div className="flex-1 space-y-8 overflow-y-auto px-8 py-8">
+
+          {/* Mentor */}
+
+          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+
+            <img
+              src={mentor.avatar}
+              alt={mentor.name}
+              className="h-20 w-20 rounded-full object-cover"
+            />
+
+            <div className="flex-1">
+
+              <h3 className="text-xl font-bold text-slate-900">
+
+                {mentor.name}
+
+              </h3>
+
+              <p className="mt-2 text-slate-500">
+
+                {mentor.email}
+
+              </p>
+
+              <div className="mt-3 flex gap-2">
+
+                <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+
+                  {mentor.membership}
+
+                </span>
+
+                <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+
+                  {mentor.status}
+
+                </span>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          {/* Verification Checklist */}
+
+          <div className="rounded-3xl border border-blue-200 bg-blue-50 p-6">
+
+            <h3 className="text-lg font-bold text-blue-800">
+
+              Verification Checklist
+
+            </h3>
+
+            <div className="mt-5 space-y-3">
+
+              {[
+                "Identity proof uploaded",
+                "Government ID verified",
+                "Certificates reviewed",
+                "Profile information matched",
+                "Email verified",
+                "Phone verified",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3"
+                >
+                  <BadgeCheck className="h-5 w-5 text-blue-600" />
+
+                  <span className="text-sm text-blue-800">
+
+                    {item}
+
+                  </span>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+
+          {/* Documents */}
+
+          <div className="rounded-3xl border border-slate-200 bg-white p-6">
+
+            <h3 className="flex items-center gap-2 text-lg font-bold text-slate-900">
+
+              <FileCheck2 className="h-5 w-5 text-indigo-600" />
+
+              Submitted Documents
+
+            </h3>
+
+            <div className="mt-5 space-y-3">
+
+              {[
+                "Government ID",
+                "Professional Certificate",
+                "Resume",
+                "Experience Letter",
+              ].map((doc) => (
+                <div
+                  key={doc}
+                  className="flex items-center justify-between rounded-2xl border border-slate-200 p-4"
+                >
+                  <span className="font-medium text-slate-700">
+
+                    {doc}
+
+                  </span>
+
+                  <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+
+                    Verified
+
+                  </span>
+
+                </div>
+              ))}
+
+            </div>
+
+          </div>
+                    {/* Verification Status */}
+
+          <div>
+
+            <label className="mb-3 block text-sm font-semibold text-slate-700">
+
+              Verification Status
+
+            </label>
+
+            <select
+              value={status}
+              onChange={(e) =>
+                setStatus(e.target.value)
+              }
+              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 outline-none transition focus:border-blue-500"
+            >
+              <option value="verified">
+                Verified
+              </option>
+
+              <option value="pending">
+                Pending Review
+              </option>
+
+              <option value="rejected">
+                Rejected
+              </option>
+
+            </select>
+
+          </div>
+
+          {/* Admin Remarks */}
+
+          <div>
+
+            <label className="mb-3 block text-sm font-semibold text-slate-700">
+
+              Admin Remarks
+
+            </label>
+
+            <textarea
+              rows={5}
+              value={remarks}
+              onChange={(e) =>
+                setRemarks(e.target.value)
+              }
+              placeholder="Write verification remarks..."
+              className="w-full rounded-3xl border border-slate-200 bg-white p-4 outline-none transition-all focus:border-blue-500"
+            />
+
+          </div>
+
+          {/* Notify Mentor */}
+
+          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+
+            <label className="flex cursor-pointer items-start justify-between gap-5">
+
+              <div>
+
+                <div className="flex items-center gap-3">
+
+                  <Bell className="h-5 w-5 text-blue-600" />
+
+                  <h4 className="font-semibold text-slate-900">
+
+                    Notify Mentor
+
+                  </h4>
+
+                </div>
+
+                <p className="mt-2 text-sm leading-6 text-slate-500">
+
+                  Send the verification result to the mentor
+                  with remarks and next steps.
+
+                </p>
+
+              </div>
+
+              <input
+                type="checkbox"
+                checked={notify}
+                onChange={(e) =>
+                  setNotify(e.target.checked)
+                }
+                className="mt-1 h-5 w-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+              />
+
+            </label>
+
+          </div>
+
+          {/* Verification Summary */}
+
+          <div className="rounded-3xl border border-blue-200 bg-blue-50 p-6">
+
+            <h4 className="font-semibold text-blue-800">
+
+              Verification Result
+
+            </h4>
+
+            <ul className="mt-4 space-y-2 text-sm leading-7 text-blue-700">
+
+              <li>
+                • Verified mentors receive a verification badge.
+              </li>
+
+              <li>
+                • Verified mentors gain access to all mentor features.
+              </li>
+
+              <li>
+                • Pending mentors remain under review.
+              </li>
+
+              <li>
+                • Rejected mentors must update documents before reapplying.
+              </li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+        {/* Footer */}
+
+        <DialogFooter
+          className="
+            sticky
+            bottom-0
+            border-t
+            border-slate-200
+            bg-white
+            px-8
+            py-6
+          "
+        >
+
+          <button
+            type="button"
+            onClick={() => onOpenChange(false)}
+            className="h-12 rounded-2xl border border-slate-200 bg-white px-6 font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="button"
+            onClick={() =>
+              onConfirm(
+                mentor,
+                status,
+                remarks,
+                notify
+              )
+            }
+            className="h-12 rounded-2xl bg-blue-600 px-6 font-semibold text-white transition hover:bg-blue-700"
+          >
+
+            <ShieldCheck className="mr-2 inline h-5 w-5" />
+
+            Save Verification
+
+          </button>
+
+        </DialogFooter>
+
+      </DialogContent>
+
+    </Dialog>
+  );
+}
