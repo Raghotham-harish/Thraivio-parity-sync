@@ -115,19 +115,6 @@ const supportOptions = [
   },
 ];
 
-interface CardProps {
-  title: string;
-
-  description: string;
-
-  icon: any;
-
-  color: string;
-
-  iconColor: string;
-
-  action: string;
-}
 
 const SupportOptions = ({
   onLiveChat,

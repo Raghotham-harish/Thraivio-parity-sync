@@ -1170,7 +1170,7 @@ const EventForm = ({
         <div className="space-y-5">
 
           {(event?.agenda ?? []).map(
-            (agenda, index) => (
+            (agenda) => (
 
               <div
                 key={agenda.id}

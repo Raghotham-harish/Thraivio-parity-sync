@@ -1,6 +1,5 @@
 import {
   Bell,
-  Sparkles,
   BellRing,
   ShieldCheck,
 } from "lucide-react";

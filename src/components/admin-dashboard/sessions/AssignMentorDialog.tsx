@@ -17,8 +17,9 @@ import { mentors } from "@/data/mentors";
 
 import type {
   AdminSession,
-  Mentor,
 } from "@/types/admin-session";
+
+type Mentor = (typeof mentors)[number];
 
 interface AssignMentorDialogProps {
   open: boolean;

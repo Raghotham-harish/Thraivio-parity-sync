@@ -8,7 +8,6 @@ import {
   CalendarDays,
   GraduationCap,
   ShieldCheck,
-  User2,
 } from "lucide-react";
 
 import { Input } from "@/components/ui/input";

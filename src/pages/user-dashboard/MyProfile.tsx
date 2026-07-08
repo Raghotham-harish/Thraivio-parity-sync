@@ -49,18 +49,6 @@ const MyProfile = () => {
     setNewInterest,
   ] = useState("");
 
-    const handleProfileChange = (
-    field: string,
-    value: string
-  ) => {
-    setProfile((prev) => ({
-      ...prev,
-
-      [field]: value,
-    }));
-
-    setHasChanges(true);
-  };
 
   const handleUploadPhoto = (
     file: File

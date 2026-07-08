@@ -143,7 +143,7 @@ seat before registrations close.
 
         <div className="grid lg:grid-cols-2 gap-8 mt-14">
 
-          {mentor.events.map((event, index) => (
+          {mentor.events.map((event) => (
 
             <div
               key={event.title}

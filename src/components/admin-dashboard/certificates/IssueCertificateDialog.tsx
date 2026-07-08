@@ -1,6 +1,5 @@
 import {
   Award,
-  Plus,
 } from "lucide-react";
 
 import {

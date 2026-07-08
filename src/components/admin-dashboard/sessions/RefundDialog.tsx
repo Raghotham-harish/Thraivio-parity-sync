@@ -5,7 +5,6 @@ import {
   Clock3,
   DollarSign,
   GraduationCap,
-  User,
   Wallet,
   X,
 } from "lucide-react";

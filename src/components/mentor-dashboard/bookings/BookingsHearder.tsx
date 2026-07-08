@@ -1,4 +1,4 @@
-import { CalendarCheck, Plus } from "lucide-react";
+import { Plus } from "lucide-react";
 
 interface BookingsHeaderProps {
   totalBookings: number;

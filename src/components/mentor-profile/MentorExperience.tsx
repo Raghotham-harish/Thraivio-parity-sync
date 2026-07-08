@@ -262,7 +262,7 @@ text-blue-700
   showFullJourney
     ? mentor.companiesWorked
     : mentor.companiesWorked.slice(0, 3)
-).map((company, index) => (
+).map((company) => (
 
     <div
       key={company}

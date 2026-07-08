@@ -4,7 +4,6 @@ import {
   CreditCard,
   Download,
   Eye,
-  FileText,
   Receipt,
   Wallet,
 } from "lucide-react";

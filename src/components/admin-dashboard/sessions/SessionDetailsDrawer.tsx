@@ -1,7 +1,6 @@
 import {
   BadgeCheck,
   CalendarDays,
-  Clock3,
   GraduationCap,
   MonitorPlay,
   UserRound,

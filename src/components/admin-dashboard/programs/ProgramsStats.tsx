@@ -20,7 +20,6 @@ interface ProgramsStatsProps {
 export default function ProgramsStats({
   totalPrograms,
   publishedPrograms,
-  totalStudents,
   averageRating,
   estimatedRevenue,
 }: ProgramsStatsProps) {

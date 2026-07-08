@@ -1,14 +1,10 @@
 import {
   Building2,
-  CalendarDays,
   CreditCard,
   Download,
   Receipt,
-  Wallet,
   X,
-  User,
   BadgeCheck,
-  Clock3,
 } from "lucide-react";
 
 import type { Payment } from "@/types/payment";

@@ -1,9 +1,7 @@
 import {
   AlertTriangle,
   Award,
-  BadgeCheck,
   Building2,
-  CalendarDays,
   Trash2,
 } from "lucide-react";
 

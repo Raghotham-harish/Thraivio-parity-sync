@@ -283,20 +283,6 @@ export default function PaymentsManagement() {
     setDeleteOpen(true);
   };
 
-  const handleInvoice = (
-    payment: AdminPayment
-  ) => {
-    setSelectedPayment(payment);
-    setInvoiceOpen(true);
-  };
-
-  const handleReceipt = (
-    payment: AdminPayment
-  ) => {
-    setSelectedPayment(payment);
-    setReceiptOpen(true);
-  };
-
   const handleExport = () => {
     setExportOpen(true);
   };

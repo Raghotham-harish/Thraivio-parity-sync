@@ -1328,8 +1328,7 @@ const EditSessionDialog = ({
 
                     studentId,
 
-                    programId:
-                      Number(programId),
+                    programId,
 
                     sessionType,
 

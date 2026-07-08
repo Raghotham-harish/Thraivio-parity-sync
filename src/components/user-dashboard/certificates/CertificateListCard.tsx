@@ -1,5 +1,4 @@
 import {
-  Award,
   BadgeCheck,
   Building2,
   CalendarDays,

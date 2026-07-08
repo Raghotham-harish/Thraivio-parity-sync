@@ -401,16 +401,6 @@ export default function CertificatesManagement() {
     setRevokeOpen(true);
   };
 
-  const handleReissue = (
-    certificate: AdminCertificate
-  ) => {
-    setSelectedCertificate(
-      certificate
-    );
-
-    setReissueOpen(true);
-  };
-
   const handleDownload = (
     certificate: AdminCertificate
   ) => {

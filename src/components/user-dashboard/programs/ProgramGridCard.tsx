@@ -4,7 +4,6 @@ import {
   Building2,
   Clock3,
   Eye,
-  GraduationCap,
   PlayCircle,
   Star,
   Users,

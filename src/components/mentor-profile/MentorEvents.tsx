@@ -1,6 +1,5 @@
 import {
   CalendarDays,
-  Video,
   Users,
   ArrowRight,
   Clock3,
@@ -286,7 +285,7 @@ hover:shadow-lg
 
 <div className="grid lg:grid-cols-2 gap-6 mt-12">
 
-  {mentor.events?.map((event, index) => (
+  {mentor.events?.map((event) => (
 
     <div
       key={event.title}

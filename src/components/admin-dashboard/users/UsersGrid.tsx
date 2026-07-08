@@ -1,4 +1,4 @@
-import React from "react";
+
 import { memo } from "react";
 
 import UserGridCard from "./UserGridCard";

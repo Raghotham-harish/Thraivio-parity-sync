@@ -4,8 +4,6 @@ import { mentors } from "@/data/mentors";
 
 type Mentor = (typeof mentors)[number];
 
-type Program = Mentor["programs"][number];
-
 interface ProgramsTableProps {
   items: {
     mentor: Mentor;

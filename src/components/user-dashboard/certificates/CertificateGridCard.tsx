@@ -2,11 +2,8 @@ import {
   Award,
   BadgeCheck,
   Building2,
-  CalendarDays,
   Download,
   Eye,
-  ExternalLink,
-  FileBadge,
 } from "lucide-react";
 
 import type { Certificate } from "@/types/certificate";

@@ -381,45 +381,7 @@ const SessionsManagement = () => {
 
   };
 
-  const openAttendance = (
-    session: AdminSession
-  ) => {
-
-    setSelectedSession(session);
-
-    setAttendanceOpen(true);
-
-  };
-
-  const openRefund = (
-    session: AdminSession
-  ) => {
-
-    setSelectedSession(session);
-
-    setRefundOpen(true);
-
-  };
-
-  const openAssignMentor = (
-    session: AdminSession
-  ) => {
-
-    setSelectedSession(session);
-
-    setAssignMentorOpen(true);
-
-  };
-
-  const openCertificate = (
-    session: AdminSession
-  ) => {
-
-    setSelectedSession(session);
-
-    setCertificateOpen(true);
-
-  };
+  
 
   /* ---------------------------------- */
   /* Toolbar Actions                    */
@@ -444,36 +406,6 @@ const SessionsManagement = () => {
     console.log(
       "Export Sessions"
     );
-
-  };
-
-  /* ---------------------------------- */
-  /* Dialog Close                       */
-  /* ---------------------------------- */
-
-  const closeDialogs = () => {
-
-    setDetailsOpen(false);
-
-    setCreateOpen(false);
-
-    setEditOpen(false);
-
-    setCompleteOpen(false);
-
-    setCancelOpen(false);
-
-    setDeleteOpen(false);
-
-    setAttendanceOpen(false);
-
-    setRefundOpen(false);
-
-    setAssignMentorOpen(false);
-
-    setCertificateOpen(false);
-
-    setSelectedSession(null);
 
   };
     /* ---------------------------------- */

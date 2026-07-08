@@ -5,7 +5,6 @@ import type {
   EventAgenda,
   EventStats,
   EventType,
-  EventMode,
   EventStatus,
 } from "@/types/admin-events";
 

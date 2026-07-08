@@ -1,7 +1,6 @@
 import type { AdminPayment } from "@/types/admin-payment";
 
 import {
-  X,
   User,
   Building2,
   CreditCard,

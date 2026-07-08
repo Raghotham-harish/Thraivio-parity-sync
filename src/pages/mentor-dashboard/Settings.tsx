@@ -92,10 +92,8 @@ const Settings = () => {
         mentor.socialLinks
           ?.youtube || "",
 
-      github:
-        mentor.socialLinks
-          ?.github || "",
-
+      github: "", 
+      
       portfolio: "",
 
       emailNotifications:

@@ -2,7 +2,6 @@ import {
   Award,
   BookOpen,
   Building2,
-  CalendarDays,
   CheckCircle2,
   Clock3,
   Download,

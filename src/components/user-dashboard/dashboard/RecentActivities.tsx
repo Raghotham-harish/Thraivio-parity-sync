@@ -2,7 +2,6 @@ import {
   Award,
   BookOpen,
   CalendarCheck,
-  CheckCircle2,
   Clock3,
   CreditCard,
   Heart,

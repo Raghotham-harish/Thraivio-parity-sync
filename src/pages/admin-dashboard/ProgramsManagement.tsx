@@ -21,8 +21,6 @@ import { mentors } from "@/data/mentors";
 
 type Mentor = (typeof mentors)[number];
 
-type Program = Mentor["programs"][number];
-
 const PAGE_SIZE = 6;
 
 export default function ProgramsManagement() {
