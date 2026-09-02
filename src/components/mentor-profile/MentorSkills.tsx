@@ -28,7 +28,7 @@ const MentorSkills = ({
     <section className="pb-20">
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
 
           {/* Header */}
           <div>
@@ -36,11 +36,13 @@ const MentorSkills = ({
             <span
               className="
 inline-block
-bg-blue-100
+bg-blue-50
+border
+border-blue-200
 text-blue-700
 px-4
 py-1
-rounded-full
+rounded-lg
 text-sm
 font-medium
 "
@@ -48,18 +50,18 @@ font-medium
               Professional Strengths
             </span>
 
-            <h2 className="text-4xl font-bold mt-4">
+            <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-4">
               Skills & Expertise
             </h2>
 
-            <p className="text-slate-500 mt-3">
+            <p className="text-slate-600 mt-3 leading-7">
               Key competencies developed through years of
               mentoring, leadership, and industry experience.
             </p>
 
             <div className="grid md:grid-cols-3 gap-4 mt-8">
 
-  <div className="bg-blue-50 rounded-2xl p-5">
+  <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-5">
 
     <p className="text-sm text-slate-500">
       Core Skills
@@ -71,7 +73,7 @@ font-medium
 
   </div>
 
-  <div className="bg-blue-50 rounded-2xl p-5">
+  <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-5">
 
     <p className="text-sm text-slate-500">
       Expertise Areas
@@ -83,13 +85,13 @@ font-medium
 
   </div>
 
-  <div className="bg-blue-50 rounded-2xl p-5">
+  <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-5">
 
     <p className="text-sm text-slate-500">
       Avg Rating
     </p>
 
-    <h3 className="text-3xl font-bold text-blue-600">
+    <h3 className="text-3xl font-bold text-slate-900">
       9.5/10
     </h3>
 
@@ -118,13 +120,14 @@ font-medium
         <div
           key={skill}
           className="
-rounded-2xl
+rounded-xl
 border
 border-slate-200
 bg-white
 p-6
-hover:shadow-lg
-transition
+hover:shadow-md
+transition-all
+duration-300
 "
         >
 
@@ -140,7 +143,7 @@ transition
             One of the mentor's strongest professional competencies.
           </p>
 
-          <div className="mt-4 text-blue-600 font-bold">
+          <div className="mt-4 text-blue-600 font-semibold">
             {skillLevels[index]}/10
           </div>
 
@@ -194,11 +197,13 @@ transition
 
   <span
     className="
-      bg-blue-50
+      bg-white
+        border
+      border-blue-200
       text-blue-700
       px-3
       py-1
-      rounded-full
+      rounded-lg
       text-sm
       font-medium
     "
@@ -216,7 +221,7 @@ transition
 
                     <div
                       className="
-                        h-4
+                        h-3
                         bg-slate-100
                         rounded-full
                         overflow-hidden
@@ -279,8 +284,8 @@ shadow-sm
                     rounded-2xl
                     border
                     bg-white
-                    hover:shadow-lg
-                    hover:-translate-y-2 hover:border-blue-300
+                    hover:shadow-md
+                   hover:border-blue-500
                     transition-all
                     duration-300
                   "
@@ -293,7 +298,7 @@ shadow-sm
 h-10
 w-10
 rounded-xl
-bg-blue-100
+bg-blue-50
 flex
 items-center
 justify-center
@@ -320,11 +325,13 @@ justify-center
   <span
     className="
 text-xs
-bg-blue-50
+bg-white
+border
+border-blue-200
 text-blue-700
 px-2
 py-1
-rounded-full
+rounded-lg
 "
   >
     Expert
@@ -347,13 +354,14 @@ rounded-full
           {/* Bottom CTA */}
           <div
             className="
-              mt-14
-              rounded-3xl
+              mt-12
               p-8
-              bg-gradient-to-r
-from-blue-600
-to-cyan-500
-              text-white
+              bg-white
+              border
+            border-slate-200
+              rounded-2xl
+              shadow-sm
+              text-slate-900
             "
           >
 
@@ -361,7 +369,7 @@ to-cyan-500
               Ready To Accelerate Your Career?
             </h3>
 
-            <p className="mt-3 text-blue-100">
+            <p className="mt-3 text-slate-600">
               Get personalized mentorship, interview preparation,
 leadership coaching and career guidance tailored to your goals.
             </p>
@@ -369,13 +377,14 @@ leadership coaching and career guidance tailored to your goals.
             <button
               className="
                 mt-6
-                bg-white
+                border
+              border-slate-300
                 text-blue-600
                 px-8
                 py-3
-                rounded-xl
+                rounded-lg
                 font-semibold
-                hover:shadow-lg
+                hover:shadow-md
                 transition
               "
             >

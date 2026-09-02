@@ -28,28 +28,21 @@ const MentorFinalCTA = ({
 
         <div
           className="
-            relative
-            overflow-hidden
-            rounded-[40px]
-            shadow-2xl
-            bg-gradient-to-br
-            from-slate-900
-via-blue-900
-to-indigo-900
+            rounded-2xl
+border
+border-slate-200
+bg-white
+shadow-sm
             p-10
             lg:p-14
             text-white
           "
         >
-          <div className="absolute top-0 left-0 w-full h-1 bg-blue-600 z-10"></div>
 
           {/* Background Glow */}
 
-          <div className="absolute -top-24 -left-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl"></div>
 
-          <div className="absolute -bottom-24 -right-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl"></div>
-
-          <div className="relative z-10">
+          <div>
 
             {/* Badge */}
 
@@ -58,15 +51,15 @@ to-indigo-900
                 inline-flex
                 items-center
                 gap-2
-                rounded-full
-                bg-blue-500/20
+                bg-blue-50
 border
-border-white/10
-                backdrop-blur
+border-blue-200
+rounded-lg                
                 px-5
                 py-2
                 text-sm
-                font-medium
+                font-semibold
+                text-slate-900
               "
             >
 
@@ -84,8 +77,9 @@ border-white/10
                 max-w-4xl
                 text-4xl 
                  md:text-5xl
-                font-bold
+                font-semibold
                 leading-tight
+                text-slate-900
               "
             >
 
@@ -101,7 +95,7 @@ border-white/10
                 max-w-3xl
                 text-lg
                 leading-8
-                text-slate-300
+                text-slate-600
               "
             >
 
@@ -119,31 +113,29 @@ border-white/10
 
               <div
                 className="
-                  bg-white/10
-backdrop-blur
+            bg-white
 border
-border-white/10
+border-slate-200
 p-6
-hover:bg-white/15
-transition-all
+transition
 duration-300
-rounded-3xl
-hover:-translate-y-1
+rounded-xl
+hover:border-blue-300
                 "
               >
 
                 <CheckCircle2
-                  className="text-blue-300"
+                  className="text-blue-600"
                   size={26}
                 />
 
-                <h3 className="font-semibold text-lg mt-4">
+                <h3 className="font-semibold text-lg mt-4 text-slate-700">
 
                   Personalized Roadmap
 
                 </h3>
 
-                <p className="text-slate-300 text-sm mt-2">
+                <p className="text-slate-600 text-sm mt-2">
 
                   Clear action plan based on your
                   goals and experience.
@@ -154,31 +146,29 @@ hover:-translate-y-1
 
               <div
                 className="
-                  bg-white/10
-backdrop-blur
+                  bg-white
 border
-border-white/10
+border-slate-200
 p-6
-hover:bg-white/15
-transition-all
+transition
 duration-300
-rounded-3xl
-hover:-translate-y-1
+rounded-xl
+hover:border-blue-300
                 "
               >
 
                 <CheckCircle2
-                  className="text-blue-300"
+                  className="text-blue-600"
                   size={26}
                 />
 
-                <h3 className="font-semibold text-lg mt-4">
+                <h3 className="font-semibold text-lg mt-4 text-slate-700">
 
                   Mock Interviews
 
                 </h3>
 
-                <p className="text-slate-300 text-sm mt-2">
+                <p className="text-slate-600 text-sm mt-2">
 
                   Practice with real scenarios
                   and receive actionable feedback.
@@ -189,31 +179,29 @@ hover:-translate-y-1
 
               <div
                 className="
-                  bg-white/10
-backdrop-blur
+                  bg-white
 border
-border-white/10
+border-slate-200
 p-6
-hover:bg-white/15
-transition-all
+transition
 duration-300
-rounded-3xl
-hover:-translate-y-1
+rounded-xl
+hover:border-blue-300
                 "
               >
 
                 <CheckCircle2
-                  className="text-blue-300"
+                  className="text-blue-600"
                   size={26}
                 />
 
-                <h3 className="font-semibold text-lg mt-4">
+                <h3 className="font-semibold text-lg mt-4 text-slate-700">
 
                   Resume Reviews
 
                 </h3>
 
-                <p className="text-slate-300 text-sm mt-2">
+                <p className="text-slate-600 text-sm mt-2">
 
                   Improve your profile to stand
                   out in competitive hiring.
@@ -224,31 +212,29 @@ hover:-translate-y-1
 
               <div
                 className="
-                  rounded-3xl
-                  bg-white/10
-backdrop-blur
+                  bg-white
 border
-border-white/10
+border-slate-200
 p-6
-hover:bg-white/15
-transition-all
+transition
 duration-300
-hover:-translate-y-1
+rounded-xl
+hover:border-blue-300
                 "
               >
 
                 <CheckCircle2
-                  className="text-blue-300"
+                  className="text-blue-600"
                   size={26}
                 />
 
-                <h3 className="font-semibold text-lg mt-4">
+                <h3 className="font-semibold text-lg mt-4 text-slate-700">
 
                   Career Strategy
 
                 </h3>
 
-                <p className="text-slate-300 text-sm mt-2">
+                <p className="text-slate-600 text-sm mt-2">
 
                   Get long-term guidance for
                   promotions and leadership.
@@ -263,7 +249,7 @@ hover:-translate-y-1
 
             <div className="grid md:grid-cols-3 gap-6 mt-12">
 
-              <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-5">
+              <div className="flex items-center gap-4 bg-slate-50 border border-slate-200 text-slate-500 rounded-2xl p-5">
 
                 <Star
                   className="text-yellow-400"
@@ -272,13 +258,13 @@ hover:-translate-y-1
 
                 <div>
 
-                  <h3 className="text-3xl font-bold">
+                  <h3 className="text-3xl font-bold text-slate-700">
 
                     {mentor.rating}
 
                   </h3>
 
-                  <p className="text-slate-300">
+                  <p className="text-slate-600">
 
                     Average Rating
 
@@ -288,19 +274,19 @@ hover:-translate-y-1
 
               </div>
 
-             <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-5">
+             <div className="flex items-center gap-4 bg-slate-50 border border-slate-200 rounded-2xl p-5">
 
                 <Users className="text-cyan-400" />
 
                 <div>
 
-                  <h3 className="text-3xl font-bold">
+                  <h3 className="text-3xl font-bold text-slate-700">
 
                     {mentor.studentsCoached}+
 
                   </h3>
 
-                  <p className="text-slate-300">
+                  <p className="text-slate-600">
 
                     Learners Guided
 
@@ -310,19 +296,19 @@ hover:-translate-y-1
 
               </div>
 
-             <div className="flex items-center gap-4 bg-white/5 border border-white/10 rounded-2xl p-5">
+             <div className="flex items-center gap-4 bg-slate-50 border border-slate-200 rounded-2xl p-5">
 
                 <TrendingUp className="text-green-400" />
 
                 <div>
 
-                  <h3 className="text-3xl font-bold">
+                  <h3 className="text-3xl font-bold text-slate-700">
 
                     {mentor.reviewsCount}+
 
                   </h3>
 
-                  <p className="text-slate-300">
+                  <p className="text-slate-600">
 
                     Success Stories
 
@@ -333,7 +319,7 @@ hover:-translate-y-1
               </div>
 
             </div>
-            <div className="h-px bg-white/10 mt-12"></div>
+            <div className="h-px bg-slate-200 mt-12"></div>
 
             {/* CTA Buttons */}
 
@@ -350,15 +336,16 @@ hover:-translate-y-1
       items-center
       justify-center
       gap-3
-      rounded-2xl
+      rounded-lg
       bg-white
+      border
+      border-slate-300
       px-8
       py-4
       font-semibold
       text-slate-900
-      hover:-translate-y-1
-hover:shadow-xl
-      transition-all
+hover:shadow-sm
+      transition
       duration-300
     "
   >
@@ -373,20 +360,20 @@ hover:shadow-xl
 
   <button
     className="
-      inline-flex
-      items-center
-      justify-center
-      rounded-2xl
-      border
-      border-white/20
-     bg-white/10
-      backdrop-blur
-      px-8
-      py-4
-      font-semibold
-      hover:bg-white/10
-      transition-all
-    "
+inline-flex
+items-center
+justify-center
+rounded-lg
+border
+border-slate-300
+bg-white
+px-8
+py-4
+font-semibold
+text-slate-900
+hover:bg-slate-50
+transition
+"
   >
 
     Explore Programs
@@ -397,18 +384,17 @@ hover:shadow-xl
 
 {/* Trust Badges */}
 
-<div className="flex flex-wrap gap-3 mt-10">
+<div className="flex flex-wrap gap-3 mt-10 text-slate-700">
 
   <span
     className="
-      rounded-full
-      bg-white/10
+      rounded-lg
+      bg-white
 border
-border-white/10
+border-slate-200
       px-4
       py-2
       text-sm
-      backdrop-blur
     "
   >
     🔒 Secure Booking
@@ -416,14 +402,13 @@ border-white/10
 
   <span
     className="
-      rounded-full
-      bg-white/10
+      rounded-lg
+      bg-white
       border
-border-white/10
+border-slate-200
       px-4
       py-2
       text-sm
-      backdrop-blur
     "
   >
     ⚡ Fast Response
@@ -431,14 +416,13 @@ border-white/10
 
   <span
     className="
-      rounded-full
-      bg-white/10
+      rounded-lg
+      bg-white
       border
-border-white/10
+border-slate-200
       px-4
       py-2
       text-sm
-      backdrop-blur
     "
   >
     🎯 Personalized Guidance
@@ -446,14 +430,13 @@ border-white/10
 
   <span
     className="
-      rounded-full
-      bg-white/10
+      rounded-lg
+      bg-white
       border
-border-white/10
+border-slate-200
       px-4
       py-2
       text-sm
-      backdrop-blur
     "
   >
     💼 Industry Experience
@@ -466,13 +449,12 @@ border-white/10
 <div
   className="
     mt-14
-    rounded-3xl
     border
-    border-white/10
-    shadow-lg
-    bg-white/5
-    backdrop-blur
     p-8
+    rounded-2xl
+border-slate-200
+shadow-sm
+bg-slate-50
   "
 >
 
@@ -480,13 +462,13 @@ border-white/10
 
     <div>
 
-      <p className="text-slate-400 text-sm">
+      <p className="text-slate-700 text-sm">
 
         Average Rating
 
       </p>
 
-      <h3 className="text-4xl font-bold mt-2">
+      <h3 className="text-4xl font-bold mt-2 text-slate-700">
 
         ⭐ {mentor.rating}
 
@@ -496,13 +478,13 @@ border-white/10
 
     <div>
 
-      <p className="text-slate-400 text-sm">
+      <p className="text-slate-700 text-sm">
 
         Professionals Guided
 
       </p>
 
-      <h3 className="text-4xl font-bold mt-2">
+      <h3 className="text-4xl font-bold mt-2 text-slate-700">
 
         👥 {mentor.studentsCoached}+
 
@@ -512,13 +494,13 @@ border-white/10
 
     <div>
 
-      <p className="text-slate-400 text-sm">
+      <p className="text-slate-700 text-sm">
 
         Verified Reviews
 
       </p>
 
-      <h3 className="text-4xl font-bold mt-2">
+      <h3 className="text-4xl font-bold mt-2 text-slate-700">
 
         💬 {mentor.reviewsCount}+
 
@@ -528,19 +510,19 @@ border-white/10
 
   </div>
 
-  <div className="h-px bg-white/10 my-8"></div>
+  <div className="h-px bg-slate-200 my-8"></div>
 
   <div className="flex flex-col lg:flex-row justify-between items-center gap-5">
 
     <div>
 
-      <h3 className="text-2xl font-bold">
+      <h3 className="text-2xl font-semibold text-slate-700">
 
         Invest In Your Career Today
 
       </h3>
 
-      <p className="text-slate-300 mt-2 max-w-2xl">
+      <p className="text-slate-700 mt-2 max-w-2xl">
 
         Small actions today can create life-changing
         opportunities tomorrow. Take the first step
@@ -557,15 +539,14 @@ border-white/10
       rel="noreferrer"
       className="
         whitespace-nowrap
-        rounded-2xl
+        rounded-lg
         bg-blue-600
 hover:bg-blue-700
         px-8
         py-4
         font-semibold
-        hover:-translate-y-1
-hover:shadow-xl
-        transition-all
+hover:shadow-sm
+        transition
       "
     >
 

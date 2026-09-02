@@ -20,6 +20,7 @@ const SocialSignup = () => {
           hover:bg-slate-50
           hover:shadow-md
           transition-all
+          cursor-pointer
         "
       >
         <FcGoogle size={20} />
@@ -41,6 +42,7 @@ const SocialSignup = () => {
           hover:bg-slate-50
           hover:shadow-md
           transition-all
+          cursor-pointer
         "
       >
         <FaMicrosoft size={18} />

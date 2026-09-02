@@ -23,7 +23,7 @@ const MentorCertifications = ({
 
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
 
           {/* Header */}
 
@@ -38,11 +38,13 @@ const MentorCertifications = ({
                   inline-flex
                   items-center
                   gap-2
-                  bg-blue-100
+                  bg-blue-50
+                  border
+                  border-blue-200
                   text-blue-700
                   px-5
                   py-2
-                  rounded-full
+                  rounded-lg
                   text-sm
                   font-semibold
                 "
@@ -54,14 +56,14 @@ const MentorCertifications = ({
 
               </span>
 
-              <h2 className="text-5xl font-bold mt-6 leading-tight">
+              <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-6 leading-tight">
 
                 Certified Expertise
                 That Builds Trust
 
               </h2>
 
-              <p className="text-slate-500 mt-5 leading-8 max-w-2xl">
+              <p className="text-slate-600 mt-5 leading-7 max-w-2xl">
 
                 Every certification represents years of
                 practical experience, continuous learning,
@@ -77,14 +79,13 @@ const MentorCertifications = ({
             <div
               className="
                 xl:w-[360px]
-                rounded-3xl
-                bg-gradient-to-br
-                from-blue-600
-via-indigo-600
-to-slate-900
+                rounded-2xl
+                bg-white
+                border
+                border-slate-200
+                shadow-sm
                 p-8
-                text-white
-                shadow-lg
+                text-slate-900
               "
             >
 
@@ -94,7 +95,7 @@ to-slate-900
 
                 <div>
 
-                  <p className="text-blue-100">
+                  <p className="text-slate-500">
 
                     Total Credentials
 
@@ -120,9 +121,9 @@ to-slate-900
 
                 </div>
 
-                <div className="h-2 bg-white/20 rounded-full">
+                <div className="h-2 bg-white border border-slate-200 rounded-full">
 
-                  <div className="h-full w-full bg-white rounded-full"></div>
+                  <div className="h-full w-full bg-blue-600 rounded-full"></div>
 
                 </div>
 
@@ -134,9 +135,9 @@ to-slate-900
 
                 </div>
 
-                <div className="h-2 bg-white/20 rounded-full">
+                <div className="h-2 bg-white border border-slate-200 rounded-full">
 
-                  <div className="h-full w-[98%] bg-white rounded-full"></div>
+                  <div className="h-full w-[98%] bg-blue-600 rounded-full"></div>
 
                 </div>
 
@@ -148,9 +149,9 @@ to-slate-900
 
                 </div>
 
-                <div className="h-2 bg-white/20 rounded-full">
+                <div className="h-2 bg-white border border-slate-200 rounded-full">
 
-                  <div className="h-full w-[99%] bg-white rounded-full"></div>
+                  <div className="h-full w-[99%] bg-blue-600 rounded-full"></div>
 
                 </div>
 
@@ -164,7 +165,7 @@ to-slate-900
 
           <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-5 mt-12">
 
-            <div className="rounded-3xl bg-blue-50 p-6">
+            <div className="rounded-2xl bg-blue-50 p-6">
 
               <Award
                 className="text-blue-600"
@@ -185,7 +186,7 @@ to-slate-900
 
             </div>
 
-            <div className="rounded-3xl bg-blue-50 p-6">
+            <div className="rounded-2xl bg-blue-50 p-6">
 
               <BadgeCheck
                 className="text-blue-600"
@@ -206,10 +207,10 @@ to-slate-900
 
             </div>
 
-            <div className="rounded-3xl bg-slate-100 p-6">
+            <div className="rounded-2xl bg-blue-50 p-6">
 
               <ShieldCheck
-                className="text-slate-700"
+                className="text-blue-600"
                 size={30}
               />
 
@@ -227,7 +228,7 @@ to-slate-900
 
             </div>
 
-            <div className="rounded-3xl bg-blue-50 p-6">
+            <div className="rounded-2xl bg-blue-50 p-6">
 
               <Globe
                 className="text-blue-600"
@@ -293,25 +294,20 @@ to-slate-900
         group
         relative
         overflow-hidden
-        rounded-[28px]
+        rounded-2xl
         border
         border-slate-200
-        bg-gradient-to-br
-        from-white
-        to-slate-50
+        bg-white
         p-7
-        hover:shadow-lg
-        hover:-translate-y-1
-        transition-all
+        hover:shadow-sm
+        transition
         duration-300
       "
     >
 
       {/* Top Glow */}
 
-      <div className="absolute -top-20 -right-20 h-40 w-40 rounded-full bg-blue-100 blur-3xl opacity-40 group-hover:opacity-70 transition"></div>
-
-      <div className="relative z-10">
+       <div className="relative z-10">
 
         {/* Header */}
 
@@ -358,11 +354,13 @@ to-slate-900
 
           <span
             className="
-              bg-green-100
+              bg-green-50
+                border
+              border-green-200
               text-green-700
               px-3
               py-1
-              rounded-full
+              rounded-lg
               text-xs
               font-semibold
             "
@@ -454,11 +452,13 @@ to-slate-900
 
           <span
             className="
-              bg-blue-50
+              bg-white
+border
+border-blue-200
               text-blue-700
               px-3
               py-1
-              rounded-full
+              rounded-lg
               text-xs
             "
           >
@@ -467,11 +467,13 @@ to-slate-900
 
           <span
             className="
-              bg-slate-100
+              bg-white
+border
+border-slate-200
               text-slate-700
               px-3
               py-1
-              rounded-full
+              rounded-lg
               text-xs
             "
           >
@@ -480,11 +482,13 @@ to-slate-900
 
           <span
             className="
-              bg-blue-50
+              bg-white
+border
+border-blue-200
               text-blue-700
               px-3
               py-1
-              rounded-full
+              rounded-lg
               text-xs
             "
           >
@@ -506,13 +510,10 @@ to-slate-900
 <div
   className="
     mt-14
-    rounded-3xl
+    rounded-2xl
     border
     border-slate-200
-    bg-gradient-to-r
-    from-blue-50
-via-white
-to-slate-50
+    bg-white
     p-8
   "
 >
@@ -578,22 +579,18 @@ to-slate-50
     mt-16
     relative
     overflow-hidden
-    rounded-[32px]
-    bg-gradient-to-r
-    from-slate-900
-via-blue-900
-to-indigo-900
+    bg-white
+border
+border-slate-200
+rounded-2xl
+shadow-sm
     p-10
-    text-white
+    text-slate-900
   "
 >
-  <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
+  
 
   {/* Decorative Glow */}
-
-  <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-white/5 blur-3xl"></div>
-
-  <div className="absolute -bottom-20 -left-20 h-60 w-60 rounded-full bg-blue-400/10 blur-3xl"></div>
 
   <div className="relative z-10">
 
@@ -608,10 +605,12 @@ to-indigo-900
             inline-flex
             items-center
             gap-2
-            bg-white/10
+            bg-blue-50
+border
+border-blue-200
             px-4
             py-2
-            rounded-full
+            rounded-lg
             text-sm
           "
         >
@@ -627,7 +626,7 @@ to-indigo-900
 
         </h2>
 
-        <p className="mt-5 text-slate-300 leading-8 max-w-2xl">
+        <p className="mt-5 text-slate-600 leading-7 max-w-2xl">
 
           Every certification reflects years of
           dedication, technical expertise and
@@ -639,19 +638,25 @@ to-indigo-900
 
         <div className="flex flex-wrap gap-3 mt-8">
 
-          <span className="bg-white/10 px-4 py-2 rounded-xl">
+          <span className="bg-blue-50
+border
+border-blue-200 px-4 py-2 rounded-lg">
 
             🎓 Certified
 
           </span>
 
-          <span className="bg-white/10 px-4 py-2 rounded-xl">
+          <span className="bg-blue-50
+border
+border-blue-200 px-4 py-2 rounded-lg">
 
             🌍 Globally Recognized
 
           </span>
 
-          <span className="bg-white/10 px-4 py-2 rounded-xl">
+          <span className="bg-blue-50
+border
+border-blue-200 px-4 py-2 rounded-lg">
 
             ✔ Verified
 
@@ -668,8 +673,9 @@ to-indigo-900
         <div
           className="
             rounded-2xl
-            bg-white/10
-            backdrop-blur
+            bg-blue-50
+            border
+            border-blue-200
             p-6
           "
         >
@@ -680,7 +686,7 @@ to-indigo-900
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-600 leading-7 mt-2">
 
             Credential Verification
 
@@ -691,8 +697,9 @@ to-indigo-900
         <div
           className="
             rounded-2xl
-            bg-white/10
-            backdrop-blur
+            bg-blue-50
+            border
+            border-blue-200
             p-6
           "
         >
@@ -703,7 +710,7 @@ to-indigo-900
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-600 leading-7 mt-2">
 
             Professional Learning
 
@@ -714,8 +721,9 @@ to-indigo-900
         <div
           className="
             rounded-2xl
-            bg-white/10
-            backdrop-blur
+            bg-blue-50
+            border
+            border-blue-200
             p-6
           "
         >
@@ -726,7 +734,7 @@ to-indigo-900
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-600 leading-7 mt-2">
 
             Recognition
 
@@ -737,8 +745,9 @@ to-indigo-900
         <div
           className="
             rounded-2xl
-            bg-white/10
-            backdrop-blur
+            bg-blue-50
+            border
+            border-blue-200
             p-6
           "
         >
@@ -749,7 +758,7 @@ to-indigo-900
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-600 leading-7 mt-2">
 
             Mentorship Quality
 

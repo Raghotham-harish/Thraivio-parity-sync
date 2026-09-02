@@ -11,6 +11,8 @@ import MentorCertificationsPage from "@/pages/MentorCertificationsPage";
 import MentorAchievementsPage from "@/pages/MentorAchievementsPage";
 import LoginPage from "@/pages/Login";
 import SignupPage from "@/pages/Signup";
+import ForgotPasswordPage from "@/pages/forgotPassword/index";
+import ResetPasswordPage from "@/pages/resetPassword/index";
 
 import MentorDashboardLayout from "@/layouts/MentorDashboardLayout";
 import Dashboard from "@/pages/mentor-dashboard/Dashboard";
@@ -125,6 +127,16 @@ const AppRoutes = () => {
 <Route
   path="/signup"
   element={<SignupPage />}
+/>
+
+<Route
+  path="/forgot-password"
+  element={<ForgotPasswordPage />}
+/>
+
+<Route
+  path="/reset-password"
+  element={<ResetPasswordPage />}
 />
 
 <Route

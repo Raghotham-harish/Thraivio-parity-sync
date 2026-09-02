@@ -1,7 +1,12 @@
+import { useState } from "react";
+
 import SignupBanner from "@/components/auth/SignupBanner";
 import SignupCard from "@/components/auth/SignupCard";
+import SuccessPopup from "@/components/auth/SuccessPopup";
 
 const SignupPage = () => {
+  const [successMessage, setSuccessMessage] =
+    useState("");
   return (
     <section
       className="
@@ -15,6 +20,15 @@ const SignupPage = () => {
         py-20
       "
     >
+
+      {successMessage && (
+  <SuccessPopup
+    message={successMessage}
+    onClose={() =>
+      setSuccessMessage("")
+    }
+  />
+)}
       {/* Background Blur Effects */}
 
       <div
@@ -64,7 +78,11 @@ const SignupPage = () => {
 
           {/* Right Side */}
 
-          <SignupCard />
+          <SignupCard
+  onSuccess={(message) =>
+    setSuccessMessage(message)
+  }
+/>
 
         </div>
 

@@ -1,17 +1,18 @@
 import { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import { Eye, EyeOff } from "lucide-react";
 
-import RoleSelector from "./RoleSelector";
 import type { LoginFormData } from "@/types/auth";
+import { loginUser } from "@/services/auth.service";
 
 const LoginForm = () => {
-  const [formData, setFormData] =
-    useState<LoginFormData>({
-      role: "user",
-      email: "",
-      password: "",
-      rememberMe: false,
-    });
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState<LoginFormData>({
+    email: "",
+    password: "",
+    rememberMe: false,
+  });
 
   const [showPassword, setShowPassword] =
     useState(false);
@@ -41,7 +42,7 @@ const LoginForm = () => {
     const emailRegex =
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(formData.email)) {
+    if (!emailRegex.test(formData.email.trim())) {
       setError(
         "Please enter a valid email address"
       );
@@ -61,7 +62,6 @@ const LoginForm = () => {
     }
 
     setError("");
-
     return true;
   };
 
@@ -74,49 +74,56 @@ const LoginForm = () => {
 
     try {
       setLoading(true);
+      setError("");
 
-      /**
-       * FUTURE FIREBASE LOGIN
-       *
-       * await signInWithEmailAndPassword(
-       * auth,
-       * formData.email,
-       * formData.password
-       * )
-       */
+      const response = await loginUser({
+        email: formData.email.trim(),
+        password: formData.password,
+        rememberMe: formData.rememberMe,
+      });
 
-      /**
-       * FUTURE BACKEND LOGIN
-       *
-       * await api.post("/auth/login", formData)
-       */
+      const accessToken =
+        response.data?.accessToken;
 
-      console.log(
-        "Login Data:",
-        formData
+      const user =
+        response.data?.user;
+
+      if (!accessToken || !user) {
+        throw new Error(
+          "Invalid login response."
+        );
+      }
+
+      localStorage.setItem(
+        "accessToken",
+        accessToken
       );
 
-      setTimeout(() => {
-        setLoading(false);
+      localStorage.setItem(
+        "authUser",
+        JSON.stringify(user)
+      );
 
-        if (
-          formData.role === "mentor"
-        ) {
-          console.log(
-            "Redirect Mentor Dashboard"
-          );
-        } else {
-          console.log(
-            "Redirect User Dashboard"
-          );
-        }
-      }, 1500);
-    } catch (err) {
+      /*
+       * Login ke baad main website par jayenge.
+       *
+       * Navbar ka Dashboard button
+       * user.role ke according dashboard
+       * open karega.
+       */
+
+      navigate("/", {
+        replace: true,
+      });
+    } catch (error: any) {
+      const message =
+        error?.response?.data?.message ||
+        error?.message ||
+        "Something went wrong. Please try again.";
+
+      setError(message);
+    } finally {
       setLoading(false);
-
-      setError(
-        "Something went wrong. Please try again."
-      );
     }
   };
 
@@ -125,15 +132,6 @@ const LoginForm = () => {
       onSubmit={handleSubmit}
       className="space-y-6"
     >
-      {/* Role */}
-
-      <RoleSelector
-        value={formData.role}
-        onChange={(role) =>
-          handleChange("role", role)
-        }
-      />
-
       {/* Email */}
 
       <div>
@@ -219,6 +217,7 @@ const LoginForm = () => {
               -translate-y-1/2
               text-slate-500
               hover:text-blue-600
+              cursor-pointer
             "
           >
             {showPassword ? (
@@ -230,7 +229,7 @@ const LoginForm = () => {
         </div>
       </div>
 
-      {/* Remember Me + Forgot */}
+      {/* Remember Me + Forgot Password */}
 
       <div className="flex items-center justify-between">
         <label className="flex items-center gap-2 text-sm text-slate-600">
@@ -243,14 +242,14 @@ const LoginForm = () => {
                 e.target.checked
               )
             }
-            className="rounded"
+            className="rounded cursor-pointer"
           />
 
           Remember Me
         </label>
 
-        <button
-          type="button"
+        <Link
+          to="/forgot-password"
           className="
             text-sm
             text-blue-600
@@ -259,7 +258,7 @@ const LoginForm = () => {
           "
         >
           Forgot Password?
-        </button>
+        </Link>
       </div>
 
       {/* Error */}
@@ -297,17 +296,14 @@ const LoginForm = () => {
           duration-300
           hover:bg-blue-700
           hover:shadow-xl
+          cursor-pointer
           disabled:cursor-not-allowed
           disabled:opacity-70
         "
       >
         {loading
           ? "Signing In..."
-          : `Sign In as ${
-              formData.role === "mentor"
-                ? "Mentor"
-                : "User"
-            }`}
+          : "Sign In"}
       </button>
     </form>
   );

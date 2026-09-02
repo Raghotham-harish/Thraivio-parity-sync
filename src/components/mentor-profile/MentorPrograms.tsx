@@ -44,7 +44,7 @@ const { id } = useParams();
 
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
 
           {/* Heading */}
 
@@ -53,11 +53,13 @@ const { id } = useParams();
             <span
               className="
 inline-block
-bg-blue-100
+bg-blue-50
+border
+border-blue-200
 text-blue-700
 px-4
 py-1
-rounded-full
+rounded-lg
 text-sm
 font-medium
 "
@@ -65,11 +67,11 @@ font-medium
               Premium Programs
             </span>
 
-            <h2 className="text-4xl font-bold mt-4">
+            <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-4">
               Structured Coaching Programs
             </h2>
 
-            <p className="text-slate-500 mt-3 max-w-2xl mx-auto">
+            <p className="text-slate-600 leading-7 mt-3 max-w-2xl mx-auto">
               Join mentor-led learning experiences designed
               to accelerate your career and help you achieve
               measurable results faster.
@@ -95,7 +97,7 @@ font-medium
   preventClicksPropagation={false}
   resistanceRatio={0.85}
   loop={true}
-  spaceBetween={24}
+  spaceBetween={20}
   slidesPerView={1}
   breakpoints={{
     768: {
@@ -108,7 +110,7 @@ font-medium
       slidesPerView: 2.7,
     },
   }}
-  className="mt-10 pb-14"
+  className="mt-10 pb-12"
 >
 
             {mentor.programs.map((program) => (
@@ -119,12 +121,11 @@ font-medium
                   className="
                     group
                   bg-white
-                    rounded-3xl
+                    rounded-2xl
                     border
                   border-slate-200
                     overflow-hidden
-                    hover:-translate-y-1
-                    hover:shadow-lg
+                    hover:shadow-md
                     transition-all
                     duration-300
                   "
@@ -144,19 +145,18 @@ font-medium
                       "
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
                     <span
                       className="
                         absolute
                         top-4
                         left-4
-                        bg-white/20
-                        backdrop-blur
+                        bg-white
                         px-3
                         py-1
-                        rounded-full
-                        text-white
+                        rounded-lg
+                        text-slate-700
                         text-xs
                         font-semibold
                       "
@@ -173,7 +173,7 @@ font-medium
                         text-white
                         px-3
                         py-1
-                        rounded-full
+                        rounded-lg
                         text-xs
                         font-semibold
                       "
@@ -267,11 +267,11 @@ font-medium
                         Program Fee
                       </p>
 
-                      <h2 className="text-4xl font-bold text-blue-600 mt-1">
+                      <h2 className="text-4xl font-bold text-slate-900 mt-1">
                         ${program.price}
                       </h2>
 
-                      <p className="text-sm text-blue-600 mt-1">
+                      <p className="text-sm text-slate-500 mt-1">
                         Flexible payment options available
                       </p>
 
@@ -295,7 +295,9 @@ font-medium
                         items-center
                         justify-between
                         rounded-2xl
-                        bg-amber-50
+                        bg-slate-50
+                        border
+                        border-slate-200
                         p-4
                       "
                     >
@@ -306,7 +308,7 @@ font-medium
                           Seats Remaining
                         </p>
 
-                        <p className="font-semibold text-amber-700">
+                        <p className="font-semibold text-slate-900">
                           Only 8 Spots Left
                         </p>
 
@@ -314,11 +316,11 @@ font-medium
 
                       <span
                         className="
-                          bg-amber-100
-                          text-amber-800
+                          bg-blue-50
+                          text-blue-700
                           px-3
                           py-1
-                          rounded-full
+                          rounded-lg
                           text-xs
                           font-semibold
                         "
@@ -338,11 +340,11 @@ font-medium
                           border-blue-600
                           text-blue-600
                           py-3
-                          rounded-xl
+                          rounded-lg
                           font-medium
                           hover:bg-blue-600
                           hover:text-white
-                          hover:shadow-md
+                          hover:shadow-sm
                           transition
                         "
                       >
@@ -356,7 +358,7 @@ font-medium
                         className="
                           bg-blue-600
                           text-white
-                          rounded-xl
+                          rounded-lg
                           py-3
                           font-medium
                           flex
@@ -364,7 +366,7 @@ font-medium
                           justify-center
                           gap-2
                           hover:bg-blue-700
-                          hover:shadow-lg
+                          hover:shadow-sm
                           transition
                         "
                       >
@@ -390,7 +392,7 @@ font-medium
 
 <div className="mt-14 text-center">
 
-  <h3 className="text-3xl font-bold text-slate-900">
+  <h3 className="text-3xl font-semibold tracking-tight text-slate-900">
     Want to Explore More Programs?
   </h3>
 
@@ -411,12 +413,12 @@ font-medium
       text-white
       px-8
       py-4
-      rounded-xl
+      rounded-lg
       font-semibold
       hover:bg-blue-700
-      transition-all
+      transition
       duration-300
-      hover:shadow-lg
+      hover:shadow-sm
     "
   >
     View All Programs

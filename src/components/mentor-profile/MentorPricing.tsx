@@ -28,30 +28,32 @@ const MentorPricing = ({
     <section className="pb-20">
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-xl p-10 shadow-sm">
 
           <div className="text-center">
 
   <span
     className="
       inline-block
-      bg-blue-100
+      bg-blue-50
+      border
+      border-blue-200
       text-blue-700
       px-4
       py-1
-      rounded-full
+      rounded-lg
       text-sm
-      font-medium
+      font-semibold
     "
   >
     Coaching Plans
   </span>
 
-  <h2 className="text-4xl font-bold mt-4">
+  <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-4">
     Choose Your Mentorship Journey
   </h2>
 
-  <p className="text-slate-500 mt-3 max-w-2xl mx-auto">
+  <p className="text-slate-600 leading-7 mt-3 max-w-2xl mx-auto">
     Flexible coaching options designed for every stage of your career growth.
   </p>
 
@@ -63,12 +65,11 @@ const MentorPricing = ({
   onClick={() => setSelectedPlan("Intro Call")}
   className={`
     border
-    rounded-2xl
+    rounded-lg
     p-5
-    hover:shadow-lg
-    hover:-translate-y-1
+    hover:shadow-sm
     transition-all
-    duration-300
+    duration-200
     cursor-pointer
 
     ${
@@ -81,7 +82,12 @@ const MentorPricing = ({
   {
   selectedPlan === "Intro Call" && (
     <div className="mb-3">
-      <span className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+      <span className="bg-blue-600
+text-white
+text-xs
+px-3
+py-1
+rounded-lg">
         Selected
       </span>
     </div>
@@ -116,9 +122,9 @@ w-full
 mt-5
 bg-blue-600
 text-white
-py-2
-rounded-xl
-font-medium
+py-2.5
+rounded-lg
+font-semibold
 hover:bg-blue-700
 transition
 "
@@ -131,12 +137,11 @@ transition
   onClick={() => setSelectedPlan("Mentorship Call")}
   className={`
     border
-    rounded-2xl
+    rounded-lg
     p-5
-    hover:shadow-lg
-    hover:-translate-y-1
+    hover:shadow-sm
     transition-all
-    duration-300
+    duration-200
     cursor-pointer
 
     ${
@@ -149,7 +154,12 @@ transition
   {
   selectedPlan === "Mentorship Call" && (
     <div className="mb-3">
-      <span className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+      <span className="bg-blue-600
+text-white
+text-xs
+px-3
+py-1
+rounded-lg">
         Selected
       </span>
     </div>
@@ -179,9 +189,9 @@ w-full
 mt-5
 bg-blue-600
 text-white
-py-2
-rounded-xl
-font-medium
+py-2.5
+rounded-lg
+font-semibold
 hover:bg-blue-700
 transition
 "
@@ -194,12 +204,11 @@ transition
   onClick={() => setSelectedPlan("Mock Interview")}
   className={`
     border
-    rounded-2xl
+    rounded-lg
     p-5
-    hover:shadow-lg
-    hover:-translate-y-1
+    hover:shadow-sm
     transition-all
-    duration-300
+    duration-200
     cursor-pointer
 
     ${
@@ -212,7 +221,12 @@ transition
   {
   selectedPlan === "Mock Interview" && (
     <div className="mb-3">
-      <span className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+      <span className="bg-blue-600
+text-white
+text-xs
+px-3
+py-1
+rounded-lg">
         Selected
       </span>
     </div>
@@ -242,9 +256,9 @@ w-full
 mt-5
 bg-blue-600
 text-white
-py-2
-rounded-xl
-font-medium
+py-2.5
+rounded-lg
+font-semibold
 hover:bg-blue-700
 transition
 "
@@ -257,16 +271,15 @@ transition
   onClick={() => setSelectedPlan("Monthly Program")}
   className={`
     border
-    border-blue-500
-    rounded-3xl
+    border-blue-600
+    rounded-2xl
     p-5
-    bg-blue-50
+    bg-white
     relative
-    shadow-md
-    hover:shadow-lg
-    hover:-translate-y-1
+    shadow-sm
+    hover:shadow-md
     transition-all
-    duration-300
+    duration-200
     cursor-pointer
 
     ${
@@ -279,7 +292,12 @@ transition
   {
   selectedPlan === "Monthly Program" && (
     <div className="mb-3">
-      <span className="bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
+      <span className="bg-blue-600
+text-white
+text-xs
+px-3
+py-1
+rounded-lg">
         Selected
       </span>
     </div>
@@ -297,7 +315,7 @@ transition
     font-semibold
     px-4
     py-1
-    rounded-full
+    rounded-lg
   "
 >
   Most Popular
@@ -308,7 +326,7 @@ transition
               <p className="text-sm text-slate-500 mt-2">
                Complete transformation with structured coaching.
               </p>
-              <p className="text-3xl font-bold mt-3 text-blue-600">
+              <p className="text-3xl font-bold mt-3 text-slate-900">
                 ${mentor.pricing.monthlyProgram}
               </p>
 
@@ -326,9 +344,9 @@ w-full
 mt-5
 bg-blue-600
 text-white
-py-2
-rounded-xl
-font-medium
+py-2.5
+rounded-lg
+font-semibold
 hover:bg-blue-700
 transition
 "
@@ -355,11 +373,11 @@ bg-blue-600
 text-white
 px-8
 py-3
-rounded-xl
+rounded-lg
 font-medium
 hover:bg-blue-700
-hover:shadow-lg
-transition-all
+hover:shadow-sm
+transition
 "
            >
           Book Your Discovery Call

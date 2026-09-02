@@ -36,18 +36,20 @@ const MentorAvailability = ({
     <section className="pb-20">
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
           {/* Header */}
           <div className="text-center">
 
             <span
               className="
                 inline-block
-                bg-blue-100
+                bg-blue-50
+                border
+                border-blue-200
                 text-blue-700
                 px-4
                 py-1
-                rounded-full
+                rounded-lg
                 text-sm
                 font-medium
               "
@@ -55,11 +57,11 @@ const MentorAvailability = ({
               Schedule Session
             </span>
 
-            <h2 className="text-4xl font-bold mt-4">
+            <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-4">
               Book Your Mentorship Session
             </h2>
 
-            <p className="text-slate-500 mt-3 max-w-2xl mx-auto">
+            <p className="text-slate-600 leading-7 mt-3 max-w-2xl mx-auto">
               Select your preferred date and time.
               Complete the booking in just a few clicks.
             </p>
@@ -101,15 +103,16 @@ const MentorAvailability = ({
                         }}
                         className={`
                           border
-                          rounded-xl
+                          rounded-lg
                           py-3
                           font-medium
-                          transition-all
+                          transition
+                          duration-200
 
                           ${
                             selectedDate === item.date
-  ? "bg-blue-600 text-white border-blue-600 shadow-md scale-[1.02]"
-  : "hover:border-blue-300 hover:bg-blue-50"
+  ? "bg-blue-600 text-white border-blue-600 shadow-sm"
+  : "hover:border-blue-500 hover:bg-blue-50"
                           }
                         `}
                       >
@@ -151,15 +154,16 @@ const MentorAvailability = ({
                         }
                         className={`
                           border
-                          rounded-xl
+                          rounded-lg
                           py-3
                           font-medium
-                          transition-all
+                          transition
+                          duration-200
 
                           ${
                             selectedTime === slot
-  ? "bg-blue-600 text-white border-blue-600 shadow-md scale-[1.02]"
-  : "hover:border-blue-300 hover:bg-blue-50"
+  ? "bg-blue-600 text-white border-blue-600 shadow-md"
+  : "hover:border-blue-500 hover:bg-blue-50"
                           }
                         `}
                       >
@@ -184,8 +188,8 @@ sticky
 top-24
 border
 border-slate-200
-rounded-3xl
-p-6
+rounded-2xl
+p-7
 bg-white
 shadow-sm
 "
@@ -201,7 +205,7 @@ shadow-sm
 
                 <div className="mt-6 space-y-4">
 
-                  <div className="bg-slate-50 rounded-xl p-4">
+                  <div className="bg-white border border-slate-200 rounded-lg p-4">
 
   <p className="text-sm text-slate-500">
     Date
@@ -213,7 +217,7 @@ shadow-sm
 
 </div>
 
-                  <div className="bg-slate-50 rounded-xl p-4">
+                  <div className="bg-white border border-slate-200 rounded-lg p-4">
 
   <p className="text-sm text-slate-500">
     Time
@@ -225,7 +229,7 @@ shadow-sm
 
 </div>
 
-                 <div className="bg-slate-50 rounded-xl p-4">
+                 <div className="bg-white border border-slate-200 rounded-lg p-4">
 
   <p className="text-sm text-slate-500">
     Session Type
@@ -241,7 +245,7 @@ shadow-sm
 
                 <div className="mt-6 border-t pt-6">
 
-                  <div className="space-y-2 text-sm">
+                  <div className="space-y-3 text-sm">
 
                     <div className="flex items-center gap-2">
                       <CheckCircle
@@ -284,8 +288,8 @@ shadow-sm
                       bg-blue-600
                       text-white
                       py-3
-                      rounded-xl
-                      font-medium
+                      rounded-lg
+                      font-semibold
                       hover:bg-blue-700
                       transition
                     "
@@ -300,10 +304,10 @@ shadow-sm
                     className="
                       w-full
                       mt-8
-                      bg-slate-300
-                      text-slate-500
+                      bg-slate-200
+                      text-slate-400
                       py-3
-                      rounded-xl
+                      rounded-lg
                       font-medium
                       cursor-not-allowed
                     "

@@ -10,7 +10,7 @@ const TermsCheckbox = ({
   onChange,
 }: Props) => {
   return (
-    <label className="flex items-start gap-3">
+    <label className="flex items-start gap-3 cursor-pointer">
 
       <input
         type="checkbox"
@@ -20,7 +20,7 @@ const TermsCheckbox = ({
             e.target.checked
           )
         }
-        className="mt-1"
+        className="mt-1 cursor-pointer"
       />
 
       <span className="text-sm text-slate-600">

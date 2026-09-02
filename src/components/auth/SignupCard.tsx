@@ -3,7 +3,13 @@ import { Link } from "react-router-dom";
 import SocialSignup from "./SocialSignup";
 import SignupForm from "./SignupForm";
 
-const SignupCard = () => {
+interface SignupCardProps {
+  onSuccess: (message: string) => void;
+}
+
+const SignupCard = ({
+  onSuccess,
+}: SignupCardProps) => {
   return (
     <div
       className="
@@ -89,7 +95,7 @@ const SignupCard = () => {
 
         {/* Signup Form */}
 
-        <SignupForm />
+        <SignupForm onSuccess={onSuccess} />
 
         {/* Footer */}
 

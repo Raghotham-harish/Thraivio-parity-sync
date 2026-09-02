@@ -52,7 +52,7 @@ const MentorVideos = ({
 
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
 
           {/* Header */}
 
@@ -61,11 +61,13 @@ const MentorVideos = ({
             <span
               className="
 inline-block
-bg-blue-100
+bg-blue-50
+border
+border-blue-200
 text-blue-700
 px-4
 py-1
-rounded-full
+rounded-lg
 text-sm
 font-medium
 "
@@ -73,11 +75,11 @@ font-medium
               Video Library
             </span>
 
-            <h2 className="text-4xl font-bold mt-4">
+            <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-4">
               Mentor Videos & Insights
             </h2>
 
-            <p className="text-slate-500 mt-3 max-w-2xl">
+            <p className="text-slate-600 leading-7 mt-3 max-w-2xl">
 
               Watch mentoring sessions, interview strategies,
               career advice, success stories and practical
@@ -101,11 +103,11 @@ font-medium
                 cursor-pointer
                 block
                 mt-10
-                rounded-3xl
+                rounded-2xl
                 overflow-hidden
                 border
-                hover:shadow-lg
-                transition-all
+                hover:shadow-md
+                transition
                 group
               "
             >
@@ -120,12 +122,11 @@ font-medium
                     h-[420px]
                     object-cover
                     transition
-                    duration-500
-                    group-hover:scale-105
+                    duration-300
                   "
                 />
 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
 
                 <div
                   className="
@@ -139,15 +140,14 @@ font-medium
 
                   <div
                     className="
-                      h-24
-                      w-24
+                      h-20
+                      w-20
                       rounded-full
                       bg-white
-                      shadow-2xl
+                      shadow-md
                       flex
                       items-center
                       justify-center
-                      group-hover:scale-110
                       transition
                     "
                   >
@@ -175,7 +175,7 @@ font-medium
                       bg-blue-600
                       px-4
                       py-2
-                      rounded-full
+                      rounded-lg
                       text-sm
                       font-semibold
                     "
@@ -189,15 +189,15 @@ font-medium
 
                   <div className="flex flex-wrap gap-3 mt-5">
 
-                    <span className="bg-white/20 backdrop-blur px-3 py-2 rounded-full text-sm">
+                    <span className="bg-white border border-slate-200  px-3 py-2 text-slate-700 rounded-lg text-sm">
                       👀 25K+ Views
                     </span>
 
-                    <span className="bg-white/20 backdrop-blur px-3 py-2 rounded-full text-sm">
+                    <span className="bg-white border border-slate-200  px-3 py-2 text-slate-700 rounded-lg text-sm">
                       👍 98% Positive
                     </span>
 
-                    <span className="bg-white/20 backdrop-blur px-3 py-2 rounded-full text-sm">
+                    <span className="bg-white border border-slate-200  px-3 py-2 text-slate-700 rounded-lg text-sm">
                       ⏱️ 18 Min
                     </span>
 
@@ -227,7 +227,7 @@ font-medium
               className="
                 px-5
                 py-3
-                rounded-xl
+                rounded-lg
                 bg-red-50
                 text-red-600
                 font-medium
@@ -245,7 +245,7 @@ font-medium
               className="
                 px-5
                 py-3
-                rounded-xl
+                rounded-lg
                 bg-blue-50
                 text-blue-700
                 font-medium
@@ -273,13 +273,12 @@ font-medium
         group
         cursor-pointer
         border
-        rounded-3xl
+        rounded-2xl
         overflow-hidden
         bg-white
-        hover:border-blue-300
-        hover:shadow-lg
-        hover:-translate-y-1
-        transition-all
+        hover:border-blue-500
+        hover:shadow-sm
+        transition
         duration-300
       "
     >
@@ -294,8 +293,7 @@ font-medium
             w-full
             object-cover
             transition
-            duration-500
-            group-hover:scale-105
+            duration-300
           "
         />
 
@@ -307,11 +305,10 @@ font-medium
               w-16
               rounded-full
               bg-white
-              shadow-xl
+              shadow-sm
               flex
               items-center
               justify-center
-              group-hover:scale-110
               transition
             "
           >
@@ -349,11 +346,13 @@ font-medium
 
           <span
             className="
-              bg-blue-50
+              bg-white
+border
+border-blue-200
               text-blue-700
               px-2
               py-1
-              rounded-full
+              rounded-lg
               text-xs
             "
           >
@@ -362,11 +361,13 @@ font-medium
 
           <span
             className="
-              bg-blue-50
+              bg-white
+border
+border-blue-200
               text-blue-700
               px-2
               py-1
-              rounded-full
+              rounded-lg
               text-xs
             "
           >
@@ -375,11 +376,13 @@ font-medium
 
           <span
             className="
-              bg-slate-100
+              bg-white
+border
+border-slate-200
               text-slate-700
               px-2
               py-1
-              rounded-full
+              rounded-lg
               text-xs
             "
           >
@@ -405,7 +408,6 @@ font-medium
             className="
               text-blue-600
               transition
-              group-hover:translate-x-1
             "
           />
 
@@ -428,8 +430,7 @@ font-medium
       fixed
       inset-0
       z-50
-      bg-black/80
-      backdrop-blur-sm
+      bg-black/70
       flex
       items-center
       justify-center
@@ -489,15 +490,15 @@ font-medium
         className="
           relative
           bg-black
-          rounded-3xl
+          rounded-2xl
           overflow-hidden
-          shadow-2xl
+          shadow-lg
           aspect-video
         "
       >
 
         <div className="absolute top-4 left-4 z-10">
-  <span className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
+  <span className="bg-blue-600 text-white px-3 py-1 rounded-lg text-sm">
     Now Playing
   </span>
 </div>
@@ -558,27 +559,27 @@ font-medium
 <div
   className="
     mt-14
-    rounded-3xl
+    
     overflow-hidden
-    border
-border-blue-500/20
-    bg-gradient-to-r
-    from-blue-600
-via-indigo-600
-to-slate-900
+    bg-white
+border
+border-slate-200
+rounded-2xl
+shadow-sm
     p-10
     text-center
     text-white
+    
   "
 >
 
-  <h3 className="text-3xl font-bold">
+  <h3 className="text-slate-900 text-3xl font-bold">
 
     Watch. Learn. Grow.
 
   </h3>
 
-  <p className="mt-4 max-w-2xl mx-auto text-blue-100">
+  <p className="mt-4 max-w-2xl mx-auto text-slate-600 leading-7">
 
     Discover practical insights, interview tips,
     leadership lessons and real-world strategies
@@ -588,25 +589,25 @@ to-slate-900
 
   <div className="flex justify-center gap-4 flex-wrap mt-8">
 
-    <div className="bg-white/20 px-5 py-3 rounded-xl">
+    <div className="bg-white border border-slate-200 px-5 py-3 rounded-lg text-slate-700">
 
       🎥 50+ Videos
 
     </div>
 
-    <div className="bg-white/20 px-5 py-3 rounded-xl">
+    <div className="bg-white border border-slate-200 px-5 py-3 rounded-lg text-slate-700">
 
       👀 100K+ Views
 
     </div>
 
-    <div className="bg-white/20 px-5 py-3 rounded-xl">
+    <div className="bg-white border border-slate-200 px-5 py-3 rounded-lg text-slate-700">
 
       ⭐ 4.9 Average Rating
 
     </div>
 
-    <div className="bg-white/20 px-5 py-3 rounded-xl">
+    <div className="bg-white border border-slate-200 px-5 py-3 rounded-lg text-slate-700">
 
       🚀 Career Insights
 
@@ -619,14 +620,14 @@ to-slate-900
       mt-8
       bg-white
       text-blue-600
-hover:-translate-y-1
-hover:shadow-lg
-transition-all
+hover:shadow-sm
+transition
       px-8
       py-3
-      rounded-xl
+      rounded-lg
       font-semibold
-      hover:scale-105
+      border
+    border-slate-300
     "
   >
 

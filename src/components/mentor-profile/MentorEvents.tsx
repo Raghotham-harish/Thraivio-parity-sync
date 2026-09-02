@@ -42,7 +42,7 @@ const featuredEvent = mentor.events?.[0];
     <section className="pb-20">
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
 
           {/* Header */}
           <div className="text-center">
@@ -52,11 +52,13 @@ const featuredEvent = mentor.events?.[0];
 inline-flex
 items-center
 gap-2
-bg-blue-100
+bg-blue-50
+border
+border-blue-200
 text-blue-700
 px-5
 py-2
-rounded-full
+rounded-lg
 text-sm
 font-semibold
 "
@@ -64,13 +66,13 @@ font-semibold
     🎟 Live Experiences
   </span>
 
-  <h2 className="text-5xl font-bold mt-5">
+  <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-5">
 
     Upcoming Events
 
   </h2>
 
-  <p className="text-slate-500 mt-5 max-w-3xl mx-auto">
+  <p className="text-slate-600 leading-7 mt-5 max-w-3xl mx-auto">
 
     Attend live workshops, webinars and exclusive
     mentoring sessions designed to accelerate your
@@ -86,17 +88,15 @@ font-semibold
   className="
    relative
     mt-12
-    border
-    rounded-3xl
-    bg-gradient-to-br
-    from-blue-900
-    via-slate-900
-    to-blue-900
+    bg-white
+border
+border-slate-200
+rounded-2xl
+shadow-sm
     overflow-hidden
     p-8
   "
 >
-  <div className="absolute top-0 left-0 w-full h-1 bg-blue-600"></div>
 
   <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
 
@@ -109,10 +109,10 @@ font-semibold
       <div
         className="
           w-24
-          rounded-3xl
+          rounded-xl
           overflow-hidden
           bg-white
-          shadow-lg
+          shadow-sm
           shrink-0
         "
       >
@@ -145,7 +145,7 @@ font-semibold
 
       <div>
 
-        <span className="bg-red-500 text-white px-3 py-1 rounded-full text-xs font-semibold">
+        <span className="bg-red-50 border border-red-200 text-red-600 px-3 py-1 rounded-lg text-xs font-semibold">
 
           🔴 LIVE EVENT
 
@@ -157,7 +157,7 @@ font-semibold
 
         </h2>
 
-        <p className="text-slate-300 mt-4 max-w-2xl">
+        <p className="text-slate-700 mt-4 max-w-2xl">
 
           Experience an immersive live mentoring
           session packed with practical insights,
@@ -168,19 +168,19 @@ font-semibold
 
         <div className="flex flex-wrap gap-3 mt-6">
 
-          <span className="bg-white/10 px-4 py-2 rounded-full text-white">
+          <span className="bg-slate-50 border border-slate-200 px-4 py-2 rounded-lg text-slate-700">
 
             👥 {featuredEvent?.registered}+ Registered
 
           </span>
 
-          <span className="bg-white/10 px-4 py-2 rounded-full text-white">
+          <span className="bg-slate-50 border border-slate-200 px-4 py-2 rounded-lg text-slate-700">
 
             ⭐ 4.9 Rating
 
           </span>
 
-          <span className="bg-white/10 px-4 py-2 rounded-full text-white">
+          <span className="bg-slate-50 border border-slate-200 px-4 py-2 rounded-lg text-slate-700">
 
             🎥 Recording Included
 
@@ -197,7 +197,7 @@ font-semibold
     <div
       className="
         bg-white
-        rounded-3xl
+        rounded-2xl
         p-6
         w-full
         max-w-sm
@@ -256,16 +256,16 @@ font-semibold
           w-full
           bg-blue-600
 hover:bg-blue-700
-hover:shadow-lg
+hover:shadow-sm
           text-white
           py-4
-          rounded-2xl
+          rounded-lg
           font-semibold
           flex
           items-center
           justify-center
           gap-2
-          transition-all
+          transition
         "
       >
 
@@ -291,13 +291,12 @@ hover:shadow-lg
       key={event.title}
       className="
         group
-       bg-slate-50
-rounded-3xl
+       bg-white
+rounded-2xl
 border
 border-slate-200
 p-6
-        hover:shadow-lg
-hover:-translate-y-1
+        hover:shadow-sm
         transition-all
         duration-300
       "
@@ -310,7 +309,7 @@ hover:-translate-y-1
         <div
           className="
             w-24
-            rounded-3xl
+            rounded-xl
             overflow-hidden
             border
             shrink-0
@@ -358,11 +357,13 @@ hover:-translate-y-1
 
               <span
                 className="
-                  bg-red-100
+                  bg-red-50
+                    border
+                  border-red-200 
                   text-red-600
                   px-3
                   py-1
-                  rounded-full
+                  rounded-lg
                   text-xs
                   font-semibold
                 "
@@ -380,11 +381,13 @@ hover:-translate-y-1
 
             <span
               className="
-                bg-blue-50
+                bg-white
+                  border
+                border-blue-200
                 text-blue-700
                 px-3
                 py-1
-                rounded-full
+                rounded-lg
                 h-fit
                 text-xs
                 font-semibold
@@ -453,13 +456,13 @@ hover:-translate-y-1
 
           <div className="flex flex-wrap gap-2 mt-6">
 
-            <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">
+            <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-lg text-xs">
 
               🎤 Live Q&A
 
             </span>
 
-            <span className="bg-slate-100 text-slate-700 px-3 py-1 rounded-full text-xs">
+            <span className="bg-white border border-slate-200 text-slate-700 px-3 py-1 rounded-full text-xs">
 
               📹 Recording
 
@@ -500,12 +503,12 @@ hover:-translate-y-1
                 text-white
                 px-6
                 py-3
-                rounded-2xl
+                rounded-lg
                 flex
                 items-center
                 gap-2
                 font-semibold
-                transition-all
+                transition
               "
             >
 
@@ -516,7 +519,6 @@ hover:-translate-y-1
               <ArrowRight
                 size={18}
                 className="
-                  group-hover:translate-x-1
                   transition
                 "
               />
@@ -539,12 +541,11 @@ hover:-translate-y-1
 <div
   className="
     mt-14
-    rounded-[32px]
-    border
-    bg-gradient-to-br
-    from-blue-900
-via-slate-900
-to-blue-900
+    bg-white
+border
+border-slate-200
+rounded-2xl
+shadow-sm
     overflow-hidden
     relative
     p-10
@@ -552,10 +553,6 @@ to-blue-900
 >
 
   {/* Background Glow */}
-
-  <div className="absolute -top-16 -right-16 w-60 h-60 bg-blue-500/20 blur-3xl rounded-full" />
-
-  <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-indigo-500/20 blur-3xl rounded-full" />
 
   <div className="relative z-10">
 
@@ -570,24 +567,26 @@ to-blue-900
             inline-flex
             items-center
             gap-2
-            bg-white/10
-            text-white
+            bg-blue-50
+            border
+            border-blue-200
+            text-blue-700
             px-4
             py-2
-            rounded-full
+            rounded-lg
             text-sm
           "
         >
           📅 Event Calendar
         </span>
 
-        <h2 className="text-4xl font-bold text-white mt-5">
+        <h2 className="text-4xl font-bold text-slate-900 mt-5">
 
           Explore Every Upcoming Event
 
         </h2>
 
-        <p className="text-slate-300 mt-5 max-w-2xl leading-8">
+        <p className="text-slate-600 leading-7 mt-5 max-w-2xl">
 
           Discover workshops, webinars, AMA sessions,
           bootcamps and networking events designed to
@@ -598,19 +597,19 @@ to-blue-900
 
         <div className="flex flex-wrap gap-3 mt-8">
 
-          <span className="bg-white/10 text-white px-4 py-2 rounded-xl">
+          <span className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-lg">
 
             🎟 50+ Events
 
           </span>
 
-          <span className="bg-white/10 text-white px-4 py-2 rounded-xl">
+          <span className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-lg">
 
             🌎 Online & Offline
 
           </span>
 
-          <span className="bg-white/10 text-white px-4 py-2 rounded-xl">
+          <span className="bg-white border border-slate-200 text-slate-700 px-4 py-2 rounded-lg">
 
             ⭐ Top Rated
 
@@ -630,18 +629,19 @@ to-blue-900
           }
           className="
             bg-white
+            border
+          border-slate-300
             text-slate-900
             px-8
             py-4
-            rounded-2xl
+            rounded-lg
             font-bold
             flex
             items-center
             justify-center
             gap-2
-            hover:shadow-lg
-            hover:-translate-y-1
-            transition-all
+            hover:shadow-sm
+            transition
             duration-300
           "
         >
@@ -655,16 +655,15 @@ to-blue-900
         <div
           className="
             rounded-2xl
-            bg-white/10
+            bg-slate-50
               border
-            border-white/20
-            backdrop-blur
+            border-slate-200
             p-5
-            text-white
+            text-slate-900
           "
         >
 
-          <p className="text-sm opacity-80">
+          <p className="text-sm text-slate-500">
 
             Next Live Session
 
@@ -676,7 +675,7 @@ to-blue-900
 
           </h3>
 
-          <p className="text-sm mt-2 opacity-80">
+          <p className="text-sm mt-2 text-slate-500">
 
             Only {featuredEvent?.seatsLeft} seats remaining.
 

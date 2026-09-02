@@ -47,11 +47,10 @@ const MentorProfileHero = ({
   return (
     <section>
       {/* Cover */}
-      <div className="relative h-72 overflow-hidden">
+      <div className="relative h-56 overflow-hidden">
 
-  <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-cyan-600" />
+  <div className="absolute inset-0 bg-[#1677FF]" />
 
-  <div className="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3')] bg-cover bg-center" />
 
   <div
   className="
@@ -67,11 +66,11 @@ const MentorProfileHero = ({
 >
   <div>
     <p className="uppercase tracking-[5px] text-sm opacity-80">
-      TOP RATED • VERIFIED • INDUSTRY EXPERT
+      VERIFIED CAREER MENTOR
     </p>
 
     <h2 className="text-4xl md:text-5xl font-bold mt-3">
-      Learn Directly From Real Industry Leaders
+      Mentor Profile
     </h2>
   </div>
 </div>
@@ -84,18 +83,18 @@ const MentorProfileHero = ({
           <div
   className="
     bg-white
-    rounded-3xl
-    shadow-2xl
+    rounded-2xl
+    shadow-sm
     border
     border-slate-200
-    p-8
+    p-10
   "
 >
 
             <div className="flex flex-col xl:flex-row justify-between gap-10">
 
               {/* Left */}
-              <div className="flex flex-col md:flex-row gap-6">
+              <div className="flex flex-col md:flex-row gap-8">
 
                 <img
                   src={mentor.image}
@@ -103,11 +102,11 @@ const MentorProfileHero = ({
                   className="
                     h-44
 w-44
-rounded-full
-border-[6px]
-border-white
+rounded-3xl
+border
+border-slate-200
 object-cover
-shadow-2xl
+shadow-md
 shrink-0
                   "
                 />
@@ -116,7 +115,7 @@ shrink-0
 
                   <div className="flex items-center gap-2 flex-wrap">
 
-                    <h1 className="text-4xl md:text-5xl font-bold">
+                    <h1 className="text-4xl font-semibold tracking-tight text-slate-900">
                     {mentor.name}
                     </h1>
 
@@ -150,7 +149,7 @@ shrink-0
                     {mentor.role}
                   </p>
 
-                  <p className="text-slate-500 mt-2 max-w-2xl">
+                  <p className="text-slate-600 mt-3 max-w-2xl leading-7">
   Trusted by professionals worldwide for career growth,
   interview preparation, leadership coaching and product strategy.
 </p>
@@ -162,7 +161,9 @@ shrink-0
       px-3
       py-1
       rounded-full
-      bg-amber-50
+      bg-white 
+      border
+      border-slate-200
       text-amber-700
       text-sm
       font-medium
@@ -176,7 +177,9 @@ shrink-0
       px-3
       py-1
       rounded-full
-      bg-green-50
+      bg-white 
+      border
+      border-slate-200
       text-green-700
       text-sm
       font-medium
@@ -190,7 +193,9 @@ shrink-0
       px-3
       py-1
       rounded-full
-      bg-blue-50
+      bg-white
+      border
+      border-slate-200
       text-blue-700
       text-sm
       font-medium
@@ -260,8 +265,10 @@ shrink-0
       gap-2
       px-4
       py-2
-      rounded-xl
-      bg-slate-100
+      rounded-lg
+      bg-white 
+      border 
+      border-slate-200
       hover:bg-blue-100
       hover:text-blue-700
       transition
@@ -282,8 +289,10 @@ shrink-0
       gap-2
       px-4
       py-2
-      rounded-xl
-      bg-slate-100
+      rounded-lg
+      bg-white 
+      border 
+      border-slate-200
       hover:bg-red-100
       hover:text-red-600
       transition
@@ -304,8 +313,10 @@ shrink-0
       gap-2
       px-4
       py-2
-      rounded-xl
-      bg-slate-100
+      rounded-lg
+      bg-white 
+      border 
+      border-slate-200
       hover:bg-green-100
       hover:text-green-700
       transition
@@ -336,7 +347,7 @@ shrink-0
   bg-white
   border
   border-slate-200
-  rounded-xl
+  rounded-lg
   text-sm
   font-semibold
   shadow-sm
@@ -348,7 +359,7 @@ shrink-0
 
   </div>
 
-  <p className="text-sm text-slate-500 mt-3">
+  <p className="text-sm text-slate-600 mt-3">
   Worked with leading global organizations across product,
   engineering and leadership roles.
 </p>
@@ -367,13 +378,13 @@ shrink-0
     bg-white
     border
     border-slate-200
-    rounded-3xl
+    rounded-2xl
     p-6
     shadow-sm
   "
 >
 
-                  <p className="text-slate-500">
+                  <p className="text-slate-600">
                     Starting From
                   </p>
 
@@ -393,13 +404,13 @@ shrink-0
 
                   </div>
 
-                  <p className="text-slate-500 text-sm mt-1">
+                  <p className="text-slate-600 text-sm mt-1">
                     Intro Discovery Call
                   </p>
 
-                  <div className="mt-4 rounded-xl bg-blue-50 p-4">
+                  <div className="mt-4 rounded-lg bg-slate-50 border border-slate-200 p-4">
 
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-slate-600">
                    Monthly Mentorship
                   </p>
 
@@ -407,7 +418,7 @@ shrink-0
                   ${mentor.pricing.monthlyProgram}
                   </h4>
 
-                  <p className="text-xs text-slate-500 mt-1">
+                  <p className="text-xs text-slate-600 mt-1">
                   Includes weekly 1:1 calls & priority support
                   </p>
 
@@ -421,7 +432,7 @@ shrink-0
                         bg-blue-600
                         text-white
                         py-3
-                        rounded-xl
+                        rounded-lg
                         text-center
                         font-medium
                         hover:bg-blue-700
@@ -437,7 +448,7 @@ shrink-0
 border
 border-slate-300
 py-3
-rounded-xl
+rounded-lg
 text-center
 font-medium
 hover:bg-blue-50
@@ -469,7 +480,7 @@ duration-300
               "
             >
 
-              <div className="bg-blue-50 rounded-2xl p-5">
+              <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-5">
 
                 <div className="flex items-center gap-2">
                   <Star
@@ -485,13 +496,13 @@ duration-300
                   {mentor.rating}
                 </h3>
 
-                <p className="text-slate-500">
+                <p className="text-slate-600">
                   {mentor.reviewsCount}+ Reviews
                 </p>
 
               </div>
 
-              <div className="bg-blue-50 rounded-2xl p-5">
+              <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-5">
 
                 <div className="flex items-center gap-2">
                   <Users size={18} />
@@ -504,13 +515,13 @@ duration-300
                   {mentor.studentsCoached}+
                 </h3>
 
-                <p className="text-slate-500">
+                <p className="text-slate-600">
                   Students Trained
                 </p>
 
               </div>
 
-              <div className="bg-blue-50 rounded-2xl p-5">
+              <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-5">
 
                 <div className="flex items-center gap-2">
                   <Calendar size={18} />
@@ -523,13 +534,13 @@ duration-300
                   {mentor.sessionsCompleted}+
                 </h3>
 
-                <p className="text-slate-500">
+                <p className="text-slate-600">
                   Sessions Completed
                 </p>
 
               </div>
 
-              <div className="bg-blue-50 rounded-2xl p-5">
+              <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-5">
 
                 <div className="flex items-center gap-2">
                   <Briefcase size={18} />
@@ -542,13 +553,13 @@ duration-300
                   {mentor.experience}
                 </h3>
 
-                <p className="text-slate-500">
+                <p className="text-slate-600">
                   Industry Experience
                 </p>
 
               </div>
 
-              <div className="bg-blue-50 rounded-2xl p-5">
+              <div className="bg-white border border-slate-200 shadow-sm rounded-2xl p-5">
 
   <div className="flex items-center gap-2 mb-3">
 
@@ -574,7 +585,7 @@ duration-300
           bg-white
           border
           border-cyan-200
-          rounded-full
+          rounded-lg
           text-sm
           font-medium
           text-cyan-700
@@ -586,7 +597,7 @@ duration-300
 
   </div>
 
-  <p className="text-xs text-slate-500 mt-4">
+  <p className="text-xs text-slate-600 mt-4">
     Fluent communication across multiple languages
   </p>
 

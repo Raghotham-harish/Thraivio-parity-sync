@@ -56,7 +56,7 @@ const MentorFAQ = () => {
 
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+        <div className="rounded-2xl border border-slate-200 bg-white p-10 shadow-sm">
 
           {/* Header */}
 
@@ -69,11 +69,13 @@ const MentorFAQ = () => {
                   inline-flex
                   items-center
                   gap-2
-                  bg-blue-100
+                  bg-blue-50
+border
+border-blue-200
                   text-blue-700
                   px-5
                   py-2
-                  rounded-full
+                  rounded-lg
                   text-sm
                   font-semibold
                 "
@@ -85,14 +87,14 @@ const MentorFAQ = () => {
 
               </span>
 
-              <h2 className="text-4xl md:text-5xl font-bold mt-6">
+              <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-6">
 
                 Everything You Need
                 Before Getting Started
 
               </h2>
 
-              <p className="text-slate-500 mt-5 leading-8">
+              <p className="text-slate-700 mt-5 leading-7">
 
                 Find answers to the most common questions
                 about mentorship sessions, booking,
@@ -108,14 +110,13 @@ const MentorFAQ = () => {
             <div
               className="
                 xl:w-[340px]
-                rounded-3xl
-                bg-gradient-to-br
-                from-blue-600
-via-indigo-600
-to-slate-900
+                rounded-2xl
+                bg-white
+border
+border-slate-200
+shadow-sm
                 p-8
-                text-white
-                shadow-lg
+                text-slate-900
               "
             >
 
@@ -127,7 +128,7 @@ to-slate-900
 
               </h3>
 
-              <p className="text-blue-100 mt-4 leading-7">
+              <p className="text-slate-500 mt-4 leading-7">
 
                 Browse frequently asked questions or
                 connect directly with the mentor for
@@ -161,13 +162,13 @@ to-slate-900
     className="
       group
       overflow-hidden
-      rounded-3xl
+      rounded-2xl
       border
       border-slate-200
       bg-white
       hover:border-blue-300
-      hover:shadow-lg
-      transition-all
+      hover:shadow-sm
+      transition
       duration-300
     "
   >
@@ -234,7 +235,7 @@ to-slate-900
         className={`
           h-10
           w-10
-          rounded-full
+          rounded-lg
           bg-slate-100
           flex
           items-center
@@ -311,11 +312,13 @@ to-slate-900
 
               <span
                 className="
-                  bg-blue-50
+                  bg-white
+border
+border-blue-200
                   text-blue-700
                   px-3
                   py-1
-                  rounded-full
+                  rounded-lg
                   text-xs
                 "
               >
@@ -324,11 +327,13 @@ to-slate-900
 
               <span
                 className="
-                  bg-slate-100
+                  bg-white
+border
+border-slate-200
 text-slate-700
                   px-3
                   py-1
-                  rounded-full
+                  rounded-lg
                   text-xs
                 "
               >
@@ -337,11 +342,13 @@ text-slate-700
 
               <span
                 className="
-                  bg-blue-50
+                  bg-white
+border
+border-blue-200
 text-blue-700
                   px-3
                   py-1
-                  rounded-full
+                  rounded-lg
                   text-xs
                 "
               >
@@ -370,22 +377,20 @@ text-blue-700
     mt-16
     relative
     overflow-hidden
-    rounded-[32px]
-    bg-gradient-to-r
-    from-slate-900
-    via-blue-900
-    to-indigo-900
+    bg-white
+border
+border-slate-200
+rounded-2xl
+shadow-sm
     p-10
     text-white
   "
 >
-  <div className="absolute top-0 left-0 w-full h-1 bg-blue-600 z-10"></div>
+ 
 
   {/* Background Glow */}
 
-  <div className="absolute -top-20 -right-20 h-64 w-64 rounded-full bg-white/5 blur-3xl"></div>
-
-  <div className="absolute -bottom-20 -left-20 h-64 w-64 rounded-full bg-blue-400/10 blur-3xl"></div>
+  
 
   <div className="relative z-10">
 
@@ -400,24 +405,27 @@ text-blue-700
             inline-flex
             items-center
             gap-2
-            bg-white/10
+            bg-blue-50
+border
+border-blue-200
             px-4
             py-2
-            rounded-full
+            rounded-lg
             text-sm
+            text-slate-900
           "
         >
           💬 Still Have Questions?
         </span>
 
-        <h2 className="text-4xl font-bold mt-6">
+        <h2 className="text-4xl font-bold mt-6 text-slate-900">
 
           We're Here To Help You
           Make The Right Decision
 
         </h2>
 
-        <p className="mt-5 text-slate-300 leading-8 max-w-2xl">
+        <p className="mt-5 text-slate-600 leading-7 max-w-2xl">
 
           If you couldn't find the answer you're looking for,
           connect directly with the mentor and get personalized
@@ -427,15 +435,21 @@ text-blue-700
 
         <div className="flex flex-wrap gap-3 mt-8">
 
-          <span className="bg-white/10 px-4 py-2 rounded-xl">
+          <span className="bg-white
+border
+border-slate-200 px-4 py-2 rounded-lg text-slate-900">
             ⚡ Fast Response
           </span>
 
-          <span className="bg-white/10 px-4 py-2 rounded-xl">
+          <span className="bg-white
+border
+border-slate-200 px-4 py-2 rounded-lg text-slate-900">
             🎯 Personalized Advice
           </span>
 
-          <span className="bg-white/10 px-4 py-2 rounded-xl">
+          <span className="bg-white
+border
+border-slate-200 px-4 py-2 rounded-lg text-slate-900">
             🔒 Private Discussion
           </span>
 
@@ -450,11 +464,11 @@ text-blue-700
         <div
           className="
             rounded-2xl
-            bg-white/10
-            border
-border-white/10
-            backdrop-blur
+            bg-slate-50
+border
+border-slate-200
             p-6
+            text-slate-900
           "
         >
 
@@ -464,7 +478,7 @@ border-white/10
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-600 mt-2">
 
             Average Response
 
@@ -475,11 +489,10 @@ border-white/10
         <div
           className="
             rounded-2xl
-            bg-white/10
+            border-slate-200
             border
-             border-white/10
-            backdrop-blur
             p-6
+            text-slate-900
           "
         >
 
@@ -489,7 +502,7 @@ border-white/10
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-600 mt-2">
 
             Personalized Guidance
 
@@ -500,11 +513,11 @@ border-white/10
         <div
           className="
             rounded-2xl
-            bg-white/10
+            bg-slate-50
             border
-             border-white/10
-            backdrop-blur
+             border-slate-200
             p-6
+            text-slate-900
           "
         >
 
@@ -514,7 +527,7 @@ border-white/10
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-600 mt-2">
 
             Confidential
 
@@ -525,11 +538,11 @@ border-white/10
         <div
           className="
             rounded-2xl
-            bg-white/10
+            bg-slate-50
             border
-             border-white/10
-            backdrop-blur
+             border-slate-200
             p-6
+            text-slate-900
           "
         >
 
@@ -539,7 +552,7 @@ border-white/10
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-600 mt-2">
 
             Career Support
 
@@ -555,16 +568,15 @@ border-white/10
 
     <div className="grid md:grid-cols-3 gap-5 mt-12">
 
-      <div className="bg-white/10 border
-             border-white/10 backdrop-blur rounded-2xl p-6">
+      <div className="bg-white border border-slate-200 0 rounded-2xl p-6">
 
-        <h4 className="font-semibold text-lg">
+        <h4 className="font-semibold text-lg text-slate-900">
 
           📅 Book a Session
 
         </h4>
 
-        <p className="text-slate-300 mt-2 text-sm leading-6">
+        <p className="text-slate-600 mt-2 text-sm leading-6">
 
           Schedule a personalized mentorship session at your
           preferred time.
@@ -573,16 +585,16 @@ border-white/10
 
       </div>
 
-      <div className="bg-white/10 border
-             border-white/10 backdrop-blur rounded-2xl p-6">
+      <div className="bg-white border
+             border-slate-200  rounded-2xl p-6">
 
-        <h4 className="font-semibold text-lg">
+        <h4 className="font-semibold text-lg text-slate-900">
 
           💬 Ask Questions
 
         </h4>
 
-        <p className="text-slate-300 mt-2 text-sm leading-6">
+        <p className="text-slate-600 mt-2 text-sm leading-6">
 
           Clarify your doubts before enrolling in any program
           or mentorship.
@@ -591,16 +603,16 @@ border-white/10
 
       </div>
 
-      <div className="bg-white/10 border
-             border-white/10 backdrop-blur rounded-2xl p-6">
+      <div className="bg-white border
+             border-slate-200  rounded-2xl p-6">
 
-        <h4 className="font-semibold text-lg">
+        <h4 className="font-semibold text-lg text-slate-900">
 
           🚀 Career Planning
 
         </h4>
 
-        <p className="text-slate-300 mt-2 text-sm leading-6">
+        <p className="text-slate-600 mt-2 text-sm leading-6">
 
           Get expert advice on career growth, interviews and
           long-term planning.

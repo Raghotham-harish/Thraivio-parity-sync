@@ -5,23 +5,23 @@ import RoleSelector from "./RoleSelector";
 import PasswordStrength from "./PasswordStrength";
 import TermsCheckbox from "./TermsCheckbox";
 
-import type {
-  SignupFormData,
-} from "@/types/auth";
+import type { SignupFormData } from "@/types/auth";
+import { registerUser } from "@/services/auth.service";
 
-const SignupForm = () => {
+interface SignupFormProps {
+  onSuccess?: (message: string) => void;
+}
+
+const SignupForm = ({
+  onSuccess,
+}: SignupFormProps) => {
   const [formData, setFormData] =
     useState<SignupFormData>({
       role: "user",
-
       fullName: "",
-
       email: "",
-
       password: "",
-
       confirmPassword: "",
-
       acceptedTerms: false,
     });
 
@@ -63,10 +63,12 @@ const SignupForm = () => {
     const emailRegex =
       /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(formData.email)) {
-      setError(
-        "Please enter a valid email"
-      );
+    if (
+      !emailRegex.test(
+        formData.email.trim()
+      )
+    ) {
+      setError("Please enter a valid email");
       return false;
     }
 
@@ -81,9 +83,7 @@ const SignupForm = () => {
       formData.password !==
       formData.confirmPassword
     ) {
-      setError(
-        "Passwords do not match"
-      );
+      setError("Passwords do not match");
       return false;
     }
 
@@ -95,7 +95,6 @@ const SignupForm = () => {
     }
 
     setError("");
-
     return true;
   };
 
@@ -108,45 +107,50 @@ const SignupForm = () => {
 
     try {
       setLoading(true);
+      setError("");
 
-      /**
-       * Firebase Signup
-       *
-       * createUserWithEmailAndPassword(...)
-       */
+      const response = await registerUser({
+        role: formData.role,
+        fullName: formData.fullName.trim(),
+        email: formData.email.trim(),
+        password: formData.password,
+        confirmPassword:
+          formData.confirmPassword,
+        acceptedTerms:
+          formData.acceptedTerms,
+      });
 
-      /**
-       * Backend Signup
-       *
-       * api.post("/auth/signup")
-       */
+      if (!response.success) {
+        throw new Error(
+          response.message ||
+            "Registration failed."
+        );
+      }
 
-      console.log(
-        "Signup Data",
-        formData
-      );
+      if (onSuccess) {
+        onSuccess(
+          response.message ||
+            "Your account has been created successfully."
+        );
+      }
 
-      setTimeout(() => {
-        setLoading(false);
+      setFormData({
+        role: "user",
+        fullName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+        acceptedTerms: false,
+      });
+    } catch (error: any) {
+      const message =
+        error?.response?.data?.message ||
+        error?.message ||
+        "Something went wrong. Please try again.";
 
-        if (
-          formData.role === "mentor"
-        ) {
-          console.log(
-            "Redirect To Become Mentor Form"
-          );
-        } else {
-          console.log(
-            "Redirect To User Dashboard"
-          );
-        }
-      }, 1500);
-    } catch {
+      setError(message);
+    } finally {
       setLoading(false);
-
-      setError(
-        "Something went wrong"
-      );
     }
   };
 
@@ -160,10 +164,7 @@ const SignupForm = () => {
       <RoleSelector
         value={formData.role}
         onChange={(role) =>
-          updateField(
-            "role",
-            role
-          )
+          updateField("role", role)
         }
       />
 
@@ -239,7 +240,6 @@ const SignupForm = () => {
         </label>
 
         <div className="relative">
-
           <input
             type={
               showPassword
@@ -281,6 +281,7 @@ const SignupForm = () => {
               right-4
               top-1/2
               -translate-y-1/2
+              cursor-pointer
             "
           >
             {showPassword ? (
@@ -289,13 +290,11 @@ const SignupForm = () => {
               <Eye size={20} />
             )}
           </button>
-
         </div>
 
         <PasswordStrength
           password={formData.password}
         />
-
       </div>
 
       {/* Confirm Password */}
@@ -306,7 +305,6 @@ const SignupForm = () => {
         </label>
 
         <div className="relative">
-
           <input
             type={
               showConfirmPassword
@@ -350,6 +348,7 @@ const SignupForm = () => {
               right-4
               top-1/2
               -translate-y-1/2
+              cursor-pointer
             "
           >
             {showConfirmPassword ? (
@@ -358,17 +357,13 @@ const SignupForm = () => {
               <Eye size={20} />
             )}
           </button>
-
         </div>
-
       </div>
 
       {/* Terms */}
 
       <TermsCheckbox
-        checked={
-          formData.acceptedTerms
-        }
+        checked={formData.acceptedTerms}
         onChange={(value) =>
           updateField(
             "acceptedTerms",
@@ -410,19 +405,15 @@ const SignupForm = () => {
           rounded-xl
           font-semibold
           transition-all
+          cursor-pointer
           disabled:opacity-70
+          disabled:cursor-not-allowed
         "
       >
         {loading
           ? "Creating Account..."
-          : `Create ${
-              formData.role ===
-              "mentor"
-                ? "Mentor"
-                : "User"
-            } Account`}
+          : "Create Account"}
       </button>
-
     </form>
   );
 };

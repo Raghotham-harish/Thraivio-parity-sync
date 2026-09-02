@@ -31,7 +31,7 @@ const MentorExperience = ({
     <section className="pb-20">
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
 
           {/* Header */}
           <div>
@@ -39,11 +39,13 @@ const MentorExperience = ({
             <span
               className="
 inline-block
-bg-blue-100
+bg-blue-50
+border
+border-blue-200
 text-blue-700
 px-4
 py-1
-rounded-full
+rounded-lg
 text-sm
 font-medium
 "
@@ -51,11 +53,11 @@ font-medium
               Professional Journey
             </span>
 
-            <h2 className="text-4xl font-bold mt-4">
+            <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-4">
               Experience & Impact
             </h2>
 
-            <p className="text-slate-500 mt-3">
+            <p className="text-slate-600 leading-7 mt-3">
               A track record of mentoring professionals,
               building teams, and driving career growth.
             </p>
@@ -70,18 +72,19 @@ font-medium
 flex
 gap-5
 p-5
-rounded-2xl
-bg-slate-50
+rounded-xl
+bg-white
 border
 border-slate-200
 hover:bg-white
-hover:shadow-md
-transition
+hover:shadow-sm
+transition-all
+duration-300
 ">
 
     <div className="flex flex-col items-center">
 
-      <div className="w-5 h-5 rounded-full bg-blue-600"></div>
+      <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>
 
       <div className="w-1 flex-1 bg-slate-200"></div>
 
@@ -93,8 +96,10 @@ transition
   inline-block
   px-3
   py-1
-  rounded-full
-  bg-blue-100
+  rounded-lg
+  bg-blue-50
+border
+border-blue-200
   text-blue-700
   text-xs
   font-semibold
@@ -125,18 +130,19 @@ transition
 flex
 gap-5
 p-5
-rounded-2xl
-bg-slate-50
+rounded-xl
+bg-white
 border
 border-slate-200
 hover:bg-white
-hover:shadow-md
-transition
+hover:shadow-sm
+transition-all
+duration-300
 ">
 
     <div className="flex flex-col items-center">
 
-      <div className="w-5 h-5 rounded-full bg-blue-600"></div>      
+      <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>      
 
       <div className="w-1 flex-1 bg-slate-200"></div>
 
@@ -148,8 +154,10 @@ transition
   inline-block
   px-3
   py-1
-  rounded-full
- bg-blue-100
+  rounded-lg
+  bg-blue-50
+border
+border-blue-200
 text-blue-700
   text-xs
   font-semibold
@@ -175,25 +183,34 @@ text-blue-700
 flex
 gap-5
 p-5
-rounded-2xl
-bg-slate-50
+rounded-xl
+bg-white
 border
 border-slate-200
 hover:bg-white
-hover:shadow-md
-transition
+hover:shadow-sm
+transition-all
+duration-300
 ">
-    <div className="w-5 h-5 rounded-full bg-blue-600 mt-1"></div>
+
+    <div className="flex flex-col items-center">
+
+    <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>      
+
+      <div className="w-1 flex-1 bg-slate-200"></div>
+
+     </div>
 
     <div>
-
       <span className="
   inline-block
   px-3
   py-1
-  rounded-full
-  bg-blue-100
-text-blue-700
+  rounded-lg
+  bg-blue-50
+border
+border-blue-200
+  text-blue-700
   text-xs
   font-semibold
 ">
@@ -217,7 +234,7 @@ text-blue-700
           
 
           {/* Companies */}
-          <div className="mt-14">
+          <div className="mt-12">
 
             <div className="mb-8">
 
@@ -228,7 +245,7 @@ text-blue-700
         h-12
         w-12
         rounded-xl
-        bg-blue-100
+        bg-blue-50
         flex
         items-center
         justify-center
@@ -271,12 +288,12 @@ flex
 items-center
 gap-4
 p-5
-rounded-2xl
+rounded-xl
 bg-white
 border
 border-slate-200
-hover:shadow-md
-hover:border-blue-200
+hover:shadow-sm
+hover:border-blue-500
 transition-all
 "
     >
@@ -286,7 +303,7 @@ transition-all
           h-12
           w-12
           rounded-xl
-          bg-blue-100
+          bg-blue-50
           flex
           items-center
           justify-center
@@ -333,10 +350,12 @@ transition-all
         px-6
         py-3
         rounded-xl
-        bg-blue-50
+        bg-white
+        border
+      border-blue-200
         text-blue-600
         font-medium
-        hover:bg-blue-100
+        hover:bg-blue-50
         transition
       "
     >
@@ -366,12 +385,13 @@ transition-all
           <div
             className="
               mt-14
-              rounded-3xl
               p-8
-              bg-gradient-to-r
-from-blue-600
-to-cyan-500
-              text-white
+              bg-white
+border
+border-slate-200
+rounded-2xl
+shadow-sm
+              text-slate-900
             "
           >
 
@@ -379,7 +399,7 @@ to-cyan-500
               Learn From Someone Who Has Done It
             </h3>
 
-            <p className="mt-3 text-blue-100">
+            <p className="mt-3 text-slate-600">
               Every mentorship session is backed by years of
               industry experience, leadership and practical
               career guidance tailored to your goals.
@@ -391,13 +411,14 @@ mt-6
 inline-flex
 items-center
 gap-2
-bg-white
+border
+border-slate-300
 text-blue-600
 px-6
 py-3
-rounded-xl
+rounded-lg
 font-semibold
-hover:shadow-lg
+hover:shadow-md
 transition
 "
 >

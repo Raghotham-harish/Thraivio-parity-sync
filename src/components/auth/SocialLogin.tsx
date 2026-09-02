@@ -19,6 +19,7 @@ const SocialLogin = () => {
           gap-3
           hover:bg-slate-50
           transition-all
+          cursor-pointer
         "
       >
         <FcGoogle size={22} />
@@ -40,6 +41,7 @@ const SocialLogin = () => {
           gap-3
           hover:bg-slate-50
           transition-all
+          cursor-pointer
         "
       >
         <FaMicrosoft size={18} />

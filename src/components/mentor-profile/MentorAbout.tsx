@@ -30,11 +30,13 @@ const MentorAbout = ({
             <span
               className="
                 inline-block
-                bg-blue-100
+                bg-blue-50
+                border
+              border-blue-200
                 text-blue-700
                 px-4
                 py-1
-                rounded-full
+                rounded-lg
                 text-sm
                 font-medium
               "
@@ -42,11 +44,11 @@ const MentorAbout = ({
               Professional Background
             </span>
 
-            <h2 className="text-4xl font-bold mt-4">
+            <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-4">
               Meet Your Mentor
             </h2>
 
-            <p className="text-slate-500 mt-3">
+            <p className="text-slate-600 leading-7 mt-3">
               Learn about experience, expertise, achievements and career journey.
             </p>
 
@@ -56,7 +58,7 @@ const MentorAbout = ({
           <div
   className="
     mt-8
-    bg-slate-50
+    bg-white
 rounded-2xl
 p-6
 border
@@ -64,7 +66,7 @@ border-slate-200
   "
 >
   <p
-    className={`text-slate-700 leading-8 ${
+    className={`text-slate-700 leading-7 ${
       !showMore && "line-clamp-4"
     }`}
   >
@@ -118,12 +120,12 @@ flex
 items-center
 gap-3
 p-4
-rounded-xl
+rounded-lg
 border
 border-slate-200
 bg-white
-hover:border-blue-200
-hover:shadow-md
+hover:border-blue-500
+hover:shadow-sm
 transition-all
 "
     >
@@ -162,13 +164,15 @@ transition-all
                     className="
 px-4
 py-2
-bg-blue-50
+bg-white
+border
+border-slate-200
 text-blue-700
-rounded-full
+rounded-lg
 text-sm
 font-medium
-hover:bg-blue-600
-hover:text-white
+hover:bg-blue-50
+hover:border-blue-500
 cursor-pointer
 transition
 "
@@ -209,7 +213,7 @@ transition
           border
           border-slate-200
           rounded-2xl
-          hover:shadow-md
+          hover:shadow-sm
           transition
         "
       >
@@ -218,8 +222,8 @@ transition
           className="
             w-12
             h-12
-            rounded-full
-            bg-blue-100
+            rounded-xl
+            bg-blue-50
             flex
             items-center
             justify-center
@@ -287,8 +291,7 @@ transition
               border-slate-200
               rounded-2xl
               p-5
-              hover:shadow-lg
-              hover:-translate-y-1
+              hover:shadow-md
               transition-all
             "
           >
@@ -334,7 +337,7 @@ transition
                     mt-3
                     px-3
                     py-1
-                    rounded-full
+                    rounded-xl
                     bg-green-50
                     text-green-700
                     text-xs
@@ -365,7 +368,7 @@ transition
       className="
         px-6
         py-3
-        rounded-xl
+        rounded-lg
         border
         border-blue-600
         text-blue-600
@@ -425,8 +428,7 @@ transition
               border-slate-200
               rounded-2xl
               p-5
-              hover:shadow-xl
-              hover:-translate-y-1
+              hover:shadow-md
               transition-all
             "
           >
@@ -472,9 +474,9 @@ transition
                     mt-3
                     px-3
                     py-1
-                    rounded-full
-                    bg-amber-50
-                    text-amber-700
+                    rounded-xl
+                    bg-blue-50
+                    text-blue-700
                     text-xs
                     font-medium
                   "
@@ -503,7 +505,7 @@ transition
       className="
         px-6
         py-3
-        rounded-xl
+        rounded-lg
         border
         border-blue-600
         text-blue-600
@@ -531,13 +533,14 @@ transition
 <div
   className="
     mt-16
-    rounded-3xl
-    bg-gradient-to-r
-    from-blue-600
-to-cyan-500
+    bg-white
+border
+border-slate-200
+rounded-2xl
+shadow-sm
     p-10
     text-center
-    text-white
+    text-slate-900
   "
 >
 
@@ -545,7 +548,7 @@ to-cyan-500
     Ready To Work With This Mentor?
   </h3>
 
-  <p className="mt-4 max-w-2xl mx-auto text-blue-100">
+  <p className="mt-4 max-w-2xl mx-auto text-slate-500">
     Book a personalized mentoring session, get career guidance,
     resume reviews, interview preparation and growth strategies.
   </p>
@@ -554,7 +557,8 @@ to-cyan-500
 
     <button
       className="
-        bg-white
+        border
+        border-slate-300
         text-blue-600
         px-8
         py-3
@@ -569,12 +573,12 @@ to-cyan-500
     <button
       className="
         border
-        border-white
+        border-slate-300
         px-8
         py-3
         rounded-xl
         font-semibold
-        hover:bg-white
+        hover:bg-blue-50
         hover:text-blue-600
         transition
       "

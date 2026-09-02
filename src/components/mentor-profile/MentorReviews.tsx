@@ -36,7 +36,7 @@ const MentorReviews = ({
 
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
+        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
 
           {/* Header */}
 
@@ -49,11 +49,13 @@ const MentorReviews = ({
                   inline-flex
                   items-center
                   gap-2
-                  bg-blue-100
+                  bg-blue-50
+border
+border-blue-200
                   text-blue-700
                   px-4
                   py-2
-                  rounded-full
+                  rounded-lg
                   text-sm
                   font-semibold
                 "
@@ -61,14 +63,14 @@ const MentorReviews = ({
                 ⭐ Trusted by Professionals
               </span>
 
-              <h2 className="text-4xl font-bold mt-5">
+              <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-5">
 
                 Success Stories &
                 Real Career Transformations
 
               </h2>
 
-              <p className="text-slate-500 mt-4 leading-7">
+              <p className="text-slate-600 mt-4 leading-7">
 
                 Hear directly from professionals who
                 secured promotions, switched careers,
@@ -85,18 +87,17 @@ const MentorReviews = ({
               className="
                 w-full
                 lg:w-[360px]
-                rounded-3xl
-                bg-gradient-to-br
-                from-blue-600
-via-indigo-600
-to-slate-900
+                rounded-2xl
+                bg-white
+border
+border-slate-200
+shadow-sm
                 p-7
-                text-white
-                shadow-xl
+                text-slate-900
               "
             >
 
-              <p className="text-blue-100">
+              <p className="text-slate-500">
 
                 Overall Rating
 
@@ -129,7 +130,7 @@ to-slate-900
 
                   </div>
 
-                  <p className="text-blue-100 mt-2">
+                  <p className="text-slate-500 mt-2">
 
                     Based on {mentor.reviewsCount}+ reviews
 
@@ -149,9 +150,9 @@ to-slate-900
 
                 </div>
 
-                <div className="h-2 rounded-full bg-white/20">
+                <div className="h-2 rounded-full bg-slate-100">
 
-                  <div className="w-[98%] h-full rounded-full bg-white"></div>
+                  <div className="w-[98%] h-full rounded-full bg-blue-600"></div>
 
                 </div>
 
@@ -163,9 +164,9 @@ to-slate-900
 
                 </div>
 
-                <div className="h-2 rounded-full bg-white/20">
+                <div className="h-2 rounded-full bg-slate-100">
 
-                  <div className="w-[95%] h-full rounded-full bg-white"></div>
+                  <div className="w-[95%] h-full rounded-full bg-blue-600"></div>
 
                 </div>
 
@@ -177,9 +178,9 @@ to-slate-900
 
                 </div>
 
-                <div className="h-2 rounded-full bg-white/20">
+                <div className="h-2 rounded-full bg-slate-100">
 
-                  <div className="w-[99%] h-full rounded-full bg-white"></div>
+                  <div className="w-[99%] h-full rounded-full bg-blue-600"></div>
 
                 </div>
 
@@ -193,7 +194,9 @@ to-slate-900
 
           <div className="grid md:grid-cols-3 gap-5 mt-10">
 
-            <div className="rounded-2xl bg-blue-50 p-5">
+            <div className="rounded-2xl bg-white
+border
+border-slate-200 p-5">
 
               <p className="text-slate-500 text-sm">
 
@@ -201,7 +204,7 @@ to-slate-900
 
               </p>
 
-              <h3 className="text-3xl font-bold text-blue-600 mt-2">
+              <h3 className="text-3xl font-bold text-slate-900 mt-2">
 
                 96%
 
@@ -209,7 +212,9 @@ to-slate-900
 
             </div>
 
-            <div className="rounded-2xl bg-slate-100 p-5">
+            <div className="rounded-2xl bg-white
+border
+border-slate-200 p-5">
 
               <p className="text-slate-500 text-sm">
 
@@ -225,7 +230,9 @@ to-slate-900
 
             </div>
 
-            <div className="rounded-2xl bg-blue-50 p-5">
+            <div className="rounded-2xl bg-white
+border
+border-blue-200 p-5">
 
               <p className="text-slate-500 text-sm">
 
@@ -233,7 +240,7 @@ to-slate-900
 
               </p>
 
-              <h3 className="text-3xl font-bold text-blue-600 mt-2">
+              <h3 className="text-3xl font-bold text-slate-900 mt-2">
 
                 500+
 
@@ -344,9 +351,7 @@ to-slate-900
           <div className="flex-1 h-3 rounded-full bg-slate-100 overflow-hidden">
 
             <div
-              className={`h-full bg-gradient-to-r
-from-blue-500
-to-indigo-600 ${item.width}`}
+              className={`h-full bg-blue-600 ${item.width}`}
             />
 
           </div>
@@ -367,11 +372,10 @@ to-indigo-600 ${item.width}`}
 
     <div
       className="
-        rounded-3xl
-        border
-        bg-gradient-to-br
-        from-slate-50
-        to-blue-50
+        rounded-2xl
+        bg-white
+border
+border-slate-200
         p-7
       "
     >
@@ -465,13 +469,12 @@ to-indigo-600 ${item.width}`}
     key={index}
     className="
       group
-      rounded-3xl
+      rounded-2xl
       border
       bg-white
       p-7
-      hover:shadow-lg
-hover:-translate-y-1
-      transition-all
+      hover:shadow-sm
+      transition
       duration-300
     "
   >
@@ -489,9 +492,7 @@ hover:-translate-y-1
             h-14
             w-14
             rounded-full
-            bg-gradient-to-r
-            from-blue-500
-            to-indigo-600
+            bg-blue-600
             text-white
             font-bold
             flex
@@ -518,11 +519,13 @@ hover:-translate-y-1
 
             <span
               className="
-                bg-green-100
+                bg-green-50
+border
+border-green-200
                 text-green-700
                 px-2
                 py-1
-                rounded-full
+                rounded-lg
                 text-xs
                 font-medium
               "
@@ -558,10 +561,12 @@ hover:-translate-y-1
 
       <div
         className="
-         bg-blue-50
+         bg-white
+border
+border-blue-200
           px-3
           py-2
-          rounded-xl
+          rounded-lg
           text-center
         "
       >
@@ -653,11 +658,13 @@ hover:-translate-y-1
 
         <span
           className="
-            bg-blue-50
+           bg-white
+border
+border-blue-200
             text-blue-700
             px-3
             py-1
-            rounded-full
+            rounded-lg
             text-xs
           "
         >
@@ -666,11 +673,13 @@ hover:-translate-y-1
 
         <span
           className="
-            bg-slate-100
+            bg-white
+border
+border-slate-200
 text-slate-700
             px-3
             py-1
-            rounded-full
+            rounded-lg
             text-xs
           "
         >
@@ -707,22 +716,22 @@ text-slate-700
 <div
   className="
     mt-16
-    rounded-[32px]
     overflow-hidden
-    bg-gradient-to-r
-    from-slate-900
-    via-blue-900
-    to-indigo-900
+    bg-white
+border
+border-slate-200
+rounded-2xl
+shadow-sm
     p-10
-    text-white
+    text-slate-900
     relative
   "
 >
-  <div className="absolute top-0 left-0 w-full h-1 bg-blue-600 z-10"></div>
+  
 
   {/* Background Blur */}
 
-  <div className="absolute top-0 right-0 h-64 w-64 bg-white/5 rounded-full blur-3xl"></div>
+  
 
   <div className="relative z-10">
 
@@ -737,23 +746,25 @@ text-slate-700
             inline-flex
             items-center
             gap-2
-            bg-white/10
+            bg-blue-50
+border
+border-blue-200
             px-4
             py-2
-            rounded-full
+            rounded-lg
             text-sm
           "
         >
           ⭐ Trusted Mentorship Platform
         </span>
 
-        <h2 className="text-4xl font-bold mt-6">
+        <h2 className="text-4xl font-bold mt-6 text-slate-900">
 
           Ready To Become The Next Success Story?
 
         </h2>
 
-        <p className="text-slate-300 mt-5 leading-8">
+        <p className="text-slate-600 mt-5 leading-7">
 
           Thousands of professionals have already accelerated
           their careers through personalized mentorship,
@@ -766,10 +777,12 @@ text-slate-700
 
           <span
             className="
-              bg-white/10
+              bg-blue-50
+              border
+              border-blue-200
               px-4
               py-2
-              rounded-xl
+              rounded-lg
             "
           >
             🚀 Career Switch
@@ -777,10 +790,12 @@ text-slate-700
 
           <span
             className="
-              bg-white/10
+              bg-blue-50
+border
+border-blue-200
               px-4
               py-2
-              rounded-xl
+              rounded-lg
             "
           >
             💰 Salary Growth
@@ -788,10 +803,12 @@ text-slate-700
 
           <span
             className="
-              bg-white/10
+              bg-blue-50
+border
+border-blue-200
               px-4
               py-2
-              rounded-xl
+              rounded-lg
             "
           >
             🎯 Interview Success
@@ -808,8 +825,9 @@ text-slate-700
         <div
           className="
             rounded-2xl
-            bg-white/10
-            backdrop-blur
+            bg-blue-50
+            border
+            border-blue-200
             p-6
           "
         >
@@ -820,7 +838,7 @@ text-slate-700
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-500 mt-2">
 
             Would Recommend
             This Mentor
@@ -832,8 +850,9 @@ text-slate-700
         <div
           className="
             rounded-2xl
-            bg-white/10
-            backdrop-blur
+            bg-blue-50
+            border
+            border-blue-200
             p-6
           "
         >
@@ -844,7 +863,7 @@ text-slate-700
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-500 mt-2">
 
             Career
             Transformations
@@ -856,8 +875,9 @@ text-slate-700
         <div
           className="
             rounded-2xl
-            bg-white/10
-            backdrop-blur
+            bg-blue-50
+            border
+            border-blue-200
             p-6
           "
         >
@@ -868,7 +888,7 @@ text-slate-700
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-500 mt-2">
 
             Average
             Satisfaction
@@ -880,8 +900,9 @@ text-slate-700
         <div
           className="
             rounded-2xl
-            bg-white/10
-            backdrop-blur
+            bg-blue-50
+            border
+            border-blue-200
             p-6
           "
         >
@@ -892,7 +913,7 @@ text-slate-700
 
           </h3>
 
-          <p className="text-slate-300 mt-2">
+          <p className="text-slate-500 mt-2">
 
             Average
             Response Time
