@@ -17,8 +17,11 @@ const DashboardStats = ({
   const stats = [
     {
       title: "Programs",
-      value:
-        mentor.programs.length,
+      value: Array.isArray(
+        mentor?.programs
+      )
+        ? mentor.programs.length
+        : 0,
       icon: BookOpen,
       color:
         "bg-blue-50 text-blue-600",
@@ -26,8 +29,11 @@ const DashboardStats = ({
 
     {
       title: "Events",
-      value:
-        mentor.events.length,
+      value: Array.isArray(
+        mentor?.events
+      )
+        ? mentor.events.length
+        : 0,
       icon: CalendarDays,
       color:
         "bg-purple-50 text-purple-600",
@@ -35,8 +41,11 @@ const DashboardStats = ({
 
     {
       title: "Videos",
-      value:
-        mentor.videos.length,
+      value: Array.isArray(
+        mentor?.videos
+      )
+        ? mentor.videos.length
+        : 0,
       icon: Video,
       color:
         "bg-pink-50 text-pink-600",
@@ -44,8 +53,12 @@ const DashboardStats = ({
 
     {
       title: "Bookings",
-      value:
-        mentor.sessionsCompleted,
+      value: Number(
+        mentor?.sessionsCompleted ??
+          mentor?.analytics
+            ?.totalSessions ??
+          0
+      ),
       icon: CalendarCheck,
       color:
         "bg-green-50 text-green-600",
@@ -53,8 +66,11 @@ const DashboardStats = ({
 
     {
       title: "Achievements",
-      value:
-        mentor.achievements.length,
+      value: Array.isArray(
+        mentor?.achievements
+      )
+        ? mentor.achievements.length
+        : 0,
       icon: Trophy,
       color:
         "bg-orange-50 text-orange-600",
@@ -62,8 +78,11 @@ const DashboardStats = ({
 
     {
       title: "Certifications",
-      value:
-        mentor.certifications.length,
+      value: Array.isArray(
+        mentor?.certifications
+      )
+        ? mentor.certifications.length
+        : 0,
       icon: Award,
       color:
         "bg-cyan-50 text-cyan-600",
@@ -105,7 +124,6 @@ const DashboardStats = ({
               "
             >
               <div>
-
                 <p
                   className="
                     text-sm
@@ -124,7 +142,6 @@ const DashboardStats = ({
                 >
                   {item.value}
                 </h3>
-
               </div>
 
               <div
@@ -159,7 +176,6 @@ const DashboardStats = ({
                 Active Data
               </span>
             </div>
-
           </div>
         );
       })}

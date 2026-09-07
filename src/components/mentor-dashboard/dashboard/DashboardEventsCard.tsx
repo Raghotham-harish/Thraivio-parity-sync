@@ -9,7 +9,9 @@ const DashboardEventsCard = ({
   mentor,
 }: Props) => {
   const events =
-    mentor.events.slice(0, 3);
+    Array.isArray(mentor?.events)
+      ? mentor.events.slice(0, 3)
+      : [];
 
   return (
     <div
@@ -30,7 +32,6 @@ const DashboardEventsCard = ({
         "
       >
         <div>
-
           <h3
             className="
               text-xl
@@ -50,7 +51,6 @@ const DashboardEventsCard = ({
             Upcoming workshops and
             webinars
           </p>
-
         </div>
 
         <CalendarDays
@@ -61,14 +61,16 @@ const DashboardEventsCard = ({
       </div>
 
       <div className="space-y-4">
-
         {events.map(
           (
             event: any,
             index: number
           ) => (
             <div
-              key={index}
+              key={
+                event?._id ??
+                `event-${index}`
+              }
               className="
                 border
                 rounded-2xl
@@ -83,13 +85,13 @@ const DashboardEventsCard = ({
                 "
               >
                 <div>
-
                   <h4
                     className="
                       font-semibold
                     "
                   >
-                    {event.title}
+                    {event?.title ??
+                      "Untitled Event"}
                   </h4>
 
                   <p
@@ -99,9 +101,9 @@ const DashboardEventsCard = ({
                       mt-1
                     "
                   >
-                    {event.type}
+                    {event?.type ??
+                      "Event"}
                   </p>
-
                 </div>
 
                 <span
@@ -115,9 +117,9 @@ const DashboardEventsCard = ({
                     font-medium
                   "
                 >
-                  {event.mode}
+                  {event?.mode ??
+                    "N/A"}
                 </span>
-
               </div>
 
               <div
@@ -129,19 +131,19 @@ const DashboardEventsCard = ({
                 "
               >
                 <span>
-                  {event.date}
+                  {event?.date ??
+                    "Date not available"}
                 </span>
 
                 <span>
-                  {event.registered}
-                  {" "}
+                  {event?.registered ??
+                    0}{" "}
                   Registered
                 </span>
               </div>
             </div>
           )
         )}
-
       </div>
 
       <Link

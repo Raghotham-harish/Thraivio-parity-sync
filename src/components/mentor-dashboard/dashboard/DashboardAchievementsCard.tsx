@@ -9,10 +9,9 @@ const DashboardAchievementsCard = ({
   mentor,
 }: Props) => {
   const achievements =
-    mentor.achievements.slice(
-      0,
-      6
-    );
+    Array.isArray(mentor?.achievements)
+      ? mentor.achievements.slice(0, 6)
+      : [];
 
   return (
     <div
@@ -33,7 +32,6 @@ const DashboardAchievementsCard = ({
         "
       >
         <div>
-
           <h3
             className="
               text-xl
@@ -53,7 +51,6 @@ const DashboardAchievementsCard = ({
             Career milestones and
             recognitions
           </p>
-
         </div>
 
         <Trophy
@@ -64,50 +61,61 @@ const DashboardAchievementsCard = ({
       </div>
 
       <div className="space-y-3">
-
         {achievements.map(
           (
-            achievement: string,
+            achievement: any,
             index: number
-          ) => (
-            <div
-              key={index}
-              className="
-                flex
-                items-center
-                gap-3
-                p-4
-                rounded-2xl
-                border
-              "
-            >
+          ) => {
+            const title =
+              typeof achievement ===
+              "string"
+                ? achievement
+                : achievement?.title ??
+                  achievement?.name ??
+                  "Achievement";
+
+            return (
               <div
+                key={
+                  achievement?._id ??
+                  `achievement-${index}`
+                }
                 className="
-                  h-10
-                  w-10
-                  rounded-xl
-                  bg-amber-50
-                  text-amber-600
                   flex
                   items-center
-                  justify-center
+                  gap-3
+                  p-4
+                  rounded-2xl
+                  border
                 "
               >
-                <Trophy size={18} />
+                <div
+                  className="
+                    h-10
+                    w-10
+                    rounded-xl
+                    bg-amber-50
+                    text-amber-600
+                    flex
+                    items-center
+                    justify-center
+                    shrink-0
+                  "
+                >
+                  <Trophy size={18} />
+                </div>
+
+                <p
+                  className="
+                    font-medium
+                  "
+                >
+                  {title}
+                </p>
               </div>
-
-              <p
-                className="
-                  font-medium
-                "
-              >
-                {achievement}
-              </p>
-
-            </div>
-          )
+            );
+          }
         )}
-
       </div>
 
       <Link

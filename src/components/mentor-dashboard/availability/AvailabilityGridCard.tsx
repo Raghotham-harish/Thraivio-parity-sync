@@ -89,7 +89,7 @@ const AvailabilityGridCard = ({
                 text-slate-500
               "
             >
-              Available Date
+              Available Day
             </p>
 
             <h3
@@ -98,16 +98,13 @@ const AvailabilityGridCard = ({
                 font-bold
               "
             >
-              {availability.date}
+              {availability.day}
             </h3>
           </div>
         </div>
 
         <span
-          className="
-            bg-green-50
-            text-green-700
-
+          className={`
             px-3
             py-1
 
@@ -115,16 +112,23 @@ const AvailabilityGridCard = ({
 
             text-xs
             font-semibold
-          "
+
+            ${
+              availability.enabled
+                ? "bg-green-50 text-green-700"
+                : "bg-slate-100 text-slate-600"
+            }
+          `}
         >
-          Available
+          {availability.enabled
+            ? "Available"
+            : "Disabled"}
         </span>
       </div>
 
       {/* Slots */}
 
       <div className="mt-8">
-
         <div
           className="
             flex
@@ -154,9 +158,9 @@ const AvailabilityGridCard = ({
           "
         >
           {availability.slots.map(
-            (slot) => (
+            (slot, index) => (
               <span
-                key={slot}
+                key={`${slot.start}-${slot.end}-${index}`}
                 className="
                   bg-blue-50
                   text-blue-700
@@ -170,12 +174,11 @@ const AvailabilityGridCard = ({
                   font-medium
                 "
               >
-                {slot}
+                {slot.start} - {slot.end}
               </span>
             )
           )}
         </div>
-
       </div>
 
       {/* Footer */}
@@ -275,7 +278,6 @@ const AvailabilityGridCard = ({
             Delete
           </button>
         </div>
-
       </div>
     </div>
   );

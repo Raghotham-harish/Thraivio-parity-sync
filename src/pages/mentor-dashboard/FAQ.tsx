@@ -1,8 +1,15 @@
-import { useMemo, useState } from "react";
-
-import { mentors } from "@/data/mentors";
+import { useEffect, useMemo, useState } from "react";
 
 import type { FAQ as FAQType } from "@/types/faq";
+
+import {
+  addMentorFAQ,
+  deleteMentorFAQ,
+  getMentorByUserId,
+  updateMentorFAQ,
+} from "@/services/mentor.service";
+
+import type { MentorApiResponse } from "@/services/mentor.service";
 
 import FAQHeader from "@/components/mentor-dashboard/faq/FAQHeader";
 import FAQToolbar from "@/components/mentor-dashboard/faq/FAQToolbar";
@@ -17,19 +24,23 @@ import FAQFormModal from "@/components/mentor-dashboard/faq/FAQFormModal";
 import DeleteFAQDialog from "@/components/mentor-dashboard/faq/DeleteFAQDialog";
 
 const FAQ = () => {
-  const mentorId = 1;
+  const [mentor, setMentor] =
+    useState<MentorApiResponse | null>(null);
 
-  const mentor = mentors.find(
-    (item) => item.id === mentorId
-  );
+  const [faqData, setFaqData] =
+    useState<FAQType[]>([]);
+
+  const [loading, setLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState("");
 
   const [search, setSearch] =
     useState("");
 
   const [view, setView] =
-    useState<"grid" | "list">(
-      "grid"
-    );
+    useState<"grid" | "list">("grid");
 
   const [isFormOpen, setIsFormOpen] =
     useState(false);
@@ -40,23 +51,104 @@ const FAQ = () => {
   const [isDeleteOpen, setIsDeleteOpen] =
     useState(false);
 
-  if (!mentor) return null;
+  /*
+   * Load logged-in mentor FAQs
+   */
+  useEffect(() => {
+    const loadFAQs = async () => {
+      try {
+        setLoading(true);
+        setError("");
 
-  const faqData: FAQType[] =
-    mentor.faqs.map(
-      (
-        faq,
-        index
-      ) => ({
-        id: String(index + 1),
+        const storedUser =
+          localStorage.getItem("authUser");
 
-        question:
-          faq.question,
+        if (!storedUser) {
+          setError(
+            "Logged-in user information not found."
+          );
+          return;
+        }
 
-        answer:
-          faq.answer,
-      })
-    );
+        const user = JSON.parse(storedUser);
+
+        if (!user?.id) {
+          setError("User ID not found.");
+          return;
+        }
+
+        const response =
+          await getMentorByUserId(user.id);
+
+        if (
+          !response?.success ||
+          !response?.data
+        ) {
+          setError(
+            "Mentor profile not found."
+          );
+          return;
+        }
+
+        const mentorData =
+          response.data;
+
+        setMentor(mentorData);
+
+        const normalizedFAQs =
+          (mentorData.faqs || [])
+            .map(
+              (
+                item: any,
+                index: number
+              ) => ({
+                id:
+                  item?.id ||
+                  item?._id ||
+                  String(index + 1),
+
+                question:
+                  typeof item === "object"
+                    ? String(
+                        item?.question || ""
+                      )
+                    : "",
+
+                answer:
+                  typeof item === "object"
+                    ? String(
+                        item?.answer || ""
+                      )
+                    : "",
+              })
+            )
+            .filter(
+              (item) =>
+                item.question.trim() !== "" &&
+                item.answer.trim() !== ""
+            );
+
+        setFaqData(
+          normalizedFAQs
+        );
+      } catch (error: any) {
+        console.error(
+          "Failed to load mentor FAQs:",
+          error
+        );
+
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "Failed to load FAQs."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadFAQs();
+  }, []);
 
   const filteredFAQs =
     useMemo(() => {
@@ -97,30 +189,263 @@ const FAQ = () => {
       setIsDeleteOpen(true);
     };
 
+  /*
+   * Create / Update FAQ
+   */
   const handleSaveFAQ =
-    (
+    async (
       faq: FAQType
     ) => {
-      console.log(
-        "Save FAQ",
-        faq
-      );
+      if (!mentor?.id) {
+        setError(
+          "Mentor ID not found."
+        );
+        return;
+      }
 
-      setIsFormOpen(false);
+      try {
+        setError("");
+
+        /*
+         * Create
+         */
+        if (!faq.id) {
+          const response =
+            await addMentorFAQ(
+              mentor.id,
+              {
+                question:
+                  faq.question,
+                answer:
+                  faq.answer,
+              }
+            );
+
+          if (
+            !response?.success ||
+            !response?.data
+          ) {
+            setError(
+              "Failed to create FAQ."
+            );
+            return;
+          }
+
+          const updatedMentor =
+            response.data;
+
+          const updatedFAQs =
+            (updatedMentor.faqs || [])
+              .map(
+                (
+                  item: any,
+                  index: number
+                ) => ({
+                  id:
+                    item?.id ||
+                    item?._id ||
+                    String(index + 1),
+
+                  question:
+                    String(
+                      item?.question || ""
+                    ),
+
+                  answer:
+                    String(
+                      item?.answer || ""
+                    ),
+                })
+              )
+              .filter(
+                (item) =>
+                  item.question.trim() !== "" &&
+                  item.answer.trim() !== ""
+              );
+
+          setFaqData(
+            updatedFAQs
+          );
+        }
+
+        /*
+         * Update
+         */
+        else {
+          const response =
+            await updateMentorFAQ(
+              mentor.id,
+              faq.id,
+              {
+                question:
+                  faq.question,
+                answer:
+                  faq.answer,
+              }
+            );
+
+          if (
+            !response?.success
+          ) {
+            setError(
+              "Failed to update FAQ."
+            );
+            return;
+          }
+
+          setFaqData(
+            (current) =>
+              current.map(
+                (item) =>
+                  item.id ===
+                  faq.id
+                    ? faq
+                    : item
+              )
+          );
+        }
+
+        setIsFormOpen(false);
+        setSelectedFAQ(null);
+      } catch (error: any) {
+        console.error(
+          "Failed to save FAQ:",
+          error
+        );
+
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "Failed to save FAQ."
+        );
+      }
     };
 
+  /*
+   * Delete FAQ
+   */
   const confirmDelete =
-    () => {
-      console.log(
-        "Delete FAQ",
-        selectedFAQ
-      );
+    async () => {
+      if (
+        !mentor?.id ||
+        !selectedFAQ?.id
+      ) {
+        return;
+      }
 
-      setIsDeleteOpen(false);
+      try {
+        setError("");
+
+        const response =
+          await deleteMentorFAQ(
+            mentor.id,
+            selectedFAQ.id
+          );
+
+        if (
+          !response?.success
+        ) {
+          setError(
+            "Failed to delete FAQ."
+          );
+          return;
+        }
+
+        setFaqData(
+          (current) =>
+            current.filter(
+              (item) =>
+                item.id !==
+                selectedFAQ.id
+            )
+        );
+
+        setIsDeleteOpen(false);
+        setSelectedFAQ(null);
+      } catch (error: any) {
+        console.error(
+          "Failed to delete FAQ:",
+          error
+        );
+
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "Failed to delete FAQ."
+        );
+      }
     };
+
+  if (loading) {
+    return (
+      <div
+        className="
+          bg-white
+          border
+          rounded-3xl
+          p-10
+          text-center
+        "
+      >
+        <p className="text-slate-500">
+          Loading FAQs...
+        </p>
+      </div>
+    );
+  }
+
+  if (error && !mentor) {
+    return (
+      <div
+        className="
+          bg-white
+          border
+          rounded-3xl
+          p-10
+          text-center
+        "
+      >
+        <h2
+          className="
+            text-3xl
+            font-bold
+          "
+        >
+          Unable to Load FAQs
+        </h2>
+
+        <p
+          className="
+            text-slate-500
+            mt-3
+          "
+        >
+          {error}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
+      {/* API Error */}
+
+      {error && (
+        <div
+          className="
+            bg-red-50
+            border
+            border-red-200
+            text-red-700
+            rounded-2xl
+            p-4
+          "
+        >
+          {error}
+        </div>
+      )}
+
+      {/* Header */}
 
       <FAQHeader
         totalFAQs={
@@ -131,12 +456,16 @@ const FAQ = () => {
         }
       />
 
+      {/* Toolbar */}
+
       <FAQToolbar
         search={search}
         setSearch={setSearch}
         view={view}
         setView={setView}
       />
+
+      {/* Empty State */}
 
       {filteredFAQs.length ===
       0 ? (
@@ -147,6 +476,8 @@ const FAQ = () => {
         />
       ) : (
         <>
+          {/* Grid */}
+
           {view === "grid" && (
             <div
               className="
@@ -172,9 +503,10 @@ const FAQ = () => {
             </div>
           )}
 
+          {/* List */}
+
           {view === "list" && (
             <div className="space-y-6">
-
               {filteredFAQs.map(
                 (faq) => (
                   <FAQListCard
@@ -189,11 +521,12 @@ const FAQ = () => {
                   />
                 )
               )}
-
             </div>
           )}
         </>
       )}
+
+      {/* Create / Edit Modal */}
 
       <FAQFormModal
         open={isFormOpen}
@@ -206,6 +539,8 @@ const FAQ = () => {
         }
       />
 
+      {/* Delete Dialog */}
+
       <DeleteFAQDialog
         open={isDeleteOpen}
         faq={selectedFAQ}
@@ -216,7 +551,6 @@ const FAQ = () => {
           confirmDelete
         }
       />
-
     </div>
   );
 };

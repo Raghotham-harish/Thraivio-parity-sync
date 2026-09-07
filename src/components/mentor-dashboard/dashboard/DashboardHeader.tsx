@@ -12,6 +12,38 @@ interface Props {
 const DashboardHeader = ({
   mentor,
 }: Props) => {
+  const name =
+    mentor?.name ??
+    mentor?.fullName ??
+    "Mentor";
+
+  const image =
+    mentor?.image ??
+    mentor?.avatar ??
+    "";
+
+  const role =
+    mentor?.role ??
+    mentor?.headline ??
+    "Mentor";
+
+  const rating =
+    mentor?.rating ??
+    mentor?.analytics?.averageRating ??
+    0;
+
+  const students =
+    mentor?.studentsCoached ??
+    mentor?.totalStudents ??
+    mentor?.analytics?.totalStudents ??
+    0;
+
+  const sessions =
+    mentor?.sessionsCompleted ??
+    mentor?.totalSessions ??
+    mentor?.analytics?.totalSessions ??
+    0;
+
   return (
     <div
       className="
@@ -26,8 +58,6 @@ const DashboardHeader = ({
         text-white
       "
     >
-      {/* Background Blur */}
-
       <div
         className="
           absolute
@@ -64,8 +94,6 @@ const DashboardHeader = ({
           gap-8
         "
       >
-        {/* Left */}
-
         <div
           className="
             flex
@@ -73,21 +101,42 @@ const DashboardHeader = ({
             gap-6
           "
         >
-          <img
-            src={mentor.image}
-            alt={mentor.name}
-            className="
-              h-24
-              w-24
-              rounded-full
-              object-cover
-              border-4
-              border-white/30
-            "
-          />
+          {image ? (
+            <img
+              src={image}
+              alt={name}
+              className="
+                h-24
+                w-24
+                rounded-full
+                object-cover
+                border-4
+                border-white/30
+              "
+            />
+          ) : (
+            <div
+              className="
+                h-24
+                w-24
+                rounded-full
+                bg-white/20
+                border-4
+                border-white/30
+                flex
+                items-center
+                justify-center
+                text-3xl
+                font-bold
+              "
+            >
+              {name
+                .charAt(0)
+                .toUpperCase()}
+            </div>
+          )}
 
           <div>
-
             <div
               className="
                 flex
@@ -119,7 +168,7 @@ const DashboardHeader = ({
                 mt-2
               "
             >
-              {mentor.name}
+              {name}
             </h2>
 
             <p
@@ -128,7 +177,7 @@ const DashboardHeader = ({
                 mt-2
               "
             >
-              {mentor.role}
+              {role}
             </p>
 
             <p
@@ -138,13 +187,11 @@ const DashboardHeader = ({
                 mt-1
               "
             >
-              {mentor.company}
+              {mentor?.company ??
+                "Independent Mentor"}
             </p>
-
           </div>
         </div>
-
-        {/* Right Stats */}
 
         <div
           className="
@@ -183,7 +230,7 @@ const DashboardHeader = ({
                 mt-3
               "
             >
-              {mentor.rating}
+              {Number(rating).toFixed(1)}
             </h3>
           </div>
 
@@ -217,7 +264,7 @@ const DashboardHeader = ({
                 mt-3
               "
             >
-              {mentor.studentsCoached}
+              {Number(students)}
             </h3>
           </div>
 
@@ -253,10 +300,9 @@ const DashboardHeader = ({
                 mt-3
               "
             >
-              {mentor.sessionsCompleted}
+              {Number(sessions)}
             </h3>
           </div>
-
         </div>
       </div>
     </div>

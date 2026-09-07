@@ -1,5 +1,19 @@
-import { useParams } from "react-router-dom";
+import {
+  useEffect,
+  useState,
+} from "react";
+
+import {
+  useParams,
+} from "react-router-dom";
+
 import { mentors } from "@/data/mentors";
+
+import {
+  getMentorBySlug,
+  incrementMentorProfileView,
+  type MentorApiResponse,
+} from "@/services/mentor.service";
 
 import MentorProfileHero from "@/components/mentor-profile/MentorProfileHero";
 import MentorAbout from "@/components/mentor-profile/MentorAbout";
@@ -19,11 +33,103 @@ import MentorFinalCTA from "@/components/mentor-profile/MentorFinalCTA";
 const MentorProfilePage = () => {
   const { id } = useParams();
 
-  const mentor = mentors.find(
+  const hardcodedMentor = mentors.find(
     (item) => item.id === Number(id)
   );
 
-  if (!mentor) {
+  const [
+    mentor,
+    setMentor,
+  ] = useState<MentorApiResponse | null>(
+    null
+  );
+
+  const [
+    isLoading,
+    setIsLoading,
+  ] = useState(true);
+
+  const [
+    error,
+    setError,
+  ] = useState("");
+
+  useEffect(() => {
+    const fetchMentor = async () => {
+      if (!id) {
+        setError(
+          "Mentor ID is missing."
+        );
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        setIsLoading(true);
+        setError("");
+
+        const response =
+  await getMentorBySlug(id);
+
+        setMentor(
+          response.data
+        );
+
+        /*
+         * Register a profile view after
+         * successfully loading the mentor.
+         *
+         * Failure here should not prevent
+         * the profile from being displayed.
+         */
+        try {
+          await incrementMentorProfileView(
+  response.data.id
+);
+        } catch (viewError) {
+          console.error(
+            "Failed to increment mentor profile view:",
+            viewError
+          );
+        }
+      } catch (err) {
+        console.error(
+          "Failed to fetch mentor:",
+          err
+        );
+
+        setError(
+          "Failed to load mentor profile."
+        );
+
+        setMentor(null);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchMentor();
+  }, [id]);
+
+  if (isLoading) {
+    return (
+      <div className="py-32 text-center">
+        <div className="text-5xl mb-4">
+          ⏳
+        </div>
+
+        <h1 className="text-3xl font-bold">
+          Loading Mentor Profile...
+        </h1>
+
+        <p className="mt-4 text-slate-500">
+          Please wait while we load the mentor details.
+        </p>
+      </div>
+    );
+  }
+
+  if (error || !mentor) {
     return (
       <div className="py-32 text-center">
         <h1 className="text-4xl font-bold">
@@ -31,7 +137,8 @@ const MentorProfilePage = () => {
         </h1>
 
         <p className="mt-4 text-slate-500">
-          The mentor profile you're looking for does not exist.
+          {error ||
+            "The mentor profile you're looking for does not exist."}
         </p>
       </div>
     );
@@ -39,33 +146,86 @@ const MentorProfilePage = () => {
 
   return (
     <div>
+      {/* Backend integrated sections */}
 
-      <MentorProfileHero mentor={mentor} />
+      <MentorProfileHero
+        mentor={mentor}
+      />
 
-      <MentorAbout mentor={mentor} />
+      <MentorAbout
+        mentor={mentor}
+      />
 
-      <MentorSkills mentor={mentor} />
+      <MentorSkills
+        mentor={mentor}
+      />
 
-      <MentorExperience mentor={mentor} />
+      <MentorExperience
+        mentor={mentor}
+      />
 
-      <MentorAvailability mentor={mentor} />
+      <MentorAvailability
+        mentor={mentor}
+      />
 
-      <MentorPricing mentor={mentor} />
+      <MentorPricing
+        mentor={mentor}
+      />
 
-      <MentorPrograms mentor={mentor} />
+      {/* Programs remain hardcoded for now */}
 
-      <MentorEvents mentor={mentor} />
+      {hardcodedMentor && (
+        <MentorPrograms
+          mentor={hardcodedMentor}
+        />
+      )}
 
-      <MentorVideos mentor={mentor} />
+      {/* Events remain hardcoded for now */}
 
-      <MentorCertifications mentor={mentor} />
+      {hardcodedMentor && (
+        <MentorEvents
+          mentor={hardcodedMentor}
+        />
+      )}
 
-      <MentorReviews mentor={mentor} />
+      {/* Videos */}
 
-      <MentorFAQ />
+      <MentorVideos
+        mentor={mentor}
+      />
 
-      <MentorFinalCTA mentor={mentor} />
+      {/* Certifications remain hardcoded for now */}
 
+      {hardcodedMentor && (
+        <MentorCertifications
+          mentor={hardcodedMentor}
+        />
+      )}
+
+      {/* Reviews */}
+
+      <MentorReviews
+  mentor={{
+    rating: mentor.averageRating,
+    reviewsCount: mentor.totalReviews,
+    testimonials: hardcodedMentor?.testimonials ?? [],
+  }}
+/>
+
+      {/* FAQ */}
+
+      <MentorFAQ mentor={mentor} />
+
+      {/* Final CTA */}
+
+      <MentorFinalCTA
+  mentor={{
+    bookingLink: hardcodedMentor?.bookingLink ?? "#",
+    rating: mentor.averageRating,
+    reviewsCount: mentor.totalReviews,
+    studentsCoached: mentor.totalStudents,
+  }}
+/>
     </div>
   );
 };

@@ -12,6 +12,10 @@ interface MentorsGridProps {
   onReject: (mentor: AdminMentor) => void;
 
   onVerify: (mentor: AdminMentor) => void;
+
+  onFeature: (mentor: AdminMentor) => void;
+
+  onUnfeature: (mentor: AdminMentor) => void;
 }
 
 export default function MentorsGrid({
@@ -20,6 +24,8 @@ export default function MentorsGrid({
   onApprove,
   onReject,
   onVerify,
+  onFeature,
+  onUnfeature
 }: MentorsGridProps) {
   return (
     <section
@@ -39,6 +45,8 @@ export default function MentorsGrid({
           onApprove={onApprove}
           onReject={onReject}
           onVerify={onVerify}
+          onFeature={onFeature}
+          onUnfeature={onUnfeature}
         />
       ))}
     </section>

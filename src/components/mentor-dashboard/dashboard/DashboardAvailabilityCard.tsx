@@ -8,73 +8,74 @@ interface Props {
   mentor: any;
 }
 
-const DashboardAvailabilityCard =
-  ({
-    mentor,
-  }: Props) => {
-    const availability =
-      mentor.availability.slice(
-        0,
-        4
-      );
+const DashboardAvailabilityCard = ({
+  mentor,
+}: Props) => {
+  const availability =
+    Array.isArray(mentor?.availability)
+      ? mentor.availability.slice(0, 4)
+      : [];
 
-    return (
+  return (
+    <div
+      className="
+        bg-white
+        border
+        rounded-3xl
+        p-6
+        shadow-sm
+      "
+    >
       <div
         className="
-          bg-white
-          border
-          rounded-3xl
-          p-6
-          shadow-sm
+          flex
+          items-center
+          justify-between
+          mb-6
         "
       >
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-            mb-6
-          "
-        >
-          <div>
-
-            <h3
-              className="
-                text-xl
-                font-bold
-              "
-            >
-              Availability
-            </h3>
-
-            <p
-              className="
-                text-sm
-                text-slate-500
-                mt-1
-              "
-            >
-              Upcoming available slots
-            </p>
-
-          </div>
-
-          <CalendarDays
+        <div>
+          <h3
             className="
-              text-blue-600
+              text-xl
+              font-bold
             "
-          />
+          >
+            Availability
+          </h3>
+
+          <p
+            className="
+              text-sm
+              text-slate-500
+              mt-1
+            "
+          >
+            Upcoming available slots
+          </p>
         </div>
 
-        <div className="space-y-4">
+        <CalendarDays
+          className="
+            text-blue-600
+          "
+        />
+      </div>
 
-          {availability.map(
-            (
-              item: any,
-              index: number
-            ) => (
+      <div className="space-y-4">
+        {availability.map(
+          (
+            item: any,
+            index: number
+          ) => {
+            const slots =
+              Array.isArray(item?.slots)
+                ? item.slots.slice(0, 3)
+                : [];
+
+            return (
               <div
-                key={index}
+                key={`${item?.day ?? "day"}-${index}`}
                 className="
                   border
                   rounded-2xl
@@ -93,7 +94,8 @@ const DashboardAvailabilityCard =
                       font-semibold
                     "
                   >
-                    {item.date}
+                    {item?.day ??
+                      "Unknown Day"}
                   </h4>
 
                   <span
@@ -106,10 +108,8 @@ const DashboardAvailabilityCard =
                       rounded-full
                     "
                   >
-                    {
-                      item.slots
-                        .length
-                    }{" "}
+                    {item?.slots?.length ??
+                      0}{" "}
                     Slots
                   </span>
                 </div>
@@ -122,52 +122,57 @@ const DashboardAvailabilityCard =
                     mt-3
                   "
                 >
-                  {item.slots
-                    .slice(0, 3)
-                    .map(
-                      (
-                        slot: string
-                      ) => (
-                        <div
-                          key={slot}
-                          className="
-                            flex
-                            items-center
-                            gap-1
-                            bg-slate-100
-                            px-3
-                            py-1
-                            rounded-full
-                            text-xs
-                          "
-                        >
-                          <Clock3 size={12} />
-                          {slot}
-                        </div>
-                      )
-                    )}
+                  {slots.map(
+                    (
+                      slot: any,
+                      slotIndex: number
+                    ) => (
+                      <div
+                        key={`${item?.day}-${slot?.start ?? "start"}-${slot?.end ?? "end"}-${slotIndex}`}
+                        className="
+                          flex
+                          items-center
+                          gap-1
+                          bg-slate-100
+                          px-3
+                          py-1
+                          rounded-full
+                          text-xs
+                        "
+                      >
+                        <Clock3 size={12} />
+
+                        {slot?.start ??
+                          "--:--"}
+
+                        {" - "}
+
+                        {slot?.end ??
+                          "--:--"}
+                      </div>
+                    )
+                  )}
                 </div>
               </div>
-            )
-          )}
-
-        </div>
-
-        <Link
-          to="/mentor-dashboard/availability"
-          className="
-            block
-            text-center
-            mt-6
-            text-blue-600
-            font-medium
-          "
-        >
-          Manage Availability
-        </Link>
+            );
+          }
+        )}
       </div>
-    );
-  };
 
-export default
-DashboardAvailabilityCard;
+      <Link
+        to="/mentor-dashboard/availability"
+        className="
+          block
+          text-center
+          mt-6
+          text-blue-600
+          font-medium
+        "
+      >
+        Manage Availability
+      </Link>
+    </div>
+  );
+};
+
+export default DashboardAvailabilityCard;

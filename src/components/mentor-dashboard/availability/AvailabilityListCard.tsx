@@ -50,7 +50,7 @@ const AvailabilityListCard = ({
           xl:flex-row
         "
       >
-        {/* Left Date */}
+        {/* Left Day */}
 
         <div
           className="
@@ -82,7 +82,7 @@ const AvailabilityListCard = ({
               mt-4
             "
           >
-            {availability.date}
+            {availability.day}
           </h2>
 
           <p className="mt-2 opacity-90">
@@ -110,12 +110,8 @@ const AvailabilityListCard = ({
             "
           >
             <div>
-
               <span
-                className="
-                  bg-green-100
-                  text-green-700
-
+                className={`
                   px-3
                   py-1
 
@@ -123,9 +119,17 @@ const AvailabilityListCard = ({
 
                   text-xs
                   font-semibold
-                "
+
+                  ${
+                    availability.enabled
+                      ? "bg-green-100 text-green-700"
+                      : "bg-slate-100 text-slate-600"
+                  }
+                `}
               >
-                🟢 Available
+                {availability.enabled
+                  ? "🟢 Available"
+                  : "⚪ Disabled"}
               </span>
 
               <h2
@@ -136,13 +140,11 @@ const AvailabilityListCard = ({
                   mt-4
                 "
               >
-                {availability.date}
+                {availability.day}
               </h2>
-
             </div>
 
             <div>
-
               <span
                 className="
                   bg-blue-50
@@ -161,15 +163,12 @@ const AvailabilityListCard = ({
                 {" "}
                 Slots
               </span>
-
             </div>
-
           </div>
 
           {/* Slots */}
 
           <div className="mt-8">
-
             <div
               className="
                 flex
@@ -194,9 +193,9 @@ const AvailabilityListCard = ({
               "
             >
               {availability.slots.map(
-                (slot) => (
+                (slot, index) => (
                   <span
-                    key={slot}
+                    key={`${slot.start}-${slot.end}-${index}`}
                     className="
                       bg-blue-50
                       text-blue-700
@@ -209,12 +208,11 @@ const AvailabilityListCard = ({
                       text-sm
                     "
                   >
-                    {slot}
+                    {slot.start} - {slot.end}
                   </span>
                 )
               )}
             </div>
-
           </div>
 
           {/* Footer */}
@@ -261,7 +259,6 @@ const AvailabilityListCard = ({
                 {" "}
                 Slots
               </p>
-
             </div>
 
             <div
@@ -328,13 +325,9 @@ const AvailabilityListCard = ({
                 <Trash2 size={18} />
                 Delete
               </button>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
     </div>
   );

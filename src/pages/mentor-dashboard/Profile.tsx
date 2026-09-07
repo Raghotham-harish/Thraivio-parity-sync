@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { mentors } from "@/data/mentors";
 
 import ProfileHeader from "@/components/mentor-dashboard/profile/ProfileHeader";
@@ -14,14 +15,96 @@ import CertificationsPreviewCard from "@/components/mentor-dashboard/profile/Cer
 import ProgramsPreviewCard from "@/components/mentor-dashboard/profile/ProgramsPreviewCard";
 import EventsPreviewCard from "@/components/mentor-dashboard/profile/EventsPreviewCard";
 
-const Profile = () => {
-  const mentorId = 1;
+import {
+  getMentorByUserId,
+} from "@/services/mentor.service";
 
-  const mentor = mentors.find(
-    (item) => item.id === mentorId
+import type {
+  MentorApiResponse,
+} from "@/services/mentor.service";
+
+const Profile = () => {
+  const staticMentor = mentors.find(
+    (item) => item.id === 1
   );
 
-  if (!mentor) {
+  const [mentor, setMentor] =
+    useState<MentorApiResponse | null>(null);
+
+  const [loading, setLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState("");
+
+  useEffect(() => {
+    const loadMentorProfile =
+      async () => {
+        try {
+          setLoading(true);
+          setError("");
+
+          const storedUser =
+            localStorage.getItem(
+              "authUser"
+            );
+
+          if (!storedUser) {
+            setError(
+              "Logged-in user information not found."
+            );
+            return;
+          }
+
+          const user = JSON.parse(
+            storedUser
+          );
+
+          if (!user?.id) {
+            setError(
+              "User ID not found."
+            );
+            return;
+          }
+
+          const response =
+            await getMentorByUserId(
+              user.id
+            );
+
+          if (
+            !response?.success ||
+            !response?.data
+          ) {
+            setError(
+              "Mentor profile not found."
+            );
+            return;
+          }
+
+          setMentor(
+            response.data
+          );
+        } catch (error: any) {
+          console.error(
+            "Failed to load mentor profile:",
+            error
+          );
+
+          setError(
+            error?.response?.data?.message ||
+              error?.message ||
+              "Unable to load mentor profile."
+          );
+        } finally {
+          setLoading(false);
+        }
+      };
+
+    loadMentorProfile();
+  }, []);
+
+  if (loading) {
     return (
       <div
         className="
@@ -32,7 +115,41 @@ const Profile = () => {
           text-center
         "
       >
-        Mentor Not Found
+        Loading mentor profile...
+      </div>
+    );
+  }
+
+  if (error || !mentor) {
+    return (
+      <div
+        className="
+          bg-white
+          border
+          rounded-3xl
+          p-10
+          text-center
+        "
+      >
+        <h2
+          className="
+            text-2xl
+            font-bold
+            text-slate-900
+          "
+        >
+          Mentor Profile Not Found
+        </h2>
+
+        <p
+          className="
+            mt-3
+            text-slate-500
+          "
+        >
+          {error ||
+            "Unable to load mentor information."}
+        </p>
       </div>
     );
   }
@@ -41,7 +158,9 @@ const Profile = () => {
     <div className="space-y-8">
 
       <ProfileHeader
-        mentorName={mentor.name}
+        mentorName={
+          mentor.company || "Mentor"
+        }
       />
 
       <ProfileOverviewCard
@@ -53,46 +172,51 @@ const Profile = () => {
       />
 
       <ExpertiseCard
-        expertise={
-          mentor.expertise
-        }
+        expertise={mentor.expertise}
       />
 
       <CompaniesCard
         companies={
-          mentor.companiesWorked
+          mentor.companiesWorked || []
         }
       />
 
       <LanguagesCard
-        languages={
-          mentor.languages
-        }
+        languages={mentor.languages}
       />
 
       <AchievementsPreviewCard
-        achievements={
-          mentor.achievements
-        }
-      />
+  achievements={
+    mentor.achievements.map((item) =>
+      typeof item === "string"
+        ? item
+        : String(
+            (item as any)?.title ||
+            (item as any)?.name ||
+            (item as any)?.achievement ||
+            ""
+          )
+    )
+  }
+/>
 
       <CertificationsPreviewCard
-        certifications={
-          mentor.certifications
-        }
-      />
+  certifications={
+    staticMentor?.certifications || []
+  }
+/>
 
       <ProgramsPreviewCard
-        programs={
-          mentor.programs
-        }
-      />
+  programs={
+    staticMentor?.programs || []
+  }
+/>
 
       <EventsPreviewCard
-        events={
-          mentor.events
-        }
-      />
+  events={
+    staticMentor?.events || []
+  }
+/>
 
     </div>
   );

@@ -24,6 +24,10 @@ interface MentorGridCardProps {
   onReject: (mentor: AdminMentor) => void;
 
   onVerify: (mentor: AdminMentor) => void;
+
+  onFeature: (mentor: AdminMentor) => void;
+
+  onUnfeature: (mentor: AdminMentor) => void;
 }
 
 export default function MentorGridCard({
@@ -32,6 +36,8 @@ export default function MentorGridCard({
   onApprove,
   onReject,
   onVerify,
+  onFeature,
+  onUnfeature
 }: MentorGridCardProps) {
   return (
     <div className="group overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
@@ -345,6 +351,28 @@ export default function MentorGridCard({
               Reject
 
             </button>
+
+            {mentor.featured ? (
+  <button
+    type="button"
+    onClick={() => onUnfeature(mentor)}
+    className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 font-medium text-amber-700 transition hover:bg-amber-100"
+  >
+    <Star className="h-4 w-4 fill-current" />
+
+    Unfeature
+  </button>
+) : (
+  <button
+    type="button"
+    onClick={() => onFeature(mentor)}
+    className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 font-medium text-amber-700 transition hover:bg-amber-100"
+  >
+    <Star className="h-4 w-4" />
+
+    Feature
+  </button>
+)}
 
           </div>
 

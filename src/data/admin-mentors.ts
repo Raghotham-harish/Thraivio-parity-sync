@@ -60,6 +60,8 @@ export const mentors: AdminMentor[] = [
 
     featured: true,
 
+    published: true,
+
     available: true,
 
     joinedAt: "2023-02-18",
@@ -151,6 +153,8 @@ export const mentors: AdminMentor[] = [
 
     featured: false,
 
+    published: true,
+
     available: true,
 
     joinedAt: "2023-07-11",
@@ -241,6 +245,8 @@ export const mentors: AdminMentor[] = [
     verification: "pending",
 
     featured: false,
+
+    published: false,
 
     available: false,
 

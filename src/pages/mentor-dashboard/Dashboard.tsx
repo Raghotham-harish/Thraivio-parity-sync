@@ -1,4 +1,13 @@
-import { mentors } from "@/data/mentors";
+import { useEffect, useState } from "react";
+
+import {
+  getMentorByUserId,
+  updateMentorLastActive,
+} from "@/services/mentor.service";
+
+import type {
+  MentorApiResponse,
+} from "@/services/mentor.service";
 
 import DashboardHeader from "@/components/mentor-dashboard/dashboard/DashboardHeader";
 import DashboardStats from "@/components/mentor-dashboard/dashboard/DashboardStats";
@@ -20,50 +29,137 @@ import DashboardQuickActions from "@/components/mentor-dashboard/dashboard/Dashb
 import DashboardProfileCompletion from "@/components/mentor-dashboard/dashboard/DashboardProfileCompletion";
 
 const Dashboard = () => {
-  /**
+  /* ------------------------------
    * Temporary
    *
    * Future:
    * Logged In Mentor
    */
 
-  const mentorId = 1;
+  const [mentor, setMentor] =
+  useState<MentorApiResponse | null>(null);
 
-  const mentor = mentors.find(
-    (item) => item.id === mentorId
+const [loading, setLoading] =
+  useState(true);
+
+const [error, setError] =
+  useState("");
+
+useEffect(() => {
+  const loadMentor = async () => {
+    try {
+      setLoading(true);
+      setError("");
+
+      const storedUser =
+        localStorage.getItem("authUser");
+
+      if (!storedUser) {
+        setError(
+          "Logged-in user information not found."
+        );
+        return;
+      }
+
+      const user =
+        JSON.parse(storedUser);
+
+      if (!user?.id) {
+        setError("User ID not found.");
+        return;
+      }
+
+      const response =
+  await getMentorByUserId(user.id);
+
+if (
+  !response?.success ||
+  !response?.data
+) {
+  setError(
+    "Mentor profile not found."
   );
+  return;
+}
 
-  if (!mentor) {
-    return (
-      <div
+setMentor(response.data);
+
+try {
+  await updateMentorLastActive(response.data.id);
+} catch (error) {
+  console.error(
+    "Failed to update mentor last active:",
+    error
+  );
+}
+    } catch (error: any) {
+      console.error(
+        "Failed to load mentor dashboard:",
+        error
+      );
+
+      setError(
+        error?.response?.data?.message ||
+          error?.message ||
+          "Failed to load mentor dashboard."
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  loadMentor();
+}, []);
+
+  if (loading) {
+  return (
+    <div
+      className="
+        bg-white
+        border
+        rounded-3xl
+        p-10
+        text-center
+      "
+    >
+      <p className="text-slate-500">
+        Loading mentor dashboard...
+      </p>
+    </div>
+  );
+}
+
+if (error || !mentor) {
+  return (
+    <div
+      className="
+        bg-white
+        border
+        rounded-3xl
+        p-10
+        text-center
+      "
+    >
+      <h2
         className="
-          bg-white
-          border
-          rounded-3xl
-          p-10
-          text-center
+          text-3xl
+          font-bold
         "
       >
-        <h2
-          className="
-            text-3xl
-            font-bold
-          "
-        >
-          Mentor Not Found
-        </h2>
+        Unable to Load Mentor Dashboard
+      </h2>
 
-        <p
-          className="
-            text-slate-500
-            mt-3
-          "
-        >
-          Unable to load mentor dashboard.
-        </p>
-      </div>
-    );
-  }
+      <p
+        className="
+          text-slate-500
+          mt-3
+        "
+      >
+        {error || "Mentor profile not found."}
+      </p>
+    </div>
+  );
+}
 
   return (
     <div className="space-y-8">

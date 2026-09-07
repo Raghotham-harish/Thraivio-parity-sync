@@ -72,6 +72,8 @@ export interface AdminMentor {
   verification: VerificationStatus;
 
   featured: boolean;
+  
+  published: boolean;
 
   available: boolean;
 

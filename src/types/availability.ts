@@ -1,7 +1,11 @@
+export interface AvailabilitySlot {
+  start: string;
+  end: string;
+}
+
 export interface Availability {
   id?: string;
-
-  date: string;
-
-  slots: string[];
+  day: string;
+  enabled: boolean;
+  slots: AvailabilitySlot[];
 }

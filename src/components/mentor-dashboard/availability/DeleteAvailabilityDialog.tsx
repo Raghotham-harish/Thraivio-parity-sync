@@ -134,7 +134,7 @@ const DeleteAvailabilityDialog = ({
 
               <div className="text-left">
                 <h3 className="font-semibold">
-                  {availability.date}
+                  {availability.day}
                 </h3>
 
                 <p
@@ -150,7 +150,6 @@ const DeleteAvailabilityDialog = ({
                   Slots
                 </p>
               </div>
-
             </div>
           </div>
 
@@ -164,7 +163,6 @@ const DeleteAvailabilityDialog = ({
           >
             This action cannot be undone.
           </p>
-
         </div>
 
         {/* Footer */}
@@ -213,7 +211,6 @@ const DeleteAvailabilityDialog = ({
             Delete
           </button>
         </div>
-
       </div>
     </div>
   );

@@ -8,47 +8,47 @@ interface Props {
 const DashboardPricingCard = ({
   mentor,
 }: Props) => {
+  const pricing =
+    mentor?.pricing ?? {};
+
+  const sessionDuration =
+    mentor?.sessionDuration ?? {};
+
   const plans = [
     {
       title: "Intro Call",
       price:
-        mentor.pricing.introCall,
+        pricing?.introCall ?? 0,
       duration:
-        mentor.sessionDuration
-          .introCall,
+        sessionDuration?.introCall ??
+        0,
     },
 
     {
-      title:
-        "Mentorship Call",
+      title: "Mentorship Call",
       price:
-        mentor.pricing
-          .mentorshipCall,
+        pricing?.mentorshipCall ?? 0,
       duration:
-        mentor.sessionDuration
-          .mentorshipCall,
+        sessionDuration?.mentorshipCall ??
+        0,
     },
 
     {
-      title:
-        "Mock Interview",
+      title: "Mock Interview",
       price:
-        mentor.pricing
-          .mockInterview,
+        pricing?.mockInterview ?? 0,
       duration:
-        mentor.sessionDuration
-          .mockInterview,
+        sessionDuration?.mockInterview ??
+        0,
     },
 
     {
-      title:
-        "Monthly Program",
+      title: "Monthly Program",
       price:
-        mentor.pricing
-          .monthlyProgram,
+        pricing?.monthlyProgram ?? 0,
       duration:
-        mentor.sessionDuration
-          .monthlyProgram,
+        sessionDuration?.monthlyProgram ??
+        0,
     },
   ];
 
@@ -113,7 +113,11 @@ const DashboardPricingCard = ({
               "
             >
               <div>
-                <h4 className="font-semibold">
+                <h4
+                  className="
+                    font-semibold
+                  "
+                >
                   {plan.title}
                 </h4>
 
@@ -124,7 +128,7 @@ const DashboardPricingCard = ({
                     mt-1
                   "
                 >
-                  {plan.duration}
+                  {plan.duration} minutes
                 </p>
               </div>
 

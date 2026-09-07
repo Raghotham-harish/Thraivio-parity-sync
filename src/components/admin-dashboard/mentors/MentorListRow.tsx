@@ -18,6 +18,10 @@ interface MentorListRowProps {
   onReject: (mentor: AdminMentor) => void;
 
   onVerify: (mentor: AdminMentor) => void;
+
+  onFeature: (mentor: AdminMentor) => void;
+
+  onUnfeature: (mentor: AdminMentor) => void;
 }
 
 export default function MentorListRow({
@@ -26,6 +30,8 @@ export default function MentorListRow({
   onApprove,
   onReject,
   onVerify,
+  onFeature,
+  onUnfeature
 }: MentorListRowProps) {
   return (
     <div className="grid grid-cols-[2.5fr_0.8fr_0.9fr_0.9fr_0.9fr_1fr_1.3fr] items-center gap-6 border-b border-slate-200 px-6 py-5 transition hover:bg-slate-50">
@@ -157,6 +163,25 @@ export default function MentorListRow({
         >
           <XCircle className="h-4 w-4 text-red-700" />
         </button>
+        {mentor.featured ? (
+  <button
+    type="button"
+    onClick={() => onUnfeature(mentor)}
+    title="Unfeature mentor"
+    className="rounded-xl bg-amber-100 p-2 transition hover:bg-amber-200"
+  >
+    <Star className="h-4 w-4 fill-amber-500 text-amber-500" />
+  </button>
+) : (
+  <button
+    type="button"
+    onClick={() => onFeature(mentor)}
+    title="Feature mentor"
+    className="rounded-xl bg-slate-100 p-2 transition hover:bg-slate-200"
+  >
+    <Star className="h-4 w-4 text-slate-600" />
+  </button>
+)}
 
       </div>
 

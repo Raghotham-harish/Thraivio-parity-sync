@@ -6,27 +6,18 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import type { MentorApiResponse } from "@/services/mentor.service";
+
 interface MentorExperienceProps {
-  mentor: {
-    role: string;
-    company: string;
-    experience: string;
-
-    studentsCoached: number;
-    sessionsCompleted: number;
-
-    rating: number;
-    reviewsCount: number;
-
-    companiesWorked: string[];
-  };
+  mentor: MentorApiResponse;
 }
 
 const MentorExperience = ({
   mentor,
 }: MentorExperienceProps) => {
   const [showFullJourney, setShowFullJourney] =
-  useState(false);
+    useState(false);
+
   return (
     <section className="pb-20">
       <div className="max-w-7xl mx-auto px-4">
@@ -38,17 +29,17 @@ const MentorExperience = ({
 
             <span
               className="
-inline-block
-bg-blue-50
-border
-border-blue-200
-text-blue-700
-px-4
-py-1
-rounded-lg
-text-sm
-font-medium
-"
+                inline-block
+                bg-blue-50
+                border
+                border-blue-200
+                text-blue-700
+                px-4
+                py-1
+                rounded-lg
+                text-sm
+                font-medium
+              "
             >
               Professional Journey
             </span>
@@ -66,318 +57,374 @@ font-medium
 
           <div className="mt-10 space-y-8">
 
-  {/* Current */}
+            {/* Current */}
+            <div
+              className="
+                flex
+                gap-5
+                p-5
+                rounded-xl
+                bg-white
+                border
+                border-slate-200
+                hover:bg-white
+                hover:shadow-sm
+                transition-all
+                duration-300
+              "
+            >
 
-  <div className="
-flex
-gap-5
-p-5
-rounded-xl
-bg-white
-border
-border-slate-200
-hover:bg-white
-hover:shadow-sm
-transition-all
-duration-300
-">
+              <div className="flex flex-col items-center">
 
-    <div className="flex flex-col items-center">
+                <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>
 
-      <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>
+                <div className="w-1 flex-1 bg-slate-200"></div>
 
-      <div className="w-1 flex-1 bg-slate-200"></div>
+              </div>
 
-    </div>
+              <div>
 
-    <div>
+                <span
+                  className="
+                    inline-block
+                    px-3
+                    py-1
+                    rounded-lg
+                    bg-blue-50
+                    border
+                    border-blue-200
+                    text-blue-700
+                    text-xs
+                    font-semibold
+                  "
+                >
+                  Current Position
+                </span>
 
-      <span className="
-  inline-block
-  px-3
-  py-1
-  rounded-lg
-  bg-blue-50
-border
-border-blue-200
-  text-blue-700
-  text-xs
-  font-semibold
-">
-  Current Position
-</span>
+                {/* role is not available in current Mentor API,
+                    so keep the existing hardcoded UI text */}
+                <h3 className="text-2xl font-bold">
+                  Mentor & Career Coach
+                </h3>
 
-      <h3 className="text-2xl font-bold">
-        {mentor.role}
-      </h3>
+                {/* Backend field */}
+                <p className="text-blue-600 font-medium">
+                  {mentor.company || "Professional Organization"}
+                </p>
 
-      <p className="text-blue-600 font-medium">
-        {mentor.company}
-      </p>
+                <p className="mt-2 text-slate-600">
+                  Leading mentorship programs, helping professionals
+                  crack interviews and accelerate career growth.
+                </p>
 
-      <p className="mt-2 text-slate-600">
-        Leading mentorship programs, helping professionals
-        crack interviews and accelerate career growth.
-      </p>
+              </div>
 
-    </div>
+            </div>
 
-  </div>
+            {/* Experience */}
+            <div
+              className="
+                flex
+                gap-5
+                p-5
+                rounded-xl
+                bg-white
+                border
+                border-slate-200
+                hover:bg-white
+                hover:shadow-sm
+                transition-all
+                duration-300
+              "
+            >
 
-  {/* Experience */}
+              <div className="flex flex-col items-center">
 
-  <div className="
-flex
-gap-5
-p-5
-rounded-xl
-bg-white
-border
-border-slate-200
-hover:bg-white
-hover:shadow-sm
-transition-all
-duration-300
-">
+                <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>
 
-    <div className="flex flex-col items-center">
+                <div className="w-1 flex-1 bg-slate-200"></div>
 
-      <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>      
+              </div>
 
-      <div className="w-1 flex-1 bg-slate-200"></div>
+              <div>
 
-    </div>
+                <span
+                  className="
+                    inline-block
+                    px-3
+                    py-1
+                    rounded-lg
+                    bg-blue-50
+                    border
+                    border-blue-200
+                    text-blue-700
+                    text-xs
+                    font-semibold
+                  "
+                >
+                  Experience
+                </span>
 
-    <div>
+                {/* Backend field */}
+                <h3 className="text-xl font-bold">
+                  {mentor.experience} Years
+                </h3>
 
-      <span className="
-  inline-block
-  px-3
-  py-1
-  rounded-lg
-  bg-blue-50
-border
-border-blue-200
-text-blue-700
-  text-xs
-  font-semibold
-">
-  Experience
-</span>
+                <p className="text-slate-600 mt-2">
+                  Years of industry leadership, coaching and product strategy.
+                </p>
 
-      <h3 className="text-xl font-bold">
-        {mentor.experience}
-      </h3>
+              </div>
 
-      <p className="text-slate-600 mt-2">
-        Years of industry leadership, coaching and product strategy.
-      </p>
+            </div>
 
-    </div>
+            {/* Today */}
+            <div
+              className="
+                flex
+                gap-5
+                p-5
+                rounded-xl
+                bg-white
+                border
+                border-slate-200
+                hover:bg-white
+                hover:shadow-sm
+                transition-all
+                duration-300
+              "
+            >
 
-  </div>
+              <div className="flex flex-col items-center">
 
-  {/* Today */}
+                <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>
 
-  <div className="
-flex
-gap-5
-p-5
-rounded-xl
-bg-white
-border
-border-slate-200
-hover:bg-white
-hover:shadow-sm
-transition-all
-duration-300
-">
+                <div className="w-1 flex-1 bg-slate-200"></div>
 
-    <div className="flex flex-col items-center">
+              </div>
 
-    <div className="w-4 h-4 rounded-full bg-[#1677FF] ring-4 ring-blue-50"></div>      
+              <div>
 
-      <div className="w-1 flex-1 bg-slate-200"></div>
+                <span
+                  className="
+                    inline-block
+                    px-3
+                    py-1
+                    rounded-lg
+                    bg-blue-50
+                    border
+                    border-blue-200
+                    text-blue-700
+                    text-xs
+                    font-semibold
+                  "
+                >
+                  Today
+                </span>
 
-     </div>
+                {/* role is not available in current Mentor API,
+                    so keep this as hardcoded */}
+                <h3 className="text-xl font-bold">
+                  Mentor & Career Coach
+                </h3>
 
-    <div>
-      <span className="
-  inline-block
-  px-3
-  py-1
-  rounded-lg
-  bg-blue-50
-border
-border-blue-200
-  text-blue-700
-  text-xs
-  font-semibold
-">
-  Today
-</span>
+                <p className="text-slate-600 mt-2">
+                  Helping students and professionals achieve promotions,
+                  salary hikes and interview success.
+                </p>
 
-      <h3 className="text-xl font-bold">
-        Mentor & Career Coach
-      </h3>
+              </div>
 
-      <p className="text-slate-600 mt-2">
-        Helping students and professionals achieve promotions,
-        salary hikes and interview success.
-      </p>
+            </div>
 
-    </div>
+          </div>
 
-  </div>
+          {/* Impact Stats */}
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
 
-</div>
-          
+            <div className="p-5 rounded-xl border border-slate-200 bg-white">
+              <p className="text-sm text-slate-500">
+                Students
+              </p>
+              <p className="text-2xl font-bold text-slate-900 mt-1">
+                {mentor.totalStudents}
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl border border-slate-200 bg-white">
+              <p className="text-sm text-slate-500">
+                Sessions
+              </p>
+              <p className="text-2xl font-bold text-slate-900 mt-1">
+                {mentor.totalSessions ?? 0}
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl border border-slate-200 bg-white">
+              <p className="text-sm text-slate-500">
+                Rating
+              </p>
+              <p className="text-2xl font-bold text-slate-900 mt-1">
+                {mentor.averageRating.toFixed(1)}
+              </p>
+            </div>
+
+            <div className="p-5 rounded-xl border border-slate-200 bg-white">
+              <p className="text-sm text-slate-500">
+                Reviews
+              </p>
+              <p className="text-2xl font-bold text-slate-900 mt-1">
+                {mentor.totalReviews}
+              </p>
+            </div>
+
+          </div>
 
           {/* Companies */}
           <div className="mt-12">
 
             <div className="mb-8">
 
-  <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3">
 
-    <div
-      className="
-        h-12
-        w-12
-        rounded-xl
-        bg-blue-50
-        flex
-        items-center
-        justify-center
-      "
-    >
-      <Building2
-        size={22}
-        className="text-blue-600"
-      />
-    </div>
+                <div
+                  className="
+                    h-12
+                    w-12
+                    rounded-xl
+                    bg-blue-50
+                    flex
+                    items-center
+                    justify-center
+                  "
+                >
+                  <Building2
+                    size={22}
+                    className="text-blue-600"
+                  />
+                </div>
 
-    <div>
+                <div>
 
-      <h3 className="text-2xl font-bold">
-        Career Journey
-      </h3>
+                  <h3 className="text-2xl font-bold">
+                    Career Journey
+                  </h3>
 
-      <p className="text-slate-500 mt-1 max-w-2xl">
-        Explore the organizations and milestones that shaped
-        this mentor's professional growth.
-      </p>
+                  <p className="text-slate-500 mt-1 max-w-2xl">
+                    Explore the organizations and milestones that shaped
+                    this mentor&apos;s professional growth.
+                  </p>
 
-    </div>
+                </div>
 
-  </div>
+              </div>
 
-</div>
-           <div className="grid md:grid-cols-2 gap-4">
+            </div>
 
-  {(
-  showFullJourney
-    ? mentor.companiesWorked
-    : mentor.companiesWorked.slice(0, 3)
+            <div className="grid md:grid-cols-2 gap-4">
+
+              {(showFullJourney
+  ? mentor.companiesWorked ?? []
+  : (mentor.companiesWorked ?? []).slice(0, 3)
 ).map((company) => (
 
-    <div
-      key={company}
-      className="
-flex
-items-center
-gap-4
-p-5
-rounded-xl
-bg-white
-border
-border-slate-200
-hover:shadow-sm
-hover:border-blue-500
-transition-all
-"
-    >
+                <div
+                  key={company}
+                  className="
+                    flex
+                    items-center
+                    gap-4
+                    p-5
+                    rounded-xl
+                    bg-white
+                    border
+                    border-slate-200
+                    hover:shadow-sm
+                    hover:border-blue-500
+                    transition-all
+                  "
+                >
 
-      <div
-        className="
-          h-12
-          w-12
-          rounded-xl
-          bg-blue-50
-          flex
-          items-center
-          justify-center
-        "
-      >
+                  <div
+                    className="
+                      h-12
+                      w-12
+                      rounded-xl
+                      bg-blue-50
+                      flex
+                      items-center
+                      justify-center
+                    "
+                  >
 
-        <Building2
-          size={22}
-          className="text-blue-600"
-        />
+                    <Building2
+                      size={22}
+                      className="text-blue-600"
+                    />
 
-      </div>
+                  </div>
 
-      <div>
+                  <div>
 
-        <h4 className="font-semibold">
-          {company}
-        </h4>
+                    <h4 className="font-semibold">
+                      {company}
+                    </h4>
 
-        <p className="text-sm text-slate-500">
-        Professional Experience
-       </p>
+                    <p className="text-sm text-slate-500">
+                      Professional Experience
+                    </p>
 
-      </div>
+                  </div>
 
-    </div>
+                </div>
 
-  ))}
+              ))}
 
-</div>
+            </div>
 
-{mentor.companiesWorked.length > 3 && (
+            {(mentor.companiesWorked ?? []).length > 3 && (
 
-  <div className="flex justify-center mt-8">
+              <div className="flex justify-center mt-8">
 
-    <button
-      onClick={() =>
-        setShowFullJourney(!showFullJourney)
-      }
-      className="
-        flex
-        items-center
-        gap-2
-        px-6
-        py-3
-        rounded-xl
-        bg-white
-        border
-      border-blue-200
-        text-blue-600
-        font-medium
-        hover:bg-blue-50
-        transition
-      "
-    >
+                <button
+                  onClick={() =>
+                    setShowFullJourney(!showFullJourney)
+                  }
+                  className="
+                    flex
+                    items-center
+                    gap-2
+                    px-6
+                    py-3
+                    rounded-xl
+                    bg-white
+                    border
+                    border-blue-200
+                    text-blue-600
+                    font-medium
+                    hover:bg-blue-50
+                    transition
+                  "
+                >
 
-      {showFullJourney
-        ? "Show Less"
-        : "View Full Career Journey"}
+                  {showFullJourney
+                    ? "Show Less"
+                    : "View Full Career Journey"}
 
-      <ChevronDown
-        size={18}
-        className={`transition-transform ${
-          showFullJourney
-            ? "rotate-180"
-            : ""
-        }`}
-      />
+                  <ChevronDown
+                    size={18}
+                    className={`transition-transform ${
+                      showFullJourney
+                        ? "rotate-180"
+                        : ""
+                    }`}
+                  />
 
-    </button>
-  
-  </div>
+                </button>
 
-)}
+              </div>
+
+            )}
 
           </div>
 
@@ -387,10 +434,10 @@ transition-all
               mt-14
               p-8
               bg-white
-border
-border-slate-200
-rounded-2xl
-shadow-sm
+              border
+              border-slate-200
+              rounded-2xl
+              shadow-sm
               text-slate-900
             "
           >
@@ -405,26 +452,27 @@ shadow-sm
               career guidance tailored to your goals.
             </p>
 
+            {/* Booking is not integrated yet */}
             <button
-  className="
-mt-6
-inline-flex
-items-center
-gap-2
-border
-border-slate-300
-text-blue-600
-px-6
-py-3
-rounded-lg
-font-semibold
-hover:shadow-md
-transition
-"
->
-  Book Your First Mentorship Session
-  <ArrowRight size={18} />
-</button>
+              className="
+                mt-6
+                inline-flex
+                items-center
+                gap-2
+                border
+                border-slate-300
+                text-blue-600
+                px-6
+                py-3
+                rounded-lg
+                font-semibold
+                hover:shadow-md
+                transition
+              "
+            >
+              Book Your First Mentorship Session
+              <ArrowRight size={18} />
+            </button>
 
           </div>
 

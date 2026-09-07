@@ -2,189 +2,194 @@ interface Props {
   mentor: any;
 }
 
-const DashboardProfileCompletion =
-  ({
-    mentor,
-  }: Props) => {
-    const checks = [
-      mentor.name,
-      mentor.image,
-      mentor.about,
-      mentor.skills?.length,
-      mentor.expertise?.length,
-      mentor.languages?.length,
-      mentor.programs?.length,
-      mentor.events?.length,
-      mentor.videos?.length,
-      mentor.availability?.length,
-      mentor.certifications
-        ?.length,
-      mentor.achievements
-        ?.length,
-    ];
+const DashboardProfileCompletion = ({
+  mentor,
+}: Props) => {
+  const checks = [
+    mentor?.name ??
+      mentor?.fullName,
 
-    const completed =
-      checks.filter(Boolean)
-        .length;
+    mentor?.image ??
+      mentor?.avatar,
 
-    const percentage =
-      Math.round(
-        (completed /
-          checks.length) *
-          100
-      );
+    mentor?.about,
 
-    return (
-      <div
+    mentor?.skills?.length,
+
+    mentor?.expertise?.length,
+
+    mentor?.languages?.length,
+
+    mentor?.programs?.length,
+
+    mentor?.events?.length,
+
+    mentor?.videos?.length,
+
+    mentor?.availability?.length,
+
+    mentor?.certifications?.length,
+
+    mentor?.achievements?.length,
+  ];
+
+  const completed =
+    checks.filter(Boolean).length;
+
+  const percentage =
+    checks.length > 0
+      ? Math.round(
+          (completed /
+            checks.length) *
+            100
+        )
+      : 0;
+
+  return (
+    <div
+      className="
+        bg-white
+        border
+        rounded-3xl
+        p-6
+        shadow-sm
+      "
+    >
+      <h3
         className="
-          bg-white
-          border
-          rounded-3xl
-          p-6
-          shadow-sm
+          text-xl
+          font-bold
         "
       >
-        <h3
+        Profile Completion
+      </h3>
+
+      <p
+        className="
+          text-sm
+          text-slate-500
+          mt-2
+        "
+      >
+        Complete your profile to
+        increase bookings and
+        visibility.
+      </p>
+
+      <div className="mt-8">
+        <div
           className="
-            text-xl
-            font-bold
+            flex
+            justify-between
+            mb-2
           "
         >
-          Profile Completion
-        </h3>
-
-        <p
-          className="
-            text-sm
-            text-slate-500
-            mt-2
-          "
-        >
-          Complete your profile to
-          increase bookings and
-          visibility.
-        </p>
-
-        <div className="mt-8">
-
-          <div
+          <span
             className="
-              flex
-              justify-between
-              mb-2
+              font-medium
             "
           >
-            <span
-              className="
-                font-medium
-              "
-            >
-              Completion
-            </span>
+            Completion
+          </span>
 
-            <span
-              className="
-                font-bold
-                text-blue-600
-              "
-            >
-              {percentage}%
-            </span>
-          </div>
-
-          <div
+          <span
             className="
-              h-4
-              bg-slate-100
-              rounded-full
-              overflow-hidden
+              font-bold
+              text-blue-600
             "
           >
-            <div
-              className="
-                h-full
-                bg-blue-600
-                rounded-full
-                transition-all
-                duration-500
-              "
-              style={{
-                width: `${percentage}%`,
-              }}
-            />
-          </div>
-
+            {percentage}%
+          </span>
         </div>
 
         <div
           className="
-            mt-8
-            grid
-            grid-cols-2
-            gap-3
+            h-4
+            bg-slate-100
+            rounded-full
+            overflow-hidden
           "
         >
           <div
             className="
-              bg-blue-50
-              rounded-2xl
-              p-4
+              h-full
+              bg-blue-600
+              rounded-full
+              transition-all
+              duration-500
             "
-          >
-            <p
-              className="
-                text-sm
-                text-slate-500
-              "
-            >
-              Completed
-            </p>
+            style={{
+              width: `${percentage}%`,
+            }}
+          />
+        </div>
+      </div>
 
-            <h4
-              className="
-                text-2xl
-                font-bold
-                mt-1
-              "
-            >
-              {completed}
-            </h4>
-          </div>
-
-          <div
+      <div
+        className="
+          mt-8
+          grid
+          grid-cols-2
+          gap-3
+        "
+      >
+        <div
+          className="
+            bg-blue-50
+            rounded-2xl
+            p-4
+          "
+        >
+          <p
             className="
-              bg-green-50
-              rounded-2xl
-              p-4
+              text-sm
+              text-slate-500
             "
           >
-            <p
-              className="
-                text-sm
-                text-slate-500
-              "
-            >
-              Remaining
-            </p>
+            Completed
+          </p>
 
-            <h4
-              className="
-                text-2xl
-                font-bold
-                mt-1
-              "
-            >
-              {
-                checks.length -
-                completed
-              }
-            </h4>
-          </div>
-
+          <h4
+            className="
+              text-2xl
+              font-bold
+              mt-1
+            "
+          >
+            {completed}
+          </h4>
         </div>
 
+        <div
+          className="
+            bg-green-50
+            rounded-2xl
+            p-4
+          "
+        >
+          <p
+            className="
+              text-sm
+              text-slate-500
+            "
+          >
+            Remaining
+          </p>
+
+          <h4
+            className="
+              text-2xl
+              font-bold
+              mt-1
+            "
+          >
+            {checks.length -
+              completed}
+          </h4>
+        </div>
       </div>
-    );
-  };
+    </div>
+  );
+};
 
 export default DashboardProfileCompletion;

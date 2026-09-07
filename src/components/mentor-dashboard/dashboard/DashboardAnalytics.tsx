@@ -2,19 +2,41 @@ import {
   TrendingUp,
   Users,
   CalendarCheck,
-  DollarSign,
+  MessageSquare,
 } from "lucide-react";
 
+import type { MentorApiResponse } from "@/services/mentor.service";
+
 interface Props {
-  mentor: any;
+  mentor: MentorApiResponse;
 }
 
 const DashboardAnalytics = ({
   mentor,
 }: Props) => {
-  const estimatedRevenue =
-    mentor.pricing.monthlyProgram *
-    mentor.studentsCoached;
+  const students = Number(
+    mentor?.analytics?.totalStudents ??
+      mentor?.totalStudents ??
+      0
+  );
+
+  const sessions = Number(
+    mentor?.analytics?.totalSessions ??
+      mentor?.totalSessions ??
+      0
+  );
+
+  const rating = Number(
+    mentor?.analytics?.averageRating ??
+      mentor?.averageRating ??
+      0
+  );
+
+  const reviews = Number(
+    mentor?.analytics?.totalReviews ??
+      mentor?.totalReviews ??
+      0
+  );
 
   return (
     <div
@@ -70,8 +92,6 @@ const DashboardAnalytics = ({
           gap-5
         "
       >
-        {/* Students */}
-
         <div
           className="
             rounded-2xl
@@ -113,7 +133,7 @@ const DashboardAnalytics = ({
               mt-4
             "
           >
-            {mentor.studentsCoached}
+            {students.toLocaleString()}
           </h4>
 
           <p
@@ -126,8 +146,6 @@ const DashboardAnalytics = ({
             Students Coached
           </p>
         </div>
-
-        {/* Sessions */}
 
         <div
           className="
@@ -170,7 +188,7 @@ const DashboardAnalytics = ({
               mt-4
             "
           >
-            {mentor.sessionsCompleted}
+            {sessions.toLocaleString()}
           </h4>
 
           <p
@@ -183,8 +201,6 @@ const DashboardAnalytics = ({
             Sessions Delivered
           </p>
         </div>
-
-        {/* Rating */}
 
         <div
           className="
@@ -216,7 +232,7 @@ const DashboardAnalytics = ({
                 rounded-full
               "
             >
-              Growth
+              Average
             </span>
           </div>
 
@@ -227,7 +243,7 @@ const DashboardAnalytics = ({
               mt-4
             "
           >
-            {mentor.rating}
+            {rating.toFixed(1)}
           </h4>
 
           <p
@@ -240,8 +256,6 @@ const DashboardAnalytics = ({
             Average Rating
           </p>
         </div>
-
-        {/* Revenue */}
 
         <div
           className="
@@ -257,7 +271,7 @@ const DashboardAnalytics = ({
               justify-between
             "
           >
-            <DollarSign
+            <MessageSquare
               className="
                 text-green-600
               "
@@ -273,7 +287,7 @@ const DashboardAnalytics = ({
                 rounded-full
               "
             >
-              Estimated
+              Total
             </span>
           </div>
 
@@ -284,8 +298,7 @@ const DashboardAnalytics = ({
               mt-4
             "
           >
-            $
-            {estimatedRevenue.toLocaleString()}
+            {reviews.toLocaleString()}
           </h4>
 
           <p
@@ -295,10 +308,9 @@ const DashboardAnalytics = ({
               mt-1
             "
           >
-            Potential Revenue
+            Total Reviews
           </p>
         </div>
-
       </div>
     </div>
   );

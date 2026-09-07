@@ -16,16 +16,31 @@ import type { AdminMentor } from "@/types/admin-mentors";
 
 interface MentorProfileDrawerProps {
   open: boolean;
-
   mentor: AdminMentor | null;
-
   onClose: () => void;
+  onSuspend: (mentor: AdminMentor) => void;
+  onApprove: (mentor: AdminMentor) => void;
+  onActivate: (mentor: AdminMentor) => void;
+  onDeactivate: (mentor: AdminMentor) => void;
+  onUnblock: (mentor: AdminMentor) => void;
+  onPublish: (mentor: AdminMentor) => void;
+  onUnpublish: (mentor: AdminMentor) => void;
+  onSoftDelete: (mentor: AdminMentor) => void;
+  onRestore: (mentor: AdminMentor) => void;
 }
-
 export default function MentorProfileDrawer({
   open,
   mentor,
   onClose,
+  onSuspend,
+  onApprove,
+  onActivate,
+  onDeactivate,
+  onUnblock,
+  onPublish,
+  onUnpublish,
+  onSoftDelete,
+  onRestore,
 }: MentorProfileDrawerProps) {
   if (!open || !mentor) return null;
 
@@ -588,19 +603,85 @@ export default function MentorProfileDrawer({
               Close
             </button>
 
-            <button
-              type="button"
-              className="rounded-2xl bg-amber-500 px-6 py-3 font-semibold text-white transition hover:bg-amber-600"
-            >
-              Suspend Mentor
-            </button>
+            {mentor.status === "active" ? (
+  <button
+    type="button"
+    onClick={() => onDeactivate(mentor)}
+    className="rounded-2xl bg-red-500 px-6 py-3 font-semibold text-white transition hover:bg-red-600"
+  >
+    Deactivate Mentor
+  </button>
+) : (
+  <button
+    type="button"
+    onClick={() => onActivate(mentor)}
+    className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+  >
+    Activate Mentor
+  </button>
+)}
+
+{mentor.status === "suspended" && (
+  <button
+    type="button"
+    onClick={() => onUnblock(mentor)}
+    className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+  >
+    Unblock Mentor
+  </button>
+)}
+
+{mentor.status === "active" && (
+  mentor.verification === "verified" && (
+    <button
+      type="button"
+      onClick={() =>
+        mentor.published
+          ? onUnpublish(mentor)
+          : onPublish(mentor)
+      }
+      className="rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+    >
+      {mentor.published
+        ? "Unpublish Mentor"
+        : "Publish Mentor"}
+    </button>
+  )
+)}
 
             <button
-              type="button"
-              className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
-            >
-              Approve Mentor
-            </button>
+  type="button"
+  onClick={() => onSuspend(mentor)}
+  className="rounded-2xl bg-amber-500 px-6 py-3 font-semibold text-white transition hover:bg-amber-600"
+>
+  Suspend Mentor
+</button>
+
+            <button
+  type="button"
+  onClick={() => onApprove(mentor)}
+  className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+>
+  Approve Mentor
+</button>
+
+{mentor.status === "suspended" ? (
+  <button
+    type="button"
+    onClick={() => onRestore(mentor)}
+    className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+  >
+    Restore Mentor
+  </button>
+) : (
+  <button
+    type="button"
+    onClick={() => onSoftDelete(mentor)}
+    className="rounded-2xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
+  >
+    Soft Delete Mentor
+  </button>
+)}
 
           </div>
 

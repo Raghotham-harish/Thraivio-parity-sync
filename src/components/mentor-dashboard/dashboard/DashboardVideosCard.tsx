@@ -9,7 +9,9 @@ const DashboardVideosCard = ({
   mentor,
 }: Props) => {
   const videos =
-    mentor.videos.slice(0, 3);
+    Array.isArray(mentor?.videos)
+      ? mentor.videos.slice(0, 3)
+      : [];
 
   return (
     <div
@@ -30,7 +32,6 @@ const DashboardVideosCard = ({
         "
       >
         <div>
-
           <h3
             className="
               text-xl
@@ -49,7 +50,6 @@ const DashboardVideosCard = ({
           >
             Latest uploaded videos
           </p>
-
         </div>
 
         <Video
@@ -60,48 +60,51 @@ const DashboardVideosCard = ({
       </div>
 
       <div className="space-y-4">
-
         {videos.map(
           (
             video: any,
             index: number
           ) => (
             <div
-              key={index}
+              key={
+                video?._id ??
+                `video-${index}`
+              }
               className="
                 border
                 rounded-2xl
                 overflow-hidden
               "
             >
-              <img
-                src={
-                  video.thumbnail
-                }
-                alt={video.title}
-                className="
-                  h-36
-                  w-full
-                  object-cover
-                "
-              />
+              {video?.thumbnail && (
+                <img
+                  src={video.thumbnail}
+                  alt={
+                    video?.title ??
+                    "Video thumbnail"
+                  }
+                  className="
+                    h-36
+                    w-full
+                    object-cover
+                  "
+                />
+              )}
 
               <div className="p-4">
-
                 <h4
                   className="
                     font-semibold
                     line-clamp-2
                   "
                 >
-                  {video.title}
+                  {video?.title ??
+                    "Untitled Video"}
                 </h4>
-
               </div>
             </div>
           )
         )}
-
       </div>
 
       <Link

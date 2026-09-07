@@ -9,10 +9,9 @@ const DashboardCertificationsCard = ({
   mentor,
 }: Props) => {
   const certifications =
-    mentor.certifications.slice(
-      0,
-      6
-    );
+    Array.isArray(mentor?.certifications)
+      ? mentor.certifications.slice(0, 6)
+      : [];
 
   return (
     <div
@@ -33,7 +32,6 @@ const DashboardCertificationsCard = ({
         "
       >
         <div>
-
           <h3
             className="
               text-xl
@@ -52,7 +50,6 @@ const DashboardCertificationsCard = ({
           >
             Professional certifications
           </p>
-
         </div>
 
         <Award
@@ -63,50 +60,61 @@ const DashboardCertificationsCard = ({
       </div>
 
       <div className="space-y-3">
-
         {certifications.map(
           (
-            certification: string,
+            certification: any,
             index: number
-          ) => (
-            <div
-              key={index}
-              className="
-                flex
-                items-center
-                gap-3
-                p-4
-                rounded-2xl
-                border
-              "
-            >
+          ) => {
+            const title =
+              typeof certification ===
+              "string"
+                ? certification
+                : certification?.title ??
+                  certification?.name ??
+                  "Certification";
+
+            return (
               <div
+                key={
+                  certification?._id ??
+                  `certification-${index}`
+                }
                 className="
-                  h-10
-                  w-10
-                  rounded-xl
-                  bg-cyan-50
-                  text-cyan-600
                   flex
                   items-center
-                  justify-center
+                  gap-3
+                  p-4
+                  rounded-2xl
+                  border
                 "
               >
-                <Award size={18} />
+                <div
+                  className="
+                    h-10
+                    w-10
+                    rounded-xl
+                    bg-cyan-50
+                    text-cyan-600
+                    flex
+                    items-center
+                    justify-center
+                    shrink-0
+                  "
+                >
+                  <Award size={18} />
+                </div>
+
+                <p
+                  className="
+                    font-medium
+                  "
+                >
+                  {title}
+                </p>
               </div>
-
-              <p
-                className="
-                  font-medium
-                "
-              >
-                {certification}
-              </p>
-
-            </div>
-          )
+            );
+          }
         )}
-
       </div>
 
       <Link

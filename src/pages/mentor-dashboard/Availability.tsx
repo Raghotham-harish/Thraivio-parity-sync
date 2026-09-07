@@ -1,8 +1,13 @@
-import { useMemo, useState } from "react";
-
-import { mentors } from "@/data/mentors";
+import { useEffect, useMemo, useState } from "react";
 
 import type { Availability } from "@/types/availability";
+
+import {
+  getMentorByUserId,
+  updateMentorAvailability,
+} from "@/services/mentor.service";
+
+import type { MentorApiResponse } from "@/services/mentor.service";
 
 import AvailabilityHeader from "@/components/mentor-dashboard/availability/AvailabilityHeader";
 
@@ -19,94 +24,143 @@ import AvailabilityFormModal from "@/components/mentor-dashboard/availability/Av
 import DeleteAvailabilityDialog from "@/components/mentor-dashboard/availability/DeleteAvailabilityDialog";
 
 const AvailabilityPage = () => {
-  /**
-   * Temporary
-   *
-   * Later:
-   * Logged In Mentor ID
-   */
+  const [mentor, setMentor] =
+    useState<MentorApiResponse | null>(null);
 
-  const mentorId = 1;
+  const [availabilityData, setAvailabilityData] =
+    useState<Availability[]>([]);
 
-  const mentor = mentors.find(
-    (item) => item.id === mentorId
-  );
+  const [loading, setLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState("");
 
   const [search, setSearch] =
     useState("");
 
   const [view, setView] =
-    useState<"grid" | "list">(
-      "grid"
-    );
+    useState<"grid" | "list">("grid");
 
-  const [
-    isFormOpen,
-    setIsFormOpen,
-  ] = useState(false);
+  const [isFormOpen, setIsFormOpen] =
+    useState(false);
 
   const [
     selectedAvailability,
     setSelectedAvailability,
-  ] = useState<Availability | null>(
-    null
-  );
+  ] = useState<Availability | null>(null);
 
-  const [
-    isDeleteOpen,
-    setIsDeleteOpen,
-  ] = useState(false);
+  const [isDeleteOpen, setIsDeleteOpen] =
+    useState(false);
 
-  if (!mentor) {
-    return (
-      <div
-        className="
-          bg-white
-          border
-          rounded-3xl
-          p-10
-          text-center
-        "
-      >
-        <h2
-          className="
-            text-3xl
-            font-bold
-          "
-        >
-          Mentor Not Found
-        </h2>
+  /*
+   * Load logged-in mentor availability
+   */
+  useEffect(() => {
+    const loadAvailability = async () => {
+      try {
+        setLoading(true);
+        setError("");
 
-        <p
-          className="
-            text-slate-500
-            mt-3
-          "
-        >
-          Unable to load mentor
-          information.
-        </p>
-      </div>
-    );
-  }
+        const storedUser =
+          localStorage.getItem("authUser");
 
-  const availabilityData: Availability[] =
-    mentor.availability.map(
-      (
-        item,
-        index
-      ) => ({
-        id: String(index + 1),
-        date: item.date,
-        slots: item.slots,
-      })
-    );
+        if (!storedUser) {
+          setError(
+            "Logged-in user information not found."
+          );
+          return;
+        }
+
+        const user = JSON.parse(storedUser);
+
+        if (!user?.id) {
+          setError("User ID not found.");
+          return;
+        }
+
+        const response =
+          await getMentorByUserId(user.id);
+
+        if (
+          !response?.success ||
+          !response?.data
+        ) {
+          setError(
+            "Mentor profile not found."
+          );
+          return;
+        }
+
+        const mentorData =
+          response.data;
+
+        setMentor(mentorData);
+
+        const normalizedAvailability =
+          (mentorData.availability || [])
+            .map((item: any, index: number) => ({
+              id:
+                item.id ||
+                item._id ||
+                String(index + 1),
+
+              day: item.day || "",
+
+              enabled:
+                typeof item.enabled === "boolean"
+                  ? item.enabled
+                  : true,
+
+              slots:
+                Array.isArray(item.slots)
+                  ? item.slots
+                      .filter(
+                        (slot: any) =>
+                          slot &&
+                          typeof slot === "object" &&
+                          typeof slot.start === "string" &&
+                          typeof slot.end === "string"
+                      )
+                      .map((slot: any) => ({
+                        start: slot.start,
+                        end: slot.end,
+                      }))
+                  : [],
+            }))
+            .filter(
+              (item) =>
+                item.day &&
+                Array.isArray(item.slots)
+            );
+
+        setAvailabilityData(
+          normalizedAvailability
+        );
+      } catch (error: any) {
+        console.error(
+          "Failed to load mentor availability:",
+          error
+        );
+
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "Failed to load availability."
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadAvailability();
+  }, []);
 
   const filteredAvailability =
     useMemo(() => {
       return availabilityData.filter(
         (availability) =>
-          availability.date
+          availability.day
             .toLowerCase()
             .includes(
               search.toLowerCase()
@@ -119,10 +173,7 @@ const AvailabilityPage = () => {
 
   const handleAddAvailability =
     () => {
-      setSelectedAvailability(
-        null
-      );
-
+      setSelectedAvailability(null);
       setIsFormOpen(true);
     };
 
@@ -148,38 +199,215 @@ const AvailabilityPage = () => {
       setIsDeleteOpen(true);
     };
 
+  /*
+   * Save / Update availability
+   *
+   * Backend provides one PATCH endpoint
+   * for the complete availability array.
+   */
   const handleSaveAvailability =
-    (
+    async (
       availability: Availability
     ) => {
-      /**
-       * Backend Integration Later
-       */
+      if (!mentor?.id) {
+        setError(
+          "Mentor ID not found."
+        );
+        return;
+      }
 
-      console.log(
-        "Save Availability",
-        availability
-      );
+      try {
+        setError("");
 
-      setIsFormOpen(false);
+        let updatedAvailability: Availability[];
+
+        if (availability.id) {
+          updatedAvailability =
+            availabilityData.map(
+              (item) =>
+                item.id ===
+                availability.id
+                  ? availability
+                  : item
+            );
+        } else {
+          updatedAvailability = [
+            ...availabilityData,
+            {
+              ...availability,
+              id: String(
+                Date.now()
+              ),
+            },
+          ];
+        }
+
+        await updateMentorAvailability(
+          mentor.id,
+          {
+            availability:
+              updatedAvailability.map(
+                ({
+                  id,
+                  ...item
+                }) => item
+              ),
+          }
+        );
+
+        setAvailabilityData(
+          updatedAvailability
+        );
+
+        setIsFormOpen(false);
+
+        setSelectedAvailability(
+          null
+        );
+      } catch (error: any) {
+        console.error(
+          "Failed to save availability:",
+          error
+        );
+
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "Failed to save availability."
+        );
+      }
     };
 
+  /*
+   * Delete availability
+   *
+   * Backend has no separate delete endpoint.
+   * We send the remaining availability array
+   * through the same PATCH endpoint.
+   */
   const confirmDelete =
-    () => {
-      /**
-       * Backend Integration Later
-       */
+    async () => {
+      if (
+        !mentor?.id ||
+        !selectedAvailability?.id
+      ) {
+        return;
+      }
 
-      console.log(
-        "Delete Availability",
-        selectedAvailability
-      );
+      try {
+        setError("");
 
-      setIsDeleteOpen(false);
+        const updatedAvailability =
+          availabilityData.filter(
+            (item) =>
+              item.id !==
+              selectedAvailability.id
+          );
+
+        await updateMentorAvailability(
+          mentor.id,
+          {
+            availability:
+              updatedAvailability.map(
+                ({
+                  id,
+                  ...item
+                }) => item
+              ),
+          }
+        );
+
+        setAvailabilityData(
+          updatedAvailability
+        );
+
+        setIsDeleteOpen(false);
+
+        setSelectedAvailability(
+          null
+        );
+      } catch (error: any) {
+        console.error(
+          "Failed to delete availability:",
+          error
+        );
+
+        setError(
+          error?.response?.data?.message ||
+            error?.message ||
+            "Failed to delete availability."
+        );
+      }
     };
+
+  if (loading) {
+    return (
+      <div
+        className="
+          bg-white
+          border
+          rounded-3xl
+          p-10
+          text-center
+        "
+      >
+        <p className="text-slate-500">
+          Loading availability...
+        </p>
+      </div>
+    );
+  }
+
+  if (error && !mentor) {
+    return (
+      <div
+        className="
+          bg-white
+          border
+          rounded-3xl
+          p-10
+          text-center
+        "
+      >
+        <h2
+          className="
+            text-3xl
+            font-bold
+          "
+        >
+          Unable to Load Availability
+        </h2>
+
+        <p
+          className="
+            text-slate-500
+            mt-3
+          "
+        >
+          {error}
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
+      {/* API Error */}
+
+      {error && (
+        <div
+          className="
+            bg-red-50
+            border
+            border-red-200
+            text-red-700
+            rounded-2xl
+            p-4
+          "
+        >
+          {error}
+        </div>
+      )}
 
       {/* Header */}
 
@@ -223,9 +451,7 @@ const AvailabilityPage = () => {
               "
             >
               {filteredAvailability.map(
-                (
-                  availability
-                ) => (
+                (availability) => (
                   <AvailabilityGridCard
                     key={
                       availability.id
@@ -249,11 +475,8 @@ const AvailabilityPage = () => {
 
           {view === "list" && (
             <div className="space-y-6">
-
               {filteredAvailability.map(
-                (
-                  availability
-                ) => (
+                (availability) => (
                   <AvailabilityListCard
                     key={
                       availability.id
@@ -270,7 +493,6 @@ const AvailabilityPage = () => {
                   />
                 )
               )}
-
             </div>
           )}
         </>
@@ -305,7 +527,6 @@ const AvailabilityPage = () => {
           confirmDelete
         }
       />
-
     </div>
   );
 };

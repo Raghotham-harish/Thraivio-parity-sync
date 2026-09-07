@@ -4,13 +4,21 @@ import {
   Globe,
 } from "lucide-react";
 
+import type { MentorApiResponse } from "@/services/mentor.service";
+
 interface Props {
-  mentor: any;
+  mentor: MentorApiResponse;
 }
 
 const ProfileOverviewCard = ({
   mentor,
 }: Props) => {
+  const isVerified =
+    mentor.verificationStatus === "verified";
+
+  const mentorInitial =
+    mentor.name?.charAt(0)?.toUpperCase() || "M";
+
   return (
     <div
       className="
@@ -28,24 +36,27 @@ const ProfileOverviewCard = ({
           gap-8
         "
       >
-        <img
-          src={mentor.image}
-          alt={mentor.name}
+        <div
           className="
             h-36
             w-36
-
             rounded-full
-
-            object-cover
-
             border-4
             border-blue-100
+            bg-blue-50
+            flex
+            items-center
+            justify-center
+            text-5xl
+            font-bold
+            text-blue-600
+            shrink-0
           "
-        />
+        >
+          {mentorInitial}
+        </div>
 
         <div className="flex-1">
-
           <div
             className="
               flex
@@ -59,14 +70,16 @@ const ProfileOverviewCard = ({
                 font-bold
               "
             >
-              {mentor.name}
+              {mentor.name || "Mentor"}
             </h2>
 
-            <BadgeCheck
-              className="
-                text-blue-600
-              "
-            />
+            {isVerified && (
+              <BadgeCheck
+                className="
+                  text-blue-600
+                "
+              />
+            )}
           </div>
 
           <p
@@ -76,7 +89,7 @@ const ProfileOverviewCard = ({
               mt-2
             "
           >
-            {mentor.role}
+            {mentor.headline || "Mentor"}
           </p>
 
           <div
@@ -95,7 +108,7 @@ const ProfileOverviewCard = ({
               "
             >
               <Briefcase size={18} />
-              {mentor.company}
+              {mentor.company || "Not specified"}
             </div>
 
             <div
@@ -106,7 +119,9 @@ const ProfileOverviewCard = ({
               "
             >
               <Globe size={18} />
-              {mentor.languages?.join(", ")}
+              {mentor.languages?.length
+                ? mentor.languages.join(", ")
+                : "Not specified"}
             </div>
           </div>
 
@@ -117,11 +132,10 @@ const ProfileOverviewCard = ({
               leading-relaxed
             "
           >
-            {mentor.about}
+            {mentor.about ||
+              "No description available."}
           </p>
-
         </div>
-
       </div>
     </div>
   );

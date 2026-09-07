@@ -12,6 +12,10 @@ interface MentorsTableProps {
   onReject: (mentor: AdminMentor) => void;
 
   onVerify: (mentor: AdminMentor) => void;
+
+  onFeature: (mentor: AdminMentor) => void;
+
+  onUnfeature: (mentor: AdminMentor) => void;
 }
 
 export default function MentorsTable({
@@ -20,6 +24,8 @@ export default function MentorsTable({
   onApprove,
   onReject,
   onVerify,
+  onFeature,
+  onUnfeature
 }: MentorsTableProps) {
   return (
     <section className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
@@ -58,6 +64,8 @@ export default function MentorsTable({
             onApprove={onApprove}
             onReject={onReject}
             onVerify={onVerify}
+            onFeature={onFeature}
+            onUnfeature={onUnfeature}
           />
         ))}
 

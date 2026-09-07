@@ -9,7 +9,9 @@ const DashboardProgramsCard = ({
   mentor,
 }: Props) => {
   const programs =
-    mentor.programs.slice(0, 3);
+    Array.isArray(mentor?.programs)
+      ? mentor.programs.slice(0, 3)
+      : [];
 
   return (
     <div
@@ -30,7 +32,6 @@ const DashboardProgramsCard = ({
         "
       >
         <div>
-
           <h3
             className="
               text-xl
@@ -50,7 +51,6 @@ const DashboardProgramsCard = ({
             Your latest mentorship
             programs
           </p>
-
         </div>
 
         <BookOpen
@@ -61,14 +61,16 @@ const DashboardProgramsCard = ({
       </div>
 
       <div className="space-y-4">
-
         {programs.map(
           (
             program: any,
             index: number
           ) => (
             <div
-              key={index}
+              key={
+                program?._id ??
+                `program-${index}`
+              }
               className="
                 border
                 rounded-2xl
@@ -83,13 +85,13 @@ const DashboardProgramsCard = ({
                 "
               >
                 <div>
-
                   <h4
                     className="
                       font-semibold
                     "
                   >
-                    {program.title}
+                    {program?.title ??
+                      "Untitled Program"}
                   </h4>
 
                   <p
@@ -99,9 +101,9 @@ const DashboardProgramsCard = ({
                       mt-1
                     "
                   >
-                    {program.level}
+                    {program?.level ??
+                      "N/A"}
                   </p>
-
                 </div>
 
                 <span
@@ -115,9 +117,8 @@ const DashboardProgramsCard = ({
                     font-medium
                   "
                 >
-                  ${program.price}
+                  ${program?.price ?? 0}
                 </span>
-
               </div>
 
               <div
@@ -129,19 +130,19 @@ const DashboardProgramsCard = ({
                 "
               >
                 <span>
-                  {program.duration}
+                  {program?.duration ??
+                    "N/A"}
                 </span>
 
                 <span>
-                  {program.students}
-                  {" "}
+                  {program?.students ??
+                    0}{" "}
                   Students
                 </span>
               </div>
             </div>
           )
         )}
-
       </div>
 
       <Link

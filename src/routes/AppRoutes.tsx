@@ -79,7 +79,7 @@ const AppRoutes = () => {
 
         {/* Individual Mentor Profile */}
         <Route
-          path="/mentor/:id"
+          path="/mentors/:id"
           element={<MentorProfilePage />}
         />
 

@@ -23,45 +23,114 @@ const AvailabilityFormModal = ({
   onClose,
   onSave,
 }: AvailabilityFormModalProps) => {
-  const [date, setDate] =
+  const [day, setDay] =
     useState("");
 
+  const [enabled, setEnabled] =
+    useState(true);
+
   const [slots, setSlots] =
-    useState("");
+    useState<
+      {
+        start: string;
+        end: string;
+      }[]
+    >([
+      {
+        start: "",
+        end: "",
+      },
+    ]);
 
   useEffect(() => {
     if (availability) {
-      setDate(
-        availability.date
+      setDay(
+        availability.day
+      );
+
+      setEnabled(
+        availability.enabled
       );
 
       setSlots(
-        availability.slots.join(
-          ", "
-        )
+        availability.slots.length > 0
+          ? availability.slots
+          : [
+              {
+                start: "",
+                end: "",
+              },
+            ]
       );
     } else {
-      setDate("");
-      setSlots("");
+      setDay("");
+      setEnabled(true);
+      setSlots([
+        {
+          start: "",
+          end: "",
+        },
+      ]);
     }
   }, [availability]);
 
   if (!open) return null;
+
+  const handleSlotChange = (
+    index: number,
+    field: "start" | "end",
+    value: string
+  ) => {
+    setSlots((currentSlots) =>
+      currentSlots.map(
+        (slot, slotIndex) =>
+          slotIndex === index
+            ? {
+                ...slot,
+                [field]: value,
+              }
+            : slot
+      )
+    );
+  };
+
+  const handleAddSlot = () => {
+    setSlots((currentSlots) => [
+      ...currentSlots,
+      {
+        start: "",
+        end: "",
+      },
+    ]);
+  };
+
+  const handleRemoveSlot = (
+    index: number
+  ) => {
+    setSlots((currentSlots) =>
+      currentSlots.filter(
+        (_, slotIndex) =>
+          slotIndex !== index
+      )
+    );
+  };
 
   const handleSubmit = (
     e: React.FormEvent
   ) => {
     e.preventDefault();
 
+    const validSlots = slots.filter(
+      (slot) =>
+        slot.start.trim() &&
+        slot.end.trim()
+    );
+
     onSave({
       id: availability?.id,
-      date,
-      slots: slots
-        .split(",")
-        .map((slot) =>
-          slot.trim()
-        )
-        .filter(Boolean),
+      day,
+      enabled,
+      slots: validSlots,
     });
 
     onClose();
@@ -107,7 +176,6 @@ const AvailabilityFormModal = ({
           "
         >
           <div>
-
             <h2
               className="
                 text-3xl
@@ -125,10 +193,9 @@ const AvailabilityFormModal = ({
                 mt-2
               "
             >
-              Manage mentoring dates and
+              Manage mentoring days and
               available session slots.
             </p>
-
           </div>
 
           <button
@@ -140,7 +207,6 @@ const AvailabilityFormModal = ({
           >
             ×
           </button>
-
         </div>
 
         {/* Form */}
@@ -150,20 +216,17 @@ const AvailabilityFormModal = ({
           className="space-y-6"
         >
           <div>
-
             <label className="font-medium">
-              Date
+              Day
             </label>
 
-            <input
-              type="text"
-              value={date}
+            <select
+              value={day}
               onChange={(e) =>
-                setDate(
+                setDay(
                   e.target.value
                 )
               }
-              placeholder="Jun 20"
               className="
                 w-full
 
@@ -174,42 +237,191 @@ const AvailabilityFormModal = ({
                 rounded-xl
 
                 p-4
+
+                bg-white
               "
               required
-            />
+            >
+              <option value="">
+                Select a day
+              </option>
 
+              <option value="Monday">
+                Monday
+              </option>
+
+              <option value="Tuesday">
+                Tuesday
+              </option>
+
+              <option value="Wednesday">
+                Wednesday
+              </option>
+
+              <option value="Thursday">
+                Thursday
+              </option>
+
+              <option value="Friday">
+                Friday
+              </option>
+
+              <option value="Saturday">
+                Saturday
+              </option>
+
+              <option value="Sunday">
+                Sunday
+              </option>
+            </select>
           </div>
 
           <div>
-
             <label className="font-medium">
-              Time Slots
+              Availability Status
             </label>
 
-            <textarea
-              rows={4}
-              value={slots}
-              onChange={(e) =>
-                setSlots(
-                  e.target.value
-                )
-              }
-              placeholder="10:00 AM, 11:00 AM, 2:00 PM"
+            <div
               className="
-                w-full
+                flex
+                items-center
+                gap-3
 
-                mt-2
-
-                border
-
-                rounded-xl
-
-                p-4
-
-                resize-none
+                mt-3
               "
-              required
-            />
+            >
+              <input
+                type="checkbox"
+                checked={enabled}
+                onChange={(e) =>
+                  setEnabled(
+                    e.target.checked
+                  )
+                }
+                className="
+                  w-5
+                  h-5
+                "
+              />
+
+              <span className="text-slate-700">
+                Enable this day for bookings
+              </span>
+            </div>
+          </div>
+
+          <div>
+            <div
+              className="
+                flex
+                items-center
+                justify-between
+              "
+            >
+              <label className="font-medium">
+                Time Slots
+              </label>
+
+              <button
+                type="button"
+                onClick={handleAddSlot}
+                className="
+                  text-blue-600
+                  hover:text-blue-700
+
+                  font-medium
+                "
+              >
+                + Add Slot
+              </button>
+            </div>
+
+            <div className="space-y-4 mt-3">
+              {slots.map(
+                (slot, index) => (
+                  <div
+                    key={index}
+                    className="
+                      flex
+                      items-center
+                      gap-3
+                    "
+                  >
+                    <input
+                      type="time"
+                      value={
+                        slot.start
+                      }
+                      onChange={(e) =>
+                        handleSlotChange(
+                          index,
+                          "start",
+                          e.target.value
+                        )
+                      }
+                      className="
+                        flex-1
+
+                        border
+
+                        rounded-xl
+
+                        p-4
+                      "
+                      required
+                    />
+
+                    <span className="text-slate-500">
+                      to
+                    </span>
+
+                    <input
+                      type="time"
+                      value={
+                        slot.end
+                      }
+                      onChange={(e) =>
+                        handleSlotChange(
+                          index,
+                          "end",
+                          e.target.value
+                        )
+                      }
+                      className="
+                        flex-1
+
+                        border
+
+                        rounded-xl
+
+                        p-4
+                      "
+                      required
+                    />
+
+                    {slots.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          handleRemoveSlot(
+                            index
+                          )
+                        }
+                        className="
+                          text-red-500
+                          hover:text-red-600
+
+                          text-xl
+                          font-medium
+                        "
+                      >
+                        ×
+                      </button>
+                    )}
+                  </div>
+                )
+              )}
+            </div>
 
             <p
               className="
@@ -219,9 +431,9 @@ const AvailabilityFormModal = ({
                 mt-2
               "
             >
-              Separate slots with commas.
+              Add the start and end time for
+              each available session slot.
             </p>
-
           </div>
 
           {/* Footer */}
@@ -268,11 +480,8 @@ const AvailabilityFormModal = ({
                 ? "Update Availability"
                 : "Create Availability"}
             </button>
-
           </div>
-
         </form>
-
       </div>
     </div>
   );

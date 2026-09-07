@@ -4,21 +4,34 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-import { mentors } from "@/data/mentors";
+import { useEffect, useState } from "react";
+
+import {
+  getCurrentUser,
+  type AuthUser,
+} from "@/services/auth.service";
 
 const DashboardTopbar = () => {
-  /**
-   * Temporary
-   * Future Login Mentor
-   */
+  const [user, setUser] =
+    useState<AuthUser | null>(null);
 
-  const mentorId = 1;
+  useEffect(() => {
+    const loadCurrentUser = async () => {
+      try {
+        const currentUser =
+          await getCurrentUser();
 
-  const mentor = mentors.find(
-    (item) => item.id === mentorId
-  );
+        setUser(currentUser);
+      } catch (error) {
+        console.error(
+          "Failed to load current user:",
+          error
+        );
+      }
+    };
 
-  if (!mentor) return null;
+    loadCurrentUser();
+  }, []);
 
   return (
     <header
@@ -40,7 +53,6 @@ const DashboardTopbar = () => {
       {/* Left */}
 
       <div>
-
         <h1 className="text-2xl font-bold">
           Welcome Back 👋
         </h1>
@@ -48,7 +60,6 @@ const DashboardTopbar = () => {
         <p className="text-slate-500 text-sm mt-1">
           Manage your mentorship business
         </p>
-
       </div>
 
       {/* Right */}
@@ -134,8 +145,11 @@ const DashboardTopbar = () => {
           "
         >
           <img
-            src={mentor.image}
-            alt={mentor.name}
+            src={
+              user?.avatar ||
+              "/default-avatar.png"
+            }
+            alt={user?.fullName || "User"}
             className="
               h-12
               w-12
@@ -147,11 +161,11 @@ const DashboardTopbar = () => {
           <div className="hidden md:block">
 
             <h4 className="font-semibold">
-              {mentor.name}
+              {user?.fullName || "Mentor"}
             </h4>
 
             <p className="text-xs text-slate-500">
-              {mentor.role}
+              {user?.role || "Mentor"}
             </p>
 
           </div>
@@ -160,6 +174,7 @@ const DashboardTopbar = () => {
             size={18}
             className="text-slate-500"
           />
+
         </div>
 
       </div>
