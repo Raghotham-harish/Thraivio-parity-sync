@@ -13,6 +13,7 @@ import {
   Settings,
   GraduationCap,
   CircleHelp,
+  ClipboardList,
 } from "lucide-react";
 
 const menuItems = [
@@ -69,6 +70,12 @@ const menuItems = [
     path: "/user-dashboard/notifications",
     icon: Bell,
   },
+
+  {
+  title: "Surveys",
+  path: "/user-dashboard/surveys",
+  icon: ClipboardList,
+},
 
   {
     title: "Settings",

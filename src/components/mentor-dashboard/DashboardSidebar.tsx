@@ -12,6 +12,7 @@ import {
   Video,
   HelpCircle,
   CalendarCheck,
+  ClipboardList,
   Settings,
   GraduationCap,
 } from "lucide-react";
@@ -52,7 +53,11 @@ const menuItems = [
     path: "/mentor-dashboard/availability",
     icon: Clock3,
   },
-
+  {
+  title: "Surveys",
+  path: "/mentor-dashboard/surveys",
+  icon: ClipboardList,
+},
   {
     title: "Certifications",
     path: "/mentor-dashboard/certifications",

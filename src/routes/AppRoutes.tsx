@@ -22,6 +22,7 @@ import Events from "@/pages/mentor-dashboard/Events";
 import Achievements from "@/pages/mentor-dashboard/Achievements";
 import Certifications from "@/pages/mentor-dashboard/Certifications";
 import AvailabilityPage from "@/pages/mentor-dashboard/Availability";
+import Surveys from "@/pages/mentor-dashboard/Surveys";
 import Pricing from "@/pages/mentor-dashboard/Pricing";
 import Videos from "@/pages/mentor-dashboard/Videos";
 import FAQ from "@/pages/mentor-dashboard/FAQ";
@@ -41,6 +42,7 @@ import Payments from "@/pages/user-dashboard/MyPayments";
 import Notifications from "@/pages/user-dashboard/Notifications";
 import UserSettings from "@/pages/user-dashboard/Settings";
 import HelpSupport from "@/pages/user-dashboard/HelpSupport";
+import UserSurveys from "@/pages/user-dashboard/Surveys";
 
 import AdminDashboardLayout from "../layouts/AdminDashboardLayout";
 
@@ -59,6 +61,7 @@ import CMSManagement from "@/pages/admin-dashboard/CMSManagement";
 import SupportManagement from "@/pages/admin-dashboard/SupportManagement";
 import RolesPermissions from "@/pages/admin-dashboard/RolesPermissions";
 import AdminSettings from "@/pages/admin-dashboard/AdminSettings";
+import SurveysManagement from "@/pages/admin-dashboard/SurveysManagement";
 
 const AppRoutes = () => {
   return (
@@ -182,6 +185,11 @@ const AppRoutes = () => {
   element={<AvailabilityPage />}
 />
 
+<Route
+  path="surveys"
+  element={<Surveys />}
+/>
+
    <Route
   path="pricing"
   element={<Pricing />}
@@ -263,11 +271,17 @@ const AppRoutes = () => {
     element={<UserSettings />}
   />
 
+  <Route 
+  path="surveys" 
+  element={<UserSurveys />} 
+/>
+
   <Route
   path="help-support"
   element={<HelpSupport />}
 />
 </Route>
+
 
 <Route path="/admin"
        element={<AdminDashboardLayout />}>
@@ -307,6 +321,12 @@ const AppRoutes = () => {
   path="/admin/reports"
   element={<ReportsManagement />}
 />
+
+<Route 
+  path="/admin/surveys" 
+  element={<SurveysManagement />} 
+/>
+
 <Route
   path="/admin/reviews"
   element={<ReviewsManagement />}

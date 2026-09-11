@@ -14,6 +14,7 @@ import {
   CircleHelp,
   Shield,
   Settings,
+  ClipboardList,
 } from "lucide-react";
 
 import type { LucideIcon } from "lucide-react";
@@ -53,6 +54,12 @@ export const adminSidebarItems: AdminSidebarItem[] = [
     title: "Programs",
     path: "/admin/programs",
     icon: BookOpen,
+  },
+
+  {
+    title: "Surveys",
+    path: "/admin/surveys",
+    icon: ClipboardList,
   },
 
   {
