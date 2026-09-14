@@ -1,207 +1,229 @@
 import { Link } from "react-router-dom";
 import {
-  Mail,
-  MapPin,
+  ExternalLink,
+  BadgeCheck,
+  ShieldCheck,
+  LockKeyhole,
 } from "lucide-react";
-
-import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
-} from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-900 text-white">
+    <footer className="bg-[#0A192F] text-white">
+      {/* ================= MAIN FOOTER ================= */}
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-0 pt-[72px] pb-[10px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.2fr_1fr_1fr_1fr_1fr] gap-x-12 gap-y-12">
 
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-4 py-20">
-
-        <div className="grid lg:grid-cols-5 gap-12">
-
-          {/* Brand */}
-          <div className="lg:col-span-2">
-
-            <div className="flex items-center gap-3">
-
-              <div
-                className="
-h-12
-w-12
-rounded-xl
-bg-gradient-to-br
-from-blue-600
-to-cyan-500
-flex
-items-center
-justify-center
-font-bold
-text-xl
-shadow-lg
-shadow-blue-400/20
-"
-              >
-                CC
-              </div>
-
-              <div>
-                <h3 className="text-2xl font-bold">
-                  CoachCoaching
-                </h3>
-
-                <p className="text-slate-400 text-sm">
-                  Learn • Connect • Grow
-                </p>
-              </div>
-
-            </div>
-
-            <p className="mt-6 text-slate-400 leading-relaxed max-w-md">
-              Discover experienced mentors, coaches,
-              consultants and industry experts. Compare
-              profiles, explore programs, read reviews,
-              view testimonials and book one-on-one
-              mentoring sessions.
+          {/* ================= BRAND ================= */}
+          <div className="pr-8">
+            {/* Logo */}
+            <Link to="/" className="inline-flex items-center mb-7">
+              <img
+                src="/images/Logo.png"
+                alt="Thryvio"
+                className="h-[46px] w-auto object-contain"
+              />
+            </Link>
+            {/* Description */}
+            <p className="text-[#9DA7B6] text-[13px] leading-[1.7] max-w-[300px]">
+              Connecting people with world-class
+              <br />
+              coaches and mentors. Globally
+              <br />
+              credentialed. GDPR Compliant.
             </p>
 
-            <div className="mt-8 space-y-4">
-
-              <div className="flex items-center gap-3 text-slate-300">
-                <Mail size={18} />
-                <span>support@coachcoaching.com</span>
-              </div>
-
-              <div className="flex items-center gap-3 text-slate-300">
-                <MapPin size={18} />
-                <span>Global Mentor Marketplace</span>
-              </div>
-
+            {/* Social / External Icons */}
+            <div className="flex items-center gap-4 mt-7">
+              {[1, 2, 3].map((item) => (
+                <a
+                  key={item}
+                  href="#"
+                  aria-label="Social link"
+                  className="
+                    w-[40px]
+                    h-[40px]
+                    rounded-full
+                    bg-[#24344C]
+                    flex
+                    items-center
+                    justify-center
+                    text-[#AAB3C0]
+                    hover:bg-[#30445F]
+                    hover:text-white
+                    transition-all
+                    duration-300
+                  "
+                >
+                  <ExternalLink size={20} strokeWidth={2} />
+                </a>
+              ))}
             </div>
-
           </div>
 
-          {/* Platform */}
+          {/* ================= PLATFORM ================= */}
           <div>
-
-            <h4 className="font-semibold text-lg text-white tracking-wide mb-5">
+            <h4 className="text-[11px] font-semibold uppercase tracking-[1.5px] text-[#7D899B] mb-7">
               Platform
             </h4>
 
-            <ul className="space-y-3">
-
+            <ul className="space-y-[22px]">
               <li>
                 <Link
                   to="/"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300
-"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Find Mentors
+                  Find a Coach or Mentor
                 </Link>
               </li>
 
               <li>
                 <Link
-                  to="/categories"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  to="/programs"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Categories
+                  Programs & Events
                 </Link>
               </li>
 
               <li>
                 <Link
-                  to="/become-mentor"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  to="/how-it-works"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Become Mentor
+                  How It Works
                 </Link>
               </li>
 
+              <li>
+                <Link
+                  to="/pricing"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
+                >
+                  Pricing
+                </Link>
+              </li>
             </ul>
-
           </div>
 
-          {/* For Mentors */}
+          {/* ================= FOR COMPANIES ================= */}
           <div>
-
-            <h4 className="font-semibold text-lg text-white tracking-wide mb-5">
-              For Mentors
+            <h4 className="text-[11px] font-semibold uppercase tracking-[1.5px] text-[#7D899B] mb-7">
+              For Companies
             </h4>
 
-            <ul className="space-y-3">
-
+            <ul className="space-y-[22px]">
               <li>
                 <Link
-                  to="/signup"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  to="/enterprise-coaching"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Create Profile
+                  Enterprise Coaching
                 </Link>
               </li>
 
               <li>
                 <Link
-                  to="/become-mentor"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  to="/team-development"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Become Mentor
+                  Team Development
                 </Link>
               </li>
 
               <li>
                 <Link
-                  to="/"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  to="/leadership-programs"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Mentor Directory
+                  Leadership Programs
                 </Link>
               </li>
 
               <li>
                 <Link
-                  to="/contact"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  to="/request-demo"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Contact Support
+                  Request a Demo
                 </Link>
               </li>
-
             </ul>
-
           </div>
 
-          {/* Resources */}
+          {/* ================= RESOURCES ================= */}
           <div>
-
-            <h4 className="font-semibold text-lg text-white tracking-wide mb-5">
+            <h4 className="text-[11px] font-semibold uppercase tracking-[1.5px] text-[#7D899B] mb-7">
               Resources
             </h4>
 
-            <ul className="space-y-3">
-
+            <ul className="space-y-[22px]">
               <li>
                 <Link
-                  to="/faq"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  to="/blog"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  FAQ
+                  Blog & Insights
                 </Link>
               </li>
 
               <li>
                 <Link
-                  to="/contact"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  to="/standards"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Contact
+                  Our Standards
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/success-stories"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
+                >
+                  Success Stories
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/help"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
+                >
+                  Help Center
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* ================= COMPANY ================= */}
+          <div>
+            <h4 className="text-[11px] font-semibold uppercase tracking-[1.5px] text-[#7D899B] mb-7">
+              Company
+            </h4>
+
+            <ul className="space-y-[22px]">
+              <li>
+                <Link
+                  to="/about"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
+                >
+                  About Thryvio
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  to="/careers"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
+                >
+                  Careers
                 </Link>
               </li>
 
               <li>
                 <Link
                   to="/privacy"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
                   Privacy Policy
                 </Link>
@@ -210,157 +232,73 @@ shadow-blue-400/20
               <li>
                 <Link
                   to="/terms"
-                  className="text-slate-400 hover:text-cyan-400 transition duration-300"
+                  className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  Terms & Conditions
+                  Terms of Service
                 </Link>
               </li>
-
             </ul>
-
           </div>
-
         </div>
 
-      </div>
-
-      {/* Bottom */}
-      <div className="border-t border-slate-800">
-
-        <div
-          className="
-            max-w-7xl
-            mx-auto
-            px-4
-            py-6
+        {/* ================= BOTTOM FOOTER ================= */}
+        <div className="border-t border-[#22324A] mt-14">
+          <div
+            className="
+            py-[27px]
             flex
             flex-col
             lg:flex-row
             items-center
             justify-between
-            gap-6
+            gap-7
           "
-        >
+          >
+            {/* Copyright */}
+            <p className="text-[12px] text-[#60718A]">
+              © 2026 Thryvio. All rights reserved.
+            </p>
 
-          <p className="text-slate-400 text-sm">
-            © 2026 CoachCoaching. All rights reserved.
-          </p>
+            {/* Trust Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-x-7 gap-y-4">
+              {/* Credentialed Professionals */}
+              <div className="flex items-center gap-2.5 text-[#60718A]">
+                <BadgeCheck
+                  size={22}
+                  strokeWidth={2.2}
+                  className="text-[#00DDB0]"
+                />
+                <span className="text-[12px]">
+                  Credentialed Professionals
+                </span>
+              </div>
 
-          <div className="flex gap-6 text-sm">
+              {/* SOC 2 */}
+              <div className="flex items-center gap-2.5 text-[#60718A]">
+                <ShieldCheck
+                  size={21}
+                  strokeWidth={2.2}
+                  className="text-[#00DDB0]"
+                />
+                <span className="text-[12px]">
+                  SOC 2 Type II
+                </span>
+              </div>
 
-            <Link
-              to="/privacy"
-              className="text-slate-400 hover:text-cyan-400 transition duration-300"
-            >
-              Privacy
-            </Link>
-
-            <Link
-              to="/terms"
-              className="text-slate-400 hover:text-cyan-400 transition duration-300"
-            >
-              Terms
-            </Link>
-
-            <Link
-              to="/contact"
-              className="text-slate-400 hover:text-cyan-400 transition duration-300"
-            >
-              Contact
-            </Link>
-
+              {/* GDPR */}
+              <div className="flex items-center gap-2.5 text-[#60718A]">
+                <LockKeyhole
+                  size={21}
+                  strokeWidth={2.2}
+                  className="text-[#00DDB0]"
+                />
+                <span className="text-[12px]">
+                  GDPR Compliant
+                </span>
+              </div>
+            </div>
           </div>
-
-          <div className="flex items-center gap-4">
-
-            <a
-              href="#"
-              className="
-h-10
-w-10
-rounded-full
-bg-slate-800
-flex
-items-center
-justify-center
-hover:bg-gradient-to-r
-hover:from-blue-600
-hover:to-cyan-500
-transition-all
-duration-300
-hover:scale-110
-"
-            >
-              <FaFacebookF />
-            </a>
-
-            <a
-              href="#"
-              className="
-h-10
-w-10
-rounded-full
-bg-slate-800
-flex
-items-center
-justify-center
-hover:bg-gradient-to-r
-hover:from-blue-600
-hover:to-cyan-500
-transition-all
-duration-300
-hover:scale-110
-"
-            >
-              <FaInstagram />
-            </a>
-
-            <a
-              href="#"
-              className="
-h-10
-w-10
-rounded-full
-bg-slate-800
-flex
-items-center
-justify-center
-hover:bg-gradient-to-r
-hover:from-blue-600
-hover:to-cyan-500
-transition-all
-duration-300
-hover:scale-110
-"
-            >
-              <FaLinkedinIn />
-            </a>
-
-            <a
-              href="#"
-              className="
-h-10
-w-10
-rounded-full
-bg-slate-800
-flex
-items-center
-justify-center
-hover:bg-gradient-to-r
-hover:from-blue-600
-hover:to-cyan-500
-transition-all
-duration-300
-hover:scale-110
-"
-            >
-              <FaTwitter />
-            </a>
-
-          </div>
-
         </div>
-
       </div>
 
     </footer>
