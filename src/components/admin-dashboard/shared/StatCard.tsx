@@ -3,21 +3,20 @@ import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 
-export type StatCardAccent =
-  | "primary"
-  | "chart-2"
-  | "chart-3"
-  | "chart-4"
-  | "chart-5"
-  | "destructive";
+export type StatCardAccent = "default" | "success";
 
-const accentClasses: Record<StatCardAccent, { bg: string; fg: string }> = {
-  primary: { bg: "bg-primary/10", fg: "text-primary" },
-  "chart-2": { bg: "bg-chart-2/10", fg: "text-chart-2" },
-  "chart-3": { bg: "bg-chart-3/10", fg: "text-chart-3" },
-  "chart-4": { bg: "bg-chart-4/10", fg: "text-chart-4" },
-  "chart-5": { bg: "bg-chart-5/10", fg: "text-chart-5" },
-  destructive: { bg: "bg-destructive/10", fg: "text-destructive" },
+/**
+ * Icon well background — only two variants exist in the real Thraivio
+ * design system (.icon-bg / .icon-bg-mint), not a per-category rainbow.
+ */
+const iconWellClass: Record<StatCardAccent, string> = {
+  default: "icon-bg",
+  success: "icon-bg-mint",
+};
+
+const iconColor: Record<StatCardAccent, string> = {
+  default: "#2563EB",
+  success: "#1DD7A5",
 };
 
 interface StatCardProps {
@@ -33,31 +32,28 @@ interface StatCardProps {
 }
 
 /**
- * Shared admin-dashboard stat tile, driven entirely by the Thraivio
- * semantic tokens (bg-card, border-border, text-foreground, chart-*)
- * instead of a per-page hardcoded Tailwind color map. Swap a feature
- * area's hand-rolled stat card for this to pick up the brand + dark
- * mode automatically.
+ * Shared admin-dashboard stat tile. Per the design system's stat-tile rule,
+ * the value is always a single dark color (never tinted per item) and the
+ * icon well uses only the two documented gradients, not an arbitrary accent.
  */
 export function StatCard({
   title,
   value,
   icon: Icon,
-  accent = "primary",
+  accent = "default",
   change,
   trend = "up",
   description,
   onClick,
   className,
 }: StatCardProps) {
-  const colors = accentClasses[accent];
   const Comp = onClick ? "button" : "div";
 
   return (
     <Comp
       onClick={onClick}
       className={cn(
-        "group relative overflow-hidden rounded-[28px] border border-border bg-card p-6 text-left shadow-sm transition-all duration-300",
+        "group relative overflow-hidden rounded-2xl border border-border bg-card p-6 text-left shadow-sm transition-all duration-300",
         onClick && "hover:-translate-y-1 hover:shadow-lg",
         className,
       )}
@@ -65,16 +61,21 @@ export function StatCard({
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-sm font-medium text-muted-foreground">{title}</p>
-          <h3 className="mt-3 text-3xl font-bold text-foreground">{value}</h3>
+          <h3
+            className="mt-3 text-3xl font-semibold text-[#0A192F] dark:text-white"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            {value}
+          </h3>
         </div>
 
         <div
           className={cn(
-            "flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl",
-            colors.bg,
+            "flex h-14 w-14 shrink-0 items-center justify-center rounded-xl",
+            iconWellClass[accent],
           )}
         >
-          <Icon className={cn("h-6 w-6", colors.fg)} />
+          <Icon className="h-6 w-6" style={{ color: iconColor[accent] }} />
         </div>
       </div>
 
@@ -82,12 +83,12 @@ export function StatCard({
         <div className="mt-6 flex items-center justify-between gap-3">
           {change && (
             <span
-              className={cn(
-                "inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-semibold",
+              className="inline-flex items-center gap-1 rounded-full px-2.5 py-1 text-xs font-bold"
+              style={
                 trend === "up"
-                  ? "bg-chart-3/10 text-chart-3"
-                  : "bg-destructive/10 text-destructive",
-              )}
+                  ? { color: "#065F46", background: "#ECFDF5" }
+                  : { color: "#B45309", background: "#FFFBEB" }
+              }
             >
               {trend === "up" ? (
                 <ArrowUpRight className="h-3.5 w-3.5" />

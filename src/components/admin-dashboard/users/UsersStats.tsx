@@ -27,12 +27,12 @@ const statsConfig: {
   accent: StatCardAccent;
   trend: string;
 }[] = [
-  { title: "Total Users", key: "totalUsers", icon: Users, accent: "primary", trend: "+18%" },
-  { title: "Active Users", key: "activeUsers", icon: UserCheck, accent: "chart-3", trend: "+12%" },
-  { title: "Premium Members", key: "premiumUsers", icon: Crown, accent: "chart-4", trend: "+24%" },
-  { title: "Verified Users", key: "verifiedUsers", icon: ShieldCheck, accent: "chart-2", trend: "+8%" },
-  { title: "Blocked Users", key: "blockedUsers", icon: Ban, accent: "destructive", trend: "-4%" },
-  { title: "New This Month", key: "newUsersThisMonth", icon: UserPlus, accent: "chart-5", trend: "+32%" },
+  { title: "Total Users", key: "totalUsers", icon: Users, accent: "default", trend: "+18%" },
+  { title: "Active Users", key: "activeUsers", icon: UserCheck, accent: "success", trend: "+12%" },
+  { title: "Premium Members", key: "premiumUsers", icon: Crown, accent: "default", trend: "+24%" },
+  { title: "Verified Users", key: "verifiedUsers", icon: ShieldCheck, accent: "success", trend: "+8%" },
+  { title: "Blocked Users", key: "blockedUsers", icon: Ban, accent: "default", trend: "-4%" },
+  { title: "New This Month", key: "newUsersThisMonth", icon: UserPlus, accent: "default", trend: "+32%" },
 ];
 
 export default function UsersStats({ stats }: UsersStatsProps) {

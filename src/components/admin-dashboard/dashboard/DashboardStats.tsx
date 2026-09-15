@@ -29,17 +29,18 @@ const iconMap = {
   Star,
 };
 
-// Legacy per-card color labels (from the data layer) mapped onto the
-// Thraivio semantic chart tokens, so this stays a display-only concern.
+// Legacy per-card color labels (from the data layer) collapse onto the
+// two real icon-well variants — the design system doesn't have a
+// per-category color rainbow for stat tiles.
 const accentMap: Record<string, StatCardAccent> = {
-  blue: "primary",
-  emerald: "chart-3",
-  green: "chart-3",
-  violet: "chart-5",
-  pink: "chart-5",
-  orange: "chart-4",
-  amber: "chart-4",
-  cyan: "chart-2",
+  blue: "default",
+  emerald: "success",
+  green: "success",
+  violet: "default",
+  pink: "default",
+  orange: "default",
+  amber: "default",
+  cyan: "default",
 };
 
 const DashboardStats = ({ stats, onCardClick }: DashboardStatsProps) => {
