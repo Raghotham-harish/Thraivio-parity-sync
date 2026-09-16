@@ -60,7 +60,7 @@ export default function ReviewsToolbar({
   onRefresh,
 }: ReviewsToolbarProps) {
   return (
-    <section className="rounded-3xl border bg-background p-6 shadow-sm">
+    <section className="rounded-2xl border bg-background p-6 shadow-sm">
 
       <div className="grid gap-4 xl:grid-cols-6">
 

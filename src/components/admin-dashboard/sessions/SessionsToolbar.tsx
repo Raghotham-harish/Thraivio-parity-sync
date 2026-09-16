@@ -1,49 +1,31 @@
+import { CalendarDays, Download, LayoutGrid, List, Plus, Search } from "lucide-react";
+
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
-  CalendarDays,
-  Download,
-  LayoutGrid,
-  List,
-  Plus,
-  Search,
-} from "lucide-react";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ViewToggle } from "@/components/admin-dashboard/shared/ViewToggle";
 
 interface SessionsToolbarProps {
   search: string;
-
   setSearch: (value: string) => void;
-
   view: "grid" | "list";
-
   setView: (value: "grid" | "list") => void;
-
   selectedStatus: string;
-
   setSelectedStatus: (value: string) => void;
-
   selectedPlatform: string;
-
   setSelectedPlatform: (value: string) => void;
-
   onCreateSession: () => void;
-
   onExport: () => void;
 }
 
-const statusFilters = [
-  "All",
-  "Scheduled",
-  "Live",
-  "Completed",
-  "Cancelled",
-  "Missed",
-];
-
-const platforms = [
-  "All Platforms",
-  "Google Meet",
-  "Zoom",
-  "Microsoft Teams",
-];
+const statusFilters = ["All", "Scheduled", "Live", "Completed", "Cancelled", "Missed"];
+const platforms = ["All Platforms", "Google Meet", "Zoom", "Microsoft Teams"];
 
 const SessionsToolbar = ({
   search,
@@ -58,316 +40,69 @@ const SessionsToolbar = ({
   onExport,
 }: SessionsToolbarProps) => {
   return (
-    <div
-      className="
-        rounded-[30px]
-        border
-        border-slate-200
-        bg-white
-        p-6
-      "
-    >
-      {/* Top */}
-
-      <div
-        className="
-          flex
-          flex-col
-          gap-5
-
-          2xl:flex-row
-          2xl:items-center
-          2xl:justify-between
-        "
-      >
-        {/* Search */}
-
-        <div
-          className="
-            relative
-
-            w-full
-
-            2xl:max-w-xl
-          "
-        >
-          <Search
-            size={18}
-            className="
-              absolute
-              left-4
-              top-1/2
-              -translate-y-1/2
-              text-slate-400
-            "
-          />
-
-          <input
-            type="text"
+    <div className="rounded-2xl border border-border bg-card p-6">
+      <div className="flex flex-col gap-5 2xl:flex-row 2xl:items-center 2xl:justify-between">
+        <div className="relative w-full 2xl:max-w-xl">
+          <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
             value={search}
-            onChange={(e) =>
-              setSearch(e.target.value)
-            }
+            onChange={(e) => setSearch(e.target.value)}
             placeholder="Search mentor, student, session..."
-            className="
-              h-12
-              w-full
-
-              rounded-2xl
-
-              border
-              border-slate-200
-
-              pl-12
-              pr-4
-
-              outline-none
-
-              transition-all
-
-              focus:border-indigo-500
-              focus:ring-4
-              focus:ring-indigo-100
-            "
+            className="h-11 rounded-xl pl-11"
           />
         </div>
 
-        {/* Right */}
+        <div className="flex flex-wrap gap-3">
+          <ViewToggle
+            value={view}
+            onChange={setView}
+            options={[
+              { value: "grid", icon: LayoutGrid, label: "Grid" },
+              { value: "list", icon: List, label: "List" },
+            ]}
+          />
 
-        <div
-          className="
-            flex
-            flex-wrap
-            gap-3
-          "
-        >
-          {/* View */}
-
-          <div
-            className="
-              flex
-
-              rounded-2xl
-
-              border
-              border-slate-200
-
-              overflow-hidden
-            "
-          >
-            <button
-              onClick={() =>
-                setView("grid")
-              }
-              className={`
-                flex
-                items-center
-                gap-2
-
-                px-5
-                py-3
-
-                transition
-
-                ${
-                  view === "grid"
-                    ? "bg-indigo-600 text-white"
-                    : "bg-white hover:bg-slate-50"
-                }
-              `}
-            >
-              <LayoutGrid size={18} />
-
-              Grid
-            </button>
-
-            <button
-              onClick={() =>
-                setView("list")
-              }
-              className={`
-                flex
-                items-center
-                gap-2
-
-                px-5
-                py-3
-
-                transition
-
-                ${
-                  view === "list"
-                    ? "bg-indigo-600 text-white"
-                    : "bg-white hover:bg-slate-50"
-                }
-              `}
-            >
-              <List size={18} />
-
-              List
-            </button>
-          </div>
-
-          {/* Export */}
-
-          <button
-            onClick={onExport}
-            className="
-              flex
-              items-center
-              gap-2
-
-              rounded-2xl
-
-              border
-              border-slate-200
-
-              px-5
-              py-3
-
-              font-medium
-
-              transition
-
-              hover:bg-slate-50
-            "
-          >
-            <Download size={18} />
-
+          <Button variant="outline" className="rounded-xl" onClick={onExport}>
+            <Download className="mr-2 h-4 w-4" />
             Export
-          </button>
+          </Button>
 
-          {/* Create */}
-
-          <button
-            onClick={onCreateSession}
-            className="
-              flex
-              items-center
-              gap-2
-
-              rounded-2xl
-
-              bg-indigo-600
-
-              px-5
-              py-3
-
-              font-semibold
-              text-white
-
-              transition
-
-              hover:bg-indigo-700
-            "
-          >
-            <Plus size={18} />
-
+          <Button className="rounded-xl" onClick={onCreateSession}>
+            <Plus className="mr-2 h-4 w-4" />
             Create Session
-          </button>
+          </Button>
         </div>
       </div>
 
-      {/* Bottom */}
+      <div className="mt-6 flex flex-wrap items-center gap-3">
+        <Select value={selectedStatus} onValueChange={setSelectedStatus}>
+          <SelectTrigger className="h-11 w-[160px] rounded-xl">
+            <SelectValue placeholder="Status" />
+          </SelectTrigger>
+          <SelectContent>
+            {statusFilters.map((item) => (
+              <SelectItem key={item} value={item}>
+                {item}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
 
-      <div
-        className="
-          mt-6
+        <Select value={selectedPlatform} onValueChange={setSelectedPlatform}>
+          <SelectTrigger className="h-11 w-[180px] rounded-xl">
+            <SelectValue placeholder="Platform" />
+          </SelectTrigger>
+          <SelectContent>
+            {platforms.map((item) => (
+              <SelectItem key={item} value={item}>
+                {item}
+              </SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
 
-          flex
-          flex-wrap
-
-          items-center
-
-          gap-4
-        "
-      >
-        {/* Status */}
-
-        <select
-          value={selectedStatus}
-          onChange={(e) =>
-            setSelectedStatus(
-              e.target.value
-            )
-          }
-          className="
-            h-11
-
-            rounded-xl
-
-            border
-            border-slate-200
-
-            px-4
-
-            outline-none
-
-            focus:border-indigo-500
-          "
-        >
-          {statusFilters.map((item) => (
-            <option
-              key={item}
-              value={item}
-            >
-              {item}
-            </option>
-          ))}
-        </select>
-
-        {/* Platform */}
-
-        <select
-          value={selectedPlatform}
-          onChange={(e) =>
-            setSelectedPlatform(
-              e.target.value
-            )
-          }
-          className="
-            h-11
-
-            rounded-xl
-
-            border
-            border-slate-200
-
-            px-4
-
-            outline-none
-
-            focus:border-indigo-500
-          "
-        >
-          {platforms.map((item) => (
-            <option
-              key={item}
-              value={item}
-            >
-              {item}
-            </option>
-          ))}
-        </select>
-
-        {/* Right */}
-
-        <div
-          className="
-            ml-auto
-
-            hidden
-            lg:flex
-
-            items-center
-            gap-2
-
-            text-sm
-            text-slate-500
-          "
-        >
-          <CalendarDays size={16} />
-
+        <div className="ml-auto hidden items-center gap-2 text-sm text-muted-foreground lg:flex">
+          <CalendarDays className="h-4 w-4" />
           Manage all mentoring sessions from one place.
         </div>
       </div>

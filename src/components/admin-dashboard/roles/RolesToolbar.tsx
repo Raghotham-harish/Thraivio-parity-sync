@@ -50,7 +50,7 @@ export default function RolesToolbar({
   onRefresh,
 }: RolesToolbarProps) {
   return (
-    <section className="rounded-3xl border bg-background p-6 shadow-sm">
+    <section className="rounded-2xl border bg-background p-6 shadow-sm">
 
       <div className="grid gap-4 lg:grid-cols-4">
 

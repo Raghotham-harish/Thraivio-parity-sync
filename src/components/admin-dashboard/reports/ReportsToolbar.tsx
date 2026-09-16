@@ -56,7 +56,7 @@ export default function ReportsToolbar({
   onExport,
 }: ReportsToolbarProps) {
   return (
-    <div className="space-y-5 rounded-3xl border bg-background p-5 shadow-sm">
+    <div className="space-y-5 rounded-2xl border bg-background p-5 shadow-sm">
 
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 

@@ -118,7 +118,7 @@ const EventsToolbar = ({
   return (
     <section
       className="
-        rounded-3xl
+        rounded-2xl
         border
         bg-white
         p-6

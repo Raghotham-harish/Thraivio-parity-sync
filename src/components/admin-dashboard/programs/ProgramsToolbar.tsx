@@ -1,9 +1,15 @@
+import { Grid2X2, List, RefreshCcw, Search } from "lucide-react";
+
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import {
-  Grid2X2,
-  List,
-  RefreshCcw,
-  Search,
-} from "lucide-react";
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { ViewToggle } from "@/components/admin-dashboard/shared/ViewToggle";
 
 interface ProgramsToolbarProps {
   search: string;
@@ -22,9 +28,7 @@ interface ProgramsToolbarProps {
   onStatusChange: (value: string) => void;
 
   view: "grid" | "list";
-  onViewChange: (
-    view: "grid" | "list"
-  ) => void;
+  onViewChange: (view: "grid" | "list") => void;
 
   onRefresh: () => void;
 }
@@ -32,253 +36,96 @@ interface ProgramsToolbarProps {
 export default function ProgramsToolbar({
   search,
   onSearchChange,
-
   category,
   onCategoryChange,
-
   level,
   onLevelChange,
-
   price,
   onPriceChange,
-
   status,
   onStatusChange,
-
   view,
   onViewChange,
-
   onRefresh,
 }: ProgramsToolbarProps) {
   return (
-    <section className="rounded-[30px] border border-slate-200 bg-white p-6 shadow-sm">
-
-      <div className="grid gap-5 xl:grid-cols-6">
-
-        {/* Search */}
-
+    <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
+      <div className="grid gap-4 xl:grid-cols-6">
         <div className="relative xl:col-span-2">
-
-          <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
-
-          <input
-            type="text"
+          <Search className="absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+          <Input
             value={search}
-            onChange={(e) =>
-              onSearchChange(e.target.value)
-            }
+            onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Search program..."
-            className="h-12 w-full rounded-2xl border border-slate-200 bg-slate-50 pl-12 pr-4 outline-none transition focus:border-indigo-500 focus:bg-white"
+            className="h-11 rounded-xl pl-11"
           />
-
         </div>
 
-        {/* Category */}
+        <Select value={category} onValueChange={onCategoryChange}>
+          <SelectTrigger className="h-11 rounded-xl">
+            <SelectValue placeholder="Category" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Categories</SelectItem>
+            <SelectItem value="Career">Career</SelectItem>
+            <SelectItem value="Business">Business</SelectItem>
+            <SelectItem value="Technology">Technology</SelectItem>
+            <SelectItem value="Leadership">Leadership</SelectItem>
+            <SelectItem value="Personal Development">Personal Development</SelectItem>
+          </SelectContent>
+        </Select>
 
-        <select
-          value={category}
-          onChange={(e) =>
-            onCategoryChange(e.target.value)
-          }
-          className="h-12 rounded-2xl border border-slate-200 bg-slate-50 px-4 outline-none transition focus:border-indigo-500"
-        >
-          <option value="all">
+        <Select value={level} onValueChange={onLevelChange}>
+          <SelectTrigger className="h-11 rounded-xl">
+            <SelectValue placeholder="Level" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Levels</SelectItem>
+            <SelectItem value="Beginner">Beginner</SelectItem>
+            <SelectItem value="Intermediate">Intermediate</SelectItem>
+            <SelectItem value="Advanced">Advanced</SelectItem>
+          </SelectContent>
+        </Select>
 
-            All Categories
+        <Select value={price} onValueChange={onPriceChange}>
+          <SelectTrigger className="h-11 rounded-xl">
+            <SelectValue placeholder="Price" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Prices</SelectItem>
+            <SelectItem value="free">Free</SelectItem>
+            <SelectItem value="paid">Paid</SelectItem>
+          </SelectContent>
+        </Select>
 
-          </option>
-
-          <option value="Career">
-
-            Career
-
-          </option>
-
-          <option value="Business">
-
-            Business
-
-          </option>
-
-          <option value="Technology">
-
-            Technology
-
-          </option>
-
-          <option value="Leadership">
-
-            Leadership
-
-          </option>
-
-          <option value="Personal Development">
-
-            Personal Development
-
-          </option>
-
-        </select>
-
-        {/* Level */}
-
-        <select
-          value={level}
-          onChange={(e) =>
-            onLevelChange(e.target.value)
-          }
-          className="h-12 rounded-2xl border border-slate-200 bg-slate-50 px-4 outline-none transition focus:border-indigo-500"
-        >
-          <option value="all">
-
-            All Levels
-
-          </option>
-
-          <option value="Beginner">
-
-            Beginner
-
-          </option>
-
-          <option value="Intermediate">
-
-            Intermediate
-
-          </option>
-
-          <option value="Advanced">
-
-            Advanced
-
-          </option>
-
-        </select>
-                {/* Price */}
-
-        <select
-          value={price}
-          onChange={(e) =>
-            onPriceChange(e.target.value)
-          }
-          className="h-12 rounded-2xl border border-slate-200 bg-slate-50 px-4 outline-none transition focus:border-indigo-500"
-        >
-          <option value="all">
-
-            All Prices
-
-          </option>
-
-          <option value="free">
-
-            Free
-
-          </option>
-
-          <option value="paid">
-
-            Paid
-
-          </option>
-
-        </select>
-
-        {/* Status */}
-
-        <select
-          value={status}
-          onChange={(e) =>
-            onStatusChange(e.target.value)
-          }
-          className="h-12 rounded-2xl border border-slate-200 bg-slate-50 px-4 outline-none transition focus:border-indigo-500"
-        >
-          <option value="all">
-
-            All Status
-
-          </option>
-
-          <option value="published">
-
-            Published
-
-          </option>
-
-          <option value="draft">
-
-            Draft
-
-          </option>
-
-          <option value="archived">
-
-            Archived
-
-          </option>
-
-        </select>
-
+        <Select value={status} onValueChange={onStatusChange}>
+          <SelectTrigger className="h-11 rounded-xl">
+            <SelectValue placeholder="Status" />
+          </SelectTrigger>
+          <SelectContent>
+            <SelectItem value="all">All Status</SelectItem>
+            <SelectItem value="published">Published</SelectItem>
+            <SelectItem value="draft">Draft</SelectItem>
+            <SelectItem value="archived">Archived</SelectItem>
+          </SelectContent>
+        </Select>
       </div>
 
-      {/* Bottom Toolbar */}
-
-      <div className="mt-6 flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
-
-        {/* Refresh */}
-
-        <button
-          type="button"
-          onClick={onRefresh}
-          className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
-        >
-          <RefreshCcw className="h-5 w-5" />
-
+      <div className="mt-6 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <Button variant="outline" className="rounded-xl" onClick={onRefresh}>
+          <RefreshCcw className="mr-2 h-4 w-4" />
           Refresh
+        </Button>
 
-        </button>
-
-        {/* View Toggle */}
-
-        <div className="flex overflow-hidden rounded-2xl border border-slate-200">
-
-          <button
-            type="button"
-            onClick={() =>
-              onViewChange("grid")
-            }
-            className={`flex items-center gap-2 px-5 py-3 font-semibold transition ${
-              view === "grid"
-                ? "bg-indigo-600 text-white"
-                : "bg-white text-slate-700 hover:bg-slate-50"
-            }`}
-          >
-            <Grid2X2 className="h-5 w-5" />
-
-            Grid
-
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              onViewChange("list")
-            }
-            className={`flex items-center gap-2 px-5 py-3 font-semibold transition ${
-              view === "list"
-                ? "bg-indigo-600 text-white"
-                : "bg-white text-slate-700 hover:bg-slate-50"
-            }`}
-          >
-            <List className="h-5 w-5" />
-
-            List
-
-          </button>
-
-        </div>
-
+        <ViewToggle
+          value={view}
+          onChange={onViewChange}
+          options={[
+            { value: "grid", icon: Grid2X2, label: "Grid" },
+            { value: "list", icon: List, label: "List" },
+          ]}
+        />
       </div>
-
     </section>
   );
 }
