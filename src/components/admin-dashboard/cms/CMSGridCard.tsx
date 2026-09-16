@@ -52,7 +52,7 @@ export default function CMSGridCard({
     switch (page.status) {
       case "published":
         return (
-          <Badge className="bg-emerald-500 hover:bg-emerald-500">
+          <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
             <Globe className="mr-1 h-3 w-3" />
             Published
           </Badge>
@@ -77,7 +77,7 @@ export default function CMSGridCard({
   };
 
   return (
-    <Card className="rounded-3xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <Card className="rounded-2xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
       <CardContent className="space-y-6 p-6">
 

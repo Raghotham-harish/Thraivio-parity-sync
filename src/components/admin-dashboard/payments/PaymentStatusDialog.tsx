@@ -67,7 +67,7 @@ export default function PaymentStatusDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="sm:max-w-xl rounded-3xl">
+      <DialogContent className="sm:max-w-xl rounded-2xl">
 
         <DialogHeader>
 
@@ -255,7 +255,7 @@ export default function PaymentStatusDialog({
 
             <div className="flex gap-3">
 
-              <CheckCircle2 className="mt-0.5 h-5 w-5 text-blue-600" />
+              <CheckCircle2 className="mt-0.5 h-5 w-5 text-primary" />
 
               <div>
 

@@ -112,9 +112,9 @@ const CompleteSessionDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
         "
       >
         {/* Header */}
@@ -147,7 +147,7 @@ const CompleteSessionDialog = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
 
                 px-4
                 py-2
@@ -197,11 +197,11 @@ const CompleteSessionDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               transition
 
-              hover:bg-white/30
+              hover:bg-card/30
             "
           >
             <X size={20} />
@@ -227,12 +227,12 @@ const CompleteSessionDialog = ({
 
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-slate-50
+              bg-secondary
 
               p-6
             "
@@ -266,9 +266,9 @@ const CompleteSessionDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -284,7 +284,7 @@ const CompleteSessionDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -307,7 +307,7 @@ const CompleteSessionDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {
@@ -324,7 +324,7 @@ const CompleteSessionDialog = ({
                       gap-2
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     <Building2
@@ -349,9 +349,9 @@ const CompleteSessionDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -367,7 +367,7 @@ const CompleteSessionDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -390,7 +390,7 @@ const CompleteSessionDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {
@@ -419,12 +419,12 @@ const CompleteSessionDialog = ({
 
               <div
                 className="
-                  rounded-[32px]
+                  rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
-                  bg-white
+                  bg-card
 
                   p-6
                 "
@@ -538,12 +538,12 @@ const CompleteSessionDialog = ({
                 className="
                   mt-6
 
-                  rounded-[32px]
+                  rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
-                  bg-white
+                  bg-card
 
                   p-6
                 "
@@ -590,7 +590,7 @@ const CompleteSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -607,7 +607,7 @@ const CompleteSessionDialog = ({
                     mt-3
 
                     text-sm
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Upload Google Drive,
@@ -630,12 +630,12 @@ const CompleteSessionDialog = ({
                   sticky
                   top-0
 
-                  rounded-[32px]
+                  rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-6
                 "
@@ -695,7 +695,7 @@ const CompleteSessionDialog = ({
 
                     rounded-2xl
 
-                    bg-green-100
+                    bg-[#ECFDF5]
 
                     p-5
                   "
@@ -703,7 +703,7 @@ const CompleteSessionDialog = ({
                   <p
                     className="
                       text-sm
-                      text-green-700
+                      text-[#065F46]
                     "
                   >
                     After completion the
@@ -739,12 +739,12 @@ const CompleteSessionDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -773,7 +773,7 @@ const CompleteSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -791,7 +791,7 @@ const CompleteSessionDialog = ({
                         mt-1
 
                         text-sm
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Student successfully
@@ -833,7 +833,7 @@ const CompleteSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -851,7 +851,7 @@ const CompleteSessionDialog = ({
                         mt-1
 
                         text-sm
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Automatically generate
@@ -925,7 +925,7 @@ const CompleteSessionDialog = ({
                           ${
                             rating>=star
                             ? "bg-yellow-400 text-white"
-                            : "bg-slate-100 hover:bg-slate-200"
+                            : "bg-secondary hover:bg-secondary"
                           }
                         `}
                       >
@@ -943,12 +943,12 @@ const CompleteSessionDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -985,7 +985,7 @@ const CompleteSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   p-4
 
@@ -1027,7 +1027,7 @@ const CompleteSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -1068,7 +1068,7 @@ const CompleteSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -1092,9 +1092,9 @@ const CompleteSessionDialog = ({
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -1117,14 +1117,14 @@ const CompleteSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
 
                   font-semibold
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
 
                   transition
                 "
@@ -1226,12 +1226,12 @@ function InfoCard({
       className="
         rounded-2xl
 
-        bg-slate-50
+        bg-secondary
 
         p-5
       "
     >
-      <div className="text-emerald-600">
+      <div className="text-[#0F8F65]">
         {icon}
       </div>
 
@@ -1240,7 +1240,7 @@ function InfoCard({
           mt-3
 
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1275,7 +1275,7 @@ function ChecklistItem({
 
         rounded-2xl
 
-        bg-white
+        bg-card
 
         p-4
       "
@@ -1296,8 +1296,8 @@ function ChecklistItem({
 
           ${
             checked
-              ? "bg-green-100 text-green-600"
-              : "bg-slate-100 text-slate-400"
+              ? "bg-[#ECFDF5] text-[#0F8F65]"
+              : "bg-secondary text-muted-foreground"
           }
         `}
       >

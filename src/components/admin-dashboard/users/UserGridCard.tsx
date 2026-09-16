@@ -36,7 +36,7 @@ function UserGridCard({
   onDelete,
 }: UserGridCardProps) {
   return (
-    <div className="group overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+    <div className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
       {/* Cover */}
 
@@ -57,9 +57,9 @@ function UserGridCard({
               user.membership === "pro"
                 ? "bg-violet-600 text-white"
                 : user.membership === "premium"
-                ? "bg-amber-500 text-white"
+                ? "bg-[#F59E0B] text-white"
                 : user.membership === "basic"
-                ? "bg-blue-600 text-white"
+                ? "bg-primary text-white"
                 : "bg-slate-700 text-white"
             }`}
           >
@@ -87,12 +87,12 @@ function UserGridCard({
             <span
               className={`absolute bottom-2 right-2 h-5 w-5 rounded-full border-2 border-white ${
                 user.status === "active"
-                  ? "bg-emerald-500"
+                  ? "bg-[#ECFDF5]0"
                   : user.status === "inactive"
                   ? "bg-slate-400"
                   : user.status === "blocked"
                   ? "bg-red-500"
-                  : "bg-amber-500"
+                  : "bg-[#F59E0B]"
               }`}
             />
 
@@ -104,21 +104,21 @@ function UserGridCard({
 
           <div className="flex items-center justify-center gap-2">
 
-            <h3 className="text-xl font-bold text-slate-900">
+            <h3 className="text-xl font-bold text-foreground">
               {user.name}
             </h3>
 
             {user.verification === "verified" && (
-              <ShieldCheck className="h-5 w-5 text-blue-600" />
+              <ShieldCheck className="h-5 w-5 text-primary" />
             )}
 
           </div>
 
-          <p className="mt-1 text-sm text-slate-500">
+          <p className="mt-1 text-sm text-muted-foreground">
             @{user.username}
           </p>
 
-          <p className="mt-2 text-sm leading-6 text-slate-500">
+          <p className="mt-2 text-sm leading-6 text-muted-foreground">
             {user.bio}
           </p>
 
@@ -126,9 +126,9 @@ function UserGridCard({
 
         <div className="mt-6 space-y-3">
 
-          <div className="flex items-center gap-3 text-sm text-slate-600">
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
 
-            <Mail className="h-4 w-4 text-slate-400" />
+            <Mail className="h-4 w-4 text-muted-foreground" />
 
             <span className="truncate">
               {user.email}
@@ -136,17 +136,17 @@ function UserGridCard({
 
           </div>
 
-          <div className="flex items-center gap-3 text-sm text-slate-600">
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
 
-            <Phone className="h-4 w-4 text-slate-400" />
+            <Phone className="h-4 w-4 text-muted-foreground" />
 
             <span>{user.phone}</span>
 
           </div>
 
-          <div className="flex items-center gap-3 text-sm text-slate-600">
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
 
-            <MapPin className="h-4 w-4 text-slate-400" />
+            <MapPin className="h-4 w-4 text-muted-foreground" />
 
             <span>
               {user.city}, {user.country}
@@ -154,17 +154,17 @@ function UserGridCard({
 
           </div>
 
-          <div className="flex items-center gap-3 text-sm text-slate-600">
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
 
-            <Calendar className="h-4 w-4 text-slate-400" />
+            <Calendar className="h-4 w-4 text-muted-foreground" />
 
             <span>{user.joinedAt}</span>
 
           </div>
 
-          <div className="flex items-center gap-3 text-sm text-slate-600">
+          <div className="flex items-center gap-3 text-sm text-muted-foreground">
 
-            <Clock className="h-4 w-4 text-slate-400" />
+            <Clock className="h-4 w-4 text-muted-foreground" />
 
             <span>{user.lastActive}</span>
 
@@ -175,42 +175,42 @@ function UserGridCard({
 
         <div className="mt-8 grid grid-cols-2 gap-3">
 
-          <div className="rounded-2xl bg-slate-50 p-4 text-center">
-            <UserCircle2 className="mx-auto mb-2 h-5 w-5 text-blue-600" />
-            <p className="text-xs text-slate-500">
+          <div className="rounded-2xl bg-secondary p-4 text-center">
+            <UserCircle2 className="mx-auto mb-2 h-5 w-5 text-primary" />
+            <p className="text-xs text-muted-foreground">
               Sessions
             </p>
-            <h4 className="mt-1 text-lg font-bold text-slate-900">
+            <h4 className="mt-1 text-lg font-bold text-foreground">
               {user.sessions}
             </h4>
           </div>
 
-          <div className="rounded-2xl bg-slate-50 p-4 text-center">
+          <div className="rounded-2xl bg-secondary p-4 text-center">
             <Crown className="mx-auto mb-2 h-5 w-5 text-amber-500" />
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted-foreground">
               Programs
             </p>
-            <h4 className="mt-1 text-lg font-bold text-slate-900">
+            <h4 className="mt-1 text-lg font-bold text-foreground">
               {user.programs}
             </h4>
           </div>
 
-          <div className="rounded-2xl bg-slate-50 p-4 text-center">
-            <FileBadge className="mx-auto mb-2 h-5 w-5 text-emerald-600" />
-            <p className="text-xs text-slate-500">
+          <div className="rounded-2xl bg-secondary p-4 text-center">
+            <FileBadge className="mx-auto mb-2 h-5 w-5 text-[#0F8F65]" />
+            <p className="text-xs text-muted-foreground">
               Certificates
             </p>
-            <h4 className="mt-1 text-lg font-bold text-slate-900">
+            <h4 className="mt-1 text-lg font-bold text-foreground">
               {user.certificates}
             </h4>
           </div>
 
-          <div className="rounded-2xl bg-slate-50 p-4 text-center">
+          <div className="rounded-2xl bg-secondary p-4 text-center">
             <Heart className="mx-auto mb-2 h-5 w-5 text-pink-500" />
-            <p className="text-xs text-slate-500">
+            <p className="text-xs text-muted-foreground">
               Mentors
             </p>
-            <h4 className="mt-1 text-lg font-bold text-slate-900">
+            <h4 className="mt-1 text-lg font-bold text-foreground">
               {user.favoriteMentors}
             </h4>
           </div>
@@ -223,7 +223,7 @@ function UserGridCard({
 
           <div className="mb-2 flex items-center justify-between">
 
-            <span className="text-sm text-slate-500">
+            <span className="text-sm text-muted-foreground">
               Reviews
             </span>
 
@@ -245,17 +245,17 @@ function UserGridCard({
 
           <div className="mb-2 flex items-center justify-between">
 
-            <span className="text-sm font-medium text-slate-500">
+            <span className="text-sm font-medium text-muted-foreground">
               Profile Completion
             </span>
 
-            <span className="font-semibold text-blue-600">
+            <span className="font-semibold text-primary">
               {user.completion}%
             </span>
 
           </div>
 
-          <div className="h-2 overflow-hidden rounded-full bg-slate-100">
+          <div className="h-2 overflow-hidden rounded-full bg-secondary">
 
             <div
               className="h-full rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 transition-all duration-700"
@@ -270,15 +270,15 @@ function UserGridCard({
 
         {/* Spending */}
 
-        <div className="mt-7 rounded-3xl bg-gradient-to-r from-blue-50 to-indigo-50 p-5">
+        <div className="mt-7 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 p-5">
 
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-muted-foreground">
 
             Lifetime Spending
 
           </p>
 
-          <h3 className="mt-2 text-2xl font-bold text-slate-900">
+          <h3 className="mt-2 text-2xl font-bold text-foreground">
 
             ₹{user.totalSpent.toLocaleString()}
 
@@ -293,7 +293,7 @@ function UserGridCard({
           <button
             type="button"
             onClick={() => onView?.(user)}
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-600 px-4 py-3 font-semibold text-white transition-all hover:bg-blue-700"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-primary px-4 py-3 font-semibold text-white transition-all hover:bg-primary/90"
           >
             <Eye className="h-4 w-4" />
 
@@ -304,7 +304,7 @@ function UserGridCard({
           <button
             type="button"
             onClick={() => onEdit?.(user)}
-            className="rounded-2xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 transition-all hover:bg-slate-50"
+            className="rounded-2xl border border-border bg-card px-4 py-3 font-semibold text-foreground transition-all hover:bg-secondary"
           >
             Edit
           </button>
@@ -312,7 +312,7 @@ function UserGridCard({
           <button
             type="button"
             onClick={() => onBlock?.(user)}
-            className="rounded-2xl bg-amber-100 px-4 py-3 font-semibold text-amber-700 transition-all hover:bg-amber-200"
+            className="rounded-2xl bg-[#FFFBEB] px-4 py-3 font-semibold text-[#B45309] transition-all hover:bg-amber-200"
           >
             Block
           </button>
@@ -320,7 +320,7 @@ function UserGridCard({
           <button
             type="button"
             onClick={() => onDelete?.(user)}
-            className="rounded-2xl bg-red-100 px-4 py-3 font-semibold text-red-600 transition-all hover:bg-red-200"
+            className="rounded-2xl bg-[#FFDAD6] px-4 py-3 font-semibold text-red-600 transition-all hover:bg-red-200"
           >
             Delete
           </button>

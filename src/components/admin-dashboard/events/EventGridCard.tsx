@@ -29,19 +29,19 @@ const statusClasses: Record<
   string
 > = {
   draft:
-    "bg-slate-100 text-slate-700",
+    "bg-secondary text-foreground",
 
   published:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   live:
-    "bg-red-100 text-red-600",
+    "bg-[#FFDAD6] text-red-600",
 
   upcoming:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   completed:
-    "bg-emerald-100 text-emerald-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   cancelled:
     "bg-rose-100 text-rose-700",
@@ -62,7 +62,7 @@ const EventGridCard = ({
         overflow-hidden
         rounded-[28px]
         border
-        bg-white
+        bg-card
         shadow-sm
         transition-all
         duration-300
@@ -117,7 +117,7 @@ const EventGridCard = ({
                 py-1
                 text-xs
                 font-semibold
-                text-slate-900
+                text-foreground
               "
             >
               ⭐ Featured
@@ -130,7 +130,7 @@ const EventGridCard = ({
             <span
               className="
                 rounded-full
-                bg-emerald-500
+                bg-[#ECFDF5]0
                 px-3
                 py-1
                 text-xs
@@ -152,7 +152,7 @@ const EventGridCard = ({
           <span
             className="
               rounded-full
-              bg-white/15
+              bg-card/15
               px-4
               py-2
               text-sm
@@ -259,7 +259,7 @@ const EventGridCard = ({
             className="
               h-6
               w-6
-              text-blue-600
+              text-primary
             "
           />
 
@@ -281,7 +281,7 @@ const EventGridCard = ({
               className="
                 h-5
                 w-5
-                text-blue-600
+                text-primary
               "
             />
 
@@ -305,7 +305,7 @@ const EventGridCard = ({
               className="
                 h-5
                 w-5
-                text-indigo-600
+                text-primary
               "
             />
 
@@ -332,7 +332,7 @@ const EventGridCard = ({
           <span
             className="
               rounded-full
-              bg-slate-100
+              bg-secondary
               px-3
               py-1
               text-xs
@@ -350,7 +350,7 @@ const EventGridCard = ({
               py-1
               text-xs
               font-medium
-              text-blue-700
+              text-[#2563EB]
             "
           >
             {event.mode}
@@ -364,7 +364,7 @@ const EventGridCard = ({
               py-1
               text-xs
               font-medium
-              text-amber-700
+              text-[#B45309]
             "
           >
             <Star className="mr-1 inline h-3 w-3" />
@@ -383,7 +383,7 @@ const EventGridCard = ({
             className="
               rounded-2xl
               border
-              bg-slate-50
+              bg-secondary
               p-4
             "
           >
@@ -395,7 +395,7 @@ const EventGridCard = ({
               {event.registered}
             </h4>
 
-            <p className="mt-1 text-xs text-emerald-600">
+            <p className="mt-1 text-xs text-[#0F8F65]">
               Active Registrations
             </p>
           </div>
@@ -406,7 +406,7 @@ const EventGridCard = ({
             className="
               rounded-2xl
               border
-              bg-slate-50
+              bg-secondary
               p-4
             "
           >
@@ -453,7 +453,7 @@ const EventGridCard = ({
               h-2.5
               overflow-hidden
               rounded-full
-              bg-slate-100
+              bg-secondary
             "
           >
 
@@ -503,7 +503,7 @@ const EventGridCard = ({
                 Gross Revenue
               </p>
 
-              <h3 className="mt-2 text-3xl font-bold text-emerald-700">
+              <h3 className="mt-2 text-3xl font-bold text-[#065F46]">
 
                 $
                 {event.revenue.grossRevenue.toLocaleString()}
@@ -515,7 +515,7 @@ const EventGridCard = ({
             <div
               className="
                 rounded-2xl
-                bg-emerald-100
+                bg-[#ECFDF5]
                 p-3
               "
             >
@@ -592,7 +592,7 @@ const EventGridCard = ({
 
             </h4>
 
-            <p className="mt-1 text-xs text-emerald-600">
+            <p className="mt-1 text-xs text-[#0F8F65]">
 
               {event.analytics.attendanceRate}% Present
 
@@ -620,7 +620,7 @@ const EventGridCard = ({
 
             </h4>
 
-            <p className="mt-1 text-xs text-blue-600">
+            <p className="mt-1 text-xs text-primary">
 
               Generated
 
@@ -636,7 +636,7 @@ const EventGridCard = ({
           className="
             rounded-2xl
             border
-            bg-slate-50
+            bg-secondary
             p-5
           "
         >
@@ -709,7 +709,7 @@ const EventGridCard = ({
             className="
               rounded-2xl
               border
-              bg-white
+              bg-card
               px-4
               py-3
               text-sm
@@ -717,7 +717,7 @@ const EventGridCard = ({
               transition-all
               hover:border-blue-500
               hover:bg-blue-50
-              hover:text-blue-700
+              hover:text-[#2563EB]
             "
           >
             👁 View Details
@@ -728,7 +728,7 @@ const EventGridCard = ({
             className="
               rounded-2xl
               border
-              bg-white
+              bg-card
               px-4
               py-3
               text-sm
@@ -736,7 +736,7 @@ const EventGridCard = ({
               transition-all
               hover:border-amber-500
               hover:bg-amber-50
-              hover:text-amber-700
+              hover:text-[#B45309]
             "
           >
             ✏ Edit Event
@@ -771,14 +771,14 @@ const EventGridCard = ({
               onClick={() => onPublish(event)}
               className="
                 rounded-2xl
-                bg-emerald-600
+                bg-[#10B981]
                 px-4
                 py-3
                 text-sm
                 font-semibold
                 text-white
                 transition-all
-                hover:bg-emerald-700
+                hover:bg-[#0da271]
               "
             >
               Publish Event

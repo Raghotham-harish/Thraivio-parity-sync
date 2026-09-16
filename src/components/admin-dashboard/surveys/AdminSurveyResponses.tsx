@@ -78,21 +78,21 @@ export default function AdminSurveyResponses({
   onClose,
 }: AdminSurveyResponsesProps) {
   return (
-    <section className="w-full rounded-xl border border-slate-200 bg-white shadow-sm">
+    <section className="w-full rounded-xl border border-border bg-card shadow-sm">
       {/* Header */}
-      <div className="border-b border-slate-200 p-5 sm:p-6">
+      <div className="border-b border-border p-5 sm:p-6">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div className="flex items-start gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-primary">
               <ClipboardList size={22} />
             </div>
 
             <div>
-              <h2 className="text-lg font-semibold text-slate-900">
+              <h2 className="text-lg font-semibold text-foreground">
                 Survey Responses
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-muted-foreground">
                 {survey.title}
               </p>
             </div>
@@ -102,7 +102,7 @@ export default function AdminSurveyResponses({
             <button
               type="button"
               onClick={onClose}
-              className="self-start rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+              className="self-start rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition hover:bg-secondary"
             >
               Close
             </button>
@@ -111,32 +111,32 @@ export default function AdminSurveyResponses({
 
         {/* Summary */}
         <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
-          <div className="rounded-lg bg-slate-50 p-3">
-            <p className="text-xs text-slate-500">
+          <div className="rounded-lg bg-secondary p-3">
+            <p className="text-xs text-muted-foreground">
               Total Responses
             </p>
 
-            <p className="mt-1 text-lg font-semibold text-slate-900">
+            <p className="mt-1 text-lg font-semibold text-foreground">
               {responses.length}
             </p>
           </div>
 
-          <div className="rounded-lg bg-slate-50 p-3">
-            <p className="text-xs text-slate-500">
+          <div className="rounded-lg bg-secondary p-3">
+            <p className="text-xs text-muted-foreground">
               Questions
             </p>
 
-            <p className="mt-1 text-lg font-semibold text-slate-900">
+            <p className="mt-1 text-lg font-semibold text-foreground">
               {survey.questions.length}
             </p>
           </div>
 
-          <div className="rounded-lg bg-slate-50 p-3">
-            <p className="text-xs text-slate-500">
+          <div className="rounded-lg bg-secondary p-3">
+            <p className="text-xs text-muted-foreground">
               Status
             </p>
 
-            <p className="mt-1 text-lg font-semibold capitalize text-slate-900">
+            <p className="mt-1 text-lg font-semibold capitalize text-foreground">
               {survey.status}
             </p>
           </div>
@@ -146,18 +146,18 @@ export default function AdminSurveyResponses({
       {/* Empty state */}
       {responses.length === 0 ? (
         <div className="px-6 py-12 text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-secondary">
             <ClipboardList
               size={22}
-              className="text-slate-400"
+              className="text-muted-foreground"
             />
           </div>
 
-          <h3 className="mt-4 text-base font-semibold text-slate-900">
+          <h3 className="mt-4 text-base font-semibold text-foreground">
             No Responses Yet
           </h3>
 
-          <p className="mx-auto mt-1 max-w-md text-sm leading-6 text-slate-500">
+          <p className="mx-auto mt-1 max-w-md text-sm leading-6 text-muted-foreground">
             No students have submitted a response for
             this survey yet.
           </p>
@@ -207,23 +207,23 @@ function AdminResponseItem({
         aria-expanded={expanded}
       >
         <div className="flex min-w-0 items-center gap-3">
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-slate-100 text-slate-500">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-secondary text-muted-foreground">
             <UserRound size={18} />
           </div>
 
           <div className="min-w-0">
             <div className="flex flex-wrap items-center gap-2">
-              <h3 className="truncate text-sm font-semibold text-slate-900">
+              <h3 className="truncate text-sm font-semibold text-foreground">
                 {response.userName ||
                   "Unknown Student"}
               </h3>
 
-              <span className="rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-green-700">
+              <span className="rounded-full bg-green-50 px-2 py-0.5 text-xs font-medium text-[#065F46]">
                 Submitted
               </span>
             </div>
 
-            <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-slate-500">
+            <div className="mt-1 flex flex-wrap gap-x-4 gap-y-1 text-xs text-muted-foreground">
               {response.userEmail && (
                 <span className="flex items-center gap-1.5">
                   <Mail size={13} />
@@ -238,7 +238,7 @@ function AdminResponseItem({
           </div>
         </div>
 
-        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-600">
+        <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-muted-foreground hover:bg-secondary hover:text-muted-foreground">
           {expanded ? (
             <ChevronUp size={19} />
           ) : (
@@ -262,20 +262,20 @@ function AdminResponseItem({
             return (
               <div
                 key={question.id}
-                className="rounded-lg border border-slate-200 bg-slate-50 p-4"
+                className="rounded-lg border border-border bg-secondary p-4"
               >
                 <div className="flex items-start gap-2">
-                  <span className="text-xs font-semibold text-slate-400">
+                  <span className="text-xs font-semibold text-muted-foreground">
                     Q{question.order}
                   </span>
 
                   <div className="min-w-0 flex-1">
-                    <p className="text-sm font-medium leading-6 text-slate-900">
+                    <p className="text-sm font-medium leading-6 text-foreground">
                       {question.question}
                     </p>
 
-                    <div className="mt-3 rounded-lg border border-slate-200 bg-white px-4 py-3">
-                      <p className="whitespace-pre-wrap break-words text-sm leading-6 text-slate-700">
+                    <div className="mt-3 rounded-lg border border-border bg-card px-4 py-3">
+                      <p className="whitespace-pre-wrap break-words text-sm leading-6 text-foreground">
                         {formatAnswer(answer)}
                       </p>
                     </div>
@@ -285,7 +285,7 @@ function AdminResponseItem({
             );
           })}
 
-          <div className="flex items-center gap-2 pt-1 text-xs text-green-600">
+          <div className="flex items-center gap-2 pt-1 text-xs text-[#0F8F65]">
             <CheckCircle2 size={14} />
             Response submitted on{" "}
             {formatDate(response.submittedAt)}

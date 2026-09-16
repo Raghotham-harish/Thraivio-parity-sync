@@ -26,7 +26,7 @@ export default function IntegrationSettings({
   onChange,
 }: IntegrationSettingsProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 

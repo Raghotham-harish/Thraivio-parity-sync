@@ -64,7 +64,7 @@ const RecentUsers = ({
               text-sm
               font-medium
 
-              text-blue-700
+              text-[#2563EB]
             "
           >
             <Users size={16} />
@@ -92,7 +92,7 @@ const RecentUsers = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Monitor newly registered
@@ -120,7 +120,7 @@ const RecentUsers = ({
 
               -translate-y-1/2
 
-              text-slate-400
+              text-muted-foreground
             "
           />
 
@@ -134,9 +134,9 @@ const RecentUsers = ({
               rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               py-3
 
@@ -163,12 +163,12 @@ const RecentUsers = ({
 
           overflow-hidden
 
-          rounded-[30px]
+          rounded-2xl
 
           border
-          border-slate-200
+          border-border
 
-          bg-white
+          bg-card
         "
       >
         {/* Table Header */}
@@ -180,9 +180,9 @@ const RecentUsers = ({
             grid-cols-12
 
             border-b
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             px-6
             py-4
@@ -190,7 +190,7 @@ const RecentUsers = ({
             text-sm
             font-semibold
 
-            text-slate-600
+            text-muted-foreground
           "
         >
           <div className="col-span-4">
@@ -235,7 +235,7 @@ const RecentUsers = ({
 
               transition
 
-              hover:bg-slate-50
+              hover:bg-secondary
             "
           >
             {/* User */}
@@ -259,7 +259,7 @@ const RecentUsers = ({
                     className="
                       font-semibold
 
-                      text-slate-900
+                      text-foreground
                     "
                   >
                     {user.name}
@@ -271,7 +271,7 @@ const RecentUsers = ({
 
                       text-sm
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {user.email}
@@ -287,7 +287,7 @@ const RecentUsers = ({
                 className="
                   text-sm
 
-                  text-slate-600
+                  text-muted-foreground
                 "
               >
                 {user.joinedAt}
@@ -311,12 +311,12 @@ const RecentUsers = ({
 
                   ${
                     user.status === "active"
-                      ? "bg-emerald-100 text-emerald-700"
+                      ? "bg-[#ECFDF5] text-[#065F46]"
 
                       : user.status === "pending"
-                      ? "bg-amber-100 text-amber-700"
+                      ? "bg-[#FFFBEB] text-[#B45309]"
 
-                      : "bg-red-100 text-red-700"
+                      : "bg-[#FFDAD6] text-[#BA1A1A]"
                   }
                 `}
               >
@@ -331,7 +331,7 @@ const RecentUsers = ({
                 className="
                   font-medium
 
-                  text-slate-700
+                  text-foreground
                 "
               >
                 {user.id}
@@ -368,11 +368,11 @@ const RecentUsers = ({
 
                   bg-blue-50
 
-                  text-blue-600
+                  text-primary
 
                   transition
 
-                  hover:bg-blue-100
+                  hover:bg-[#EFF6FF]
                 "
               >
                 <Eye size={18} />
@@ -399,7 +399,7 @@ const RecentUsers = ({
 
                   transition
 
-                  hover:bg-amber-100
+                  hover:bg-[#FFFBEB]
                 "
               >
                 <Ban size={18} />
@@ -426,7 +426,7 @@ const RecentUsers = ({
 
                   transition
 
-                  hover:bg-red-100
+                  hover:bg-[#FFDAD6]
                 "
               >
                 <Trash2 size={18} />
@@ -446,7 +446,7 @@ const RecentUsers = ({
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 <MoreVertical size={18} />
@@ -465,9 +465,9 @@ const RecentUsers = ({
             gap-4
 
             border-t
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             px-6
             py-5
@@ -481,7 +481,7 @@ const RecentUsers = ({
             className="
               text-sm
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Showing
@@ -496,7 +496,7 @@ const RecentUsers = ({
             className="
               rounded-2xl
 
-              bg-blue-600
+              bg-primary
 
               px-6
               py-3
@@ -507,7 +507,7 @@ const RecentUsers = ({
 
               transition
 
-              hover:bg-blue-700
+              hover:bg-primary/90
             "
           >
             View All Users

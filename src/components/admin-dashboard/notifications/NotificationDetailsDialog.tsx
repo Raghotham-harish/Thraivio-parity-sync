@@ -49,17 +49,17 @@ export default function NotificationDetailsDialog({
   const typeIcon = () => {
     switch (notification.type) {
       case "push":
-        return <Bell className="h-4 w-4 text-blue-600" />;
+        return <Bell className="h-4 w-4 text-primary" />;
 
       case "email":
-        return <Mail className="h-4 w-4 text-emerald-600" />;
+        return <Mail className="h-4 w-4 text-[#0F8F65]" />;
 
       case "sms":
         return <Smartphone className="h-4 w-4 text-violet-600" />;
 
       case "in-app":
         return (
-          <MessageSquare className="h-4 w-4 text-orange-600" />
+          <MessageSquare className="h-4 w-4 text-[#B45309]" />
         );
     }
   };
@@ -69,7 +69,7 @@ export default function NotificationDetailsDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="max-w-3xl rounded-3xl">
+      <DialogContent className="max-w-3xl rounded-2xl">
 
         <DialogHeader>
 

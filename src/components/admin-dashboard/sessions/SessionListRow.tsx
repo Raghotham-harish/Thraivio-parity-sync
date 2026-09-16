@@ -27,44 +27,44 @@ interface SessionListRowProps {
 
 const statusStyles = {
   scheduled:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   live:
-    "bg-emerald-100 text-emerald-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   completed:
-    "bg-violet-100 text-violet-700",
+    "bg-secondary text-muted-foreground",
 
   cancelled:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 
   missed:
-    "bg-slate-200 text-slate-700",
+    "bg-secondary text-foreground",
 };
 
 const attendanceStyles = {
   waiting:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   joined:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   completed:
-    "bg-green-100 text-green-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   absent:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 };
 
 const paymentStyles = {
   paid:
-    "bg-green-100 text-green-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   pending:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   refunded:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 };
 
 const SessionListRow = ({
@@ -82,12 +82,12 @@ const SessionListRow = ({
 
         overflow-hidden
 
-        rounded-[32px]
+        rounded-2xl
 
         border
-        border-slate-200
+        border-border
 
-        bg-white
+        bg-card
 
         transition-all
         duration-300
@@ -141,7 +141,7 @@ const SessionListRow = ({
                 h-20
                 w-20
 
-                rounded-3xl
+                rounded-2xl
 
                 object-cover
 
@@ -161,7 +161,7 @@ const SessionListRow = ({
               >
                 <UserRound
                   size={16}
-                  className="text-indigo-600"
+                  className="text-primary"
                 />
 
                 <span
@@ -174,7 +174,7 @@ const SessionListRow = ({
 
                     tracking-wide
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Mentor
@@ -204,7 +204,7 @@ const SessionListRow = ({
 
                   text-sm
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 <Building2 size={15} />
@@ -218,7 +218,7 @@ const SessionListRow = ({
 
                   text-sm
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 {session.mentorRole}
@@ -245,9 +245,9 @@ const SessionListRow = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-4
               "
@@ -284,7 +284,7 @@ const SessionListRow = ({
                   >
                     <GraduationCap
                       size={14}
-                      className="text-emerald-600"
+                      className="text-[#0F8F65]"
                     />
 
                     <span
@@ -293,7 +293,7 @@ const SessionListRow = ({
 
                         font-medium
 
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Student
@@ -318,7 +318,7 @@ const SessionListRow = ({
 
                       break-all
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.studentEmail}
@@ -333,9 +333,9 @@ const SessionListRow = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-4
               "
@@ -344,7 +344,7 @@ const SessionListRow = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Program
@@ -366,7 +366,7 @@ const SessionListRow = ({
 
                   text-sm
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 {session.sessionType}
@@ -402,9 +402,9 @@ const SessionListRow = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-4
               "
@@ -419,14 +419,14 @@ const SessionListRow = ({
               >
                 <CalendarDays
                   size={16}
-                  className="text-indigo-600"
+                  className="text-primary"
                 />
 
                 <span
                   className="
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Date
@@ -455,14 +455,14 @@ const SessionListRow = ({
               >
                 <Clock3
                   size={16}
-                  className="text-cyan-600"
+                  className="text-primary"
                 />
 
                 <span
                   className="
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Time
@@ -485,7 +485,7 @@ const SessionListRow = ({
 
                   text-sm
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 {session.duration}
@@ -497,9 +497,9 @@ const SessionListRow = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-4
               "
@@ -514,14 +514,14 @@ const SessionListRow = ({
               >
                 <MonitorPlay
                   size={16}
-                  className="text-blue-600"
+                  className="text-primary"
                 />
 
                 <span
                   className="
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Platform
@@ -550,14 +550,14 @@ const SessionListRow = ({
               >
                 <IndianRupee
                   size={16}
-                  className="text-green-600"
+                  className="text-[#0F8F65]"
                 />
 
                 <span
                   className="
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Amount
@@ -571,7 +571,7 @@ const SessionListRow = ({
                   text-xl
                   font-bold
 
-                  text-green-600
+                  text-[#0F8F65]
                 "
               >
                 ₹{session.amount}
@@ -591,9 +591,9 @@ const SessionListRow = ({
           >
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-5
               "
@@ -612,7 +612,7 @@ const SessionListRow = ({
                     className="
                       text-xs
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     Booking ID
@@ -631,7 +631,7 @@ const SessionListRow = ({
 
                 <BadgeCheck
                   size={22}
-                  className="text-indigo-600"
+                  className="text-primary"
                 />
               </div>
 
@@ -645,7 +645,7 @@ const SessionListRow = ({
 
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Attendance
@@ -685,7 +685,7 @@ const SessionListRow = ({
 
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Payment
@@ -725,9 +725,9 @@ const SessionListRow = ({
                     rounded-2xl
 
                     border
-                    border-emerald-200
+                    border-[#A7E8CE]
 
-                    bg-emerald-50
+                    bg-[#ECFDF5]
 
                     p-3
 
@@ -740,7 +740,7 @@ const SessionListRow = ({
 
                       font-semibold
 
-                      text-emerald-700
+                      text-[#065F46]
                     "
                   >
                     ✓ Certificate Issued
@@ -777,7 +777,7 @@ const SessionListRow = ({
 
                     transition
 
-                    hover:bg-white
+                    hover:bg-card
                   "
                 >
                   View
@@ -790,7 +790,7 @@ const SessionListRow = ({
                   className="
                     rounded-xl
 
-                    bg-blue-600
+                    bg-primary
 
                     py-3
 
@@ -801,7 +801,7 @@ const SessionListRow = ({
 
                     transition
 
-                    hover:bg-blue-700
+                    hover:bg-primary/90
                   "
                 >
                   Edit
@@ -818,7 +818,7 @@ const SessionListRow = ({
                   className="
                     rounded-xl
 
-                    bg-emerald-600
+                    bg-[#10B981]
 
                     py-3
 
@@ -829,9 +829,9 @@ const SessionListRow = ({
 
                     transition
 
-                    hover:bg-emerald-700
+                    hover:bg-[#0da271]
 
-                    disabled:bg-slate-300
+                    disabled:bg-muted
                     disabled:cursor-not-allowed
                   "
                 >
@@ -849,7 +849,7 @@ const SessionListRow = ({
                   className="
                     rounded-xl
 
-                    bg-amber-500
+                    bg-[#F59E0B]
 
                     py-3
 
@@ -860,9 +860,9 @@ const SessionListRow = ({
 
                     transition
 
-                    hover:bg-amber-600
+                    hover:bg-[#D97706]
 
-                    disabled:bg-slate-300
+                    disabled:bg-muted
                     disabled:cursor-not-allowed
                   "
                 >
@@ -882,7 +882,7 @@ const SessionListRow = ({
 
                   rounded-xl
 
-                  bg-red-600
+                  bg-destructive
 
                   py-3
 
@@ -893,7 +893,7 @@ const SessionListRow = ({
 
                   transition
 
-                  hover:bg-red-700
+                  hover:bg-destructive/90
                 "
               >
                 Delete Session

@@ -38,7 +38,7 @@ const EventForm = ({
 
       <div
         className="
-          rounded-3xl
+          rounded-2xl
           bg-gradient-to-r
           from-blue-600
           via-indigo-600
@@ -82,7 +82,7 @@ const EventForm = ({
 
       <div
         className="
-          rounded-3xl
+          rounded-2xl
           border
           border-dashed
           p-8
@@ -114,7 +114,7 @@ const EventForm = ({
                 items-center
                 justify-center
                 rounded-full
-                bg-slate-100
+                bg-secondary
               "
             >
 
@@ -768,7 +768,7 @@ const EventForm = ({
 
         <div
           className="
-            rounded-3xl
+            rounded-2xl
             border
             bg-gradient-to-r
             from-emerald-50
@@ -800,7 +800,7 @@ const EventForm = ({
             <div
               className="
                 rounded-2xl
-                bg-emerald-100
+                bg-[#ECFDF5]
                 p-4
                 text-3xl
               "
@@ -861,7 +861,7 @@ const EventForm = ({
 
               </p>
 
-              <h3 className="mt-2 text-3xl font-bold text-emerald-700">
+              <h3 className="mt-2 text-3xl font-bold text-[#065F46]">
 
                 $
 
@@ -1020,9 +1020,9 @@ const EventForm = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
             "
           >
@@ -1060,9 +1060,9 @@ const EventForm = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
             "
           >
@@ -1112,9 +1112,9 @@ const EventForm = ({
 
         <div
           className="
-            rounded-3xl
+            rounded-2xl
             border
-            bg-white
+            bg-card
             p-6
           "
         >
@@ -1138,12 +1138,12 @@ const EventForm = ({
                 key={tag}
                 className="
                   rounded-full
-                  bg-blue-100
+                  bg-[#EFF6FF]
                   px-4
                   py-2
                   text-xs
                   font-semibold
-                  text-blue-700
+                  text-[#2563EB]
                 "
               >
                 #{tag}
@@ -1175,7 +1175,7 @@ const EventForm = ({
               <div
                 key={agenda.id}
                 className="
-                  rounded-3xl
+                  rounded-2xl
                   border
                   p-6
                 "
@@ -1242,9 +1242,9 @@ const EventForm = ({
 
         <div
           className="
-            rounded-3xl
+            rounded-2xl
             border
-            bg-white
+            bg-card
             p-6
           "
         >
@@ -1301,7 +1301,7 @@ const EventForm = ({
 
         <div
           className="
-            rounded-3xl
+            rounded-2xl
             border
             bg-gradient-to-r
             from-slate-50

@@ -26,7 +26,7 @@ export default function SettingsTabs({
   onTabChange,
 }: SettingsTabsProps) {
   return (
-    <section className="overflow-x-auto rounded-3xl border bg-background p-4 shadow-sm">
+    <section className="overflow-x-auto rounded-2xl border bg-background p-4 shadow-sm">
 
       <div className="flex min-w-max gap-3">
 

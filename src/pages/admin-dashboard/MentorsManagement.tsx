@@ -503,7 +503,7 @@ async function handleUnpublish(mentor: AdminMentor) {
       {/* Loading */}
 
       {loading && (
-        <div className="rounded-3xl border border-slate-200 bg-white p-10 text-center text-slate-500">
+        <div className="rounded-2xl border border-border bg-card p-10 text-center text-muted-foreground">
           Loading mentors...
         </div>
       )}
@@ -511,7 +511,7 @@ async function handleUnpublish(mentor: AdminMentor) {
       {/* Error */}
 
       {!loading && error && (
-        <div className="rounded-3xl border border-red-200 bg-red-50 p-10 text-center">
+        <div className="rounded-2xl border border-red-200 bg-red-50 p-10 text-center">
           <p className="text-red-600">
             {error}
           </p>
@@ -519,7 +519,7 @@ async function handleUnpublish(mentor: AdminMentor) {
           <button
             type="button"
             onClick={loadMentors}
-            className="mt-4 rounded-xl bg-red-600 px-5 py-2 font-medium text-white"
+            className="mt-4 rounded-xl bg-destructive px-5 py-2 font-medium text-white"
           >
             Try Again
           </button>

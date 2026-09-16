@@ -32,7 +32,7 @@ export default function RevenueChart({
   );
 
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader className="pb-2">
 
@@ -50,9 +50,9 @@ export default function RevenueChart({
 
           </div>
 
-          <div className="rounded-2xl bg-emerald-500/10 p-3">
+          <div className="rounded-2xl bg-[#ECFDF5]0/10 p-3">
 
-            <TrendingUp className="h-6 w-6 text-emerald-600" />
+            <TrendingUp className="h-6 w-6 text-[#0F8F65]" />
 
           </div>
 
@@ -84,7 +84,7 @@ export default function RevenueChart({
 
           </div>
 
-          <div className="rounded-full bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-600">
+          <div className="rounded-full bg-[#ECFDF5]0/10 px-4 py-2 text-sm font-semibold text-[#0F8F65]">
 
             +{growth}% Growth
 

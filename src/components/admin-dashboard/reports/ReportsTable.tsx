@@ -31,7 +31,7 @@ export default function ReportsTable({
   reports,
 }: ReportsTableProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -110,7 +110,7 @@ export default function ReportsTable({
                   <div className="flex items-center justify-end gap-2">
 
                     {report.percentage >= 20 ? (
-                      <ArrowUpRight className="h-4 w-4 text-emerald-600" />
+                      <ArrowUpRight className="h-4 w-4 text-[#0F8F65]" />
                     ) : (
                       <ArrowDownRight className="h-4 w-4 text-amber-500" />
                     )}
@@ -118,7 +118,7 @@ export default function ReportsTable({
                     <span
                       className={
                         report.percentage >= 20
-                          ? "font-medium text-emerald-600"
+                          ? "font-medium text-[#0F8F65]"
                           : "font-medium text-amber-500"
                       }
                     >

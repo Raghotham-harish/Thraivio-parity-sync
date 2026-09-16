@@ -120,9 +120,9 @@ const AssignMentorDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
         "
       >
 
@@ -157,7 +157,7 @@ const AssignMentorDialog = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
 
                 px-4
                 py-2
@@ -209,11 +209,11 @@ const AssignMentorDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               transition
 
-              hover:bg-white/30
+              hover:bg-card/30
             "
           >
             <X size={20}/>
@@ -239,7 +239,7 @@ const AssignMentorDialog = ({
 
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
               border
               border-purple-100
@@ -278,9 +278,9 @@ const AssignMentorDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -293,7 +293,7 @@ const AssignMentorDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -314,7 +314,7 @@ const AssignMentorDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.mentorRole}
@@ -329,7 +329,7 @@ const AssignMentorDialog = ({
                       gap-2
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     <Building2
@@ -352,9 +352,9 @@ const AssignMentorDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -367,7 +367,7 @@ const AssignMentorDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -388,7 +388,7 @@ const AssignMentorDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.studentEmail}
@@ -452,12 +452,12 @@ const AssignMentorDialog = ({
 
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -493,7 +493,7 @@ const AssignMentorDialog = ({
                     mt-1
 
                     text-sm
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Select another mentor to
@@ -527,7 +527,7 @@ const AssignMentorDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -575,7 +575,7 @@ const AssignMentorDialog = ({
 
                         border-2
 
-                        bg-white
+                        bg-card
 
                         p-5
 
@@ -584,7 +584,7 @@ const AssignMentorDialog = ({
                         ${
                           selected
                             ? "border-purple-600 shadow-xl"
-                            : "border-slate-200 hover:border-purple-300 hover:shadow-lg"
+                            : "border-border hover:border-purple-300 hover:shadow-lg"
                         }
                       `}
                     >
@@ -604,7 +604,7 @@ const AssignMentorDialog = ({
                             h-24
                             w-24
 
-                            rounded-3xl
+                            rounded-2xl
 
                             object-cover
                           "
@@ -620,7 +620,7 @@ const AssignMentorDialog = ({
 
                               rounded-full
 
-                              bg-blue-600
+                              bg-primary
 
                               px-3
                               py-1
@@ -655,7 +655,7 @@ const AssignMentorDialog = ({
                         className="
                           mt-1
 
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         {mentor.role}
@@ -670,7 +670,7 @@ const AssignMentorDialog = ({
                           gap-2
 
                           text-sm
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         <Building2
@@ -698,7 +698,7 @@ const AssignMentorDialog = ({
                           className="
                             rounded-2xl
 
-                            bg-slate-50
+                            bg-secondary
 
                             p-3
                           "
@@ -707,7 +707,7 @@ const AssignMentorDialog = ({
                           <p
                             className="
                               text-xs
-                              text-slate-500
+                              text-muted-foreground
                             "
                           >
                             Rating
@@ -729,7 +729,7 @@ const AssignMentorDialog = ({
                           className="
                             rounded-2xl
 
-                            bg-slate-50
+                            bg-secondary
 
                             p-3
                           "
@@ -738,7 +738,7 @@ const AssignMentorDialog = ({
                           <p
                             className="
                               text-xs
-                              text-slate-500
+                              text-muted-foreground
                             "
                           >
                             Experience
@@ -820,10 +820,10 @@ const AssignMentorDialog = ({
 
                           ${
                             current
-                              ? "cursor-not-allowed bg-slate-200 text-slate-400"
+                              ? "cursor-not-allowed bg-secondary text-muted-foreground"
                               : selected
                               ? "bg-purple-600 text-white"
-                              : "border border-slate-300 hover:bg-purple-50"
+                              : "border border-border hover:bg-purple-50"
                           }
                         `}
                       >
@@ -859,12 +859,12 @@ const AssignMentorDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -891,7 +891,7 @@ const AssignMentorDialog = ({
                       items-center
                       gap-5
 
-                      rounded-3xl
+                      rounded-2xl
 
                       bg-purple-50
 
@@ -910,7 +910,7 @@ const AssignMentorDialog = ({
                         h-24
                         w-24
 
-                        rounded-3xl
+                        rounded-2xl
 
                         object-cover
                       "
@@ -933,7 +933,7 @@ const AssignMentorDialog = ({
                         className="
                           mt-1
 
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         {
@@ -950,7 +950,7 @@ const AssignMentorDialog = ({
                           gap-2
 
                           text-sm
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
 
@@ -1014,11 +1014,11 @@ const AssignMentorDialog = ({
                     items-center
                     justify-center
 
-                    rounded-3xl
+                    rounded-2xl
 
                     border-2
                     border-dashed
-                    border-slate-300
+                    border-border
 
                     text-center
                   "
@@ -1031,7 +1031,7 @@ const AssignMentorDialog = ({
                       className="
                         mx-auto
 
-                        text-slate-400
+                        text-muted-foreground
                       "
                     />
 
@@ -1050,7 +1050,7 @@ const AssignMentorDialog = ({
                       className="
                         mt-2
 
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Choose any mentor from
@@ -1069,12 +1069,12 @@ const AssignMentorDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -1116,7 +1116,7 @@ const AssignMentorDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -1186,7 +1186,7 @@ Internal notes..."
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -1206,7 +1206,7 @@ Internal notes..."
                 className="
                   mt-6
 
-                  rounded-3xl
+                  rounded-2xl
 
                   bg-purple-50
 
@@ -1282,9 +1282,9 @@ Internal notes..."
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -1307,7 +1307,7 @@ Internal notes..."
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
@@ -1316,7 +1316,7 @@ Internal notes..."
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 Cancel
@@ -1403,13 +1403,13 @@ function InfoCard({
       className="
         rounded-2xl
 
-        bg-white
+        bg-card
 
         p-5
       "
     >
 
-      <div className="text-purple-600">
+      <div className="text-primary">
         {icon}
       </div>
 
@@ -1418,7 +1418,7 @@ function InfoCard({
           mt-3
 
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1454,7 +1454,7 @@ function SummaryCard({
       className="
         rounded-2xl
 
-        bg-slate-50
+        bg-secondary
 
         p-5
       "
@@ -1463,7 +1463,7 @@ function SummaryCard({
       <p
         className="
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1504,7 +1504,7 @@ function SummaryRow({
 
         rounded-xl
 
-        bg-white
+        bg-card
 
         p-4
       "
@@ -1513,7 +1513,7 @@ function SummaryRow({
       <span
         className="
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {label}

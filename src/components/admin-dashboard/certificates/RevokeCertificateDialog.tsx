@@ -72,7 +72,7 @@ const RevokeCertificateDialog = ({
         className="
           max-w-3xl
           overflow-hidden
-          rounded-[32px]
+          rounded-2xl
           p-0
         "
       >
@@ -90,7 +90,7 @@ const RevokeCertificateDialog = ({
             text-white
           "
         >
-          <div className="absolute -right-16 -top-16 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -right-16 -top-16 h-72 w-72 rounded-full bg-card/10 blur-3xl" />
 
           <div className="relative z-10">
 
@@ -100,7 +100,7 @@ const RevokeCertificateDialog = ({
                 items-center
                 gap-2
                 rounded-full
-                bg-white/15
+                bg-card/15
                 px-4
                 py-2
                 text-sm
@@ -144,7 +144,7 @@ const RevokeCertificateDialog = ({
 
         <div className="space-y-6 p-8">
 
-          <div className="rounded-3xl border bg-white p-6">
+          <div className="rounded-2xl border bg-card p-6">
 
             <div className="flex gap-5">
 
@@ -159,7 +159,7 @@ const RevokeCertificateDialog = ({
                   bg-orange-100
                 "
               >
-                <Award className="h-8 w-8 text-orange-600" />
+                <Award className="h-8 w-8 text-[#B45309]" />
               </div>
 
               <div className="flex-1">
@@ -212,7 +212,7 @@ const RevokeCertificateDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
               border-orange-200
               bg-orange-50
@@ -221,7 +221,7 @@ const RevokeCertificateDialog = ({
           >
             <div className="flex gap-4">
 
-              <AlertTriangle className="mt-1 h-6 w-6 text-orange-600" />
+              <AlertTriangle className="mt-1 h-6 w-6 text-[#B45309]" />
 
               <div>
 
@@ -255,7 +255,7 @@ const RevokeCertificateDialog = ({
 
         {/* Footer */}
 
-        <DialogFooter className="border-t bg-slate-50 px-8 py-6">
+        <DialogFooter className="border-t bg-secondary px-8 py-6">
 
           <Button
             variant="outline"

@@ -44,19 +44,19 @@ const statusColor: Record<
   string
 > = {
   draft:
-    "bg-slate-100 text-slate-700",
+    "bg-secondary text-foreground",
 
   published:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   live:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 
   upcoming:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   completed:
-    "bg-emerald-100 text-emerald-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   cancelled:
     "bg-rose-100 text-rose-700",
@@ -156,7 +156,7 @@ const EventDetailsDrawer = ({
                     py-2
                     text-xs
                     font-semibold
-                    text-slate-900
+                    text-foreground
                   "
                 >
                   ⭐ Featured
@@ -169,7 +169,7 @@ const EventDetailsDrawer = ({
                 <span
                   className="
                     rounded-full
-                    bg-emerald-500
+                    bg-[#ECFDF5]0
                     px-4
                     py-2
                     text-xs
@@ -253,9 +253,9 @@ const EventDetailsDrawer = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
               "
@@ -290,7 +290,7 @@ const EventDetailsDrawer = ({
                       className="
                         h-5
                         w-5
-                        text-blue-600
+                        text-primary
                       "
                     />
 
@@ -404,9 +404,9 @@ const EventDetailsDrawer = ({
 
                 <div
                   className="
-                    rounded-3xl
+                    rounded-2xl
                     border
-                    bg-slate-50
+                    bg-secondary
                     p-6
                   "
                 >
@@ -417,7 +417,7 @@ const EventDetailsDrawer = ({
                       className="
                         h-5
                         w-5
-                        text-blue-600
+                        text-primary
                       "
                     />
 
@@ -445,9 +445,9 @@ const EventDetailsDrawer = ({
 
                 <div
                   className="
-                    rounded-3xl
+                    rounded-2xl
                     border
-                    bg-slate-50
+                    bg-secondary
                     p-6
                   "
                 >
@@ -458,7 +458,7 @@ const EventDetailsDrawer = ({
                       className="
                         h-5
                         w-5
-                        text-indigo-600
+                        text-primary
                       "
                     />
 
@@ -486,9 +486,9 @@ const EventDetailsDrawer = ({
 
                 <div
                   className="
-                    rounded-3xl
+                    rounded-2xl
                     border
-                    bg-slate-50
+                    bg-secondary
                     p-6
                   "
                 >
@@ -527,9 +527,9 @@ const EventDetailsDrawer = ({
 
                 <div
                   className="
-                    rounded-3xl
+                    rounded-2xl
                     border
-                    bg-slate-50
+                    bg-secondary
                     p-6
                   "
                 >
@@ -578,7 +578,7 @@ const EventDetailsDrawer = ({
                 "
               >
 
-                <div className="rounded-3xl border p-6">
+                <div className="rounded-2xl border p-6">
 
                   <p className="text-sm text-muted-foreground">
 
@@ -594,11 +594,11 @@ const EventDetailsDrawer = ({
 
                 </div>
 
-                <div className="rounded-3xl border p-6">
+                <div className="rounded-2xl border p-6">
 
                   <div className="flex items-center gap-2">
 
-                    <Users className="h-5 w-5 text-blue-600" />
+                    <Users className="h-5 w-5 text-primary" />
 
                     <p className="text-sm text-muted-foreground">
 
@@ -616,7 +616,7 @@ const EventDetailsDrawer = ({
 
                 </div>
 
-                <div className="rounded-3xl border p-6">
+                <div className="rounded-2xl border p-6">
 
                   <p className="text-sm text-muted-foreground">
 
@@ -637,9 +637,9 @@ const EventDetailsDrawer = ({
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-2xl
                   border
-                  bg-white
+                  bg-card
                   p-8
                   shadow-sm
                 "
@@ -728,7 +728,7 @@ const EventDetailsDrawer = ({
                         block
                         truncate
                         font-medium
-                        text-blue-600
+                        text-primary
                         hover:underline
                       "
                     >
@@ -745,9 +745,9 @@ const EventDetailsDrawer = ({
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-2xl
                   border
-                  bg-white
+                  bg-card
                   p-8
                   shadow-sm
                 "
@@ -772,7 +772,7 @@ const EventDetailsDrawer = ({
                         py-2
                         text-sm
                         font-medium
-                        text-blue-700
+                        text-[#2563EB]
                       "
                     >
                       #{tag}
@@ -788,9 +788,9 @@ const EventDetailsDrawer = ({
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-2xl
                   border
-                  bg-white
+                  bg-card
                   p-8
                   shadow-sm
                 "
@@ -822,7 +822,7 @@ const EventDetailsDrawer = ({
                           gap-4
                           rounded-2xl
                           border
-                          bg-slate-50
+                          bg-secondary
                           p-5
                         "
                       >
@@ -836,9 +836,9 @@ const EventDetailsDrawer = ({
                             items-center
                             justify-center
                             rounded-full
-                            bg-emerald-100
+                            bg-[#ECFDF5]
                             font-semibold
-                            text-emerald-700
+                            text-[#065F46]
                           "
                         >
                           ✓
@@ -863,9 +863,9 @@ const EventDetailsDrawer = ({
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-2xl
                   border
-                  bg-white
+                  bg-card
                   p-8
                   shadow-sm
                 "
@@ -897,7 +897,7 @@ const EventDetailsDrawer = ({
                           gap-4
                           rounded-2xl
                           border
-                          bg-slate-50
+                          bg-secondary
                           p-5
                         "
                       >
@@ -910,9 +910,9 @@ const EventDetailsDrawer = ({
                             items-center
                             justify-center
                             rounded-full
-                            bg-blue-100
+                            bg-[#EFF6FF]
                             font-bold
-                            text-blue-700
+                            text-[#2563EB]
                           "
                         >
 
@@ -940,7 +940,7 @@ const EventDetailsDrawer = ({
 
                 {/* Agenda */}
 
-                <div className="rounded-3xl border bg-white p-8 shadow-sm">
+                <div className="rounded-2xl border bg-card p-8 shadow-sm">
 
                   <div className="flex items-center justify-between">
 
@@ -948,7 +948,7 @@ const EventDetailsDrawer = ({
                       Event Agenda
                     </h3>
 
-                    <span className="rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700">
+                    <span className="rounded-full bg-[#EFF6FF] px-4 py-2 text-sm font-medium text-[#2563EB]">
                       {event.agenda.length} Sessions
                     </span>
 
@@ -987,14 +987,14 @@ const EventDetailsDrawer = ({
                           </div>
 
                           {index !== event.agenda.length - 1 && (
-                            <div className="mt-2 h-full w-[2px] bg-slate-200" />
+                            <div className="mt-2 h-full w-[2px] bg-secondary" />
                           )}
 
                         </div>
 
                         {/* Content */}
 
-                        <div className="flex-1 rounded-2xl border bg-slate-50 p-5">
+                        <div className="flex-1 rounded-2xl border bg-secondary p-5">
 
                           <div className="flex flex-wrap items-center justify-between gap-3">
 
@@ -1002,7 +1002,7 @@ const EventDetailsDrawer = ({
                               {item.title}
                             </h4>
 
-                            <span className="rounded-full bg-white px-3 py-1 text-xs font-medium">
+                            <span className="rounded-full bg-card px-3 py-1 text-xs font-medium">
                               {item.startTime} - {item.endTime}
                             </span>
 
@@ -1026,7 +1026,7 @@ const EventDetailsDrawer = ({
 
                 <div className="space-y-6">
 
-                  <div className="rounded-3xl border bg-white p-6 shadow-sm">
+                  <div className="rounded-2xl border bg-card p-6 shadow-sm">
 
                     <h3 className="text-xl font-bold">
                       Event Schedule
@@ -1100,7 +1100,7 @@ const EventDetailsDrawer = ({
 
                   {/* Registration */}
 
-                  <div className="rounded-3xl border bg-white p-6 shadow-sm">
+                  <div className="rounded-2xl border bg-card p-6 shadow-sm">
 
                     <div className="flex items-center justify-between">
 
@@ -1108,7 +1108,7 @@ const EventDetailsDrawer = ({
                         Registrations
                       </h3>
 
-                      <Users className="h-5 w-5 text-blue-600" />
+                      <Users className="h-5 w-5 text-primary" />
 
                     </div>
 
@@ -1126,7 +1126,7 @@ const EventDetailsDrawer = ({
 
                       </div>
 
-                      <div className="mt-4 h-3 overflow-hidden rounded-full bg-slate-100">
+                      <div className="mt-4 h-3 overflow-hidden rounded-full bg-secondary">
 
                         <div
                           className="
@@ -1149,11 +1149,11 @@ const EventDetailsDrawer = ({
 
                       <div className="mt-4 flex items-center justify-between text-sm">
 
-                        <span className="text-emerald-600 font-medium">
+                        <span className="text-[#0F8F65] font-medium">
                           {event.registered} Registered
                         </span>
 
-                        <span className="text-orange-600 font-medium">
+                        <span className="text-[#B45309] font-medium">
                           {event.seatsLeft} Seats Left
                         </span>
 
@@ -1181,9 +1181,9 @@ const EventDetailsDrawer = ({
 
                 <div
                   className="
-                    rounded-3xl
+                    rounded-2xl
                     border
-                    bg-white
+                    bg-card
                     p-8
                     shadow-sm
                   "
@@ -1200,7 +1200,7 @@ const EventDetailsDrawer = ({
                     <div
                       className="
                         rounded-2xl
-                        bg-emerald-100
+                        bg-[#ECFDF5]
                         p-3
                       "
                     >
@@ -1236,7 +1236,7 @@ const EventDetailsDrawer = ({
 
                       </span>
 
-                      <span className="text-lg font-bold text-emerald-700">
+                      <span className="text-lg font-bold text-[#065F46]">
 
                         $
                         {event.revenue.grossRevenue.toLocaleString()}
@@ -1304,9 +1304,9 @@ const EventDetailsDrawer = ({
 
                 <div
                   className="
-                    rounded-3xl
+                    rounded-2xl
                     border
-                    bg-white
+                    bg-card
                     p-8
                     shadow-sm
                   "
@@ -1327,7 +1327,7 @@ const EventDetailsDrawer = ({
                     "
                   >
 
-                    <div className="rounded-2xl border bg-slate-50 p-5">
+                    <div className="rounded-2xl border bg-secondary p-5">
 
                       <p className="text-sm text-muted-foreground">
 
@@ -1343,7 +1343,7 @@ const EventDetailsDrawer = ({
 
                     </div>
 
-                    <div className="rounded-2xl border bg-slate-50 p-5">
+                    <div className="rounded-2xl border bg-secondary p-5">
 
                       <p className="text-sm text-muted-foreground">
 
@@ -1359,7 +1359,7 @@ const EventDetailsDrawer = ({
 
                     </div>
 
-                    <div className="rounded-2xl border bg-slate-50 p-5">
+                    <div className="rounded-2xl border bg-secondary p-5">
 
                       <p className="text-sm text-muted-foreground">
 
@@ -1373,7 +1373,7 @@ const EventDetailsDrawer = ({
 
                       </h4>
 
-                      <p className="mt-2 text-xs text-emerald-600">
+                      <p className="mt-2 text-xs text-[#0F8F65]">
 
                         {event.analytics.attendanceRate}% Present
 
@@ -1381,7 +1381,7 @@ const EventDetailsDrawer = ({
 
                     </div>
 
-                    <div className="rounded-2xl border bg-slate-50 p-5">
+                    <div className="rounded-2xl border bg-secondary p-5">
 
                       <p className="text-sm text-muted-foreground">
 
@@ -1418,9 +1418,9 @@ const EventDetailsDrawer = ({
 
                 <div
                   className="
-                    rounded-3xl
+                    rounded-2xl
                     border
-                    bg-white
+                    bg-card
                     p-8
                     shadow-sm
                   "
@@ -1476,7 +1476,7 @@ const EventDetailsDrawer = ({
 
                       </span>
 
-                      <span className="font-semibold text-blue-700">
+                      <span className="font-semibold text-[#2563EB]">
 
                         {event.certificate.issued}
 
@@ -1492,9 +1492,9 @@ const EventDetailsDrawer = ({
 
                 <div
                   className="
-                    rounded-3xl
+                    rounded-2xl
                     border
-                    bg-white
+                    bg-card
                     p-8
                     shadow-sm
                   "
@@ -1548,7 +1548,7 @@ const EventDetailsDrawer = ({
 
                       </span>
 
-                      <span className="font-semibold text-emerald-700">
+                      <span className="font-semibold text-[#065F46]">
 
                         {event.feedback.recommendationRate}%
 
@@ -1565,7 +1565,7 @@ const EventDetailsDrawer = ({
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-2xl
                   border
                   bg-gradient-to-r
                   from-slate-50
@@ -1639,9 +1639,9 @@ const EventDetailsDrawer = ({
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-2xl
                   border
-                  bg-white
+                  bg-card
                   p-6
                   shadow-sm
                 "

@@ -47,7 +47,7 @@ function UsersToolbar({
 }: UsersToolbarProps) {
  
   return (
-    <section className="rounded-[30px] border border-slate-200 bg-white p-6 shadow-sm">
+    <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
 
       <div className="flex flex-col gap-5 xl:flex-row xl:items-center xl:justify-between">
 
@@ -55,7 +55,7 @@ function UsersToolbar({
 
         <div className="relative w-full xl:max-w-md">
 
-          <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400" />
+          <Search className="absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-muted-foreground" />
 
           <input
             value={search}
@@ -63,7 +63,7 @@ function UsersToolbar({
               onSearchChange(e.target.value)
             }
             placeholder="Search users..."
-            className="h-12 w-full rounded-2xl border border-slate-200 bg-slate-50 pl-12 pr-4 outline-none transition-all focus:border-blue-500 focus:bg-white"
+            className="h-12 w-full rounded-2xl border border-border bg-secondary pl-12 pr-4 outline-none transition-all focus:border-blue-500 focus:bg-card"
           />
 
         </div>
@@ -76,7 +76,7 @@ function UsersToolbar({
             value={status}
 
 onChange={(e)=>onStatusChange(e.target.value)}
-            className="h-12 rounded-2xl border border-slate-200 bg-white px-4"
+            className="h-12 rounded-2xl border border-border bg-card px-4"
           >
             <option value="all">
               All Status
@@ -104,7 +104,7 @@ onChange={(e)=>onStatusChange(e.target.value)}
             value={membership}
 
 onChange={(e)=>onMembershipChange(e.target.value)}
-            className="h-12 rounded-2xl border border-slate-200 bg-white px-4"
+            className="h-12 rounded-2xl border border-border bg-card px-4"
           >
             <option value="all">
               All Memberships
@@ -132,7 +132,7 @@ onChange={(e)=>onMembershipChange(e.target.value)}
             value={verification}
 
 onChange={(e)=>onVerificationChange(e.target.value)}
-            className="h-12 rounded-2xl border border-slate-200 bg-white px-4"
+            className="h-12 rounded-2xl border border-border bg-card px-4"
           >
             <option value="all">
               All Verification
@@ -151,7 +151,7 @@ onChange={(e)=>onVerificationChange(e.target.value)}
             </option>
 
           </select>
-                    <select className="h-12 rounded-2xl border border-slate-200 bg-white px-4 outline-none transition-all focus:border-blue-500">
+                    <select className="h-12 rounded-2xl border border-border bg-card px-4 outline-none transition-all focus:border-blue-500">
             <option>Newest First</option>
             <option>Oldest First</option>
             <option>Name (A-Z)</option>
@@ -165,7 +165,7 @@ onChange={(e)=>onVerificationChange(e.target.value)}
 
       {/* Bottom Actions */}
 
-      <div className="mt-6 flex flex-col gap-4 border-t border-slate-200 pt-6 lg:flex-row lg:items-center lg:justify-between">
+      <div className="mt-6 flex flex-col gap-4 border-t border-border pt-6 lg:flex-row lg:items-center lg:justify-between">
 
         <div className="flex flex-wrap items-center gap-3">
 
@@ -174,8 +174,8 @@ onChange={(e)=>onVerificationChange(e.target.value)}
             onClick={() => onViewChange("grid")}
             className={`inline-flex h-11 items-center gap-2 rounded-2xl px-5 font-medium transition-all ${
               view === "grid"
-                ? "bg-blue-600 text-white shadow-lg"
-                : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                ? "bg-primary text-white shadow-lg"
+                : "border border-border bg-card text-muted-foreground hover:bg-secondary"
             }`}
           >
             <Grid2X2 className="h-5 w-5" />
@@ -188,8 +188,8 @@ onChange={(e)=>onVerificationChange(e.target.value)}
             onClick={() => onViewChange("list")}
             className={`inline-flex h-11 items-center gap-2 rounded-2xl px-5 font-medium transition-all ${
               view === "list"
-                ? "bg-blue-600 text-white shadow-lg"
-                : "border border-slate-200 bg-white text-slate-600 hover:bg-slate-50"
+                ? "bg-primary text-white shadow-lg"
+                : "border border-border bg-card text-muted-foreground hover:bg-secondary"
             }`}
           >
             <List className="h-5 w-5" />
@@ -203,7 +203,7 @@ onChange={(e)=>onVerificationChange(e.target.value)}
 
           <button
             type="button"
-            className="inline-flex h-11 items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 font-medium text-slate-700 transition-all hover:bg-slate-50"
+            className="inline-flex h-11 items-center gap-2 rounded-2xl border border-border bg-card px-5 font-medium text-foreground transition-all hover:bg-secondary"
           >
             <SlidersHorizontal className="h-5 w-5" />
 
@@ -213,7 +213,7 @@ onChange={(e)=>onVerificationChange(e.target.value)}
           <button
             type="button"
             onClick={onRefresh}
-            className="inline-flex h-11 items-center gap-2 rounded-2xl border border-slate-200 bg-white px-5 font-medium text-slate-700 transition-all hover:bg-slate-50"
+            className="inline-flex h-11 items-center gap-2 rounded-2xl border border-border bg-card px-5 font-medium text-foreground transition-all hover:bg-secondary"
           >
             <RefreshCw className="h-5 w-5" />
 

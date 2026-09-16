@@ -549,7 +549,7 @@ export default function PaymentDetailsDrawer({
                   Discount
                 </span>
 
-                <span className="font-medium text-green-600">
+                <span className="font-medium text-[#0F8F65]">
                   - ₹{payment.breakdown.discount.toLocaleString("en-IN")}
                 </span>
 
@@ -1046,7 +1046,7 @@ export default function PaymentDetailsDrawer({
 
               <div className="flex gap-4">
 
-                <div className="mt-1 h-3 w-3 rounded-full bg-amber-500" />
+                <div className="mt-1 h-3 w-3 rounded-full bg-[#F59E0B]" />
 
                 <div className="flex-1">
 
@@ -1088,7 +1088,7 @@ export default function PaymentDetailsDrawer({
 
                 <div className="flex gap-4">
 
-                  <div className="mt-1 h-3 w-3 rounded-full bg-emerald-500" />
+                  <div className="mt-1 h-3 w-3 rounded-full bg-[#ECFDF5]0" />
 
                   <div className="flex-1">
 

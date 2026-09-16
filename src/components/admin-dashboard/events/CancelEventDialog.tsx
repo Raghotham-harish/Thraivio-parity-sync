@@ -57,7 +57,7 @@ const CancelEventDialog = ({
 
           <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-orange-100">
 
-            <XCircle className="h-10 w-10 text-orange-600" />
+            <XCircle className="h-10 w-10 text-[#B45309]" />
 
           </div>
 
@@ -82,9 +82,9 @@ const CancelEventDialog = ({
         <div
           className="
             mt-8
-            rounded-3xl
+            rounded-2xl
             border
-            bg-slate-50
+            bg-secondary
             p-6
           "
         >
@@ -118,9 +118,9 @@ const CancelEventDialog = ({
 
               <div className="mt-5 flex flex-wrap gap-3">
 
-                <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2">
+                <div className="flex items-center gap-2 rounded-full bg-card px-4 py-2">
 
-                  <CalendarDays className="h-4 w-4 text-blue-600" />
+                  <CalendarDays className="h-4 w-4 text-primary" />
 
                   <span className="text-sm">
 
@@ -130,9 +130,9 @@ const CancelEventDialog = ({
 
                 </div>
 
-                <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2">
+                <div className="flex items-center gap-2 rounded-full bg-card px-4 py-2">
 
-                  <Users className="h-4 w-4 text-indigo-600" />
+                  <Users className="h-4 w-4 text-primary" />
 
                   <span className="text-sm">
 
@@ -142,9 +142,9 @@ const CancelEventDialog = ({
 
                 </div>
 
-                <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2">
+                <div className="flex items-center gap-2 rounded-full bg-card px-4 py-2">
 
-                  <CircleDollarSign className="h-4 w-4 text-emerald-600" />
+                  <CircleDollarSign className="h-4 w-4 text-[#0F8F65]" />
 
                   <span className="text-sm">
 
@@ -175,16 +175,16 @@ const CancelEventDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
             "
           >
 
             <div className="flex items-center gap-3">
 
-              <Mail className="h-6 w-6 text-blue-600" />
+              <Mail className="h-6 w-6 text-primary" />
 
               <h3 className="text-xl font-bold">
 
@@ -252,16 +252,16 @@ const CancelEventDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
             "
           >
 
             <div className="flex items-center gap-3">
 
-              <CircleDollarSign className="h-6 w-6 text-emerald-600" />
+              <CircleDollarSign className="h-6 w-6 text-[#0F8F65]" />
 
               <h3 className="text-xl font-bold">
 
@@ -313,7 +313,7 @@ const CancelEventDialog = ({
 
                 </span>
 
-                <span className="font-semibold text-orange-600">
+                <span className="font-semibold text-[#B45309]">
 
                   ${event.revenue.refundAmount.toLocaleString()}
 
@@ -345,9 +345,9 @@ const CancelEventDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
             "
           >
@@ -419,7 +419,7 @@ const CancelEventDialog = ({
         <div
           className="
             mt-8
-            rounded-3xl
+            rounded-2xl
             border
             border-orange-200
             bg-gradient-to-r
@@ -437,7 +437,7 @@ const CancelEventDialog = ({
                 mt-1
                 h-6
                 w-6
-                text-orange-600
+                text-[#B45309]
               "
             />
 

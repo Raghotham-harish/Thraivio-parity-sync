@@ -27,7 +27,7 @@ export default function PaymentsTable({
   return (
     <div
       className={[
-        "overflow-hidden rounded-3xl border bg-background shadow-sm",
+        "overflow-hidden rounded-2xl border bg-background shadow-sm",
         className,
       ].join(" ")}
     >

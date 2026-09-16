@@ -39,65 +39,65 @@ export default function ProgramsTable({
   onDelete,
 }: ProgramsTableProps) {
   return (
-    <section className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
+    <section className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
 
       <div className="overflow-x-auto">
 
         <table className="min-w-full">
 
-          <thead className="bg-slate-50">
+          <thead className="bg-secondary">
 
-            <tr className="border-b border-slate-200 text-left">
+            <tr className="border-b border-border text-left">
 
-              <th className="px-6 py-4 text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-sm font-semibold text-muted-foreground">
 
                 Program
 
               </th>
 
-              <th className="px-6 py-4 text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-sm font-semibold text-muted-foreground">
 
                 Mentor
 
               </th>
 
-              <th className="px-6 py-4 text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-sm font-semibold text-muted-foreground">
 
                 Duration
 
               </th>
 
-              <th className="px-6 py-4 text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-sm font-semibold text-muted-foreground">
 
                 Students
 
               </th>
 
-              <th className="px-6 py-4 text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-sm font-semibold text-muted-foreground">
 
                 Level
 
               </th>
 
-              <th className="px-6 py-4 text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-sm font-semibold text-muted-foreground">
 
                 Rating
 
               </th>
 
-              <th className="px-6 py-4 text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-sm font-semibold text-muted-foreground">
 
                 Price
 
               </th>
 
-              <th className="px-6 py-4 text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-sm font-semibold text-muted-foreground">
 
                 Revenue
 
               </th>
 
-              <th className="px-6 py-4 text-center text-sm font-semibold text-slate-600">
+              <th className="px-6 py-4 text-center text-sm font-semibold text-muted-foreground">
 
                 Actions
 

@@ -46,7 +46,7 @@ export default function ReviewStatusDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="max-w-xl rounded-3xl">
+      <DialogContent className="max-w-xl rounded-2xl">
 
         <DialogHeader>
 
@@ -95,10 +95,10 @@ export default function ReviewStatusDialog({
           <div className="grid gap-3 sm:grid-cols-2">
                         <Button
               variant="outline"
-              className="h-14 justify-start rounded-2xl border-emerald-200 hover:bg-emerald-50"
+              className="h-14 justify-start rounded-2xl border-[#A7E8CE] hover:bg-[#ECFDF5]"
               onClick={() => onStatusChange("approved")}
             >
-              <CheckCircle2 className="mr-3 h-5 w-5 text-emerald-600" />
+              <CheckCircle2 className="mr-3 h-5 w-5 text-[#0F8F65]" />
 
               <div className="text-left">
 
@@ -161,7 +161,7 @@ export default function ReviewStatusDialog({
               className="h-14 justify-start rounded-2xl border-orange-200 hover:bg-orange-50"
               onClick={() => onStatusChange("reported")}
             >
-              <Flag className="mr-3 h-5 w-5 text-orange-600" />
+              <Flag className="mr-3 h-5 w-5 text-[#B45309]" />
 
               <div className="text-left">
 

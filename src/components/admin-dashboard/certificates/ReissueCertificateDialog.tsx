@@ -98,7 +98,7 @@ const ReissueCertificateDialog = ({
         className="
           max-w-3xl
           overflow-hidden
-          rounded-[32px]
+          rounded-2xl
           p-0
         "
       >
@@ -116,7 +116,7 @@ const ReissueCertificateDialog = ({
             text-white
           "
         >
-          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-card/10 blur-3xl" />
 
           <div className="relative z-10">
 
@@ -126,7 +126,7 @@ const ReissueCertificateDialog = ({
                 items-center
                 gap-2
                 rounded-full
-                bg-white/15
+                bg-card/15
                 px-4
                 py-2
                 text-sm
@@ -170,7 +170,7 @@ const ReissueCertificateDialog = ({
 
         <div className="space-y-8 p-8">
 
-          <div className="rounded-3xl border bg-white p-6">
+          <div className="rounded-2xl border bg-card p-6">
 
             <div className="flex gap-5">
 
@@ -182,10 +182,10 @@ const ReissueCertificateDialog = ({
                   items-center
                   justify-center
                   rounded-2xl
-                  bg-blue-100
+                  bg-[#EFF6FF]
                 "
               >
-                <Award className="h-8 w-8 text-blue-600" />
+                <Award className="h-8 w-8 text-primary" />
               </div>
 
               <div>
@@ -293,7 +293,7 @@ const ReissueCertificateDialog = ({
             >
               <div className="flex items-center gap-3">
 
-                <BadgeCheck className="h-6 w-6 text-blue-600" />
+                <BadgeCheck className="h-6 w-6 text-primary" />
 
                 <div>
 
@@ -322,7 +322,7 @@ const ReissueCertificateDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
               border-blue-200
               bg-blue-50
@@ -331,17 +331,17 @@ const ReissueCertificateDialog = ({
           >
             <div className="flex gap-4">
 
-              <RefreshCcw className="mt-1 h-6 w-6 text-blue-600" />
+              <RefreshCcw className="mt-1 h-6 w-6 text-primary" />
 
               <div>
 
-                <h3 className="text-lg font-bold text-blue-700">
+                <h3 className="text-lg font-bold text-[#2563EB]">
 
                   Reissue Summary
 
                 </h3>
 
-                <ul className="mt-4 space-y-2 text-sm leading-7 text-blue-700">
+                <ul className="mt-4 space-y-2 text-sm leading-7 text-[#2563EB]">
 
                   <li>
                     • New credential becomes active.
@@ -373,7 +373,7 @@ const ReissueCertificateDialog = ({
 
         </div>
 
-        <DialogFooter className="border-t bg-slate-50 px-8 py-6">
+        <DialogFooter className="border-t bg-secondary px-8 py-6">
 
           <Button
             variant="outline"

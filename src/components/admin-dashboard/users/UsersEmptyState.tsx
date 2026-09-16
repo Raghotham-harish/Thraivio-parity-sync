@@ -14,7 +14,7 @@ export default function UsersEmptyState({
   onResetFilters,
 }: UsersEmptyStateProps) {
   return (
-    <section className="rounded-[32px] border border-slate-200 bg-white px-8 py-20 shadow-sm">
+    <section className="rounded-2xl border border-border bg-card px-8 py-20 shadow-sm">
 
       <div className="mx-auto flex max-w-xl flex-col items-center text-center">
 
@@ -22,19 +22,19 @@ export default function UsersEmptyState({
 
         <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-indigo-100">
 
-          <SearchX className="h-12 w-12 text-blue-600" />
+          <SearchX className="h-12 w-12 text-primary" />
 
         </div>
 
         {/* Title */}
 
-        <h2 className="mt-8 text-3xl font-bold text-slate-900">
+        <h2 className="mt-8 text-3xl font-bold text-foreground">
           {title}
         </h2>
 
         {/* Description */}
 
-        <p className="mt-4 max-w-md text-base leading-7 text-slate-500">
+        <p className="mt-4 max-w-md text-base leading-7 text-muted-foreground">
           {description}
         </p>
 
@@ -45,7 +45,7 @@ export default function UsersEmptyState({
           <button
             type="button"
             onClick={onResetFilters}
-            className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition-all duration-300 hover:bg-slate-50"
+            className="rounded-2xl border border-border bg-card px-6 py-3 font-semibold text-foreground transition-all duration-300 hover:bg-secondary"
           >
             Reset Filters
           </button>
@@ -53,7 +53,7 @@ export default function UsersEmptyState({
           <button
             type="button"
             onClick={onAddUser}
-            className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
+            className="inline-flex items-center gap-2 rounded-2xl bg-primary px-6 py-3 font-semibold text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-lg"
           >
             <UserPlus className="h-5 w-5" />
 

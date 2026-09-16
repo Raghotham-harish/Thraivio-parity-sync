@@ -44,12 +44,12 @@ const iconMap = {
 const colorMap = {
   blue: {
     bg: "bg-blue-50",
-    icon: "text-blue-600",
+    icon: "text-primary",
   },
 
   emerald: {
-    bg: "bg-emerald-50",
-    icon: "text-emerald-600",
+    bg: "bg-[#ECFDF5]",
+    icon: "text-[#0F8F65]",
   },
 
   violet: {
@@ -59,7 +59,7 @@ const colorMap = {
 
   orange: {
     bg: "bg-orange-50",
-    icon: "text-orange-600",
+    icon: "text-[#B45309]",
   },
 
   pink: {
@@ -69,17 +69,17 @@ const colorMap = {
 
   cyan: {
     bg: "bg-cyan-50",
-    icon: "text-cyan-600",
+    icon: "text-primary",
   },
 
   indigo: {
-    bg: "bg-indigo-50",
-    icon: "text-indigo-600",
+    bg: "bg-[#EFF6FF]",
+    icon: "text-primary",
   },
 
   slate: {
-    bg: "bg-slate-100",
-    icon: "text-slate-700",
+    bg: "bg-secondary",
+    icon: "text-foreground",
   },
 };
 
@@ -112,7 +112,7 @@ const DashboardQuickActions = ({
 
               rounded-full
 
-              bg-indigo-50
+              bg-[#EFF6FF]
 
               px-4
               py-2
@@ -120,7 +120,7 @@ const DashboardQuickActions = ({
               text-sm
               font-medium
 
-              text-indigo-700
+              text-[#2563EB]
             "
           >
             Quick Actions
@@ -146,7 +146,7 @@ const DashboardQuickActions = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Instantly access the most
@@ -161,9 +161,9 @@ const DashboardQuickActions = ({
             rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             px-6
             py-3
@@ -172,7 +172,7 @@ const DashboardQuickActions = ({
 
             transition
 
-            hover:bg-slate-50
+            hover:bg-secondary
           "
         >
           Customize Actions
@@ -215,12 +215,12 @@ const DashboardQuickActions = ({
               className="
                 group
 
-                rounded-[30px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-7
 
@@ -254,7 +254,7 @@ const DashboardQuickActions = ({
                     items-center
                     justify-center
 
-                    rounded-3xl
+                    rounded-2xl
 
                     ${colors.bg}
                   `}
@@ -268,14 +268,14 @@ const DashboardQuickActions = ({
                 <ArrowRight
                   size={22}
                   className="
-                    text-slate-400
+                    text-muted-foreground
 
                     transition-all
                     duration-300
 
                     group-hover:translate-x-1
 
-                    group-hover:text-indigo-600
+                    group-hover:text-primary
                   "
                 />
               </div>
@@ -289,11 +289,11 @@ const DashboardQuickActions = ({
                   text-2xl
                   font-bold
 
-                  text-slate-900
+                  text-foreground
 
                   transition-colors
 
-                  group-hover:text-indigo-600
+                  group-hover:text-primary
                 "
               >
                 {action.title}
@@ -307,7 +307,7 @@ const DashboardQuickActions = ({
 
                   leading-7
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 {action.description}
@@ -334,7 +334,7 @@ const DashboardQuickActions = ({
 
                     rounded-full
 
-                    bg-slate-100
+                    bg-secondary
 
                     px-4
                     py-2
@@ -361,7 +361,7 @@ const DashboardQuickActions = ({
 
                     rounded-full
 
-                    bg-emerald-500
+                    bg-[#ECFDF5]0
                   "
                 />
               </div>
@@ -379,7 +379,7 @@ const DashboardQuickActions = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
           bg-gradient-to-r
 
@@ -420,7 +420,7 @@ const DashboardQuickActions = ({
 
                 rounded-full
 
-                bg-white/10
+                bg-card/10
 
                 px-4
                 py-2
@@ -476,14 +476,14 @@ const DashboardQuickActions = ({
 
                 rounded-2xl
 
-                bg-white
+                bg-card
 
                 px-7
                 py-3.5
 
                 font-semibold
 
-                text-slate-900
+                text-foreground
 
                 transition-all
 
@@ -512,9 +512,9 @@ const DashboardQuickActions = ({
           >
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-6
 
@@ -537,9 +537,9 @@ const DashboardQuickActions = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-6
 
@@ -562,9 +562,9 @@ const DashboardQuickActions = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-6
 
@@ -587,9 +587,9 @@ const DashboardQuickActions = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-6
 

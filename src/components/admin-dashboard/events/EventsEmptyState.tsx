@@ -48,7 +48,7 @@ const EventsEmptyState = ({
       className="
         relative
         overflow-hidden
-        rounded-[36px]
+        rounded-2xl
         border
         bg-gradient-to-br
         from-white
@@ -60,9 +60,9 @@ const EventsEmptyState = ({
     >
       {/* Decorative Background */}
 
-      <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-blue-500/10 blur-3xl" />
+      <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#EFF6FF] blur-3xl" />
 
-      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl" />
+      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-secondary blur-3xl" />
 
       <div className="relative z-10">
 
@@ -104,7 +104,7 @@ const EventsEmptyState = ({
 
           </div>
 
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-2 text-sm font-medium text-blue-700">
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-[#EFF6FF] px-4 py-2 text-sm font-medium text-[#2563EB]">
 
             <Sparkles className="h-4 w-4" />
 
@@ -138,13 +138,13 @@ const EventsEmptyState = ({
                   gap-2
                   rounded-full
                   border
-                  bg-white
+                  bg-card
                   px-5
                   py-3
                   shadow-sm
                 "
               >
-                <Search className="h-4 w-4 text-blue-600" />
+                <Search className="h-4 w-4 text-primary" />
 
                 <span className="text-sm font-medium">
                   Search :
@@ -163,7 +163,7 @@ const EventsEmptyState = ({
                 gap-2
                 rounded-full
                 border
-                bg-white
+                bg-card
                 px-5
                 py-3
                 shadow-sm
@@ -188,13 +188,13 @@ const EventsEmptyState = ({
                   gap-2
                   rounded-full
                   border
-                  bg-white
+                  bg-card
                   px-5
                   py-3
                   shadow-sm
                 "
               >
-                <RefreshCw className="h-4 w-4 animate-spin text-blue-600" />
+                <RefreshCw className="h-4 w-4 animate-spin text-primary" />
 
                 <span className="text-sm font-medium">
                   Refreshing Events...
@@ -218,9 +218,9 @@ const EventsEmptyState = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
                 transition-all
@@ -229,9 +229,9 @@ const EventsEmptyState = ({
               "
             >
 
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EFF6FF]">
 
-                <Search className="h-7 w-7 text-blue-600" />
+                <Search className="h-7 w-7 text-primary" />
 
               </div>
 
@@ -252,9 +252,9 @@ const EventsEmptyState = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
                 transition-all
@@ -263,7 +263,7 @@ const EventsEmptyState = ({
               "
             >
 
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-amber-100">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFFBEB]">
 
                 <FilterX className="h-7 w-7 text-amber-600" />
 
@@ -286,9 +286,9 @@ const EventsEmptyState = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
                 transition-all
@@ -297,9 +297,9 @@ const EventsEmptyState = ({
               "
             >
 
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ECFDF5]">
 
-                <Plus className="h-7 w-7 text-emerald-600" />
+                <Plus className="h-7 w-7 text-[#0F8F65]" />
 
               </div>
 
@@ -328,7 +328,7 @@ const EventsEmptyState = ({
               w-full
               rounded-[28px]
               border
-              bg-white
+              bg-card
               p-8
               shadow-sm
             "
@@ -338,7 +338,7 @@ const EventsEmptyState = ({
 
               <div>
 
-                <div className="inline-flex items-center gap-2 rounded-full bg-violet-100 px-4 py-2 text-sm font-medium text-violet-700">
+                <div className="inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-sm font-medium text-muted-foreground">
 
                   <BookOpen className="h-4 w-4" />
 
@@ -452,7 +452,7 @@ const EventsEmptyState = ({
           <div
             className="
               mt-14
-              rounded-[30px]
+              rounded-2xl
               border
               bg-gradient-to-r
               from-blue-600
@@ -468,7 +468,7 @@ const EventsEmptyState = ({
 
               <div>
 
-                <div className="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 text-sm backdrop-blur">
+                <div className="inline-flex items-center gap-2 rounded-full bg-card/10 px-4 py-2 text-sm backdrop-blur">
 
                   <Sparkles className="h-4 w-4" />
 
@@ -500,10 +500,10 @@ const EventsEmptyState = ({
                 className="
                   h-14
                   rounded-2xl
-                  bg-white
+                  bg-card
                   px-8
-                  text-slate-900
-                  hover:bg-slate-100
+                  text-foreground
+                  hover:bg-secondary
                 "
               >
                 Create Your First Event

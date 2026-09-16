@@ -55,17 +55,17 @@ export default function NotificationTableRow({
   const typeIcon = () => {
     switch (notification.type) {
       case "push":
-        return <Bell className="h-4 w-4 text-blue-600" />;
+        return <Bell className="h-4 w-4 text-primary" />;
 
       case "email":
-        return <Mail className="h-4 w-4 text-emerald-600" />;
+        return <Mail className="h-4 w-4 text-[#0F8F65]" />;
 
       case "sms":
         return <Smartphone className="h-4 w-4 text-violet-600" />;
 
       case "in-app":
         return (
-          <MessageSquare className="h-4 w-4 text-orange-600" />
+          <MessageSquare className="h-4 w-4 text-[#B45309]" />
         );
     }
   };
@@ -74,7 +74,7 @@ export default function NotificationTableRow({
     switch (notification.status) {
       case "sent":
         return (
-          <Badge className="bg-emerald-500 hover:bg-emerald-500">
+          <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
             <CheckCheck className="mr-1 h-3 w-3" />
             Sent
           </Badge>
@@ -82,7 +82,7 @@ export default function NotificationTableRow({
 
       case "scheduled":
         return (
-          <Badge className="bg-amber-500 text-white hover:bg-amber-500">
+          <Badge className="bg-[#F59E0B] text-white hover:bg-[#F59E0B]">
             <CalendarClock className="mr-1 h-3 w-3" />
             Scheduled
           </Badge>

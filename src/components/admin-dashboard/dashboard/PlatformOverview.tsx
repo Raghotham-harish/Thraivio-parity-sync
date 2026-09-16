@@ -36,7 +36,7 @@ const PlatformOverview = ({
       icon: Users,
       color: "blue",
       bg: "bg-blue-50",
-      text: "text-blue-600",
+      text: "text-primary",
     },
 
     {
@@ -44,8 +44,8 @@ const PlatformOverview = ({
       value: verifiedMentors.toLocaleString(),
       icon: BadgeCheck,
       color: "emerald",
-      bg: "bg-emerald-50",
-      text: "text-emerald-600",
+      bg: "bg-[#ECFDF5]",
+      text: "text-[#0F8F65]",
     },
 
     {
@@ -54,7 +54,7 @@ const PlatformOverview = ({
       icon: BookOpen,
       color: "orange",
       bg: "bg-orange-50",
-      text: "text-orange-600",
+      text: "text-[#B45309]",
     },
 
     {
@@ -72,7 +72,7 @@ const PlatformOverview = ({
       icon: GraduationCap,
       color: "cyan",
       bg: "bg-cyan-50",
-      text: "text-cyan-600",
+      text: "text-primary",
     },
 
     {
@@ -81,7 +81,7 @@ const PlatformOverview = ({
       icon: ShieldCheck,
       color: "green",
       bg: "bg-green-50",
-      text: "text-green-600",
+      text: "text-[#0F8F65]",
     },
   ];
 
@@ -118,7 +118,7 @@ const PlatformOverview = ({
               text-sm
               font-medium
 
-              text-violet-700
+              text-muted-foreground
             "
           >
             Platform Overview
@@ -144,7 +144,7 @@ const PlatformOverview = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Monitor the complete
@@ -161,9 +161,9 @@ const PlatformOverview = ({
             rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             px-6
             py-3
@@ -172,7 +172,7 @@ const PlatformOverview = ({
 
             transition
 
-            hover:bg-slate-50
+            hover:bg-secondary
           "
         >
           View Details
@@ -202,12 +202,12 @@ const PlatformOverview = ({
             <div
               key={card.title}
               className="
-                rounded-[30px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
 
@@ -238,7 +238,7 @@ const PlatformOverview = ({
                     items-center
                     justify-center
 
-                    rounded-3xl
+                    rounded-2xl
 
                     ${card.bg}
                   `}
@@ -253,7 +253,7 @@ const PlatformOverview = ({
                   className="
                     rounded-full
 
-                    bg-emerald-100
+                    bg-[#ECFDF5]
 
                     px-3
                     py-2
@@ -261,7 +261,7 @@ const PlatformOverview = ({
                     text-xs
                     font-semibold
 
-                    text-emerald-700
+                    text-[#065F46]
                   "
                 >
                   Live
@@ -277,7 +277,7 @@ const PlatformOverview = ({
                   text-4xl
                   font-bold
 
-                  text-slate-900
+                  text-foreground
                 "
               >
                 {card.value}
@@ -292,7 +292,7 @@ const PlatformOverview = ({
                   text-lg
                   font-semibold
 
-                  text-slate-700
+                  text-foreground
                 "
               >
                 {card.title}
@@ -308,7 +308,7 @@ const PlatformOverview = ({
 
                   leading-6
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Live platform statistics
@@ -330,7 +330,7 @@ const PlatformOverview = ({
                     text-sm
                   "
                 >
-                  <span className="text-slate-500">
+                  <span className="text-muted-foreground">
                     Performance
                   </span>
 
@@ -357,7 +357,7 @@ const PlatformOverview = ({
 
                     rounded-full
 
-                    bg-slate-100
+                    bg-secondary
                   "
                 >
                   <div
@@ -403,11 +403,11 @@ const PlatformOverview = ({
                     text-sm
                     font-semibold
 
-                    text-blue-600
+                    text-primary
 
                     transition
 
-                    hover:text-blue-700
+                    hover:text-[#2563EB]
                   "
                 >
                   View Details
@@ -427,7 +427,7 @@ const PlatformOverview = ({
 
                       rounded-full
 
-                      bg-emerald-500
+                      bg-[#ECFDF5]0
                     "
                   />
 
@@ -435,7 +435,7 @@ const PlatformOverview = ({
                     className="
                       text-xs
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     Healthy
@@ -455,7 +455,7 @@ const PlatformOverview = ({
         className="
           mt-8
 
-          rounded-[32px]
+          rounded-2xl
 
           bg-gradient-to-r
 
@@ -488,7 +488,7 @@ const PlatformOverview = ({
               className="
                 rounded-full
 
-                bg-white/10
+                bg-card/10
 
                 px-4
                 py-2
@@ -535,14 +535,14 @@ const PlatformOverview = ({
             className="
               rounded-2xl
 
-              bg-white
+              bg-card
 
               px-8
               py-4
 
               font-semibold
 
-              text-slate-900
+              text-foreground
 
               transition-all
 

@@ -117,9 +117,9 @@ const AttendanceDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
         "
       >
 
@@ -154,7 +154,7 @@ const AttendanceDialog = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
 
                 px-4
                 py-2
@@ -206,11 +206,11 @@ const AttendanceDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               transition
 
-              hover:bg-white/30
+              hover:bg-card/30
             "
           >
             <X size={20}/>
@@ -236,7 +236,7 @@ const AttendanceDialog = ({
 
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
               border
               border-blue-100
@@ -275,9 +275,9 @@ const AttendanceDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -294,7 +294,7 @@ const AttendanceDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -315,7 +315,7 @@ const AttendanceDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.mentorRole}
@@ -330,7 +330,7 @@ const AttendanceDialog = ({
                       gap-2
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
 
@@ -354,9 +354,9 @@ const AttendanceDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -373,7 +373,7 @@ const AttendanceDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -394,7 +394,7 @@ const AttendanceDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.studentEmail}
@@ -481,12 +481,12 @@ const AttendanceDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -535,7 +535,7 @@ const AttendanceDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -611,7 +611,7 @@ const AttendanceDialog = ({
                       rounded-2xl
 
                       border
-                      border-slate-200
+                      border-border
 
                       px-4
 
@@ -656,7 +656,7 @@ const AttendanceDialog = ({
                       rounded-2xl
 
                       border
-                      border-slate-200
+                      border-border
 
                       px-4
 
@@ -705,7 +705,7 @@ const AttendanceDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -747,7 +747,7 @@ const AttendanceDialog = ({
                       text-sm
                       font-bold
 
-                      text-blue-600
+                      text-primary
                     "
                   >
                     {completion}%
@@ -779,12 +779,12 @@ const AttendanceDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -846,9 +846,9 @@ const AttendanceDialog = ({
                 className="
                   mt-8
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-5
                 "
@@ -878,7 +878,7 @@ const AttendanceDialog = ({
                       text-sm
                       font-bold
 
-                      text-blue-600
+                      text-primary
                     "
                   >
                     {completion}%
@@ -894,7 +894,7 @@ const AttendanceDialog = ({
 
                     rounded-full
 
-                    bg-slate-200
+                    bg-secondary
                   "
                 >
 
@@ -923,7 +923,7 @@ const AttendanceDialog = ({
                     mt-4
 
                     text-sm
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Attendance progress will
@@ -952,12 +952,12 @@ const AttendanceDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -985,7 +985,7 @@ const AttendanceDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   p-4
 
@@ -1008,7 +1008,7 @@ const AttendanceDialog = ({
                       mt-1
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     Confirm mentor joined
@@ -1045,7 +1045,7 @@ const AttendanceDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   p-4
 
@@ -1068,7 +1068,7 @@ const AttendanceDialog = ({
                       mt-1
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     Confirm student attended
@@ -1110,7 +1110,7 @@ const AttendanceDialog = ({
                   className="
                     font-semibold
 
-                    text-amber-700
+                    text-[#B45309]
                   "
                 >
                   Late Join Tracking
@@ -1152,7 +1152,7 @@ const AttendanceDialog = ({
                     className="
                       rounded-full
 
-                      bg-white
+                      bg-card
 
                       px-3
                       py-1
@@ -1160,7 +1160,7 @@ const AttendanceDialog = ({
                       text-sm
                       font-semibold
 
-                      text-amber-700
+                      text-[#B45309]
                     "
                   >
                     0 Minutes
@@ -1176,12 +1176,12 @@ const AttendanceDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -1209,7 +1209,7 @@ const AttendanceDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   p-4
 
@@ -1232,7 +1232,7 @@ const AttendanceDialog = ({
                       mt-1
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     Automatically issue
@@ -1288,7 +1288,7 @@ const AttendanceDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -1308,9 +1308,9 @@ const AttendanceDialog = ({
                 className="
                   mt-6
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-5
                 "
@@ -1383,9 +1383,9 @@ const AttendanceDialog = ({
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -1408,7 +1408,7 @@ const AttendanceDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
@@ -1417,7 +1417,7 @@ const AttendanceDialog = ({
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 Cancel
@@ -1529,12 +1529,12 @@ function InfoCard({
       className="
         rounded-2xl
 
-        bg-white
+        bg-card
 
         p-5
       "
     >
-      <div className="text-blue-600">
+      <div className="text-primary">
         {icon}
       </div>
 
@@ -1543,7 +1543,7 @@ function InfoCard({
           mt-3
 
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1579,7 +1579,7 @@ function SummaryCard({
       className="
         rounded-2xl
 
-        bg-slate-50
+        bg-secondary
 
         p-5
       "
@@ -1588,7 +1588,7 @@ function SummaryCard({
       <p
         className="
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1629,7 +1629,7 @@ function ChecklistItem({
 
         rounded-xl
 
-        bg-white
+        bg-card
 
         p-3
       "
@@ -1657,8 +1657,8 @@ function ChecklistItem({
 
           ${
             checked
-              ? "bg-green-100 text-green-600"
-              : "bg-slate-100 text-slate-400"
+              ? "bg-[#ECFDF5] text-[#0F8F65]"
+              : "bg-secondary text-muted-foreground"
           }
         `}
       >

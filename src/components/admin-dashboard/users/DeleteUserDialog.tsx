@@ -38,7 +38,7 @@ function DeleteUserDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <AlertDialogContent className="rounded-[32px] border-0 p-0 overflow-hidden max-w-lg">
+      <AlertDialogContent className="rounded-2xl border-0 p-0 overflow-hidden max-w-lg">
 
         {/* Header */}
 
@@ -46,7 +46,7 @@ function DeleteUserDialog({
 
           <div className="flex items-center gap-5">
 
-            <div className="rounded-3xl bg-white/20 p-4">
+            <div className="rounded-2xl bg-card/20 p-4">
 
               <AlertTriangle className="h-10 w-10" />
 
@@ -76,7 +76,7 @@ function DeleteUserDialog({
 
         <div className="space-y-6 p-8">
 
-          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <div className="flex items-center gap-5 rounded-2xl border border-border bg-secondary p-5">
 
             <img
               src={user.avatar}
@@ -86,11 +86,11 @@ function DeleteUserDialog({
 
             <div>
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
                 {user.name}
               </h3>
 
-              <p className="text-slate-500">
+              <p className="text-muted-foreground">
                 {user.email}
               </p>
 
@@ -98,9 +98,9 @@ function DeleteUserDialog({
 
           </div>
 
-          <div className="rounded-3xl border border-red-200 bg-red-50 p-5">
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-5">
 
-            <ul className="space-y-2 text-sm leading-6 text-red-700">
+            <ul className="space-y-2 text-sm leading-6 text-[#BA1A1A]">
 
               <li>
                 • User profile will be permanently removed.
@@ -126,7 +126,7 @@ function DeleteUserDialog({
 
         {/* Footer */}
 
-        <AlertDialogFooter className="border-t border-slate-200 p-6">
+        <AlertDialogFooter className="border-t border-border p-6">
 
           <AlertDialogCancel className="h-12 rounded-2xl px-6">
 
@@ -136,7 +136,7 @@ function DeleteUserDialog({
 
           <AlertDialogAction
             onClick={() => onConfirm(user)}
-            className="h-12 rounded-2xl bg-red-600 px-6 hover:bg-red-700"
+            className="h-12 rounded-2xl bg-destructive px-6 hover:bg-destructive/90"
           >
             <Trash2 className="mr-2 h-4 w-4" />
 

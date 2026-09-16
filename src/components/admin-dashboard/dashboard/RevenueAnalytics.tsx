@@ -64,7 +64,7 @@ const RevenueAnalytics = ({
 
               rounded-full
 
-              bg-emerald-50
+              bg-[#ECFDF5]
 
               px-4
               py-2
@@ -72,7 +72,7 @@ const RevenueAnalytics = ({
               text-sm
               font-medium
 
-              text-emerald-700
+              text-[#065F46]
             "
           >
             Revenue Analytics
@@ -97,7 +97,7 @@ const RevenueAnalytics = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Track monthly revenue,
@@ -112,9 +112,9 @@ const RevenueAnalytics = ({
             rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             px-6
             py-3
@@ -123,7 +123,7 @@ const RevenueAnalytics = ({
 
             transition
 
-            hover:bg-slate-50
+            hover:bg-secondary
           "
         >
           View Financial Report
@@ -147,12 +147,12 @@ const RevenueAnalytics = ({
 
         <div
           className="
-            rounded-[30px]
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             p-6
 
@@ -176,13 +176,13 @@ const RevenueAnalytics = ({
                 items-center
                 justify-center
 
-                rounded-3xl
+                rounded-2xl
 
-                bg-emerald-50
+                bg-[#ECFDF5]
               "
             >
               <DollarSign
-                className="text-emerald-600"
+                className="text-[#0F8F65]"
                 size={30}
               />
             </div>
@@ -191,7 +191,7 @@ const RevenueAnalytics = ({
               className="
                 rounded-full
 
-                bg-emerald-100
+                bg-[#ECFDF5]
 
                 px-3
                 py-2
@@ -199,7 +199,7 @@ const RevenueAnalytics = ({
                 text-sm
                 font-semibold
 
-                text-emerald-700
+                text-[#065F46]
               "
             >
               +{growth}%
@@ -222,7 +222,7 @@ const RevenueAnalytics = ({
             className="
               mt-2
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Total Revenue
@@ -233,12 +233,12 @@ const RevenueAnalytics = ({
 
         <div
           className="
-            rounded-[30px]
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             p-6
 
@@ -262,19 +262,19 @@ const RevenueAnalytics = ({
                 items-center
                 justify-center
 
-                rounded-3xl
+                rounded-2xl
 
                 bg-blue-50
               "
             >
               <Wallet
-                className="text-blue-600"
+                className="text-primary"
                 size={30}
               />
             </div>
 
             <TrendingUp
-              className="text-blue-600"
+              className="text-primary"
               size={22}
             />
           </div>
@@ -294,7 +294,7 @@ const RevenueAnalytics = ({
             className="
               mt-2
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Total Bookings
@@ -305,10 +305,10 @@ const RevenueAnalytics = ({
 
         <div
           className="
-            rounded-[30px]
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
             bg-gradient-to-r
 
@@ -343,7 +343,7 @@ const RevenueAnalytics = ({
 
               rounded-2xl
 
-              bg-white/10
+              bg-card/10
 
               p-4
 
@@ -379,7 +379,7 @@ const RevenueAnalytics = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
               "
             >
               <div
@@ -388,7 +388,7 @@ const RevenueAnalytics = ({
 
                   rounded-full
 
-                  bg-white
+                  bg-card
                 "
                 style={{
                   width: "88%",
@@ -420,12 +420,12 @@ const RevenueAnalytics = ({
         className="
           mt-8
 
-          rounded-[32px]
+          rounded-2xl
 
           border
-          border-slate-200
+          border-border
 
-          bg-white
+          bg-card
 
           p-8
         "
@@ -452,7 +452,7 @@ const RevenueAnalytics = ({
               className="
                 mt-2
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Chart placeholder.
@@ -467,7 +467,7 @@ const RevenueAnalytics = ({
             className="
               rounded-full
 
-              bg-emerald-100
+              bg-[#ECFDF5]
 
               px-4
               py-2
@@ -475,7 +475,7 @@ const RevenueAnalytics = ({
               text-sm
               font-semibold
 
-              text-emerald-700
+              text-[#065F46]
             "
           >
             +{growth}% Growth
@@ -551,7 +551,7 @@ const RevenueAnalytics = ({
 
                     font-medium
 
-                    text-slate-600
+                    text-muted-foreground
                   "
                 >
                   {item.month}
@@ -592,7 +592,7 @@ const RevenueAnalytics = ({
               className="
                 mt-2
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Replace this placeholder
@@ -606,7 +606,7 @@ const RevenueAnalytics = ({
             className="
               rounded-2xl
 
-              bg-blue-600
+              bg-primary
 
               px-6
               py-3
@@ -617,7 +617,7 @@ const RevenueAnalytics = ({
 
               transition
 
-              hover:bg-blue-700
+              hover:bg-primary/90
             "
           >
             View Detailed Report

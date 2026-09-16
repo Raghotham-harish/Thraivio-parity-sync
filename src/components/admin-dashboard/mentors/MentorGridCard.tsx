@@ -40,7 +40,7 @@ export default function MentorGridCard({
   onUnfeature
 }: MentorGridCardProps) {
   return (
-    <div className="group overflow-hidden rounded-[32px] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
+    <div className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
 
       {/* Cover */}
 
@@ -69,7 +69,7 @@ export default function MentorGridCard({
         <div className="absolute right-4 top-4">
 
           {mentor.verification === "verified" && (
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-emerald-500 text-white shadow-lg">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ECFDF5]0 text-white shadow-lg">
 
               <ShieldCheck className="h-5 w-5" />
 
@@ -77,7 +77,7 @@ export default function MentorGridCard({
           )}
 
           {mentor.verification === "pending" && (
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-amber-500 text-white shadow-lg">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F59E0B] text-white shadow-lg">
 
               <Clock3 className="h-5 w-5" />
 
@@ -112,13 +112,13 @@ export default function MentorGridCard({
 
             <div>
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 {mentor.name}
 
               </h3>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-muted-foreground">
 
                 @{mentor.username}
 
@@ -126,15 +126,15 @@ export default function MentorGridCard({
 
             </div>
 
-            <button className="rounded-xl p-2 transition hover:bg-slate-100">
+            <button className="rounded-xl p-2 transition hover:bg-secondary">
 
-              <MoreVertical className="h-5 w-5 text-slate-500" />
+              <MoreVertical className="h-5 w-5 text-muted-foreground" />
 
             </button>
 
           </div>
 
-          <p className="mt-4 line-clamp-2 text-sm leading-6 text-slate-600">
+          <p className="mt-4 line-clamp-2 text-sm leading-6 text-muted-foreground">
 
             {mentor.headline}
 
@@ -145,13 +145,13 @@ export default function MentorGridCard({
 
             <div className="flex items-center gap-2">
 
-              <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+              <Star className="h-5 w-5 fill-[#F59E0B] text-[#F59E0B]" />
 
-              <span className="font-semibold text-slate-900">
+              <span className="font-semibold text-foreground">
                 {mentor.rating}
               </span>
 
-              <span className="text-sm text-slate-500">
+              <span className="text-sm text-muted-foreground">
                 ({mentor.totalReviews} Reviews)
               </span>
 
@@ -160,8 +160,8 @@ export default function MentorGridCard({
             <span
               className={`rounded-full px-3 py-1 text-xs font-semibold ${
                 mentor.available
-                  ? "bg-emerald-100 text-emerald-700"
-                  : "bg-red-100 text-red-700"
+                  ? "bg-[#ECFDF5] text-[#065F46]"
+                  : "bg-[#FFDAD6] text-[#BA1A1A]"
               }`}
             >
               {mentor.available
@@ -175,19 +175,19 @@ export default function MentorGridCard({
 
           <div className="mt-6 grid grid-cols-2 gap-4">
 
-            <div className="rounded-2xl bg-slate-50 p-4">
+            <div className="rounded-2xl bg-secondary p-4">
 
               <div className="flex items-center gap-2">
 
-                <Award className="h-5 w-5 text-blue-600" />
+                <Award className="h-5 w-5 text-primary" />
 
-                <span className="text-xs text-slate-500">
+                <span className="text-xs text-muted-foreground">
                   Experience
                 </span>
 
               </div>
 
-              <p className="mt-2 text-lg font-bold text-slate-900">
+              <p className="mt-2 text-lg font-bold text-foreground">
 
                 {mentor.experience} Years
 
@@ -195,19 +195,19 @@ export default function MentorGridCard({
 
             </div>
 
-            <div className="rounded-2xl bg-slate-50 p-4">
+            <div className="rounded-2xl bg-secondary p-4">
 
               <div className="flex items-center gap-2">
 
-                <Calendar className="h-5 w-5 text-emerald-600" />
+                <Calendar className="h-5 w-5 text-[#0F8F65]" />
 
-                <span className="text-xs text-slate-500">
+                <span className="text-xs text-muted-foreground">
                   Sessions
                 </span>
 
               </div>
 
-              <p className="mt-2 text-lg font-bold text-slate-900">
+              <p className="mt-2 text-lg font-bold text-foreground">
 
                 {mentor.completedSessions}
 
@@ -215,19 +215,19 @@ export default function MentorGridCard({
 
             </div>
 
-            <div className="rounded-2xl bg-slate-50 p-4">
+            <div className="rounded-2xl bg-secondary p-4">
 
               <div className="flex items-center gap-2">
 
                 <BookOpen className="h-5 w-5 text-violet-600" />
 
-                <span className="text-xs text-slate-500">
+                <span className="text-xs text-muted-foreground">
                   Programs
                 </span>
 
               </div>
 
-              <p className="mt-2 text-lg font-bold text-slate-900">
+              <p className="mt-2 text-lg font-bold text-foreground">
 
                 {mentor.activePrograms}
 
@@ -235,19 +235,19 @@ export default function MentorGridCard({
 
             </div>
 
-            <div className="rounded-2xl bg-slate-50 p-4">
+            <div className="rounded-2xl bg-secondary p-4">
 
               <div className="flex items-center gap-2">
 
                 <Wallet className="h-5 w-5 text-amber-600" />
 
-                <span className="text-xs text-slate-500">
+                <span className="text-xs text-muted-foreground">
                   Earnings
                 </span>
 
               </div>
 
-              <p className="mt-2 text-lg font-bold text-slate-900">
+              <p className="mt-2 text-lg font-bold text-foreground">
 
                 ${mentor.earnings.toLocaleString()}
 
@@ -265,7 +265,7 @@ export default function MentorGridCard({
 
               <span
                 key={skill.id}
-                className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-blue-700"
+                className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-[#2563EB]"
               >
                 {skill.name}
               </span>
@@ -281,10 +281,10 @@ export default function MentorGridCard({
             <span
               className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${
                 mentor.membership === "enterprise"
-                  ? "bg-violet-100 text-violet-700"
+                  ? "bg-secondary text-muted-foreground"
                   : mentor.membership === "pro"
-                  ? "bg-blue-100 text-blue-700"
-                  : "bg-slate-100 text-slate-700"
+                  ? "bg-[#EFF6FF] text-[#2563EB]"
+                  : "bg-secondary text-foreground"
               }`}
             >
               {mentor.membership}
@@ -293,10 +293,10 @@ export default function MentorGridCard({
             <span
               className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${
                 mentor.status === "active"
-                  ? "bg-emerald-100 text-emerald-700"
+                  ? "bg-[#ECFDF5] text-[#065F46]"
                   : mentor.status === "pending"
-                  ? "bg-amber-100 text-amber-700"
-                  : "bg-red-100 text-red-700"
+                  ? "bg-[#FFFBEB] text-[#B45309]"
+                  : "bg-[#FFDAD6] text-[#BA1A1A]"
               }`}
             >
               {mentor.status}
@@ -311,7 +311,7 @@ export default function MentorGridCard({
             <button
               type="button"
               onClick={() => onView(mentor)}
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white font-medium text-slate-700 transition hover:bg-slate-50"
+              className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-border bg-card font-medium text-foreground transition hover:bg-secondary"
             >
               <Eye className="h-4 w-4" />
 
@@ -322,7 +322,7 @@ export default function MentorGridCard({
             <button
               type="button"
               onClick={() => onVerify(mentor)}
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-blue-600 font-medium text-white transition hover:bg-blue-700"
+              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-primary font-medium text-white transition hover:bg-primary/90"
             >
               <ShieldCheck className="h-4 w-4" />
 
@@ -333,7 +333,7 @@ export default function MentorGridCard({
             <button
               type="button"
               onClick={() => onApprove(mentor)}
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-emerald-600 font-medium text-white transition hover:bg-emerald-700"
+              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-[#10B981] font-medium text-white transition hover:bg-[#0da271]"
             >
               <CheckCircle2 className="h-4 w-4" />
 
@@ -344,7 +344,7 @@ export default function MentorGridCard({
             <button
               type="button"
               onClick={() => onReject(mentor)}
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-red-600 font-medium text-white transition hover:bg-red-700"
+              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-destructive font-medium text-white transition hover:bg-destructive/90"
             >
               <XCircle className="h-4 w-4" />
 
@@ -356,7 +356,7 @@ export default function MentorGridCard({
   <button
     type="button"
     onClick={() => onUnfeature(mentor)}
-    className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 font-medium text-amber-700 transition hover:bg-amber-100"
+    className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 font-medium text-[#B45309] transition hover:bg-[#FFFBEB]"
   >
     <Star className="h-4 w-4 fill-current" />
 
@@ -366,7 +366,7 @@ export default function MentorGridCard({
   <button
     type="button"
     onClick={() => onFeature(mentor)}
-    className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 font-medium text-amber-700 transition hover:bg-amber-100"
+    className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 font-medium text-[#B45309] transition hover:bg-[#FFFBEB]"
   >
     <Star className="h-4 w-4" />
 

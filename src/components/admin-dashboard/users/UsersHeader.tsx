@@ -20,10 +20,10 @@ export default function UsersHeader({
   onAddUser,
 }: UsersHeaderProps) {
   return (
-    <section className="relative overflow-hidden rounded-[36px] bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 p-8 lg:p-10 text-white shadow-2xl">
+    <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 p-8 lg:p-10 text-white shadow-2xl">
 
       {/* Background Blur */}
-      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
+      <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-card/10 blur-3xl" />
       <div className="absolute bottom-0 left-0 h-56 w-56 rounded-full bg-cyan-400/10 blur-3xl" />
 
       <div className="relative flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
@@ -32,7 +32,7 @@ export default function UsersHeader({
 
         <div className="max-w-3xl">
 
-          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 backdrop-blur">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-card/10 px-4 py-2 backdrop-blur">
 
             <Activity className="h-4 w-4" />
 
@@ -58,7 +58,7 @@ export default function UsersHeader({
 
           <div className="mt-8 flex flex-wrap gap-4">
 
-            <div className="rounded-3xl bg-white/10 px-5 py-4 backdrop-blur">
+            <div className="rounded-2xl bg-card/10 px-5 py-4 backdrop-blur">
 
               <p className="text-sm text-blue-100">
 
@@ -74,7 +74,7 @@ export default function UsersHeader({
 
             </div>
 
-            <div className="rounded-3xl bg-white/10 px-5 py-4 backdrop-blur">
+            <div className="rounded-2xl bg-card/10 px-5 py-4 backdrop-blur">
 
               <p className="text-sm text-blue-100">
 
@@ -98,7 +98,7 @@ export default function UsersHeader({
 
         <div className="flex flex-col gap-5 lg:items-end">
 
-          <div className="inline-flex items-center gap-2 rounded-full bg-emerald-500/20 px-4 py-2 text-sm font-semibold backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full bg-[#ECFDF5]0/20 px-4 py-2 text-sm font-semibold backdrop-blur">
 
             <ShieldCheck className="h-4 w-4 text-emerald-300" />
 
@@ -110,7 +110,7 @@ export default function UsersHeader({
 
             <button
               onClick={onExport}
-              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-white/15 px-6 py-3 font-semibold backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/20"
+              className="inline-flex items-center gap-2 rounded-2xl border border-white/20 bg-card/15 px-6 py-3 font-semibold backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-card/20"
             >
               <Download className="h-5 w-5" />
 
@@ -119,7 +119,7 @@ export default function UsersHeader({
 
             <button
               onClick={onAddUser}
-              className="inline-flex items-center gap-2 rounded-2xl bg-white px-6 py-3 font-semibold text-blue-700 shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+              className="inline-flex items-center gap-2 rounded-2xl bg-card px-6 py-3 font-semibold text-[#2563EB] shadow-xl transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
             >
               <Plus className="h-5 w-5" />
 
@@ -128,11 +128,11 @@ export default function UsersHeader({
 
           </div>
 
-          <div className="rounded-3xl bg-white/10 p-5 backdrop-blur">
+          <div className="rounded-2xl bg-card/10 p-5 backdrop-blur">
 
             <div className="flex items-center gap-4">
 
-              <div className="rounded-2xl bg-white/15 p-3">
+              <div className="rounded-2xl bg-card/15 p-3">
 
                 <Users className="h-8 w-8" />
 

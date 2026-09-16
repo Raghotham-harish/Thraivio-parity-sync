@@ -71,7 +71,7 @@ export default function ExportPaymentsDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="sm:max-w-xl rounded-3xl">
+      <DialogContent className="sm:max-w-xl rounded-2xl">
 
         <DialogHeader>
 
@@ -243,7 +243,7 @@ export default function ExportPaymentsDialog({
 
           <div className="rounded-2xl border border-blue-200 bg-blue-50 p-5 dark:border-blue-900 dark:bg-blue-950/20">
 
-            <h4 className="font-semibold text-blue-700 dark:text-blue-400">
+            <h4 className="font-semibold text-[#2563EB] dark:text-blue-400">
               Export Preview
             </h4>
 

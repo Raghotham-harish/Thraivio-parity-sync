@@ -46,7 +46,7 @@ export default function ProgramDetailsDrawer({
 
       {/* Drawer */}
 
-      <div className="absolute right-0 top-0 flex h-full w-full max-w-2xl flex-col overflow-hidden bg-white shadow-2xl">
+      <div className="absolute right-0 top-0 flex h-full w-full max-w-2xl flex-col overflow-hidden bg-card shadow-2xl">
 
         {/* Header */}
 
@@ -62,14 +62,14 @@ export default function ProgramDetailsDrawer({
 
           <button
             onClick={onClose}
-            className="absolute right-6 top-6 rounded-full bg-white/20 p-3 text-white backdrop-blur transition hover:bg-white/30"
+            className="absolute right-6 top-6 rounded-full bg-card/20 p-3 text-white backdrop-blur transition hover:bg-card/30"
           >
             <X className="h-6 w-6" />
           </button>
 
           <div className="absolute bottom-8 left-8">
 
-            <span className="rounded-full bg-indigo-500 px-4 py-1 text-xs font-semibold text-white">
+            <span className="rounded-full bg-[#EFF6FF]0 px-4 py-1 text-xs font-semibold text-white">
 
               {mentor.category}
 
@@ -118,13 +118,13 @@ export default function ProgramDetailsDrawer({
 
           <section>
 
-            <h3 className="text-xl font-bold text-slate-900">
+            <h3 className="text-xl font-bold text-foreground">
 
               Program Overview
 
             </h3>
 
-            <p className="mt-4 leading-8 text-slate-600">
+            <p className="mt-4 leading-8 text-muted-foreground">
 
               This coaching program is currently available
               on the main website, mentor dashboard and
@@ -139,9 +139,9 @@ export default function ProgramDetailsDrawer({
 
           <div className="grid grid-cols-2 gap-5">
 
-            <div className="rounded-3xl bg-slate-50 p-5">
+            <div className="rounded-2xl bg-secondary p-5">
 
-              <div className="flex items-center gap-2 text-slate-500">
+              <div className="flex items-center gap-2 text-muted-foreground">
 
                 <Clock3 className="h-5 w-5" />
 
@@ -157,9 +157,9 @@ export default function ProgramDetailsDrawer({
 
             </div>
 
-            <div className="rounded-3xl bg-slate-50 p-5">
+            <div className="rounded-2xl bg-secondary p-5">
 
-              <div className="flex items-center gap-2 text-slate-500">
+              <div className="flex items-center gap-2 text-muted-foreground">
 
                 <BookOpen className="h-5 w-5" />
 
@@ -175,9 +175,9 @@ export default function ProgramDetailsDrawer({
 
             </div>
 
-            <div className="rounded-3xl bg-slate-50 p-5">
+            <div className="rounded-2xl bg-secondary p-5">
 
-              <div className="flex items-center gap-2 text-slate-500">
+              <div className="flex items-center gap-2 text-muted-foreground">
 
                 <Users className="h-5 w-5" />
 
@@ -193,11 +193,11 @@ export default function ProgramDetailsDrawer({
 
             </div>
 
-            <div className="rounded-3xl bg-slate-50 p-5">
+            <div className="rounded-2xl bg-secondary p-5">
 
-              <div className="flex items-center gap-2 text-slate-500">
+              <div className="flex items-center gap-2 text-muted-foreground">
 
-                <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+                <Star className="h-5 w-5 fill-[#F59E0B] text-[#F59E0B]" />
 
                 Rating
 
@@ -215,7 +215,7 @@ export default function ProgramDetailsDrawer({
 
           {/* Revenue */}
 
-          <div className="rounded-[30px] bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-white">
+          <div className="rounded-2xl bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-white">
 
             <p className="text-indigo-100">
 
@@ -234,7 +234,7 @@ export default function ProgramDetailsDrawer({
 
           <section>
 
-            <h3 className="text-xl font-bold text-slate-900">
+            <h3 className="text-xl font-bold text-foreground">
 
               Curriculum Overview
 
@@ -251,7 +251,7 @@ export default function ProgramDetailsDrawer({
               ].map((item, index) => (
                 <div
                   key={item}
-                  className="flex items-center gap-4 rounded-2xl border border-slate-200 bg-slate-50 p-4"
+                  className="flex items-center gap-4 rounded-2xl border border-border bg-secondary p-4"
                 >
                   <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-600 font-bold text-white">
 
@@ -259,7 +259,7 @@ export default function ProgramDetailsDrawer({
 
                   </div>
 
-                  <span className="font-medium text-slate-700">
+                  <span className="font-medium text-foreground">
 
                     {item}
 
@@ -276,7 +276,7 @@ export default function ProgramDetailsDrawer({
 
           <section>
 
-            <h3 className="text-xl font-bold text-slate-900">
+            <h3 className="text-xl font-bold text-foreground">
 
               Admin Insights
 
@@ -284,15 +284,15 @@ export default function ProgramDetailsDrawer({
 
             <div className="mt-5 grid grid-cols-2 gap-5">
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-5">
+              <div className="rounded-2xl border border-border bg-card p-5">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
 
                   Price
 
                 </p>
 
-                <h4 className="mt-2 text-2xl font-bold text-slate-900">
+                <h4 className="mt-2 text-2xl font-bold text-foreground">
 
                   ₹{program.price.toLocaleString()}
 
@@ -300,15 +300,15 @@ export default function ProgramDetailsDrawer({
 
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-5">
+              <div className="rounded-2xl border border-border bg-card p-5">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
 
                   Status
 
                 </p>
 
-                <span className="mt-3 inline-flex rounded-full bg-emerald-100 px-4 py-2 text-sm font-semibold text-emerald-700">
+                <span className="mt-3 inline-flex rounded-full bg-[#ECFDF5] px-4 py-2 text-sm font-semibold text-[#065F46]">
 
                   Published
 
@@ -316,15 +316,15 @@ export default function ProgramDetailsDrawer({
 
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-5">
+              <div className="rounded-2xl border border-border bg-card p-5">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
 
                   Featured
 
                 </p>
 
-                <span className="mt-3 inline-flex rounded-full bg-amber-100 px-4 py-2 text-sm font-semibold text-amber-700">
+                <span className="mt-3 inline-flex rounded-full bg-[#FFFBEB] px-4 py-2 text-sm font-semibold text-[#B45309]">
 
                   Featured Program
 
@@ -332,15 +332,15 @@ export default function ProgramDetailsDrawer({
 
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-5">
+              <div className="rounded-2xl border border-border bg-card p-5">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
 
                   Platform
 
                 </p>
 
-                <h4 className="mt-2 font-semibold text-slate-900">
+                <h4 className="mt-2 font-semibold text-foreground">
 
                   Website • Mentor • User
 
@@ -356,35 +356,35 @@ export default function ProgramDetailsDrawer({
 
         {/* Footer */}
 
-        <div className="border-t border-slate-200 bg-white px-8 py-6">
+        <div className="border-t border-border bg-card px-8 py-6">
 
           <div className="flex flex-wrap justify-end gap-4">
 
             <button
               type="button"
               onClick={onClose}
-              className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+              className="rounded-2xl border border-border bg-card px-6 py-3 font-semibold text-foreground transition hover:bg-secondary"
             >
               Close
             </button>
 
             <button
               type="button"
-              className="rounded-2xl bg-amber-500 px-6 py-3 font-semibold text-white transition hover:bg-amber-600"
+              className="rounded-2xl bg-[#F59E0B] px-6 py-3 font-semibold text-white transition hover:bg-[#D97706]"
             >
               Edit Program
             </button>
 
             <button
               type="button"
-              className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+              className="rounded-2xl bg-[#10B981] px-6 py-3 font-semibold text-white transition hover:bg-[#0da271]"
             >
               Publish
             </button>
 
             <button
               type="button"
-              className="rounded-2xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
+              className="rounded-2xl bg-destructive px-6 py-3 font-semibold text-white transition hover:bg-destructive/90"
             >
               Delete
             </button>

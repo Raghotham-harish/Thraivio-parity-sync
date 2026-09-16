@@ -41,11 +41,11 @@ export default function DeleteReviewDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <AlertDialogContent className="max-w-lg rounded-3xl">
+      <AlertDialogContent className="max-w-lg rounded-2xl">
 
         <AlertDialogHeader>
 
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-500/10">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#FFDAD6]">
 
             <AlertTriangle className="h-8 w-8 text-red-600" />
 
@@ -94,7 +94,7 @@ export default function DeleteReviewDialog({
           </AlertDialogCancel>
 
           <AlertDialogAction
-            className="bg-red-600 hover:bg-red-700"
+            className="bg-destructive hover:bg-destructive/90"
             onClick={onDelete}
           >
             <Trash2 className="mr-2 h-4 w-4" />

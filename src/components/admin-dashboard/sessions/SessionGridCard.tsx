@@ -27,44 +27,44 @@ interface SessionGridCardProps {
 
 const statusStyles = {
   scheduled:
-    "bg-blue-100 text-blue-700 border border-blue-200",
+    "bg-[#EFF6FF] text-[#2563EB] border border-blue-200",
 
   live:
-    "bg-emerald-100 text-emerald-700 border border-emerald-200",
+    "bg-[#ECFDF5] text-[#065F46] border border-[#A7E8CE]",
 
   completed:
-    "bg-violet-100 text-violet-700 border border-violet-200",
+    "bg-secondary text-muted-foreground border border-violet-200",
 
   cancelled:
-    "bg-red-100 text-red-700 border border-red-200",
+    "bg-[#FFDAD6] text-[#BA1A1A] border border-red-200",
 
   missed:
-    "bg-slate-200 text-slate-700 border border-slate-300",
+    "bg-secondary text-foreground border border-border",
 };
 
 const attendanceStyles = {
   waiting:
-    "bg-amber-100 text-amber-700 border border-amber-200",
+    "bg-[#FFFBEB] text-[#B45309] border border-amber-200",
 
   joined:
-    "bg-blue-100 text-blue-700 border border-blue-200",
+    "bg-[#EFF6FF] text-[#2563EB] border border-blue-200",
 
   completed:
-    "bg-green-100 text-green-700 border border-green-200",
+    "bg-[#ECFDF5] text-[#065F46] border border-green-200",
 
   absent:
-    "bg-red-100 text-red-700 border border-red-200",
+    "bg-[#FFDAD6] text-[#BA1A1A] border border-red-200",
 };
 
 const paymentStyles = {
   paid:
-    "bg-green-100 text-green-700 border border-green-200",
+    "bg-[#ECFDF5] text-[#065F46] border border-green-200",
 
   pending:
-    "bg-amber-100 text-amber-700 border border-amber-200",
+    "bg-[#FFFBEB] text-[#B45309] border border-amber-200",
 
   refunded:
-    "bg-red-100 text-red-700 border border-red-200",
+    "bg-[#FFDAD6] text-[#BA1A1A] border border-red-200",
 };
 
 const SessionGridCard = ({
@@ -82,12 +82,12 @@ const SessionGridCard = ({
 
         overflow-hidden
 
-        rounded-[32px]
+        rounded-2xl
 
         border
-        border-slate-200
+        border-border
 
-        bg-white
+        bg-card
 
         transition-all
         duration-300
@@ -132,7 +132,7 @@ const SessionGridCard = ({
                 text-xl
                 font-bold
 
-                text-slate-900
+                text-foreground
               "
             >
               {session.programTitle}
@@ -144,7 +144,7 @@ const SessionGridCard = ({
 
                 text-sm
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               {session.sessionType}
@@ -180,12 +180,12 @@ const SessionGridCard = ({
           className="
             mt-7
 
-            rounded-3xl
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             p-5
           "
@@ -223,7 +223,7 @@ const SessionGridCard = ({
               >
                 <UserRound
                   size={16}
-                  className="text-indigo-600"
+                  className="text-primary"
                 />
 
                 <span
@@ -236,7 +236,7 @@ const SessionGridCard = ({
 
                     tracking-wide
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Mentor
@@ -266,7 +266,7 @@ const SessionGridCard = ({
 
                   text-sm
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 <Building2 size={15} />
@@ -285,12 +285,12 @@ const SessionGridCard = ({
           className="
             mt-5
 
-            rounded-3xl
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             p-5
           "
@@ -328,7 +328,7 @@ const SessionGridCard = ({
               >
                 <GraduationCap
                   size={16}
-                  className="text-emerald-600"
+                  className="text-[#0F8F65]"
                 />
 
                 <span
@@ -341,7 +341,7 @@ const SessionGridCard = ({
 
                     tracking-wide
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Student
@@ -365,7 +365,7 @@ const SessionGridCard = ({
 
                   text-sm
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 {session.studentEmail}
@@ -396,14 +396,14 @@ const SessionGridCard = ({
             className="
               rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
           >
             <CalendarDays
               size={18}
-              className="text-indigo-600"
+              className="text-primary"
             />
 
             <p
@@ -412,7 +412,7 @@ const SessionGridCard = ({
 
                 text-xs
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Session Date
@@ -435,14 +435,14 @@ const SessionGridCard = ({
             className="
               rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
           >
             <Clock3
               size={18}
-              className="text-indigo-600"
+              className="text-primary"
             />
 
             <p
@@ -451,7 +451,7 @@ const SessionGridCard = ({
 
                 text-xs
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Time
@@ -474,14 +474,14 @@ const SessionGridCard = ({
             className="
               rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
           >
             <Clock3
               size={18}
-              className="text-cyan-600"
+              className="text-primary"
             />
 
             <p
@@ -490,7 +490,7 @@ const SessionGridCard = ({
 
                 text-xs
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Duration
@@ -513,14 +513,14 @@ const SessionGridCard = ({
             className="
               rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
           >
             <IndianRupee
               size={18}
-              className="text-green-600"
+              className="text-[#0F8F65]"
             />
 
             <p
@@ -529,7 +529,7 @@ const SessionGridCard = ({
 
                 text-xs
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Amount
@@ -541,7 +541,7 @@ const SessionGridCard = ({
 
                 font-bold
 
-                text-green-600
+                text-[#0F8F65]
               "
             >
               ₹{session.amount}
@@ -560,9 +560,9 @@ const SessionGridCard = ({
 
             border
 
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             p-4
           "
@@ -576,7 +576,7 @@ const SessionGridCard = ({
           >
             <MonitorPlay
               size={18}
-              className="text-indigo-600"
+              className="text-primary"
             />
 
             <div className="flex-1">
@@ -584,7 +584,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Meeting Platform
@@ -666,9 +666,9 @@ const SessionGridCard = ({
                 rounded-full
 
                 border
-                border-emerald-200
+                border-[#A7E8CE]
 
-                bg-emerald-100
+                bg-[#ECFDF5]
 
                 px-4
                 py-2
@@ -676,7 +676,7 @@ const SessionGridCard = ({
                 text-xs
                 font-semibold
 
-                text-emerald-700
+                text-[#065F46]
               "
             >
               <span className="mr-1">
@@ -693,12 +693,12 @@ const SessionGridCard = ({
           className="
             mt-6
 
-            rounded-3xl
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             p-5
           "
@@ -714,7 +714,7 @@ const SessionGridCard = ({
           >
             <BadgeCheck
               size={18}
-              className="text-indigo-600"
+              className="text-primary"
             />
 
             <h4
@@ -740,7 +740,7 @@ const SessionGridCard = ({
               className="
                 rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-4
               "
@@ -749,7 +749,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Booking ID
@@ -770,7 +770,7 @@ const SessionGridCard = ({
               className="
                 rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-4
               "
@@ -779,7 +779,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Program ID
@@ -800,7 +800,7 @@ const SessionGridCard = ({
               className="
                 rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-4
               "
@@ -809,7 +809,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Booked On
@@ -830,7 +830,7 @@ const SessionGridCard = ({
               className="
                 rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-4
               "
@@ -839,7 +839,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Timezone
@@ -876,9 +876,9 @@ const SessionGridCard = ({
               rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
@@ -887,7 +887,7 @@ const SessionGridCard = ({
               className="
                 text-xs
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Mentor Email
@@ -911,9 +911,9 @@ const SessionGridCard = ({
               rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
@@ -922,7 +922,7 @@ const SessionGridCard = ({
               className="
                 text-xs
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Student Email
@@ -948,12 +948,12 @@ const SessionGridCard = ({
           className="
             mt-6
 
-            rounded-3xl
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             p-5
           "
@@ -975,7 +975,7 @@ const SessionGridCard = ({
 
               leading-7
 
-              text-slate-600
+              text-muted-foreground
             "
           >
             {session.adminNotes ||
@@ -989,7 +989,7 @@ const SessionGridCard = ({
           className="
             mt-6
 
-            rounded-3xl
+            rounded-2xl
 
             bg-gradient-to-r
 
@@ -1016,7 +1016,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Created
@@ -1038,7 +1038,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Updated
@@ -1060,7 +1060,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Refund
@@ -1084,7 +1084,7 @@ const SessionGridCard = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Refund Amount
@@ -1096,7 +1096,7 @@ const SessionGridCard = ({
 
                   font-bold
 
-                  text-green-600
+                  text-[#0F8F65]
                 "
               >
                 ₹{session.refundAmount}
@@ -1123,7 +1123,7 @@ const SessionGridCard = ({
               rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
               py-3
 
@@ -1131,7 +1131,7 @@ const SessionGridCard = ({
 
               transition-all
 
-              hover:bg-slate-50
+              hover:bg-secondary
             "
           >
             View Details
@@ -1142,7 +1142,7 @@ const SessionGridCard = ({
             className="
               rounded-2xl
 
-              bg-blue-600
+              bg-primary
 
               py-3
 
@@ -1152,7 +1152,7 @@ const SessionGridCard = ({
 
               transition-all
 
-              hover:bg-blue-700
+              hover:bg-primary/90
             "
           >
             Edit Session
@@ -1178,7 +1178,7 @@ const SessionGridCard = ({
             className="
               rounded-2xl
 
-              bg-emerald-600
+              bg-[#10B981]
 
               py-3
 
@@ -1189,10 +1189,10 @@ const SessionGridCard = ({
 
               transition-all
 
-              hover:bg-emerald-700
+              hover:bg-[#0da271]
 
               disabled:cursor-not-allowed
-              disabled:bg-slate-300
+              disabled:bg-muted
             "
           >
             Complete
@@ -1206,7 +1206,7 @@ const SessionGridCard = ({
             className="
               rounded-2xl
 
-              bg-amber-500
+              bg-[#F59E0B]
 
               py-3
 
@@ -1217,10 +1217,10 @@ const SessionGridCard = ({
 
               transition-all
 
-              hover:bg-amber-600
+              hover:bg-[#D97706]
 
               disabled:cursor-not-allowed
-              disabled:bg-slate-300
+              disabled:bg-muted
             "
           >
             Cancel
@@ -1231,7 +1231,7 @@ const SessionGridCard = ({
             className="
               rounded-2xl
 
-              bg-red-600
+              bg-destructive
 
               py-3
 
@@ -1242,7 +1242,7 @@ const SessionGridCard = ({
 
               transition-all
 
-              hover:bg-red-700
+              hover:bg-destructive/90
             "
           >
             Delete

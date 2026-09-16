@@ -39,7 +39,7 @@ const DashboardHero = ({
 
         overflow-hidden
 
-        rounded-[36px]
+        rounded-2xl
 
         bg-gradient-to-r
         from-blue-600
@@ -77,7 +77,7 @@ const DashboardHero = ({
 
               rounded-full
 
-              bg-white/15
+              bg-card/15
 
               px-4
               py-2
@@ -152,14 +152,14 @@ const DashboardHero = ({
 
                 rounded-2xl
 
-                bg-white
+                bg-card
 
                 px-7
                 py-3.5
 
                 font-semibold
 
-                text-blue-700
+                text-[#2563EB]
 
                 transition-all
 
@@ -179,7 +179,7 @@ const DashboardHero = ({
                 border
                 border-white/30
 
-                bg-white/10
+                bg-card/10
 
                 px-7
                 py-3.5
@@ -190,7 +190,7 @@ const DashboardHero = ({
 
                 transition-all
 
-                hover:bg-white/20
+                hover:bg-card/20
               "
             >
               Manage Platform
@@ -210,9 +210,9 @@ const DashboardHero = ({
         >
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
-              bg-white/10
+              bg-card/10
 
               p-7
 
@@ -257,9 +257,9 @@ const DashboardHero = ({
                   items-center
                   justify-center
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white/15
+                  bg-card/15
                 "
               >
                 <DollarSign size={32} />
@@ -290,7 +290,7 @@ const DashboardHero = ({
 
                   rounded-full
 
-                  bg-emerald-500/20
+                  bg-[#ECFDF5]0/20
 
                   px-4
                   py-2
@@ -315,7 +315,7 @@ const DashboardHero = ({
 
                 h-px
 
-                bg-white/20
+                bg-card/20
               "
             />
 
@@ -336,7 +336,7 @@ const DashboardHero = ({
                 className="
                   rounded-2xl
 
-                  bg-white/10
+                  bg-card/10
 
                   p-4
 
@@ -382,7 +382,7 @@ const DashboardHero = ({
                 className="
                   rounded-2xl
 
-                  bg-white/10
+                  bg-card/10
 
                   p-4
 
@@ -428,7 +428,7 @@ const DashboardHero = ({
                 className="
                   rounded-2xl
 
-                  bg-white/10
+                  bg-card/10
 
                   p-4
 
@@ -477,7 +477,7 @@ const DashboardHero = ({
 
                 rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-5
               "
@@ -497,7 +497,7 @@ const DashboardHero = ({
                   className="
                     rounded-full
 
-                    bg-emerald-500/20
+                    bg-[#ECFDF5]0/20
 
                     px-3
                     py-1
@@ -522,7 +522,7 @@ const DashboardHero = ({
 
                   rounded-full
 
-                  bg-white/20
+                  bg-card/20
                 "
               >
                 <div

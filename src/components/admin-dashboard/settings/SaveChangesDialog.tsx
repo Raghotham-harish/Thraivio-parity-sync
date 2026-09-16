@@ -34,13 +34,13 @@ export default function SaveChangesDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="max-w-lg rounded-3xl">
+      <DialogContent className="max-w-lg rounded-2xl">
 
         <DialogHeader>
 
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-emerald-500/10">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ECFDF5]0/10">
 
-            <CheckCircle2 className="h-8 w-8 text-emerald-600" />
+            <CheckCircle2 className="h-8 w-8 text-[#0F8F65]" />
 
           </div>
 

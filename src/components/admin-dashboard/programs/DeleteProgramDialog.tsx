@@ -52,7 +52,7 @@ export default function DeleteProgramDialog({
         className="
           max-w-2xl
           overflow-hidden
-          rounded-[30px]
+          rounded-2xl
           p-0
         "
       >
@@ -63,7 +63,7 @@ export default function DeleteProgramDialog({
 
           <div className="flex items-center gap-5">
 
-            <div className="rounded-3xl bg-white/20 p-4">
+            <div className="rounded-2xl bg-card/20 p-4">
 
               <Trash2 className="h-10 w-10" />
 
@@ -99,7 +99,7 @@ export default function DeleteProgramDialog({
 
           {/* Program */}
 
-          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <div className="flex items-center gap-5 rounded-2xl border border-border bg-secondary p-5">
 
             <img
               src={mentor.image}
@@ -109,19 +109,19 @@ export default function DeleteProgramDialog({
 
             <div>
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 {program.title}
 
               </h3>
 
-              <p className="mt-1 text-slate-500">
+              <p className="mt-1 text-muted-foreground">
 
                 {mentor.name}
 
               </p>
 
-              <span className="mt-3 inline-flex rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">
+              <span className="mt-3 inline-flex rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-[#2563EB]">
 
                 {mentor.category}
 
@@ -133,7 +133,7 @@ export default function DeleteProgramDialog({
 
           {/* Warning */}
 
-          <div className="rounded-3xl border border-red-200 bg-red-50 p-6">
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
 
             <div className="flex items-start gap-4">
 
@@ -147,7 +147,7 @@ export default function DeleteProgramDialog({
 
                 </h4>
 
-                <p className="mt-3 leading-7 text-red-700">
+                <p className="mt-3 leading-7 text-[#BA1A1A]">
 
                   Deleting this program will remove it from
                   the Main Website, Mentor Dashboard,
@@ -163,17 +163,17 @@ export default function DeleteProgramDialog({
 
           {/* Impact */}
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-6">
+          <div className="rounded-2xl border border-border bg-card p-6">
 
             <h4 className="flex items-center gap-2 font-semibold">
 
-              <BookOpen className="h-5 w-5 text-indigo-600" />
+              <BookOpen className="h-5 w-5 text-primary" />
 
               What will happen?
 
             </h4>
 
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
+            <ul className="mt-4 space-y-3 text-sm leading-7 text-muted-foreground">
 
               <li>
                 • Program will no longer appear on the website.
@@ -198,12 +198,12 @@ export default function DeleteProgramDialog({
 
         {/* Footer */}
 
-        <DialogFooter className="border-t border-slate-200 bg-white p-6">
+        <DialogFooter className="border-t border-border bg-card p-6">
 
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="rounded-2xl border border-border bg-card px-6 py-3 font-semibold text-foreground transition hover:bg-secondary"
           >
             Cancel
           </button>
@@ -213,7 +213,7 @@ export default function DeleteProgramDialog({
             onClick={() =>
               onConfirm(mentor, program)
             }
-            className="inline-flex items-center gap-2 rounded-2xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
+            className="inline-flex items-center gap-2 rounded-2xl bg-destructive px-6 py-3 font-semibold text-white transition hover:bg-destructive/90"
           >
             <Trash2 className="h-5 w-5" />
 

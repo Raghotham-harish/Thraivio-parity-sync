@@ -106,12 +106,12 @@ const SessionsPagination = ({
       className="
         mt-8
 
-        rounded-[30px]
+        rounded-2xl
 
         border
-        border-slate-200
+        border-border
 
-        bg-white
+        bg-card
 
         p-6
       "
@@ -145,7 +145,7 @@ const SessionsPagination = ({
             {" "}
             <span
               className="
-                text-indigo-600
+                text-primary
               "
             >
               {start}
@@ -155,7 +155,7 @@ const SessionsPagination = ({
 
             <span
               className="
-                text-indigo-600
+                text-primary
               "
             >
               {end}
@@ -165,7 +165,7 @@ const SessionsPagination = ({
 
             <span
               className="
-                text-indigo-600
+                text-primary
               "
             >
               {totalItems}
@@ -180,7 +180,7 @@ const SessionsPagination = ({
               mt-2
 
               text-sm
-              text-slate-500
+              text-muted-foreground
             "
           >
             Navigate through all mentoring
@@ -228,8 +228,8 @@ const SessionsPagination = ({
 
               ${
                 page === 1
-                  ? "cursor-not-allowed border-slate-200 bg-slate-100 text-slate-400"
-                  : "border-slate-300 hover:bg-slate-100"
+                  ? "cursor-not-allowed border-border bg-secondary text-muted-foreground"
+                  : "border-border hover:bg-secondary"
               }
             `}
           >
@@ -255,7 +255,7 @@ const SessionsPagination = ({
                     items-center
                     justify-center
 
-                    text-slate-400
+                    text-muted-foreground
                   "
                 >
                   <MoreHorizontal size={18} />
@@ -297,7 +297,7 @@ const SessionsPagination = ({
                   ${
                     active
                       ? "border-indigo-600 bg-indigo-600 text-white shadow-md"
-                      : "border-slate-300 bg-white text-slate-700 hover:border-indigo-300 hover:bg-indigo-50"
+                      : "border-border bg-card text-foreground hover:border-indigo-300 hover:bg-[#EFF6FF]"
                   }
                 `}
               >
@@ -335,8 +335,8 @@ const SessionsPagination = ({
 
               ${
                 page === totalPages
-                  ? "cursor-not-allowed border-slate-200 bg-slate-100 text-slate-400"
-                  : "border-slate-300 hover:bg-slate-100"
+                  ? "cursor-not-allowed border-border bg-secondary text-muted-foreground"
+                  : "border-border hover:bg-secondary"
               }
             `}
           >
@@ -361,12 +361,12 @@ const SessionsPagination = ({
           gap-3
 
           border-t
-          border-slate-200
+          border-border
 
           pt-5
 
           text-sm
-          text-slate-500
+          text-muted-foreground
 
           md:flex-row
           md:items-center
@@ -376,18 +376,18 @@ const SessionsPagination = ({
 
         <p>
           Page{" "}
-          <span className="font-semibold text-slate-900">
+          <span className="font-semibold text-foreground">
             {page}
           </span>{" "}
           of{" "}
-          <span className="font-semibold text-slate-900">
+          <span className="font-semibold text-foreground">
             {totalPages}
           </span>
         </p>
 
         <p>
           Total Records:{" "}
-          <span className="font-semibold text-indigo-600">
+          <span className="font-semibold text-primary">
             {totalItems}
           </span>
         </p>

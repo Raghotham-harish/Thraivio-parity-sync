@@ -38,7 +38,7 @@ export default function CreatePageDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="max-w-3xl rounded-3xl">
+      <DialogContent className="max-w-3xl rounded-2xl">
 
         <DialogHeader>
 

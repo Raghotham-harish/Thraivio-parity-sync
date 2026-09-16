@@ -22,7 +22,7 @@ export default function RevenueSourcesCard({
   sources,
 }: RevenueSourcesCardProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -40,9 +40,9 @@ export default function RevenueSourcesCard({
 
           </div>
 
-          <div className="rounded-2xl bg-emerald-500/10 p-3">
+          <div className="rounded-2xl bg-[#ECFDF5]0/10 p-3">
 
-            <Wallet className="h-6 w-6 text-emerald-600" />
+            <Wallet className="h-6 w-6 text-[#0F8F65]" />
 
           </div>
 
@@ -76,9 +76,9 @@ export default function RevenueSourcesCard({
               <div className="text-right">
                                 <div className="flex items-center justify-end gap-2">
 
-                  <IndianRupee className="h-4 w-4 text-emerald-600" />
+                  <IndianRupee className="h-4 w-4 text-[#0F8F65]" />
 
-                  <span className="font-semibold text-emerald-600">
+                  <span className="font-semibold text-[#0F8F65]">
                     ₹
                     {source.amount.toLocaleString("en-IN")}
                   </span>
@@ -112,7 +112,7 @@ export default function RevenueSourcesCard({
               <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
 
                 <div
-                  className="h-full rounded-full bg-emerald-500 transition-all duration-500"
+                  className="h-full rounded-full bg-[#ECFDF5]0 transition-all duration-500"
                   style={{
                     width: `${source.percentage}%`,
                   }}

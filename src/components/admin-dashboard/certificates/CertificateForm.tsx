@@ -339,9 +339,9 @@ const CertificateForm = ({
 
       <section
         className="
-          rounded-3xl
+          rounded-2xl
           border
-          bg-white
+          bg-card
           p-6
           shadow-sm
         "
@@ -356,7 +356,7 @@ const CertificateForm = ({
               items-center
               justify-center
               rounded-2xl
-              bg-amber-100
+              bg-[#FFFBEB]
             "
           >
             <Award className="h-6 w-6 text-amber-600" />
@@ -429,9 +429,9 @@ const CertificateForm = ({
 
       <section
         className="
-          rounded-3xl
+          rounded-2xl
           border
-          bg-white
+          bg-card
           p-6
           shadow-sm
         "
@@ -446,10 +446,10 @@ const CertificateForm = ({
               items-center
               justify-center
               rounded-2xl
-              bg-blue-100
+              bg-[#EFF6FF]
             "
           >
-            <ShieldCheck className="h-6 w-6 text-blue-600" />
+            <ShieldCheck className="h-6 w-6 text-primary" />
           </div>
 
           <div>
@@ -645,9 +645,9 @@ const CertificateForm = ({
 
       <section
         className="
-          rounded-3xl
+          rounded-2xl
           border
-          bg-white
+          bg-card
           p-6
           shadow-sm
         "
@@ -662,10 +662,10 @@ const CertificateForm = ({
               items-center
               justify-center
               rounded-2xl
-              bg-emerald-100
+              bg-[#ECFDF5]
             "
           >
-            <GraduationCap className="h-6 w-6 text-emerald-600" />
+            <GraduationCap className="h-6 w-6 text-[#0F8F65]" />
           </div>
 
           <div>
@@ -833,7 +833,7 @@ const CertificateForm = ({
 
       <section
         className="
-          rounded-3xl
+          rounded-2xl
           border
           bg-gradient-to-r
           from-amber-500
@@ -865,7 +865,7 @@ const CertificateForm = ({
 
                 rounded-full
 
-                bg-white/15
+                bg-card/15
 
                 px-4
                 py-2
@@ -912,7 +912,7 @@ const CertificateForm = ({
               <span
                 className="
                   rounded-full
-                  bg-white/15
+                  bg-card/15
                   px-4
                   py-2
                   text-sm
@@ -924,7 +924,7 @@ const CertificateForm = ({
               <span
                 className="
                   rounded-full
-                  bg-white/15
+                  bg-card/15
                   px-4
                   py-2
                   text-sm
@@ -936,7 +936,7 @@ const CertificateForm = ({
               <span
                 className="
                   rounded-full
-                  bg-white/15
+                  bg-card/15
                   px-4
                   py-2
                   text-sm
@@ -956,9 +956,9 @@ const CertificateForm = ({
               w-full
               max-w-sm
 
-              rounded-3xl
+              rounded-2xl
 
-              bg-white/10
+              bg-card/10
 
               p-6
 
@@ -1041,7 +1041,7 @@ const CertificateForm = ({
 
           border-t
 
-          bg-white
+          bg-card
 
           py-6
         "

@@ -39,7 +39,7 @@ function UserProfileDrawer({
 
       {/* Drawer */}
 
-      <aside className="fixed right-0 top-0 z-50 h-screen w-full overflow-y-auto bg-slate-50 shadow-2xl lg:w-[620px]">
+      <aside className="fixed right-0 top-0 z-50 h-screen w-full overflow-y-auto bg-secondary shadow-2xl lg:w-[620px]">
 
         {/* Cover */}
 
@@ -55,7 +55,7 @@ function UserProfileDrawer({
 
           <button
             onClick={onClose}
-            className="absolute right-5 top-5 rounded-2xl bg-white p-3 shadow-lg transition hover:scale-105"
+            className="absolute right-5 top-5 rounded-2xl bg-card p-3 shadow-lg transition hover:scale-105"
           >
             <X className="h-5 w-5" />
           </button>
@@ -80,17 +80,17 @@ function UserProfileDrawer({
 
                 <div className="flex items-center gap-2">
 
-                  <h2 className="text-3xl font-bold text-slate-900">
+                  <h2 className="text-3xl font-bold text-foreground">
                     {user.name}
                   </h2>
 
                   {user.verification === "verified" && (
-                    <ShieldCheck className="h-6 w-6 text-blue-600" />
+                    <ShieldCheck className="h-6 w-6 text-primary" />
                   )}
 
                 </div>
 
-                <p className="mt-1 text-slate-500">
+                <p className="mt-1 text-muted-foreground">
                   @{user.username}
                 </p>
 
@@ -99,12 +99,12 @@ function UserProfileDrawer({
                   <span
                     className={`rounded-full px-4 py-2 text-sm font-semibold ${
                       user.membership === "pro"
-                        ? "bg-violet-100 text-violet-700"
+                        ? "bg-secondary text-muted-foreground"
                         : user.membership === "premium"
-                        ? "bg-amber-100 text-amber-700"
+                        ? "bg-[#FFFBEB] text-[#B45309]"
                         : user.membership === "basic"
-                        ? "bg-blue-100 text-blue-700"
-                        : "bg-slate-100 text-slate-700"
+                        ? "bg-[#EFF6FF] text-[#2563EB]"
+                        : "bg-secondary text-foreground"
                     }`}
                   >
                     <Crown className="mr-1 inline h-4 w-4" />
@@ -114,12 +114,12 @@ function UserProfileDrawer({
                   <span
                     className={`rounded-full px-4 py-2 text-sm font-semibold ${
                       user.status === "active"
-                        ? "bg-emerald-100 text-emerald-700"
+                        ? "bg-[#ECFDF5] text-[#065F46]"
                         : user.status === "inactive"
-                        ? "bg-slate-100 text-slate-700"
+                        ? "bg-secondary text-foreground"
                         : user.status === "blocked"
-                        ? "bg-red-100 text-red-700"
-                        : "bg-amber-100 text-amber-700"
+                        ? "bg-[#FFDAD6] text-[#BA1A1A]"
+                        : "bg-[#FFFBEB] text-[#B45309]"
                     }`}
                   >
                     {user.status.toUpperCase()}
@@ -135,13 +135,13 @@ function UserProfileDrawer({
 
           {/* About */}
 
-          <div className="mt-8 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-8 rounded-[28px] bg-card p-6 shadow-sm">
 
-            <h3 className="text-lg font-bold text-slate-900">
+            <h3 className="text-lg font-bold text-foreground">
               About
             </h3>
 
-            <p className="mt-3 leading-7 text-slate-600">
+            <p className="mt-3 leading-7 text-muted-foreground">
               {user.bio}
             </p>
 
@@ -149,53 +149,53 @@ function UserProfileDrawer({
 
           {/* Basic Information */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
-            <h3 className="mb-6 text-lg font-bold text-slate-900">
+            <h3 className="mb-6 text-lg font-bold text-foreground">
               Basic Information
             </h3>
 
             <div className="grid gap-5">
 
               <div className="flex items-center gap-4">
-                <Mail className="h-5 w-5 text-slate-400" />
+                <Mail className="h-5 w-5 text-muted-foreground" />
                 <span>{user.email}</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <Phone className="h-5 w-5 text-slate-400" />
+                <Phone className="h-5 w-5 text-muted-foreground" />
                 <span>{user.phone}</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <MapPin className="h-5 w-5 text-slate-400" />
+                <MapPin className="h-5 w-5 text-muted-foreground" />
                 <span>
                   {user.city}, {user.country}
                 </span>
               </div>
 
               <div className="flex items-center gap-4">
-                <Globe className="h-5 w-5 text-slate-400" />
+                <Globe className="h-5 w-5 text-muted-foreground" />
                 <span>{user.website || "-"}</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <Building2 className="h-5 w-5 text-slate-400" />
+                <Building2 className="h-5 w-5 text-muted-foreground" />
                 <span>{user.company}</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <Briefcase className="h-5 w-5 text-slate-400" />
+                <Briefcase className="h-5 w-5 text-muted-foreground" />
                 <span>{user.occupation}</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <Calendar className="h-5 w-5 text-slate-400" />
+                <Calendar className="h-5 w-5 text-muted-foreground" />
                 <span>{user.joinedAt}</span>
               </div>
 
               <div className="flex items-center gap-4">
-                <Clock className="h-5 w-5 text-slate-400" />
+                <Clock className="h-5 w-5 text-muted-foreground" />
                 <span>{user.lastActive}</span>
               </div>
 
@@ -204,57 +204,57 @@ function UserProfileDrawer({
           </div>
                     {/* Statistics */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
-            <h3 className="mb-6 text-lg font-bold text-slate-900">
+            <h3 className="mb-6 text-lg font-bold text-foreground">
               User Statistics
             </h3>
 
             <div className="grid grid-cols-2 gap-4">
 
-              <div className="rounded-2xl bg-slate-50 p-5">
+              <div className="rounded-2xl bg-secondary p-5">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
                   Sessions
                 </p>
 
-                <h4 className="mt-2 text-2xl font-bold text-slate-900">
+                <h4 className="mt-2 text-2xl font-bold text-foreground">
                   {user.sessions}
                 </h4>
 
               </div>
 
-              <div className="rounded-2xl bg-slate-50 p-5">
+              <div className="rounded-2xl bg-secondary p-5">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
                   Programs
                 </p>
 
-                <h4 className="mt-2 text-2xl font-bold text-slate-900">
+                <h4 className="mt-2 text-2xl font-bold text-foreground">
                   {user.programs}
                 </h4>
 
               </div>
 
-              <div className="rounded-2xl bg-slate-50 p-5">
+              <div className="rounded-2xl bg-secondary p-5">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
                   Certificates
                 </p>
 
-                <h4 className="mt-2 text-2xl font-bold text-slate-900">
+                <h4 className="mt-2 text-2xl font-bold text-foreground">
                   {user.certificates}
                 </h4>
 
               </div>
 
-              <div className="rounded-2xl bg-slate-50 p-5">
+              <div className="rounded-2xl bg-secondary p-5">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
                   Reviews
                 </p>
 
-                <h4 className="mt-2 text-2xl font-bold text-slate-900">
+                <h4 className="mt-2 text-2xl font-bold text-foreground">
                   {user.reviews}
                 </h4>
 
@@ -266,21 +266,21 @@ function UserProfileDrawer({
 
           {/* Profile Completion */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
             <div className="flex items-center justify-between">
 
-              <h3 className="text-lg font-bold text-slate-900">
+              <h3 className="text-lg font-bold text-foreground">
                 Profile Completion
               </h3>
 
-              <span className="font-bold text-blue-600">
+              <span className="font-bold text-primary">
                 {user.completion}%
               </span>
 
             </div>
 
-            <div className="mt-5 h-3 overflow-hidden rounded-full bg-slate-100">
+            <div className="mt-5 h-3 overflow-hidden rounded-full bg-secondary">
 
               <div
                 className="h-full rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 transition-all duration-700"
@@ -295,9 +295,9 @@ function UserProfileDrawer({
 
           {/* Skills */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
-            <h3 className="mb-5 text-lg font-bold text-slate-900">
+            <h3 className="mb-5 text-lg font-bold text-foreground">
               Skills
             </h3>
 
@@ -307,7 +307,7 @@ function UserProfileDrawer({
 
                 <span
                   key={skill}
-                  className="rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700"
+                  className="rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-[#2563EB]"
                 >
                   {skill}
                 </span>
@@ -364,37 +364,37 @@ function UserProfileDrawer({
 
           <div className="mt-6 grid gap-4 sm:grid-cols-3">
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 text-center">
+            <div className="rounded-2xl border border-border bg-card p-5 text-center">
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-muted-foreground">
                 Purchased Programs
               </p>
 
-              <h4 className="mt-2 text-2xl font-bold text-slate-900">
+              <h4 className="mt-2 text-2xl font-bold text-foreground">
                 {user.purchasedPrograms.length}
               </h4>
 
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 text-center">
+            <div className="rounded-2xl border border-border bg-card p-5 text-center">
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-muted-foreground">
                 Booked Sessions
               </p>
 
-              <h4 className="mt-2 text-2xl font-bold text-slate-900">
+              <h4 className="mt-2 text-2xl font-bold text-foreground">
                 {user.bookedSessionHistory.length}
               </h4>
 
             </div>
 
-            <div className="rounded-2xl border border-slate-200 bg-white p-5 text-center">
+            <div className="rounded-2xl border border-border bg-card p-5 text-center">
 
-              <p className="text-sm text-slate-500">
+              <p className="text-sm text-muted-foreground">
                 Certificates
               </p>
 
-              <h4 className="mt-2 text-2xl font-bold text-slate-900">
+              <h4 className="mt-2 text-2xl font-bold text-foreground">
                 {user.certificatesList.length}
               </h4>
 
@@ -403,15 +403,15 @@ function UserProfileDrawer({
           </div>
                     {/* Purchased Programs */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
             <div className="mb-6 flex items-center justify-between">
 
-              <h3 className="text-lg font-bold text-slate-900">
+              <h3 className="text-lg font-bold text-foreground">
                 Purchased Programs
               </h3>
 
-              <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+              <span className="rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-semibold text-[#2563EB]">
                 {user.purchasedPrograms.length} Programs
               </span>
 
@@ -423,7 +423,7 @@ function UserProfileDrawer({
 
                 <div
                   key={program.id}
-                  className="rounded-2xl border border-slate-200 p-4 transition hover:border-blue-200 hover:bg-blue-50/30"
+                  className="rounded-2xl border border-border p-4 transition hover:border-blue-200 hover:bg-blue-50/30"
                 >
 
                   <div className="flex items-center gap-4">
@@ -436,15 +436,15 @@ function UserProfileDrawer({
 
                     <div className="min-w-0 flex-1">
 
-                      <h4 className="truncate font-semibold text-slate-900">
+                      <h4 className="truncate font-semibold text-foreground">
                         {program.title}
                       </h4>
 
-                      <p className="mt-1 text-sm text-slate-500">
+                      <p className="mt-1 text-sm text-muted-foreground">
                         {program.mentorName}
                       </p>
 
-                      <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-100">
+                      <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
 
                         <div
                           className="h-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"
@@ -469,15 +469,15 @@ function UserProfileDrawer({
 
           {/* Payment History */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
             <div className="mb-6 flex items-center justify-between">
 
-              <h3 className="text-lg font-bold text-slate-900">
+              <h3 className="text-lg font-bold text-foreground">
                 Payment History
               </h3>
 
-              <span className="text-sm text-slate-500">
+              <span className="text-sm text-muted-foreground">
                 {user.paymentHistory.length} Transactions
               </span>
 
@@ -489,16 +489,16 @@ function UserProfileDrawer({
 
                 <div
                   key={payment.id}
-                  className="flex items-center justify-between rounded-2xl border border-slate-200 p-4"
+                  className="flex items-center justify-between rounded-2xl border border-border p-4"
                 >
 
                   <div>
 
-                    <p className="font-semibold text-slate-900">
+                    <p className="font-semibold text-foreground">
                       ₹{payment.amount.toLocaleString()}
                     </p>
 
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="mt-1 text-sm text-muted-foreground">
                       {payment.method}
                     </p>
 
@@ -509,18 +509,18 @@ function UserProfileDrawer({
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-semibold ${
                         payment.status === "paid"
-                          ? "bg-emerald-100 text-emerald-700"
+                          ? "bg-[#ECFDF5] text-[#065F46]"
                           : payment.status === "pending"
-                          ? "bg-amber-100 text-amber-700"
+                          ? "bg-[#FFFBEB] text-[#B45309]"
                           : payment.status === "failed"
-                          ? "bg-red-100 text-red-700"
-                          : "bg-slate-100 text-slate-700"
+                          ? "bg-[#FFDAD6] text-[#BA1A1A]"
+                          : "bg-secondary text-foreground"
                       }`}
                     >
                       {payment.status.toUpperCase()}
                     </span>
 
-                    <p className="mt-2 text-xs text-slate-500">
+                    <p className="mt-2 text-xs text-muted-foreground">
                       {payment.createdAt}
                     </p>
 
@@ -536,9 +536,9 @@ function UserProfileDrawer({
 
           {/* Booked Sessions */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
-            <h3 className="mb-6 text-lg font-bold text-slate-900">
+            <h3 className="mb-6 text-lg font-bold text-foreground">
               Booked Sessions
             </h3>
 
@@ -548,18 +548,18 @@ function UserProfileDrawer({
 
                 <div
                   key={session.id}
-                  className="rounded-2xl border border-slate-200 p-4"
+                  className="rounded-2xl border border-border p-4"
                 >
 
                   <div className="flex items-center justify-between">
 
                     <div>
 
-                      <h4 className="font-semibold text-slate-900">
+                      <h4 className="font-semibold text-foreground">
                         {session.sessionType}
                       </h4>
 
-                      <p className="mt-1 text-sm text-slate-500">
+                      <p className="mt-1 text-sm text-muted-foreground">
                         {session.mentorName}
                       </p>
 
@@ -568,10 +568,10 @@ function UserProfileDrawer({
                     <span
                       className={`rounded-full px-3 py-1 text-xs font-semibold ${
                         session.status === "completed"
-                          ? "bg-emerald-100 text-emerald-700"
+                          ? "bg-[#ECFDF5] text-[#065F46]"
                           : session.status === "upcoming"
-                          ? "bg-blue-100 text-blue-700"
-                          : "bg-red-100 text-red-700"
+                          ? "bg-[#EFF6FF] text-[#2563EB]"
+                          : "bg-[#FFDAD6] text-[#BA1A1A]"
                       }`}
                     >
                       {session.status}
@@ -579,7 +579,7 @@ function UserProfileDrawer({
 
                   </div>
 
-                  <div className="mt-4 flex justify-between text-sm text-slate-500">
+                  <div className="mt-4 flex justify-between text-sm text-muted-foreground">
 
                     <span>{session.date}</span>
 
@@ -599,9 +599,9 @@ function UserProfileDrawer({
 
           {/* Certificates */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
-            <h3 className="mb-6 text-lg font-bold text-slate-900">
+            <h3 className="mb-6 text-lg font-bold text-foreground">
               Certificates
             </h3>
 
@@ -611,22 +611,22 @@ function UserProfileDrawer({
 
                 <div
                   key={certificate.id}
-                  className="flex items-center justify-between rounded-2xl border border-slate-200 p-4"
+                  className="flex items-center justify-between rounded-2xl border border-border p-4"
                 >
 
                   <div>
 
-                    <h4 className="font-semibold text-slate-900">
+                    <h4 className="font-semibold text-foreground">
                       {certificate.title}
                     </h4>
 
-                    <p className="mt-1 text-sm text-slate-500">
+                    <p className="mt-1 text-sm text-muted-foreground">
                       {certificate.issuedBy}
                     </p>
 
                   </div>
 
-                  <span className="text-sm text-slate-500">
+                  <span className="text-sm text-muted-foreground">
                     {certificate.issuedDate}
                   </span>
 
@@ -640,9 +640,9 @@ function UserProfileDrawer({
 
           {/* Recent Activity */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
-            <h3 className="mb-6 text-lg font-bold text-slate-900">
+            <h3 className="mb-6 text-lg font-bold text-foreground">
               Recent Activity
             </h3>
 
@@ -655,17 +655,17 @@ function UserProfileDrawer({
                   className="relative border-l-2 border-blue-200 pl-6"
                 >
 
-                  <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-blue-600" />
+                  <div className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-primary" />
 
-                  <h4 className="font-semibold text-slate-900">
+                  <h4 className="font-semibold text-foreground">
                     {activity.title}
                   </h4>
 
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     {activity.description}
                   </p>
 
-                  <p className="mt-2 text-xs text-slate-400">
+                  <p className="mt-2 text-xs text-muted-foreground">
                     {activity.createdAt}
                   </p>
 
@@ -678,15 +678,15 @@ function UserProfileDrawer({
           </div>
                     {/* Admin Notes */}
 
-          <div className="mt-6 rounded-[28px] bg-white p-6 shadow-sm">
+          <div className="mt-6 rounded-[28px] bg-card p-6 shadow-sm">
 
-            <h3 className="mb-5 text-lg font-bold text-slate-900">
+            <h3 className="mb-5 text-lg font-bold text-foreground">
               Admin Notes
             </h3>
 
-            <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5">
+            <div className="rounded-2xl border border-border bg-secondary p-5">
 
-              <p className="leading-7 text-slate-600">
+              <p className="leading-7 text-muted-foreground">
                 {user.notes}
               </p>
 
@@ -696,34 +696,34 @@ function UserProfileDrawer({
 
           {/* Footer Actions */}
 
-          <div className="mt-8 border-t border-slate-200 pt-8">
+          <div className="mt-8 border-t border-border pt-8">
 
             <div className="grid gap-4 sm:grid-cols-2">
 
               <button
                 type="button"
-                className="rounded-2xl bg-blue-600 px-6 py-4 font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg"
+                className="rounded-2xl bg-primary px-6 py-4 font-semibold text-white transition-all duration-300 hover:bg-primary/90 hover:shadow-lg"
               >
                 Edit User
               </button>
 
               <button
                 type="button"
-                className="rounded-2xl border border-slate-200 bg-white px-6 py-4 font-semibold text-slate-700 transition-all duration-300 hover:bg-slate-50"
+                className="rounded-2xl border border-border bg-card px-6 py-4 font-semibold text-foreground transition-all duration-300 hover:bg-secondary"
               >
                 Send Email
               </button>
 
               <button
                 type="button"
-                className="rounded-2xl bg-amber-100 px-6 py-4 font-semibold text-amber-700 transition-all duration-300 hover:bg-amber-200"
+                className="rounded-2xl bg-[#FFFBEB] px-6 py-4 font-semibold text-[#B45309] transition-all duration-300 hover:bg-amber-200"
               >
                 Block User
               </button>
 
               <button
                 type="button"
-                className="rounded-2xl bg-red-100 px-6 py-4 font-semibold text-red-700 transition-all duration-300 hover:bg-red-200"
+                className="rounded-2xl bg-[#FFDAD6] px-6 py-4 font-semibold text-[#BA1A1A] transition-all duration-300 hover:bg-red-200"
               >
                 Delete User
               </button>
@@ -733,7 +733,7 @@ function UserProfileDrawer({
             <button
               type="button"
               onClick={onClose}
-              className="mt-5 w-full rounded-2xl border border-slate-200 bg-white px-6 py-4 font-semibold text-slate-700 transition-all duration-300 hover:bg-slate-50"
+              className="mt-5 w-full rounded-2xl border border-border bg-card px-6 py-4 font-semibold text-foreground transition-all duration-300 hover:bg-secondary"
             >
               Close Drawer
             </button>

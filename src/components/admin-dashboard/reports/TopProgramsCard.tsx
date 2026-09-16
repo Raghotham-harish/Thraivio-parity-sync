@@ -24,7 +24,7 @@ export default function TopProgramsCard({
   programs,
 }: TopProgramsCardProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -42,9 +42,9 @@ export default function TopProgramsCard({
 
           </div>
 
-          <div className="rounded-2xl bg-cyan-500/10 p-3">
+          <div className="rounded-2xl bg-[#EFF6FF] p-3">
 
-            <BookOpen className="h-6 w-6 text-cyan-600" />
+            <BookOpen className="h-6 w-6 text-primary" />
 
           </div>
 
@@ -104,9 +104,9 @@ export default function TopProgramsCard({
 
                   <div className="flex items-center justify-end gap-2">
 
-                    <IndianRupee className="h-4 w-4 text-emerald-600" />
+                    <IndianRupee className="h-4 w-4 text-[#0F8F65]" />
 
-                    <span className="font-semibold text-emerald-600">
+                    <span className="font-semibold text-[#0F8F65]">
                       ₹
                       {program.revenue.toLocaleString("en-IN")}
                     </span>

@@ -54,7 +54,7 @@ const DeleteEventDialog = ({
 
         <AlertDialogHeader>
 
-          <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-red-100">
+          <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#FFDAD6]">
 
             <Trash2 className="h-10 w-10 text-red-600" />
 
@@ -81,9 +81,9 @@ const DeleteEventDialog = ({
         <div
           className="
             mt-8
-            rounded-3xl
+            rounded-2xl
             border
-            bg-slate-50
+            bg-secondary
             p-6
           "
         >
@@ -137,7 +137,7 @@ const DeleteEventDialog = ({
 
             <div className="flex items-center gap-3">
 
-              <Users className="h-5 w-5 text-blue-600" />
+              <Users className="h-5 w-5 text-primary" />
 
               <h4 className="font-semibold">
 
@@ -168,14 +168,14 @@ const DeleteEventDialog = ({
             className="
               rounded-2xl
               border
-              bg-emerald-50
+              bg-[#ECFDF5]
               p-5
             "
           >
 
             <div className="flex items-center gap-3">
 
-              <DollarSign className="h-5 w-5 text-emerald-600" />
+              <DollarSign className="h-5 w-5 text-[#0F8F65]" />
 
               <h4 className="font-semibold">
 
@@ -294,7 +294,7 @@ const DeleteEventDialog = ({
         <div
           className="
             mt-8
-            rounded-3xl
+            rounded-2xl
             border
             border-red-200
             bg-gradient-to-r
@@ -318,7 +318,7 @@ const DeleteEventDialog = ({
 
             <div>
 
-              <h3 className="font-bold text-red-700">
+              <h3 className="font-bold text-[#BA1A1A]">
 
                 This action is irreversible
 
@@ -361,8 +361,8 @@ const DeleteEventDialog = ({
             }}
             disabled={loading}
             className="
-              bg-red-600
-              hover:bg-red-700
+              bg-destructive
+              hover:bg-destructive/90
               focus:ring-red-500
             "
           >

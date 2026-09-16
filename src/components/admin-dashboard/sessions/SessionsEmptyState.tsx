@@ -22,12 +22,12 @@ const SessionsEmptyState = ({
       className="
         overflow-hidden
 
-        rounded-[32px]
+        rounded-2xl
 
         border
-        border-slate-200
+        border-border
 
-        bg-white
+        bg-card
 
         shadow-sm
       "
@@ -89,7 +89,7 @@ const SessionsEmptyState = ({
 
               rounded-full
 
-              bg-white
+              bg-card
 
               shadow-lg
             "
@@ -100,7 +100,7 @@ const SessionsEmptyState = ({
             className="
               relative
 
-              text-indigo-600
+              text-primary
             "
           />
         </div>
@@ -115,7 +115,7 @@ const SessionsEmptyState = ({
 
             font-bold
 
-            text-slate-900
+            text-foreground
           "
         >
           {hasFilters
@@ -135,7 +135,7 @@ const SessionsEmptyState = ({
 
             leading-8
 
-            text-slate-500
+            text-muted-foreground
           "
         >
           {hasFilters
@@ -161,9 +161,9 @@ const SessionsEmptyState = ({
         >
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-6
             "
@@ -174,7 +174,7 @@ const SessionsEmptyState = ({
 
                 font-bold
 
-                text-blue-600
+                text-primary
               "
             >
               0
@@ -186,7 +186,7 @@ const SessionsEmptyState = ({
 
                 text-sm
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Scheduled Sessions
@@ -195,9 +195,9 @@ const SessionsEmptyState = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-6
             "
@@ -208,7 +208,7 @@ const SessionsEmptyState = ({
 
                 font-bold
 
-                text-emerald-600
+                text-[#0F8F65]
               "
             >
               0
@@ -220,7 +220,7 @@ const SessionsEmptyState = ({
 
                 text-sm
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Active Mentors
@@ -229,9 +229,9 @@ const SessionsEmptyState = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-6
             "
@@ -242,7 +242,7 @@ const SessionsEmptyState = ({
 
                 font-bold
 
-                text-purple-600
+                text-primary
               "
             >
               0
@@ -254,7 +254,7 @@ const SessionsEmptyState = ({
 
                 text-sm
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Registered Students
@@ -350,9 +350,9 @@ const SessionsEmptyState = ({
               rounded-2xl
 
               border
-              border-slate-300
+              border-border
 
-              bg-white
+              bg-card
 
               px-8
               py-4
@@ -361,7 +361,7 @@ const SessionsEmptyState = ({
 
               transition
 
-              hover:bg-slate-50
+              hover:bg-secondary
             "
           >
             Learn More
@@ -386,12 +386,12 @@ const SessionsEmptyState = ({
         >
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-slate-50
+              bg-secondary
 
               p-6
 
@@ -415,7 +415,7 @@ const SessionsEmptyState = ({
 
                 leading-7
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Schedule mentorship sessions
@@ -426,12 +426,12 @@ const SessionsEmptyState = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-slate-50
+              bg-secondary
 
               p-6
 
@@ -455,7 +455,7 @@ const SessionsEmptyState = ({
 
                 leading-7
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Monitor attendance,
@@ -467,12 +467,12 @@ const SessionsEmptyState = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-slate-50
+              bg-secondary
 
               p-6
 
@@ -496,7 +496,7 @@ const SessionsEmptyState = ({
 
                 leading-7
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               Edit, cancel, reassign mentors,

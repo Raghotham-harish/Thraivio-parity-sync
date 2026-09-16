@@ -26,7 +26,7 @@ export default function UsersGrowthChart({
   );
 
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -44,7 +44,7 @@ export default function UsersGrowthChart({
 
           </div>
 
-          <div className="rounded-2xl bg-violet-500/10 p-3">
+          <div className="rounded-2xl bg-secondary p-3">
 
             <Users className="h-6 w-6 text-violet-600" />
 
@@ -72,7 +72,7 @@ export default function UsersGrowthChart({
 
           </div>
 
-          <div className="flex items-center gap-2 rounded-full bg-emerald-500/10 px-4 py-2 text-sm font-semibold text-emerald-600">
+          <div className="flex items-center gap-2 rounded-full bg-[#ECFDF5]0/10 px-4 py-2 text-sm font-semibold text-[#0F8F65]">
 
             <TrendingUp className="h-4 w-4" />
 

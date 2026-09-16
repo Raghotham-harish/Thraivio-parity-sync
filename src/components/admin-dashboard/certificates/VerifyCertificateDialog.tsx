@@ -51,7 +51,7 @@ const VerifyCertificateDialog = ({
         className="
           max-w-3xl
           overflow-hidden
-          rounded-[32px]
+          rounded-2xl
           p-0
         "
       >
@@ -78,7 +78,7 @@ const VerifyCertificateDialog = ({
               h-72
               w-72
               rounded-full
-              bg-white/10
+              bg-card/10
               blur-3xl
             "
           />
@@ -91,7 +91,7 @@ const VerifyCertificateDialog = ({
                 items-center
                 gap-2
                 rounded-full
-                bg-white/15
+                bg-card/15
                 px-4
                 py-2
                 text-sm
@@ -142,7 +142,7 @@ const VerifyCertificateDialog = ({
 
           {/* Certificate */}
 
-          <div className="rounded-3xl border bg-white p-6">
+          <div className="rounded-2xl border bg-card p-6">
 
             <div className="flex items-start gap-5">
 
@@ -154,10 +154,10 @@ const VerifyCertificateDialog = ({
                   items-center
                   justify-center
                   rounded-2xl
-                  bg-green-100
+                  bg-[#ECFDF5]
                 "
               >
-                <Award className="h-8 w-8 text-green-600" />
+                <Award className="h-8 w-8 text-[#0F8F65]" />
               </div>
 
               <div className="flex-1">
@@ -178,7 +178,7 @@ const VerifyCertificateDialog = ({
 
               </div>
 
-              <BadgeCheck className="h-10 w-10 text-green-600" />
+              <BadgeCheck className="h-10 w-10 text-[#0F8F65]" />
 
             </div>
 
@@ -188,7 +188,7 @@ const VerifyCertificateDialog = ({
 
           <div className="grid gap-5 md:grid-cols-2">
 
-            <div className="rounded-3xl border p-5">
+            <div className="rounded-2xl border p-5">
 
               <h4 className="mb-4 font-semibold">
                 Student
@@ -218,7 +218,7 @@ const VerifyCertificateDialog = ({
 
             </div>
 
-            <div className="rounded-3xl border p-5">
+            <div className="rounded-2xl border p-5">
 
               <h4 className="mb-4 font-semibold">
                 Mentor
@@ -258,7 +258,7 @@ const VerifyCertificateDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
               border-green-200
               bg-green-50
@@ -267,15 +267,15 @@ const VerifyCertificateDialog = ({
           >
             <div className="flex gap-4">
 
-              <CheckCircle2 className="mt-1 h-7 w-7 text-green-600" />
+              <CheckCircle2 className="mt-1 h-7 w-7 text-[#0F8F65]" />
 
               <div>
 
-                <h3 className="text-lg font-bold text-green-700">
+                <h3 className="text-lg font-bold text-[#065F46]">
                   Ready for Verification
                 </h3>
 
-                <p className="mt-3 text-sm leading-7 text-green-700">
+                <p className="mt-3 text-sm leading-7 text-[#065F46]">
 
                   • Credential ID is valid
 
@@ -315,7 +315,7 @@ const VerifyCertificateDialog = ({
 
               <div className="flex items-center gap-2">
 
-                <CalendarDays className="h-5 w-5 text-green-600" />
+                <CalendarDays className="h-5 w-5 text-[#0F8F65]" />
 
                 <span className="font-semibold">
 
@@ -337,7 +337,7 @@ const VerifyCertificateDialog = ({
 
               <div className="flex items-center gap-2">
 
-                <BadgeCheck className="h-5 w-5 text-green-600" />
+                <BadgeCheck className="h-5 w-5 text-[#0F8F65]" />
 
                 <span className="font-semibold">
 
@@ -361,7 +361,7 @@ const VerifyCertificateDialog = ({
 
         {/* Footer */}
 
-        <DialogFooter className="border-t bg-slate-50 px-8 py-6">
+        <DialogFooter className="border-t bg-secondary px-8 py-6">
 
           <Button
             variant="outline"

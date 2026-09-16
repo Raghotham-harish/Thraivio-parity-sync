@@ -120,9 +120,9 @@ const CancelSessionDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
         "
       >
 
@@ -157,7 +157,7 @@ const CancelSessionDialog = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
 
                 px-4
                 py-2
@@ -209,11 +209,11 @@ const CancelSessionDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               transition
 
-              hover:bg-white/30
+              hover:bg-card/30
             "
           >
             <X size={20} />
@@ -239,7 +239,7 @@ const CancelSessionDialog = ({
 
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
               border
               border-red-100
@@ -279,9 +279,9 @@ const CancelSessionDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -298,7 +298,7 @@ const CancelSessionDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -321,7 +321,7 @@ const CancelSessionDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {
@@ -338,7 +338,7 @@ const CancelSessionDialog = ({
                       gap-2
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     <Building2
@@ -363,9 +363,9 @@ const CancelSessionDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -382,7 +382,7 @@ const CancelSessionDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -405,7 +405,7 @@ const CancelSessionDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {
@@ -492,12 +492,12 @@ const CancelSessionDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -547,7 +547,7 @@ const CancelSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -613,7 +613,7 @@ const CancelSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -633,12 +633,12 @@ const CancelSessionDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -665,7 +665,7 @@ const CancelSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   p-4
 
@@ -687,7 +687,7 @@ const CancelSessionDialog = ({
                       mt-1
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     Student is eligible
@@ -751,13 +751,13 @@ const CancelSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
                     outline-none
 
-                    disabled:bg-slate-100
+                    disabled:bg-secondary
 
                     focus:border-red-500
                     focus:ring-2
@@ -795,13 +795,13 @@ const CancelSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
                     outline-none
 
-                    disabled:bg-slate-100
+                    disabled:bg-secondary
 
                     focus:border-red-500
                     focus:ring-2
@@ -845,7 +845,7 @@ const CancelSessionDialog = ({
                   className="
                     font-semibold
 
-                    text-red-700
+                    text-[#BA1A1A]
                   "
                 >
                   Refund Summary
@@ -944,12 +944,12 @@ const CancelSessionDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6"
               >
@@ -975,7 +975,7 @@ const CancelSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -995,7 +995,7 @@ const CancelSessionDialog = ({
                         mt-1
 
                         text-sm
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Send cancellation email
@@ -1030,7 +1030,7 @@ const CancelSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -1050,7 +1050,7 @@ const CancelSessionDialog = ({
                         mt-1
 
                         text-sm
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Send cancellation email
@@ -1085,7 +1085,7 @@ const CancelSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -1105,7 +1105,7 @@ const CancelSessionDialog = ({
                         mt-1
 
                         text-sm
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Make this slot available
@@ -1133,12 +1133,12 @@ const CancelSessionDialog = ({
 
               <div
                 className="
-                  rounded-[32px]
+                  rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
-                  bg-white
+                  bg-card
 
                   p-6
                 "
@@ -1176,7 +1176,7 @@ const CancelSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     p-4
 
@@ -1226,7 +1226,7 @@ const CancelSessionDialog = ({
                         className="
                           font-semibold
 
-                          text-red-700
+                          text-[#BA1A1A]
                         "
                       >
                         Warning
@@ -1269,7 +1269,7 @@ const CancelSessionDialog = ({
 
                     rounded-2xl
 
-                    bg-slate-50
+                    bg-secondary
 
                     p-5
                   "
@@ -1342,9 +1342,9 @@ const CancelSessionDialog = ({
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -1367,7 +1367,7 @@ const CancelSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
@@ -1376,7 +1376,7 @@ const CancelSessionDialog = ({
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 Keep Session
@@ -1490,7 +1490,7 @@ function InfoCard({
       className="
         rounded-2xl
 
-        bg-white
+        bg-card
 
         p-5
       "
@@ -1504,7 +1504,7 @@ function InfoCard({
           mt-3
 
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1544,7 +1544,7 @@ function ChecklistItem({
 
         rounded-xl
 
-        bg-white
+        bg-card
 
         p-3
       "
@@ -1571,8 +1571,8 @@ function ChecklistItem({
 
           ${
             checked
-              ? "bg-green-100 text-green-600"
-              : "bg-slate-100 text-slate-400"
+              ? "bg-[#ECFDF5] text-[#0F8F65]"
+              : "bg-secondary text-muted-foreground"
           }
         `}
       >

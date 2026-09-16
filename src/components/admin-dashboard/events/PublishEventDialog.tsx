@@ -51,9 +51,9 @@ const PublishEventDialog = ({
 
         <AlertDialogHeader>
 
-          <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100">
+          <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-[#ECFDF5]">
 
-            <Rocket className="h-10 w-10 text-emerald-600" />
+            <Rocket className="h-10 w-10 text-[#0F8F65]" />
 
           </div>
 
@@ -77,9 +77,9 @@ const PublishEventDialog = ({
         <div
           className="
             mt-8
-            rounded-3xl
+            rounded-2xl
             border
-            bg-slate-50
+            bg-secondary
             p-6
           "
         >
@@ -113,9 +113,9 @@ const PublishEventDialog = ({
 
               <div className="mt-5 flex flex-wrap gap-3">
 
-                <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2">
+                <div className="flex items-center gap-2 rounded-full bg-card px-4 py-2">
 
-                  <CalendarDays className="h-4 w-4 text-blue-600" />
+                  <CalendarDays className="h-4 w-4 text-primary" />
 
                   <span className="text-sm">
 
@@ -125,9 +125,9 @@ const PublishEventDialog = ({
 
                 </div>
 
-                <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2">
+                <div className="flex items-center gap-2 rounded-full bg-card px-4 py-2">
 
-                  <Users className="h-4 w-4 text-indigo-600" />
+                  <Users className="h-4 w-4 text-primary" />
 
                   <span className="text-sm">
 
@@ -137,9 +137,9 @@ const PublishEventDialog = ({
 
                 </div>
 
-                <div className="flex items-center gap-2 rounded-full bg-white px-4 py-2">
+                <div className="flex items-center gap-2 rounded-full bg-card px-4 py-2">
 
-                  <Globe2 className="h-4 w-4 text-emerald-600" />
+                  <Globe2 className="h-4 w-4 text-[#0F8F65]" />
 
                   <span className="text-sm">
 
@@ -159,7 +159,7 @@ const PublishEventDialog = ({
 
         {/* Publish Checklist */}
 
-        <div className="mt-8 rounded-3xl border bg-white p-6">
+        <div className="mt-8 rounded-2xl border bg-card p-6">
 
           <h3 className="text-xl font-bold">
 
@@ -183,7 +183,7 @@ const PublishEventDialog = ({
                 className="flex items-center gap-3"
               >
 
-                <CheckCircle2 className="h-5 w-5 text-emerald-600" />
+                <CheckCircle2 className="h-5 w-5 text-[#0F8F65]" />
 
                 <span>{item}</span>
 
@@ -209,16 +209,16 @@ const PublishEventDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
             "
           >
 
             <div className="flex items-center gap-3">
 
-              <Globe2 className="h-6 w-6 text-blue-600" />
+              <Globe2 className="h-6 w-6 text-primary" />
 
               <h3 className="text-xl font-bold">
 
@@ -238,7 +238,7 @@ const PublishEventDialog = ({
 
                 </span>
 
-                <span className="font-semibold text-emerald-600">
+                <span className="font-semibold text-[#0F8F65]">
 
                   Visible
 
@@ -254,7 +254,7 @@ const PublishEventDialog = ({
 
                 </span>
 
-                <span className="font-semibold text-emerald-600">
+                <span className="font-semibold text-[#0F8F65]">
 
                   Visible
 
@@ -270,7 +270,7 @@ const PublishEventDialog = ({
 
                 </span>
 
-                <span className="font-semibold text-emerald-600">
+                <span className="font-semibold text-[#0F8F65]">
 
                   Visible
 
@@ -286,7 +286,7 @@ const PublishEventDialog = ({
 
                 </span>
 
-                <span className="font-semibold text-emerald-600">
+                <span className="font-semibold text-[#0F8F65]">
 
                   Indexed
 
@@ -302,9 +302,9 @@ const PublishEventDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
             "
           >
@@ -319,7 +319,7 @@ const PublishEventDialog = ({
 
               <div className="flex items-start gap-3">
 
-                <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
+                <CheckCircle2 className="mt-1 h-5 w-5 text-[#0F8F65]" />
 
                 <p className="text-sm leading-7">
 
@@ -331,7 +331,7 @@ const PublishEventDialog = ({
 
               <div className="flex items-start gap-3">
 
-                <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
+                <CheckCircle2 className="mt-1 h-5 w-5 text-[#0F8F65]" />
 
                 <p className="text-sm leading-7">
 
@@ -343,7 +343,7 @@ const PublishEventDialog = ({
 
               <div className="flex items-start gap-3">
 
-                <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
+                <CheckCircle2 className="mt-1 h-5 w-5 text-[#0F8F65]" />
 
                 <p className="text-sm leading-7">
 
@@ -355,7 +355,7 @@ const PublishEventDialog = ({
 
               <div className="flex items-start gap-3">
 
-                <CheckCircle2 className="mt-1 h-5 w-5 text-emerald-600" />
+                <CheckCircle2 className="mt-1 h-5 w-5 text-[#0F8F65]" />
 
                 <p className="text-sm leading-7">
 
@@ -376,7 +376,7 @@ const PublishEventDialog = ({
         <div
           className="
             mt-8
-            rounded-3xl
+            rounded-2xl
             border
             bg-gradient-to-r
             from-emerald-50
@@ -401,7 +401,7 @@ const PublishEventDialog = ({
             "
           >
 
-            <div className="rounded-2xl bg-white p-5">
+            <div className="rounded-2xl bg-card p-5">
 
               <h4 className="font-semibold">
 
@@ -418,7 +418,7 @@ const PublishEventDialog = ({
 
             </div>
 
-            <div className="rounded-2xl bg-white p-5">
+            <div className="rounded-2xl bg-card p-5">
 
               <h4 className="font-semibold">
 
@@ -434,7 +434,7 @@ const PublishEventDialog = ({
 
             </div>
 
-            <div className="rounded-2xl bg-white p-5">
+            <div className="rounded-2xl bg-card p-5">
 
               <h4 className="font-semibold">
 
@@ -451,7 +451,7 @@ const PublishEventDialog = ({
 
             </div>
 
-            <div className="rounded-2xl bg-white p-5">
+            <div className="rounded-2xl bg-card p-5">
 
               <h4 className="font-semibold">
 
@@ -492,8 +492,8 @@ const PublishEventDialog = ({
               onConfirm();
             }}
             className="
-              bg-emerald-600
-              hover:bg-emerald-700
+              bg-[#10B981]
+              hover:bg-[#0da271]
               focus:ring-emerald-500
             "
           >

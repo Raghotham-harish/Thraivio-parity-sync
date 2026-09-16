@@ -13,7 +13,7 @@ export default function PaymentsEmptyState({
   onCreatePayment,
 }: PaymentsEmptyStateProps) {
   return (
-    <div className="flex min-h-[450px] flex-col items-center justify-center rounded-3xl border border-dashed bg-background px-6 text-center">
+    <div className="flex min-h-[450px] flex-col items-center justify-center rounded-2xl border border-dashed bg-background px-6 text-center">
 
       <div className="flex h-24 w-24 items-center justify-center rounded-full bg-primary/10">
 

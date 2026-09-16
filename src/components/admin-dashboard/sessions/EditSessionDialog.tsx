@@ -219,9 +219,9 @@ const EditSessionDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
 
           flex
           flex-col
@@ -277,13 +277,13 @@ const EditSessionDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               flex
               items-center
               justify-center
 
-              hover:bg-white/30
+              hover:bg-card/30
 
               transition
             "
@@ -314,10 +314,10 @@ const EditSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                border-slate-200
-                bg-white
+                border-border
+                bg-card
                 p-6
               "
             >
@@ -360,7 +360,7 @@ const EditSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   px-4
 
@@ -387,10 +387,10 @@ const EditSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                border-slate-200
-                bg-white
+                border-border
+                bg-card
                 p-6
               "
             >
@@ -404,7 +404,7 @@ const EditSessionDialog = ({
               >
                 <GraduationCap
                   size={20}
-                  className="text-emerald-600"
+                  className="text-[#0F8F65]"
                 />
 
                 <h3
@@ -431,7 +431,7 @@ const EditSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   px-4
 
@@ -462,12 +462,12 @@ const EditSessionDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -484,7 +484,7 @@ const EditSessionDialog = ({
             >
               <MonitorPlay
                 size={20}
-                className="text-blue-600"
+                className="text-primary"
               />
 
               <h3
@@ -565,7 +565,7 @@ const EditSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -633,7 +633,7 @@ const EditSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -679,7 +679,7 @@ const EditSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -724,10 +724,10 @@ const EditSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                border-slate-200
-                bg-white
+                border-border
+                bg-card
                 p-6
               "
             >
@@ -783,7 +783,7 @@ const EditSessionDialog = ({
                       w-full
                       rounded-2xl
                       border
-                      border-slate-200
+                      border-border
                       px-4
                       outline-none
                       focus:border-amber-500
@@ -820,7 +820,7 @@ const EditSessionDialog = ({
                       w-full
                       rounded-2xl
                       border
-                      border-slate-200
+                      border-border
                       px-4
                       outline-none
                       focus:border-amber-500
@@ -854,7 +854,7 @@ const EditSessionDialog = ({
                       w-full
                       rounded-2xl
                       border
-                      border-slate-200
+                      border-border
                       px-4
                       outline-none
                       focus:border-amber-500
@@ -909,7 +909,7 @@ const EditSessionDialog = ({
                       w-full
                       rounded-2xl
                       border
-                      border-slate-200
+                      border-border
                       px-4
                       outline-none
                       focus:border-amber-500
@@ -925,9 +925,9 @@ const EditSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                border-slate-200
+                border-border
                 bg-gradient-to-br
                 from-orange-50
                 via-amber-50
@@ -1008,10 +1008,10 @@ const EditSessionDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              border-slate-200
-              bg-white
+              border-border
+              bg-card
               p-6
             "
           >
@@ -1042,7 +1042,7 @@ const EditSessionDialog = ({
                 w-full
                 rounded-2xl
                 border
-                border-slate-200
+                border-border
                 p-4
                 outline-none
                 resize-none
@@ -1066,12 +1066,12 @@ const EditSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -1104,7 +1104,7 @@ const EditSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   px-4
 
@@ -1130,12 +1130,12 @@ const EditSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -1168,7 +1168,7 @@ const EditSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   px-4
 
@@ -1194,12 +1194,12 @@ const EditSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -1232,7 +1232,7 @@ const EditSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   px-4
 
@@ -1263,9 +1263,9 @@ const EditSessionDialog = ({
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -1288,7 +1288,7 @@ const EditSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
@@ -1297,7 +1297,7 @@ const EditSessionDialog = ({
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 Cancel
@@ -1413,7 +1413,7 @@ function PreviewItem({
       className="
         rounded-2xl
 
-        bg-white
+        bg-card
 
         p-4
       "
@@ -1421,7 +1421,7 @@ function PreviewItem({
       <p
         className="
           text-xs
-          text-slate-500
+          text-muted-foreground
         "
       >
         {label}

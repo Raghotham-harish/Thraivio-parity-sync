@@ -54,7 +54,7 @@ const RecentSessions = ({
 
               rounded-full
 
-              bg-indigo-50
+              bg-[#EFF6FF]
 
               px-4
               py-2
@@ -62,7 +62,7 @@ const RecentSessions = ({
               text-sm
               font-medium
 
-              text-indigo-700
+              text-[#2563EB]
             "
           >
             <CalendarCheck size={16} />
@@ -89,7 +89,7 @@ const RecentSessions = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Monitor live, upcoming and
@@ -111,7 +111,7 @@ const RecentSessions = ({
               top-1/2
               -translate-y-1/2
 
-              text-slate-400
+              text-muted-foreground
             "
           />
 
@@ -125,9 +125,9 @@ const RecentSessions = ({
               rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               py-3
 
@@ -154,12 +154,12 @@ const RecentSessions = ({
 
           overflow-hidden
 
-          rounded-[30px]
+          rounded-2xl
 
           border
-          border-slate-200
+          border-border
 
-          bg-white
+          bg-card
         "
       >
 
@@ -172,9 +172,9 @@ const RecentSessions = ({
             grid-cols-12
 
             border-b
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             px-6
             py-4
@@ -182,7 +182,7 @@ const RecentSessions = ({
             text-sm
             font-semibold
 
-            text-slate-600
+            text-muted-foreground
           "
         >
           <div className="col-span-3">
@@ -232,7 +232,7 @@ const RecentSessions = ({
 
               transition
 
-              hover:bg-slate-50
+              hover:bg-secondary
             "
           >
                         {/* Session */}
@@ -254,7 +254,7 @@ const RecentSessions = ({
 
                     bg-indigo-100
 
-                    text-indigo-700
+                    text-[#2563EB]
                   "
                 >
                   <CalendarCheck size={22} />
@@ -266,7 +266,7 @@ const RecentSessions = ({
                     className="
                       font-semibold
 
-                      text-slate-900
+                      text-foreground
                     "
                   >
                     1 : 1 Mentorship Session
@@ -278,7 +278,7 @@ const RecentSessions = ({
 
                       text-sm
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.id}
@@ -297,7 +297,7 @@ const RecentSessions = ({
                 className="
                   font-medium
 
-                  text-slate-800
+                  text-foreground
                 "
               >
                 {session.user}
@@ -313,7 +313,7 @@ const RecentSessions = ({
                 className="
                   font-medium
 
-                  text-slate-800
+                  text-foreground
                 "
               >
                 {session.mentor}
@@ -335,7 +335,7 @@ const RecentSessions = ({
 
                     text-sm
 
-                    text-slate-700
+                    text-foreground
                   "
                 >
                   <CalendarCheck size={15} />
@@ -351,7 +351,7 @@ const RecentSessions = ({
 
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   <Clock3 size={14} />
@@ -381,10 +381,10 @@ const RecentSessions = ({
 
                   ${
                     session.status === "approved"
-                      ? "bg-emerald-100 text-emerald-700"
+                      ? "bg-[#ECFDF5] text-[#065F46]"
                       : session.status === "pending"
-                      ? "bg-amber-100 text-amber-700"
-                      : "bg-red-100 text-red-700"
+                      ? "bg-[#FFFBEB] text-[#B45309]"
+                      : "bg-[#FFDAD6] text-[#BA1A1A]"
                   }
                 `}
               >
@@ -425,11 +425,11 @@ const RecentSessions = ({
 
                   bg-blue-50
 
-                  text-blue-600
+                  text-primary
 
                   transition
 
-                  hover:bg-blue-100
+                  hover:bg-[#EFF6FF]
                 "
               >
                 <Eye size={18} />
@@ -452,13 +452,13 @@ const RecentSessions = ({
 
                   rounded-xl
 
-                  bg-emerald-50
+                  bg-[#ECFDF5]
 
-                  text-emerald-600
+                  text-[#0F8F65]
 
                   transition
 
-                  hover:bg-emerald-100
+                  hover:bg-[#ECFDF5]
                 "
               >
                 <Video size={18} />
@@ -487,7 +487,7 @@ const RecentSessions = ({
 
                   transition
 
-                  hover:bg-red-100
+                  hover:bg-[#FFDAD6]
                 "
               >
                 <XCircle size={18} />
@@ -509,7 +509,7 @@ const RecentSessions = ({
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 <MoreVertical size={18} />
@@ -530,9 +530,9 @@ const RecentSessions = ({
             gap-4
 
             border-t
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             px-6
             py-5
@@ -546,7 +546,7 @@ const RecentSessions = ({
             className="
               text-sm
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Showing
@@ -561,7 +561,7 @@ const RecentSessions = ({
             className="
               rounded-2xl
 
-              bg-blue-600
+              bg-primary
 
               px-6
               py-3
@@ -572,7 +572,7 @@ const RecentSessions = ({
 
               transition
 
-              hover:bg-blue-700
+              hover:bg-primary/90
             "
           >
             View All Sessions

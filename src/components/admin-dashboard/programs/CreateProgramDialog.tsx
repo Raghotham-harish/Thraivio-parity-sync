@@ -78,7 +78,7 @@ export default function CreateProgramDialog({
           max-w-3xl
           flex-col
           overflow-hidden
-          rounded-[32px]
+          rounded-2xl
           p-0
         "
       >
@@ -89,7 +89,7 @@ export default function CreateProgramDialog({
 
           <div className="flex items-center gap-5">
 
-            <div className="rounded-3xl bg-white/20 p-4">
+            <div className="rounded-2xl bg-card/20 p-4">
 
               <BookPlus className="h-10 w-10" />
 
@@ -127,7 +127,7 @@ export default function CreateProgramDialog({
 
           <div>
 
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
+            <label className="mb-2 block text-sm font-semibold text-foreground">
 
               Program Title
 
@@ -140,7 +140,7 @@ export default function CreateProgramDialog({
                 setTitle(e.target.value)
               }
               placeholder="Program title..."
-              className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none focus:border-indigo-500"
+              className="h-12 w-full rounded-2xl border border-border px-4 outline-none focus:border-indigo-500"
             />
 
           </div>
@@ -149,7 +149,7 @@ export default function CreateProgramDialog({
 
           <div>
 
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
+            <label className="mb-2 block text-sm font-semibold text-foreground">
 
               Mentor
 
@@ -160,7 +160,7 @@ export default function CreateProgramDialog({
               onChange={(e) =>
                 setMentor(e.target.value)
               }
-              className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none focus:border-indigo-500"
+              className="h-12 w-full rounded-2xl border border-border px-4 outline-none focus:border-indigo-500"
             >
 
               <option value="">
@@ -190,7 +190,7 @@ export default function CreateProgramDialog({
 
             <div>
 
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
 
                 Category
 
@@ -203,14 +203,14 @@ export default function CreateProgramDialog({
                   setCategory(e.target.value)
                 }
                 placeholder="Technology"
-                className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none focus:border-indigo-500"
+                className="h-12 w-full rounded-2xl border border-border px-4 outline-none focus:border-indigo-500"
               />
 
             </div>
 
             <div>
 
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
 
                 Level
 
@@ -221,7 +221,7 @@ export default function CreateProgramDialog({
                 onChange={(e) =>
                   setLevel(e.target.value)
                 }
-                className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none focus:border-indigo-500"
+                className="h-12 w-full rounded-2xl border border-border px-4 outline-none focus:border-indigo-500"
               >
                 <option>
 
@@ -252,7 +252,7 @@ export default function CreateProgramDialog({
 
             <div>
 
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
 
                 Duration
 
@@ -265,14 +265,14 @@ export default function CreateProgramDialog({
                   setDuration(e.target.value)
                 }
                 placeholder="8 Weeks"
-                className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none transition focus:border-indigo-500"
+                className="h-12 w-full rounded-2xl border border-border px-4 outline-none transition focus:border-indigo-500"
               />
 
             </div>
 
             <div>
 
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
 
                 Price (₹)
 
@@ -285,7 +285,7 @@ export default function CreateProgramDialog({
                   setPrice(e.target.value)
                 }
                 placeholder="9999"
-                className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none transition focus:border-indigo-500"
+                className="h-12 w-full rounded-2xl border border-border px-4 outline-none transition focus:border-indigo-500"
               />
 
             </div>
@@ -296,7 +296,7 @@ export default function CreateProgramDialog({
 
           <div>
 
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
+            <label className="mb-2 block text-sm font-semibold text-foreground">
 
               Program Description
 
@@ -309,20 +309,20 @@ export default function CreateProgramDialog({
                 setDescription(e.target.value)
               }
               placeholder="Write a short description about this coaching program..."
-              className="w-full rounded-2xl border border-slate-200 p-4 outline-none transition focus:border-indigo-500"
+              className="w-full rounded-2xl border border-border p-4 outline-none transition focus:border-indigo-500"
             />
 
           </div>
 
           {/* Settings */}
 
-          <div className="space-y-4 rounded-3xl border border-slate-200 bg-slate-50 p-6">
+          <div className="space-y-4 rounded-2xl border border-border bg-secondary p-6">
 
             <div className="flex items-start justify-between gap-5">
 
               <div>
 
-                <h4 className="flex items-center gap-2 font-semibold text-slate-900">
+                <h4 className="flex items-center gap-2 font-semibold text-foreground">
 
                   <Sparkles className="h-5 w-5 text-amber-500" />
 
@@ -330,7 +330,7 @@ export default function CreateProgramDialog({
 
                 </h4>
 
-                <p className="mt-2 text-sm leading-6 text-slate-500">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
 
                   Display this program in featured sections
                   across the website.
@@ -350,19 +350,19 @@ export default function CreateProgramDialog({
 
             </div>
 
-            <div className="border-t border-slate-200 pt-4">
+            <div className="border-t border-border pt-4">
 
               <div className="flex items-start justify-between gap-5">
 
                 <div>
 
-                  <h4 className="font-semibold text-slate-900">
+                  <h4 className="font-semibold text-foreground">
 
                     Publish Immediately
 
                   </h4>
 
-                  <p className="mt-2 text-sm leading-6 text-slate-500">
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
 
                     Make this program available to users
                     immediately after creation.
@@ -390,12 +390,12 @@ export default function CreateProgramDialog({
 
         {/* Footer */}
 
-        <DialogFooter className="border-t border-slate-200 bg-white p-6">
+        <DialogFooter className="border-t border-border bg-card p-6">
 
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="rounded-2xl border border-border bg-card px-6 py-3 font-semibold text-foreground transition hover:bg-secondary"
           >
             Cancel
           </button>

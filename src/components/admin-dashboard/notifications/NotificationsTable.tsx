@@ -40,7 +40,7 @@ export default function NotificationsTable({
   onDelete,
 }: NotificationsTableProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardContent className="p-0">
 

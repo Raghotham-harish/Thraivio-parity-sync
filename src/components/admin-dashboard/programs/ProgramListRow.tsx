@@ -51,7 +51,7 @@ export default function ProgramListRow({
     program.price * program.students;
 
   return (
-    <tr className="border-b border-slate-200 transition hover:bg-slate-50">
+    <tr className="border-b border-border transition hover:bg-secondary">
 
       {/* Program */}
 
@@ -67,7 +67,7 @@ export default function ProgramListRow({
 
           <div>
 
-            <h3 className="font-semibold text-slate-900">
+            <h3 className="font-semibold text-foreground">
 
               {program.title}
 
@@ -75,13 +75,13 @@ export default function ProgramListRow({
 
             <div className="mt-2 flex flex-wrap gap-2">
 
-              <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">
+              <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-[#2563EB]">
 
                 {mentor.category}
 
               </span>
 
-              <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+              <span className="rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold text-[#065F46]">
 
                 Published
 
@@ -109,13 +109,13 @@ export default function ProgramListRow({
 
           <div>
 
-            <h4 className="font-semibold text-slate-900">
+            <h4 className="font-semibold text-foreground">
 
               {mentor.name}
 
             </h4>
 
-            <p className="text-sm text-slate-500">
+            <p className="text-sm text-muted-foreground">
 
               {mentor.company}
 
@@ -133,7 +133,7 @@ export default function ProgramListRow({
 
         <div className="flex items-center gap-2">
 
-          <Clock3 className="h-4 w-4 text-slate-400" />
+          <Clock3 className="h-4 w-4 text-muted-foreground" />
 
           {program.duration}
 
@@ -147,7 +147,7 @@ export default function ProgramListRow({
 
         <div className="flex items-center gap-2">
 
-          <Users className="h-4 w-4 text-slate-400" />
+          <Users className="h-4 w-4 text-muted-foreground" />
 
           {program.students}
 
@@ -161,7 +161,7 @@ export default function ProgramListRow({
 
         <div className="flex items-center gap-2">
 
-          <BookOpen className="h-4 w-4 text-slate-400" />
+          <BookOpen className="h-4 w-4 text-muted-foreground" />
 
           {program.level}
 
@@ -175,7 +175,7 @@ export default function ProgramListRow({
 
         <div className="flex items-center gap-2">
 
-          <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
+          <Star className="h-4 w-4 fill-[#F59E0B] text-[#F59E0B]" />
 
           {mentor.rating}
 
@@ -185,7 +185,7 @@ export default function ProgramListRow({
 
       {/* Price */}
 
-      <td className="px-6 py-5 font-semibold text-indigo-600">
+      <td className="px-6 py-5 font-semibold text-primary">
 
         ₹{program.price.toLocaleString()}
 
@@ -193,7 +193,7 @@ export default function ProgramListRow({
 
       {/* Revenue */}
 
-      <td className="px-6 py-5 font-bold text-emerald-600">
+      <td className="px-6 py-5 font-bold text-[#0F8F65]">
 
         ₹{estimatedRevenue.toLocaleString()}
 
@@ -209,7 +209,7 @@ export default function ProgramListRow({
             onClick={() =>
               onView(mentor, program)
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 transition hover:bg-slate-50"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-foreground transition hover:bg-secondary"
             title="View Program"
           >
             <Eye className="h-4 w-4" />
@@ -220,7 +220,7 @@ export default function ProgramListRow({
             onClick={() =>
               onEdit(mentor, program)
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-200 bg-amber-50 text-amber-700 transition hover:bg-amber-100"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-200 bg-amber-50 text-[#B45309] transition hover:bg-[#FFFBEB]"
             title="Edit Program"
           >
             <Pencil className="h-4 w-4" />
@@ -231,7 +231,7 @@ export default function ProgramListRow({
             onClick={() =>
               onPublish(mentor, program)
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-700 transition hover:bg-emerald-100"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#A7E8CE] bg-[#ECFDF5] text-[#065F46] transition hover:bg-[#ECFDF5]"
             title="Publish Program"
           >
             <UploadCloud className="h-4 w-4" />
@@ -242,7 +242,7 @@ export default function ProgramListRow({
             onClick={() =>
               onDelete(mentor, program)
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-red-200 bg-red-50 text-red-700 transition hover:bg-red-100"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-red-200 bg-red-50 text-[#BA1A1A] transition hover:bg-[#FFDAD6]"
             title="Delete Program"
           >
             <Trash2 className="h-4 w-4" />

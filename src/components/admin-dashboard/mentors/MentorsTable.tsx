@@ -28,11 +28,11 @@ export default function MentorsTable({
   onUnfeature
 }: MentorsTableProps) {
   return (
-    <section className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm">
+    <section className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
 
       {/* Header */}
 
-      <div className="grid grid-cols-[2.5fr_0.8fr_0.9fr_0.9fr_0.9fr_1fr_1.3fr] gap-6 border-b border-slate-200 bg-slate-50 px-6 py-5 text-sm font-semibold text-slate-600">
+      <div className="grid grid-cols-[2.5fr_0.8fr_0.9fr_0.9fr_0.9fr_1fr_1.3fr] gap-6 border-b border-border bg-secondary px-6 py-5 text-sm font-semibold text-muted-foreground">
 
         <span>Mentor</span>
 

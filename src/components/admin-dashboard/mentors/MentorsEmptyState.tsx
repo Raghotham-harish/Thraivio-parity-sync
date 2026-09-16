@@ -11,7 +11,7 @@ export default function MentorsEmptyState({
   onResetFilters,
 }: MentorsEmptyStateProps) {
   return (
-    <section className="rounded-[32px] border border-dashed border-slate-300 bg-white py-20">
+    <section className="rounded-2xl border border-dashed border-border bg-card py-20">
 
       <div className="mx-auto flex max-w-xl flex-col items-center px-6 text-center">
 
@@ -19,19 +19,19 @@ export default function MentorsEmptyState({
 
         <div className="flex h-28 w-28 items-center justify-center rounded-full bg-blue-50">
 
-          <SearchX className="h-14 w-14 text-blue-600" />
+          <SearchX className="h-14 w-14 text-primary" />
 
         </div>
 
         {/* Heading */}
 
-        <h2 className="mt-8 text-3xl font-bold text-slate-900">
+        <h2 className="mt-8 text-3xl font-bold text-foreground">
 
           No Mentors Found
 
         </h2>
 
-        <p className="mt-4 max-w-md text-base leading-7 text-slate-500">
+        <p className="mt-4 max-w-md text-base leading-7 text-muted-foreground">
 
           We couldn't find any mentors matching your
           current search or filters. Try resetting the
@@ -46,7 +46,7 @@ export default function MentorsEmptyState({
           <button
             type="button"
             onClick={onResetFilters}
-            className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="rounded-2xl border border-border bg-card px-6 py-3 font-semibold text-foreground transition hover:bg-secondary"
           >
             Reset Filters
           </button>
@@ -54,7 +54,7 @@ export default function MentorsEmptyState({
           <button
             type="button"
             onClick={onAddMentor}
-            className="inline-flex items-center gap-2 rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+            className="inline-flex items-center gap-2 rounded-2xl bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary/90"
           >
             <UserPlus className="h-5 w-5" />
 

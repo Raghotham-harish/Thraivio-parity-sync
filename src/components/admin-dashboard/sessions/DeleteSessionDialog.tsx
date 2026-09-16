@@ -87,9 +87,9 @@ const DeleteSessionDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
         "
       >
 
@@ -124,7 +124,7 @@ const DeleteSessionDialog = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
 
                 px-4
                 py-2
@@ -174,11 +174,11 @@ const DeleteSessionDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               transition
 
-              hover:bg-white/30
+              hover:bg-card/30
             "
           >
             <X size={20} />
@@ -204,7 +204,7 @@ const DeleteSessionDialog = ({
 
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
               border
               border-red-200
@@ -244,9 +244,9 @@ const DeleteSessionDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -259,7 +259,7 @@ const DeleteSessionDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -280,7 +280,7 @@ const DeleteSessionDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.mentorRole}
@@ -295,7 +295,7 @@ const DeleteSessionDialog = ({
                       gap-2
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
 
@@ -319,9 +319,9 @@ const DeleteSessionDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -334,7 +334,7 @@ const DeleteSessionDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -355,7 +355,7 @@ const DeleteSessionDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.studentEmail}
@@ -439,12 +439,12 @@ const DeleteSessionDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
                 border-red-200
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -463,7 +463,7 @@ const DeleteSessionDialog = ({
 
               <div
                 className="
-                  rounded-3xl
+                  rounded-2xl
 
                   border
                   border-red-200
@@ -497,7 +497,7 @@ const DeleteSessionDialog = ({
                       className="
                         font-semibold
 
-                        text-red-700
+                        text-[#BA1A1A]
                       "
                     >
                       This action cannot be undone
@@ -569,12 +569,12 @@ const DeleteSessionDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -630,7 +630,7 @@ const DeleteSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   p-4
 
@@ -663,14 +663,14 @@ const DeleteSessionDialog = ({
 
                       rounded
 
-                      bg-red-100
+                      bg-[#FFDAD6]
 
                       px-2
                       py-1
 
                       font-bold
 
-                      text-red-700
+                      text-[#BA1A1A]
                     "
                   >
                     DELETE
@@ -696,7 +696,7 @@ const DeleteSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -716,9 +716,9 @@ const DeleteSessionDialog = ({
                 className="
                   mt-8
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-5
                 "
@@ -777,9 +777,9 @@ const DeleteSessionDialog = ({
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -802,7 +802,7 @@ const DeleteSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
@@ -811,7 +811,7 @@ const DeleteSessionDialog = ({
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 Cancel
@@ -891,7 +891,7 @@ function InfoCard({
       className="
         rounded-2xl
 
-        bg-white
+        bg-card
 
         p-5
       "
@@ -906,7 +906,7 @@ function InfoCard({
           mt-3
 
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -944,7 +944,7 @@ function ImpactItem({
 
         rounded-2xl
 
-        bg-slate-50
+        bg-secondary
 
         p-4
       "
@@ -959,7 +959,7 @@ function ImpactItem({
 
           rounded-full
 
-          bg-red-600
+          bg-destructive
         "
       />
 
@@ -968,7 +968,7 @@ function ImpactItem({
           text-sm
           leading-6
 
-          text-slate-700
+          text-foreground
         "
       >
         {text}
@@ -998,7 +998,7 @@ function ChecklistItem({
 
         rounded-xl
 
-        bg-white
+        bg-card
 
         p-3
       "
@@ -1026,8 +1026,8 @@ function ChecklistItem({
 
           ${
             checked
-              ? "bg-green-100 text-green-600"
-              : "bg-slate-100 text-slate-400"
+              ? "bg-[#ECFDF5] text-[#0F8F65]"
+              : "bg-secondary text-muted-foreground"
           }
         `}
       >

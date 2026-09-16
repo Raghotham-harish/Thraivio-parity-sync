@@ -53,9 +53,9 @@ const CertificatesPagination = ({
   return (
     <section
       className="
-        rounded-3xl
+        rounded-2xl
         border
-        bg-white
+        bg-card
         p-6
         shadow-sm
       "

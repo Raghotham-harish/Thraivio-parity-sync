@@ -61,7 +61,7 @@ export default function SupportTableRow({
 
       case "in-progress":
         return (
-          <Badge className="bg-amber-500 hover:bg-amber-500">
+          <Badge className="bg-[#F59E0B] hover:bg-[#F59E0B]">
             <Clock3 className="mr-1 h-3 w-3" />
             In Progress
           </Badge>
@@ -69,7 +69,7 @@ export default function SupportTableRow({
 
       case "resolved":
         return (
-          <Badge className="bg-emerald-500 hover:bg-emerald-500">
+          <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
             <CheckCircle2 className="mr-1 h-3 w-3" />
             Resolved
           </Badge>

@@ -45,7 +45,7 @@ export default function PaymentReceiptDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="sm:max-w-3xl rounded-3xl">
+      <DialogContent className="sm:max-w-3xl rounded-2xl">
 
         <DialogHeader>
 
@@ -66,13 +66,13 @@ export default function PaymentReceiptDialog({
 
         <div className="space-y-6">
 
-          <div className="rounded-3xl border p-8">
+          <div className="rounded-2xl border p-8">
 
             <div className="flex flex-col items-center border-b pb-8 text-center">
 
-              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-green-100 dark:bg-green-900/30">
+              <div className="flex h-20 w-20 items-center justify-center rounded-full bg-[#ECFDF5] dark:bg-green-900/30">
 
-                <CheckCircle2 className="h-10 w-10 text-green-600" />
+                <CheckCircle2 className="h-10 w-10 text-[#0F8F65]" />
 
               </div>
 
@@ -225,7 +225,7 @@ export default function PaymentReceiptDialog({
                     Discount
                   </span>
 
-                  <span className="text-green-600">
+                  <span className="text-[#0F8F65]">
                     - ₹
                     {payment.breakdown.discount.toLocaleString(
                       "en-IN"
@@ -289,7 +289,7 @@ export default function PaymentReceiptDialog({
 
             <div className="mt-10 rounded-2xl border border-green-200 bg-green-50 p-5 dark:border-green-900 dark:bg-green-950/20">
 
-              <h4 className="font-semibold text-green-700 dark:text-green-400">
+              <h4 className="font-semibold text-[#065F46] dark:text-green-400">
                 Payment Confirmation
               </h4>
 

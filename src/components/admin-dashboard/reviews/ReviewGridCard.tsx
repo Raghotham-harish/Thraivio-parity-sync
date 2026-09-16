@@ -43,7 +43,7 @@ export default function ReviewGridCard({
     switch (review.status) {
       case "approved":
         return (
-          <Badge className="bg-emerald-500 hover:bg-emerald-500">
+          <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
             <CheckCircle2 className="mr-1 h-3 w-3" />
             Approved
           </Badge>
@@ -51,7 +51,7 @@ export default function ReviewGridCard({
 
       case "pending":
         return (
-          <Badge className="bg-amber-500 text-white hover:bg-amber-500">
+          <Badge className="bg-[#F59E0B] text-white hover:bg-[#F59E0B]">
             <Clock3 className="mr-1 h-3 w-3" />
             Pending
           </Badge>
@@ -76,7 +76,7 @@ export default function ReviewGridCard({
   };
 
   return (
-    <Card className="rounded-3xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <Card className="rounded-2xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
 
       <CardContent className="space-y-6 p-6">
 

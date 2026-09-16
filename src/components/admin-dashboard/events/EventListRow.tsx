@@ -29,19 +29,19 @@ const statusClasses: Record<
   string
 > = {
   draft:
-    "bg-slate-100 text-slate-700",
+    "bg-secondary text-foreground",
 
   published:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   live:
-    "bg-red-100 text-red-600",
+    "bg-[#FFDAD6] text-red-600",
 
   upcoming:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   completed:
-    "bg-emerald-100 text-emerald-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   cancelled:
     "bg-rose-100 text-rose-700",
@@ -56,7 +56,7 @@ const EventListRow = ({
   onDelete,
 }: EventListRowProps) => {
   return (
-    <tr className="border-b transition hover:bg-slate-50">
+    <tr className="border-b transition hover:bg-secondary">
 
       {/* Event */}
 
@@ -117,12 +117,12 @@ const EventListRow = ({
                 <span
                   className="
                     rounded-full
-                    bg-emerald-100
+                    bg-[#ECFDF5]
                     px-3
                     py-1
                     text-xs
                     font-semibold
-                    text-emerald-700
+                    text-[#065F46]
                   "
                 >
                   Published
@@ -146,15 +146,15 @@ const EventListRow = ({
 
             <div className="mt-4 flex flex-wrap gap-2">
 
-              <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-medium">
+              <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium">
                 {event.category}
               </span>
 
-              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-[#2563EB]">
                 {event.type}
               </span>
 
-              <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-medium text-indigo-700">
+              <span className="rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-medium text-[#2563EB]">
                 {event.mode}
               </span>
 
@@ -197,7 +197,7 @@ const EventListRow = ({
                 className="
                   h-4
                   w-4
-                  text-blue-600
+                  text-primary
                 "
               />
 
@@ -235,7 +235,7 @@ const EventListRow = ({
               className="
                 h-5
                 w-5
-                text-blue-600
+                text-primary
               "
             />
 
@@ -263,7 +263,7 @@ const EventListRow = ({
               className="
                 h-5
                 w-5
-                text-indigo-600
+                text-primary
               "
             />
 
@@ -336,7 +336,7 @@ const EventListRow = ({
 
           </div>
 
-          <div className="mt-3 h-2 overflow-hidden rounded-full bg-slate-100">
+          <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
 
             <div
               className="
@@ -384,7 +384,7 @@ const EventListRow = ({
               Gross Revenue
             </p>
 
-            <h4 className="mt-1 text-xl font-bold text-emerald-700">
+            <h4 className="mt-1 text-xl font-bold text-[#065F46]">
               ${event.revenue.grossRevenue.toLocaleString()}
             </h4>
 
@@ -432,7 +432,7 @@ const EventListRow = ({
             className="
               rounded-xl
               border
-              bg-slate-50
+              bg-secondary
               p-3
             "
           >
@@ -445,7 +445,7 @@ const EventListRow = ({
               {event.analytics.attendees}
             </h5>
 
-            <p className="text-xs text-emerald-600">
+            <p className="text-xs text-[#0F8F65]">
               {event.analytics.attendanceRate}% Present
             </p>
 
@@ -455,7 +455,7 @@ const EventListRow = ({
             className="
               rounded-xl
               border
-              bg-slate-50
+              bg-secondary
               p-3
             "
           >
@@ -468,7 +468,7 @@ const EventListRow = ({
               {event.certificate.issued}
             </h5>
 
-            <p className="text-xs text-blue-600">
+            <p className="text-xs text-primary">
               Issued
             </p>
 
@@ -528,7 +528,7 @@ const EventListRow = ({
             className="
               rounded-xl
               border
-              bg-white
+              bg-card
               px-3
               py-2
               text-xs
@@ -536,7 +536,7 @@ const EventListRow = ({
               transition-all
               hover:border-blue-500
               hover:bg-blue-50
-              hover:text-blue-700
+              hover:text-[#2563EB]
             "
           >
             👁 View
@@ -547,7 +547,7 @@ const EventListRow = ({
             className="
               rounded-xl
               border
-              bg-white
+              bg-card
               px-3
               py-2
               text-xs
@@ -555,7 +555,7 @@ const EventListRow = ({
               transition-all
               hover:border-amber-500
               hover:bg-amber-50
-              hover:text-amber-700
+              hover:text-[#B45309]
             "
           >
             ✏ Edit
@@ -586,14 +586,14 @@ const EventListRow = ({
               onClick={() => onPublish(event)}
               className="
                 rounded-xl
-                bg-emerald-600
+                bg-[#10B981]
                 px-3
                 py-2
                 text-xs
                 font-semibold
                 text-white
                 transition-all
-                hover:bg-emerald-700
+                hover:bg-[#0da271]
               "
             >
               Publish
@@ -625,7 +625,7 @@ const EventListRow = ({
             mt-5
             rounded-xl
             border
-            bg-slate-50
+            bg-secondary
             p-3
             text-xs
           "

@@ -31,19 +31,19 @@ interface SessionDetailsDrawerProps {
 
 const statusStyles = {
   scheduled:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   live:
-    "bg-emerald-100 text-emerald-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   completed:
-    "bg-violet-100 text-violet-700",
+    "bg-secondary text-muted-foreground",
 
   cancelled:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 
   missed:
-    "bg-slate-200 text-slate-700",
+    "bg-secondary text-foreground",
 };
 
 const SessionDetailsDrawer = ({
@@ -86,7 +86,7 @@ const SessionDetailsDrawer = ({
 
           overflow-hidden
 
-          bg-white
+          bg-card
 
           shadow-2xl
         "
@@ -129,7 +129,7 @@ const SessionDetailsDrawer = ({
                   text-xs
                   font-semibold
 
-                  bg-white
+                  bg-card
 
                   ${
                     statusStyles[
@@ -178,11 +178,11 @@ const SessionDetailsDrawer = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
 
                 transition
 
-                hover:bg-white/30
+                hover:bg-card/30
               "
             >
               <X size={20} />
@@ -208,12 +208,12 @@ const SessionDetailsDrawer = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -230,7 +230,7 @@ const SessionDetailsDrawer = ({
             >
               <UserRound
                 size={20}
-                className="text-indigo-600"
+                className="text-primary"
               />
 
               <h3
@@ -259,7 +259,7 @@ const SessionDetailsDrawer = ({
                   h-20
                   w-20
 
-                  rounded-3xl
+                  rounded-2xl
 
                   object-cover
                 "
@@ -280,7 +280,7 @@ const SessionDetailsDrawer = ({
                   className="
                     mt-1
 
-                    text-slate-600
+                    text-muted-foreground
                   "
                 >
                   {session.mentorRole}
@@ -292,7 +292,7 @@ const SessionDetailsDrawer = ({
 
                     text-sm
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   {session.mentorCompany}
@@ -306,7 +306,7 @@ const SessionDetailsDrawer = ({
 
                     text-sm
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   {session.mentorEmail}
@@ -322,12 +322,12 @@ const SessionDetailsDrawer = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -344,7 +344,7 @@ const SessionDetailsDrawer = ({
             >
               <GraduationCap
                 size={20}
-                className="text-emerald-600"
+                className="text-[#0F8F65]"
               />
 
               <h3
@@ -373,7 +373,7 @@ const SessionDetailsDrawer = ({
                   h-20
                   w-20
 
-                  rounded-3xl
+                  rounded-2xl
 
                   object-cover
                 "
@@ -398,7 +398,7 @@ const SessionDetailsDrawer = ({
 
                     text-sm
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   {session.studentEmail}
@@ -410,7 +410,7 @@ const SessionDetailsDrawer = ({
 
                     text-sm
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Student ID :
@@ -428,12 +428,12 @@ const SessionDetailsDrawer = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-slate-50
+              bg-secondary
 
               p-6
             "
@@ -450,7 +450,7 @@ const SessionDetailsDrawer = ({
             >
               <BadgeCheck
                 size={20}
-                className="text-indigo-600"
+                className="text-primary"
               />
 
               <h3
@@ -476,7 +476,7 @@ const SessionDetailsDrawer = ({
                 className="
                   rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-4
                 "
@@ -485,7 +485,7 @@ const SessionDetailsDrawer = ({
                   className="
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Program
@@ -506,7 +506,7 @@ const SessionDetailsDrawer = ({
                 className="
                   rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-4
                 "
@@ -515,7 +515,7 @@ const SessionDetailsDrawer = ({
                   className="
                     text-xs
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Session Type
@@ -538,12 +538,12 @@ const SessionDetailsDrawer = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -560,7 +560,7 @@ const SessionDetailsDrawer = ({
             >
               <CalendarDays
                 size={20}
-                className="text-indigo-600"
+                className="text-primary"
               />
 
               <h3
@@ -586,12 +586,12 @@ const SessionDetailsDrawer = ({
                 className="
                   rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-4
                 "
               >
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted-foreground">
                   Date
                 </p>
 
@@ -604,12 +604,12 @@ const SessionDetailsDrawer = ({
                 className="
                   rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-4
                 "
               >
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted-foreground">
                   Time
                 </p>
 
@@ -622,12 +622,12 @@ const SessionDetailsDrawer = ({
                 className="
                   rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-4
                 "
               >
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted-foreground">
                   Duration
                 </p>
 
@@ -640,12 +640,12 @@ const SessionDetailsDrawer = ({
                 className="
                   rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-4
                 "
               >
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted-foreground">
                   Platform
                 </p>
 
@@ -658,12 +658,12 @@ const SessionDetailsDrawer = ({
                 className="
                   rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-4
                 "
               >
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted-foreground">
                   Timezone
                 </p>
 
@@ -676,12 +676,12 @@ const SessionDetailsDrawer = ({
                 className="
                   rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-4
                 "
               >
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-muted-foreground">
                   Booking Ref
                 </p>
 
@@ -708,12 +708,12 @@ const SessionDetailsDrawer = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -736,7 +736,7 @@ const SessionDetailsDrawer = ({
                     justify-between
                   "
                 >
-                  <span className="text-slate-500">
+                  <span className="text-muted-foreground">
                     Amount
                   </span>
 
@@ -745,7 +745,7 @@ const SessionDetailsDrawer = ({
                       text-2xl
                       font-bold
 
-                      text-green-600
+                      text-[#0F8F65]
                     "
                   >
                     ₹{session.amount}
@@ -759,7 +759,7 @@ const SessionDetailsDrawer = ({
                     justify-between
                   "
                 >
-                  <span className="text-slate-500">
+                  <span className="text-muted-foreground">
                     Payment Status
                   </span>
 
@@ -767,7 +767,7 @@ const SessionDetailsDrawer = ({
                     className="
                       rounded-full
 
-                      bg-green-100
+                      bg-[#ECFDF5]
 
                       px-4
                       py-2
@@ -775,7 +775,7 @@ const SessionDetailsDrawer = ({
                       text-sm
                       font-semibold
 
-                      text-green-700
+                      text-[#065F46]
                     "
                   >
                     {session.paymentStatus}
@@ -789,7 +789,7 @@ const SessionDetailsDrawer = ({
                     justify-between
                   "
                 >
-                  <span className="text-slate-500">
+                  <span className="text-muted-foreground">
                     Refund Status
                   </span>
 
@@ -797,7 +797,7 @@ const SessionDetailsDrawer = ({
                     className="
                       rounded-full
 
-                      bg-amber-100
+                      bg-[#FFFBEB]
 
                       px-4
                       py-2
@@ -805,7 +805,7 @@ const SessionDetailsDrawer = ({
                       text-sm
                       font-semibold
 
-                      text-amber-700
+                      text-[#B45309]
                     "
                   >
                     {session.refundStatus}
@@ -819,7 +819,7 @@ const SessionDetailsDrawer = ({
                     justify-between
                   "
                 >
-                  <span className="text-slate-500">
+                  <span className="text-muted-foreground">
                     Refund Amount
                   </span>
 
@@ -839,12 +839,12 @@ const SessionDetailsDrawer = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -867,7 +867,7 @@ const SessionDetailsDrawer = ({
                     justify-between
                   "
                 >
-                  <span className="text-slate-500">
+                  <span className="text-muted-foreground">
                     Attendance
                   </span>
 
@@ -875,7 +875,7 @@ const SessionDetailsDrawer = ({
                     className="
                       rounded-full
 
-                      bg-blue-100
+                      bg-[#EFF6FF]
 
                       px-4
                       py-2
@@ -883,7 +883,7 @@ const SessionDetailsDrawer = ({
                       text-sm
                       font-semibold
 
-                      text-blue-700
+                      text-[#2563EB]
                     "
                   >
                     {session.attendance}
@@ -897,7 +897,7 @@ const SessionDetailsDrawer = ({
                     justify-between
                   "
                 >
-                  <span className="text-slate-500">
+                  <span className="text-muted-foreground">
                     Certificate
                   </span>
 
@@ -913,8 +913,8 @@ const SessionDetailsDrawer = ({
 
                       ${
                         session.certificateIssued
-                          ? "bg-green-100 text-green-700"
-                          : "bg-slate-200 text-slate-700"
+                          ? "bg-[#ECFDF5] text-[#065F46]"
+                          : "bg-secondary text-foreground"
                       }
                     `}
                   >
@@ -930,7 +930,7 @@ const SessionDetailsDrawer = ({
                       className="
                         rounded-2xl
 
-                        bg-slate-50
+                        bg-secondary
 
                         p-4
                       "
@@ -939,7 +939,7 @@ const SessionDetailsDrawer = ({
                         className="
                           text-xs
 
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         Certificate ID
@@ -965,12 +965,12 @@ const SessionDetailsDrawer = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -987,7 +987,7 @@ const SessionDetailsDrawer = ({
             >
               <MonitorPlay
                 size={20}
-                className="text-indigo-600"
+                className="text-primary"
               />
 
               <h3
@@ -1004,7 +1004,7 @@ const SessionDetailsDrawer = ({
               className="
                 rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-5
               "
@@ -1013,7 +1013,7 @@ const SessionDetailsDrawer = ({
                 className="
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Meeting Link
@@ -1027,7 +1027,7 @@ const SessionDetailsDrawer = ({
 
                   font-medium
 
-                  text-blue-600
+                  text-primary
                 "
               >
                 {session.meetingLink}
@@ -1039,12 +1039,12 @@ const SessionDetailsDrawer = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -1064,7 +1064,7 @@ const SessionDetailsDrawer = ({
 
                 rounded-2xl
 
-                bg-slate-50
+                bg-secondary
 
                 p-5
               "
@@ -1073,7 +1073,7 @@ const SessionDetailsDrawer = ({
                 className="
                   leading-7
 
-                  text-slate-600
+                  text-muted-foreground
                 "
               >
                 {session.adminNotes ||
@@ -1085,12 +1085,12 @@ const SessionDetailsDrawer = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-slate-50
+              bg-secondary
 
               p-6
             "
@@ -1115,7 +1115,7 @@ const SessionDetailsDrawer = ({
 
                   rounded-2xl
 
-                  bg-blue-600
+                  bg-primary
 
                   py-4
 
@@ -1125,7 +1125,7 @@ const SessionDetailsDrawer = ({
 
                   transition-all
 
-                  hover:bg-blue-700
+                  hover:bg-primary/90
                 "
               >
                 Edit Session
@@ -1144,7 +1144,7 @@ const SessionDetailsDrawer = ({
 
                   rounded-2xl
 
-                  bg-emerald-600
+                  bg-[#10B981]
 
                   py-4
 
@@ -1154,9 +1154,9 @@ const SessionDetailsDrawer = ({
 
                   transition-all
 
-                  hover:bg-emerald-700
+                  hover:bg-[#0da271]
 
-                  disabled:bg-slate-300
+                  disabled:bg-muted
                   disabled:cursor-not-allowed
                 "
               >
@@ -1176,7 +1176,7 @@ const SessionDetailsDrawer = ({
 
                   rounded-2xl
 
-                  bg-amber-500
+                  bg-[#F59E0B]
 
                   py-4
 
@@ -1186,9 +1186,9 @@ const SessionDetailsDrawer = ({
 
                   transition-all
 
-                  hover:bg-amber-600
+                  hover:bg-[#D97706]
 
-                  disabled:bg-slate-300
+                  disabled:bg-muted
                   disabled:cursor-not-allowed
                 "
               >
@@ -1206,19 +1206,19 @@ const SessionDetailsDrawer = ({
                 rounded-2xl
 
                 border
-                border-slate-300
+                border-border
 
-                bg-white
+                bg-card
 
                 py-4
 
                 font-semibold
 
-                text-slate-700
+                text-foreground
 
                 transition-all
 
-                hover:bg-slate-100
+                hover:bg-secondary
               "
             >
               Close Drawer

@@ -32,7 +32,7 @@ export default function RecentTransactionsCard({
     switch (status) {
       case "paid":
         return (
-          <Badge className="bg-emerald-500 hover:bg-emerald-500">
+          <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
             <CheckCircle2 className="mr-1 h-3 w-3" />
             Paid
           </Badge>
@@ -42,7 +42,7 @@ export default function RecentTransactionsCard({
         return (
           <Badge
             variant="secondary"
-            className="bg-amber-500 text-white hover:bg-amber-500"
+            className="bg-[#F59E0B] text-white hover:bg-[#F59E0B]"
           >
             <Clock3 className="mr-1 h-3 w-3" />
             Pending
@@ -71,7 +71,7 @@ export default function RecentTransactionsCard({
   };
 
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -89,9 +89,9 @@ export default function RecentTransactionsCard({
 
           </div>
 
-          <div className="rounded-2xl bg-blue-500/10 p-3">
+          <div className="rounded-2xl bg-[#EFF6FF] p-3">
 
-            <CreditCard className="h-6 w-6 text-blue-600" />
+            <CreditCard className="h-6 w-6 text-primary" />
 
           </div>
 
@@ -133,7 +133,7 @@ export default function RecentTransactionsCard({
 
                 {getStatusBadge(transaction.status)}
 
-                <div className="text-lg font-bold text-emerald-600">
+                <div className="text-lg font-bold text-[#0F8F65]">
                   ₹
                   {transaction.amount.toLocaleString("en-IN")}
                 </div>

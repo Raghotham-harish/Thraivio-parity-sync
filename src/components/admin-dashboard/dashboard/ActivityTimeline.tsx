@@ -63,7 +63,7 @@ const ActivityTimeline = ({
               text-sm
               font-medium
 
-              text-blue-700
+              text-[#2563EB]
             "
           >
             Activity Timeline
@@ -89,7 +89,7 @@ const ActivityTimeline = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Monitor everything happening
@@ -104,9 +104,9 @@ const ActivityTimeline = ({
             rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             px-6
             py-3
@@ -115,7 +115,7 @@ const ActivityTimeline = ({
 
             transition
 
-            hover:bg-slate-50
+            hover:bg-secondary
           "
         >
           View Activity Log
@@ -129,12 +129,12 @@ const ActivityTimeline = ({
         className="
           mt-8
 
-          rounded-[30px]
+          rounded-2xl
 
           border
-          border-slate-200
+          border-border
 
-          bg-white
+          bg-card
 
           p-8
         "
@@ -179,7 +179,7 @@ const ActivityTimeline = ({
 
                       bg-blue-50
 
-                      text-blue-600
+                      text-primary
 
                       shadow-sm
                     "
@@ -200,7 +200,7 @@ const ActivityTimeline = ({
                         h-20
                         w-px
 
-                        bg-slate-200
+                        bg-secondary
                       "
                     />
                   )}
@@ -230,7 +230,7 @@ const ActivityTimeline = ({
                           text-lg
                           font-semibold
 
-                          text-slate-900
+                          text-foreground
                         "
                       >
                         {activity.title}
@@ -242,7 +242,7 @@ const ActivityTimeline = ({
 
                           leading-7
 
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         {activity.description}
@@ -276,7 +276,7 @@ const ActivityTimeline = ({
                           text-sm
                           font-medium
 
-                          text-blue-700
+                          text-[#2563EB]
                         "
                       >
                         {activity.createdAt}
@@ -292,7 +292,7 @@ const ActivityTimeline = ({
 
                           rounded-full
 
-                          bg-emerald-100
+                          bg-[#ECFDF5]
 
                           px-3
                           py-1.5
@@ -300,7 +300,7 @@ const ActivityTimeline = ({
                           text-xs
                           font-semibold
 
-                          text-emerald-700
+                          text-[#065F46]
                         "
                       >
                         <span
@@ -310,7 +310,7 @@ const ActivityTimeline = ({
 
                             rounded-full
 
-                            bg-emerald-500
+                            bg-[#ECFDF5]0
                           "
                         />
 
@@ -342,7 +342,7 @@ const ActivityTimeline = ({
             gap-4
 
             border-t
-            border-slate-200
+            border-border
 
             pt-8
 
@@ -366,7 +366,7 @@ const ActivityTimeline = ({
               className="
                 mt-2
 
-                text-slate-500
+                text-muted-foreground
               "
             >
               All platform activities will
@@ -381,7 +381,7 @@ const ActivityTimeline = ({
             className="
               rounded-2xl
 
-              bg-blue-600
+              bg-primary
 
               px-6
               py-3
@@ -392,7 +392,7 @@ const ActivityTimeline = ({
 
               transition
 
-              hover:bg-blue-700
+              hover:bg-primary/90
             "
           >
             Open Activity Center

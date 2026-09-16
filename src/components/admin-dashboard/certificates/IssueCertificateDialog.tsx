@@ -59,7 +59,7 @@ const IssueCertificateDialog = ({
           max-h-[95vh]
           max-w-7xl
           overflow-y-auto
-          rounded-[32px]
+          rounded-2xl
           p-0
         "
       >
@@ -87,7 +87,7 @@ const IssueCertificateDialog = ({
               h-72
               w-72
               rounded-full
-              bg-white/10
+              bg-card/10
               blur-3xl
             "
           />
@@ -104,7 +104,7 @@ const IssueCertificateDialog = ({
                 items-center
                 gap-2
                 rounded-full
-                bg-white/15
+                bg-card/15
                 px-4
                 py-2
                 text-sm
@@ -158,7 +158,7 @@ const IssueCertificateDialog = ({
               <span
                 className="
                   rounded-full
-                  bg-white/15
+                  bg-card/15
                   px-4
                   py-2
                   text-sm
@@ -170,7 +170,7 @@ const IssueCertificateDialog = ({
               <span
                 className="
                   rounded-full
-                  bg-white/15
+                  bg-card/15
                   px-4
                   py-2
                   text-sm
@@ -182,7 +182,7 @@ const IssueCertificateDialog = ({
               <span
                 className="
                   rounded-full
-                  bg-white/15
+                  bg-card/15
                   px-4
                   py-2
                   text-sm

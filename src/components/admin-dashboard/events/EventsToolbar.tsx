@@ -120,7 +120,7 @@ const EventsToolbar = ({
       className="
         rounded-2xl
         border
-        bg-white
+        bg-card
         p-6
         shadow-sm
       "

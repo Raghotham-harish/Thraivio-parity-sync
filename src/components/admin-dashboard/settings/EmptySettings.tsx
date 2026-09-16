@@ -10,7 +10,7 @@ export default function EmptySettings({
   onReset,
 }: EmptySettingsProps) {
   return (
-    <section className="flex min-h-[420px] items-center justify-center rounded-3xl border border-dashed bg-background p-10">
+    <section className="flex min-h-[420px] items-center justify-center rounded-2xl border border-dashed bg-background p-10">
 
       <div className="max-w-md text-center">
 

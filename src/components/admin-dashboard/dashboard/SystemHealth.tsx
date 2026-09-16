@@ -62,7 +62,7 @@ const SystemHealth = ({
 
               rounded-full
 
-              bg-emerald-50
+              bg-[#ECFDF5]
 
               px-4
               py-2
@@ -70,7 +70,7 @@ const SystemHealth = ({
               text-sm
               font-medium
 
-              text-emerald-700
+              text-[#065F46]
             "
           >
             <Activity size={16} />
@@ -98,7 +98,7 @@ const SystemHealth = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Monitor infrastructure,
@@ -114,9 +114,9 @@ const SystemHealth = ({
             rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             px-6
             py-3
@@ -125,7 +125,7 @@ const SystemHealth = ({
 
             transition
 
-            hover:bg-slate-50
+            hover:bg-secondary
           "
         >
           Infrastructure Report
@@ -164,12 +164,12 @@ const SystemHealth = ({
             <div
               key={system.id}
               className="
-                rounded-[30px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-7
 
@@ -199,11 +199,11 @@ const SystemHealth = ({
                     items-center
                     justify-center
 
-                    rounded-3xl
+                    rounded-2xl
 
                     ${
                       healthy
-                        ? "bg-emerald-50"
+                        ? "bg-[#ECFDF5]"
                         : "bg-amber-50"
                     }
                   `}
@@ -212,7 +212,7 @@ const SystemHealth = ({
                     size={30}
                     className={
                       healthy
-                        ? "text-emerald-600"
+                        ? "text-[#0F8F65]"
                         : "text-amber-600"
                     }
                   />
@@ -236,8 +236,8 @@ const SystemHealth = ({
 
                     ${
                       healthy
-                        ? "bg-emerald-100 text-emerald-700"
-                        : "bg-amber-100 text-amber-700"
+                        ? "bg-[#ECFDF5] text-[#065F46]"
+                        : "bg-[#FFFBEB] text-[#B45309]"
                     }
                   `}
                 >
@@ -258,7 +258,7 @@ const SystemHealth = ({
                   text-2xl
                   font-bold
 
-                  text-slate-900
+                  text-foreground
                 "
               >
                 {system.title}
@@ -271,7 +271,7 @@ const SystemHealth = ({
                   text-4xl
                   font-bold
 
-                  text-slate-900
+                  text-foreground
                 "
               >
                 {system.value}
@@ -283,7 +283,7 @@ const SystemHealth = ({
 
                   leading-7
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Live infrastructure
@@ -304,7 +304,7 @@ const SystemHealth = ({
                     text-sm
                   "
                 >
-                  <span className="text-slate-500">
+                  <span className="text-muted-foreground">
                     Health Score
                   </span>
 
@@ -323,7 +323,7 @@ const SystemHealth = ({
 
                     rounded-full
 
-                    bg-slate-100
+                    bg-secondary
                   "
                 >
                   <div
@@ -334,8 +334,8 @@ const SystemHealth = ({
 
                       ${
                         healthy
-                          ? "bg-emerald-500"
-                          : "bg-amber-500"
+                          ? "bg-[#ECFDF5]0"
+                          : "bg-[#F59E0B]"
                       }
                     `}
                     style={{
@@ -365,7 +365,7 @@ const SystemHealth = ({
                     className="
                       text-xs
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     Last Checked
@@ -386,7 +386,7 @@ const SystemHealth = ({
                 <ArrowRight
                   size={20}
                   className="
-                    text-slate-400
+                    text-muted-foreground
 
                     transition-all
 
@@ -412,7 +412,7 @@ const SystemHealth = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
           bg-gradient-to-r
 
@@ -447,7 +447,7 @@ const SystemHealth = ({
 
                 rounded-full
 
-                bg-white/10
+                bg-card/10
 
                 px-4
                 py-2
@@ -500,9 +500,9 @@ const SystemHealth = ({
           >
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-6
               "
@@ -518,9 +518,9 @@ const SystemHealth = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-6
               "
@@ -536,9 +536,9 @@ const SystemHealth = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-6
               "
@@ -554,9 +554,9 @@ const SystemHealth = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
-                bg-white/10
+                bg-card/10
 
                 p-6
               "

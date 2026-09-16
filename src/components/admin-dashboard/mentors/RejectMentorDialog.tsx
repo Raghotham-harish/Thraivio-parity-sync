@@ -61,7 +61,7 @@ export default function RejectMentorDialog({
           max-w-2xl
           flex-col
           overflow-hidden
-          rounded-[32px]
+          rounded-2xl
           p-0
         "
       >
@@ -71,7 +71,7 @@ export default function RejectMentorDialog({
 
           <div className="flex items-center gap-5">
 
-            <div className="rounded-3xl bg-white/20 p-4">
+            <div className="rounded-2xl bg-card/20 p-4">
 
               <ShieldX className="h-10 w-10" />
 
@@ -107,7 +107,7 @@ export default function RejectMentorDialog({
         <div className="flex-1 space-y-8 overflow-y-auto px-8 py-8">
                       {/* Mentor */}
 
-          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <div className="flex items-center gap-5 rounded-2xl border border-border bg-secondary p-5">
 
             <img
               src={mentor.avatar}
@@ -117,13 +117,13 @@ export default function RejectMentorDialog({
 
             <div>
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 {mentor.name}
 
               </h3>
 
-              <p className="mt-2 text-slate-500">
+              <p className="mt-2 text-muted-foreground">
 
                 {mentor.headline}
 
@@ -137,7 +137,7 @@ export default function RejectMentorDialog({
 
           <div>
 
-            <label className="mb-3 block text-sm font-semibold text-slate-700">
+            <label className="mb-3 block text-sm font-semibold text-foreground">
 
               Rejection Reason
 
@@ -148,7 +148,7 @@ export default function RejectMentorDialog({
               onChange={(e) =>
                 setReason(e.target.value)
               }
-              className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none focus:border-red-500"
+              className="h-12 w-full rounded-2xl border border-border px-4 outline-none focus:border-red-500"
             >
               <option value="">
                 Select reason
@@ -180,7 +180,7 @@ export default function RejectMentorDialog({
 
           {/* Warning */}
 
-          <div className="rounded-3xl border border-red-200 bg-red-50 p-6">
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
 
             <div className="flex gap-3">
 
@@ -194,7 +194,7 @@ export default function RejectMentorDialog({
 
                 </h3>
 
-                <p className="mt-2 text-sm leading-7 text-red-700">
+                <p className="mt-2 text-sm leading-7 text-[#BA1A1A]">
 
                   Rejecting this mentor will prevent them
                   from publishing programs, accepting
@@ -212,7 +212,7 @@ export default function RejectMentorDialog({
 
           <div>
 
-            <label className="mb-3 block text-sm font-semibold text-slate-700">
+            <label className="mb-3 block text-sm font-semibold text-foreground">
 
               Admin Notes
 
@@ -225,14 +225,14 @@ export default function RejectMentorDialog({
                 setNotes(e.target.value)
               }
               placeholder="Write detailed feedback for the mentor..."
-              className="w-full rounded-3xl border border-slate-200 bg-white p-4 outline-none transition-all focus:border-red-500"
+              className="w-full rounded-2xl border border-border bg-card p-4 outline-none transition-all focus:border-red-500"
             />
 
           </div>
 
           {/* Notify Mentor */}
 
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+          <div className="rounded-2xl border border-border bg-secondary p-6">
 
             <label className="flex cursor-pointer items-start justify-between gap-5">
 
@@ -242,7 +242,7 @@ export default function RejectMentorDialog({
 
                   <Bell className="h-5 w-5 text-red-600" />
 
-                  <h4 className="font-semibold text-slate-900">
+                  <h4 className="font-semibold text-foreground">
 
                     Notify Mentor
 
@@ -250,7 +250,7 @@ export default function RejectMentorDialog({
 
                 </div>
 
-                <p className="mt-2 text-sm leading-6 text-slate-500">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
 
                   Send an email explaining why the application
                   was rejected and what improvements are required
@@ -266,7 +266,7 @@ export default function RejectMentorDialog({
                 onChange={(e) =>
                   setNotify(e.target.checked)
                 }
-                className="mt-1 h-5 w-5 rounded border-slate-300 text-red-600 focus:ring-red-500"
+                className="mt-1 h-5 w-5 rounded border-border text-red-600 focus:ring-red-500"
               />
 
             </label>
@@ -275,7 +275,7 @@ export default function RejectMentorDialog({
 
           {/* Rejection Summary */}
 
-          <div className="rounded-3xl border border-red-200 bg-red-50 p-6">
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
 
             <h4 className="font-semibold text-red-800">
 
@@ -283,7 +283,7 @@ export default function RejectMentorDialog({
 
             </h4>
 
-            <ul className="mt-4 space-y-2 text-sm leading-7 text-red-700">
+            <ul className="mt-4 space-y-2 text-sm leading-7 text-[#BA1A1A]">
 
               <li>
                 • Mentor profile will remain hidden from users.
@@ -314,8 +314,8 @@ export default function RejectMentorDialog({
             sticky
             bottom-0
             border-t
-            border-slate-200
-            bg-white
+            border-border
+            bg-card
             px-8
             py-6
           "
@@ -324,7 +324,7 @@ export default function RejectMentorDialog({
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="h-12 rounded-2xl border border-slate-200 bg-white px-6 font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="h-12 rounded-2xl border border-border bg-card px-6 font-semibold text-foreground transition hover:bg-secondary"
           >
             Cancel
           </button>
@@ -339,7 +339,7 @@ export default function RejectMentorDialog({
                 notify
               )
             }
-            className="h-12 rounded-2xl bg-red-600 px-6 font-semibold text-white transition hover:bg-red-700"
+            className="h-12 rounded-2xl bg-destructive px-6 font-semibold text-white transition hover:bg-destructive/90"
           >
 
             <ShieldX className="mr-2 inline h-5 w-5" />

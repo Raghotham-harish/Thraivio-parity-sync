@@ -39,7 +39,7 @@ export default function DeletePaymentDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="sm:max-w-lg rounded-3xl">
+      <DialogContent className="sm:max-w-lg rounded-2xl">
 
         <DialogHeader>
 

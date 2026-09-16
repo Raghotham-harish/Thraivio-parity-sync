@@ -45,21 +45,21 @@ interface CertificateDetailsDrawerProps {
 
 const statusStyles = {
   issued:
-    "bg-green-100 text-green-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   pending:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   revoked:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 
   expired:
-    "bg-slate-200 text-slate-700",
+    "bg-secondary text-foreground",
 };
 
 const verificationStyles = {
   verified:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   unverified:
     "bg-orange-100 text-orange-700",
@@ -122,7 +122,7 @@ const CertificateDetailsDrawer = ({
 
               rounded-full
 
-              bg-white/10
+              bg-card/10
 
               blur-3xl
             "
@@ -142,7 +142,7 @@ const CertificateDetailsDrawer = ({
 
                     rounded-full
 
-                    bg-white/10
+                    bg-card/10
 
                     px-4
                     py-2
@@ -229,7 +229,7 @@ const CertificateDetailsDrawer = ({
                     className="
                       rounded-full
 
-                      bg-white/15
+                      bg-card/15
 
                       px-3
                       py-1
@@ -269,9 +269,9 @@ const CertificateDetailsDrawer = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
               "
@@ -284,7 +284,7 @@ const CertificateDetailsDrawer = ({
                   className="
                     h-20
                     w-20
-                    rounded-3xl
+                    rounded-2xl
                     object-cover
                     border
                   "
@@ -292,7 +292,7 @@ const CertificateDetailsDrawer = ({
 
                 <div className="flex-1">
 
-                  <div className="inline-flex items-center gap-2 rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-semibold text-[#2563EB]">
 
                     <User2 className="h-3.5 w-3.5" />
 
@@ -324,9 +324,9 @@ const CertificateDetailsDrawer = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
               "
@@ -339,7 +339,7 @@ const CertificateDetailsDrawer = ({
                   className="
                     h-20
                     w-20
-                    rounded-3xl
+                    rounded-2xl
                     object-cover
                     border
                   "
@@ -347,7 +347,7 @@ const CertificateDetailsDrawer = ({
 
                 <div className="flex-1">
 
-                  <div className="inline-flex items-center gap-2 rounded-full bg-green-100 px-3 py-1 text-xs font-semibold text-green-700">
+                  <div className="inline-flex items-center gap-2 rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold text-[#065F46]">
 
                     <BadgeCheck className="h-3.5 w-3.5" />
 
@@ -383,9 +383,9 @@ const CertificateDetailsDrawer = ({
 
           <section
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
               shadow-sm
             "
@@ -460,7 +460,7 @@ const CertificateDetailsDrawer = ({
 
                 <div className="mt-2 flex items-center gap-2">
 
-                  <CalendarDays className="h-4 w-4 text-green-600" />
+                  <CalendarDays className="h-4 w-4 text-[#0F8F65]" />
 
                   <span className="font-semibold">
                     {certificate.completionDate}
@@ -488,7 +488,7 @@ const CertificateDetailsDrawer = ({
                   Score
                 </p>
 
-                <p className="mt-2 text-lg font-bold text-green-600">
+                <p className="mt-2 text-lg font-bold text-[#0F8F65]">
                   {certificate.score}
                 </p>
 
@@ -501,9 +501,9 @@ const CertificateDetailsDrawer = ({
 
           <section
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
               shadow-sm
             "
@@ -522,7 +522,7 @@ const CertificateDetailsDrawer = ({
 
               </div>
 
-              <BadgeCheck className="h-8 w-8 text-green-600" />
+              <BadgeCheck className="h-8 w-8 text-[#0F8F65]" />
 
             </div>
 
@@ -538,7 +538,7 @@ const CertificateDetailsDrawer = ({
                     py-2
                     text-sm
                     font-medium
-                    text-blue-700
+                    text-[#2563EB]
                   "
                 >
                   {skill}
@@ -553,9 +553,9 @@ const CertificateDetailsDrawer = ({
 
           <section
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
               shadow-sm
             "
@@ -574,7 +574,7 @@ const CertificateDetailsDrawer = ({
 
               </div>
 
-              <Eye className="h-8 w-8 text-blue-600" />
+              <Eye className="h-8 w-8 text-primary" />
 
             </div>
 
@@ -622,7 +622,7 @@ const CertificateDetailsDrawer = ({
                   Completion Status
                 </p>
 
-                <p className="mt-2 font-semibold text-green-600">
+                <p className="mt-2 font-semibold text-[#0F8F65]">
                   Successfully Completed
                 </p>
 
@@ -636,9 +636,9 @@ const CertificateDetailsDrawer = ({
 
           <section
             className="
-              rounded-3xl
+              rounded-2xl
               border
-              bg-white
+              bg-card
               p-6
               shadow-sm
             "
@@ -657,7 +657,7 @@ const CertificateDetailsDrawer = ({
 
               </div>
 
-              <ShieldCheck className="h-8 w-8 text-green-600" />
+              <ShieldCheck className="h-8 w-8 text-[#0F8F65]" />
 
             </div>
 
@@ -667,7 +667,7 @@ const CertificateDetailsDrawer = ({
                 className="
                   rounded-2xl
                   border
-                  bg-slate-50
+                  bg-secondary
                   p-5
                 "
               >
@@ -677,7 +677,7 @@ const CertificateDetailsDrawer = ({
 
                 <div className="mt-3 flex items-center gap-2">
 
-                  <ShieldCheck className="h-5 w-5 text-green-600" />
+                  <ShieldCheck className="h-5 w-5 text-[#0F8F65]" />
 
                   <span className="font-semibold">
                     {certificate.verificationStatus}
@@ -689,7 +689,7 @@ const CertificateDetailsDrawer = ({
                   Verification URL
                 </p>
 
-                <p className="mt-2 break-all text-sm font-medium text-blue-600">
+                <p className="mt-2 break-all text-sm font-medium text-primary">
                   {certificate.verificationUrl}
                 </p>
 
@@ -704,7 +704,7 @@ const CertificateDetailsDrawer = ({
                   rounded-2xl
                   border
                   border-dashed
-                  bg-slate-50
+                  bg-secondary
                   p-6
                 "
               >
@@ -717,7 +717,7 @@ const CertificateDetailsDrawer = ({
                     justify-center
                     rounded-2xl
                     border
-                    bg-white
+                    bg-card
                     text-sm
                     text-muted-foreground
                   "
@@ -746,9 +746,9 @@ const CertificateDetailsDrawer = ({
           >
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
               "
@@ -765,9 +765,9 @@ const CertificateDetailsDrawer = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
               "
@@ -784,9 +784,9 @@ const CertificateDetailsDrawer = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
               "
@@ -806,7 +806,7 @@ const CertificateDetailsDrawer = ({
 
           <section
             className="
-              rounded-3xl
+              rounded-2xl
               border
               bg-gradient-to-r
               from-amber-500
@@ -838,7 +838,7 @@ const CertificateDetailsDrawer = ({
 
                     rounded-full
 
-                    bg-white/15
+                    bg-card/15
 
                     px-4
                     py-2

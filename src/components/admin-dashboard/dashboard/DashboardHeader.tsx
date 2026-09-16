@@ -79,7 +79,7 @@ const DashboardHeader = ({
               text-sm
               font-medium
 
-              text-blue-700
+              text-[#2563EB]
             "
           >
             <CalendarDays size={16} />
@@ -96,12 +96,12 @@ const DashboardHeader = ({
               text-4xl
               font-bold
 
-              text-slate-900
+              text-foreground
             "
           >
             Welcome back,
 
-            <span className="text-blue-600">
+            <span className="text-primary">
               {" "}
               {adminName}
             </span>
@@ -119,7 +119,7 @@ const DashboardHeader = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Monitor platform performance,
@@ -154,9 +154,9 @@ const DashboardHeader = ({
               rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               px-5
               py-3
@@ -165,7 +165,7 @@ const DashboardHeader = ({
 
               transition-all
 
-              hover:bg-slate-50
+              hover:bg-secondary
               hover:shadow-md
             "
           >
@@ -185,7 +185,7 @@ const DashboardHeader = ({
 
               rounded-2xl
 
-              bg-blue-600
+              bg-primary
 
               px-5
               py-3
@@ -196,7 +196,7 @@ const DashboardHeader = ({
 
               transition-all
 
-              hover:bg-blue-700
+              hover:bg-primary/90
               hover:shadow-lg
             "
           >
@@ -227,12 +227,12 @@ const DashboardHeader = ({
 
         <div
           className="
-            rounded-3xl
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             p-5
 
@@ -251,7 +251,7 @@ const DashboardHeader = ({
               <p
                 className="
                   text-sm
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Platform Status
@@ -264,7 +264,7 @@ const DashboardHeader = ({
                   text-xl
                   font-bold
 
-                  text-slate-900
+                  text-foreground
                 "
               >
                 Live & Healthy
@@ -284,13 +284,13 @@ const DashboardHeader = ({
 
                 rounded-2xl
 
-                bg-emerald-100
+                bg-[#ECFDF5]
               "
             >
               <Wifi
                 size={22}
                 className="
-                  text-emerald-600
+                  text-[#0F8F65]
                 "
               />
             </div>
@@ -313,14 +313,14 @@ const DashboardHeader = ({
 
                 rounded-full
 
-                bg-emerald-500
+                bg-[#ECFDF5]0
               "
             />
 
             <span
               className="
                 text-sm
-                text-slate-500
+                text-muted-foreground
               "
             >
               All services are operational
@@ -334,12 +334,12 @@ const DashboardHeader = ({
 
         <div
           className="
-            rounded-3xl
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             p-5
 
@@ -349,7 +349,7 @@ const DashboardHeader = ({
           <p
             className="
               text-sm
-              text-slate-500
+              text-muted-foreground
             "
           >
             Last Synchronization
@@ -371,7 +371,7 @@ const DashboardHeader = ({
               mt-4
 
               text-sm
-              text-slate-500
+              text-muted-foreground
             "
           >
             Future Backend:
@@ -387,9 +387,9 @@ const DashboardHeader = ({
               text-sm
               font-semibold
 
-              text-blue-600
+              text-primary
 
-              hover:text-blue-700
+              hover:text-[#2563EB]
             "
           >
             Refresh Now
@@ -401,12 +401,12 @@ const DashboardHeader = ({
 
         <div
           className="
-            rounded-3xl
+            rounded-2xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             p-5
 
@@ -416,7 +416,7 @@ const DashboardHeader = ({
           <p
             className="
               text-sm
-              text-slate-500
+              text-muted-foreground
             "
           >
             Pending Mentor
@@ -430,7 +430,7 @@ const DashboardHeader = ({
               text-3xl
               font-bold
 
-              text-slate-900
+              text-foreground
             "
           >
             {pendingApprovals}
@@ -443,7 +443,7 @@ const DashboardHeader = ({
               leading-6
 
               text-sm
-              text-slate-500
+              text-muted-foreground
             "
           >
             Mentor applications
@@ -457,7 +457,7 @@ const DashboardHeader = ({
 
               rounded-xl
 
-              bg-blue-600
+              bg-primary
 
               px-4
               py-2
@@ -469,7 +469,7 @@ const DashboardHeader = ({
 
               transition
 
-              hover:bg-blue-700
+              hover:bg-primary/90
             "
           >
             Review Applications

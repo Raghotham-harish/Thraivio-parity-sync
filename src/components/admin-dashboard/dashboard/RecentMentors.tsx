@@ -65,7 +65,7 @@ const RecentMentors = ({
               text-sm
               font-medium
 
-              text-violet-700
+              text-muted-foreground
             "
           >
             <BadgeCheck size={16} />
@@ -93,7 +93,7 @@ const RecentMentors = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Review mentor profiles,
@@ -121,7 +121,7 @@ const RecentMentors = ({
 
               -translate-y-1/2
 
-              text-slate-400
+              text-muted-foreground
             "
           />
 
@@ -135,9 +135,9 @@ const RecentMentors = ({
               rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               py-3
 
@@ -164,12 +164,12 @@ const RecentMentors = ({
 
           overflow-hidden
 
-          rounded-[30px]
+          rounded-2xl
 
           border
-          border-slate-200
+          border-border
 
-          bg-white
+          bg-card
         "
       >
         {/* Header */}
@@ -181,9 +181,9 @@ const RecentMentors = ({
             grid-cols-12
 
             border-b
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             px-6
             py-4
@@ -191,7 +191,7 @@ const RecentMentors = ({
             text-sm
             font-semibold
 
-            text-slate-600
+            text-muted-foreground
           "
         >
           <div className="col-span-4">
@@ -235,7 +235,7 @@ const RecentMentors = ({
 
               transition
 
-              hover:bg-slate-50
+              hover:bg-secondary
             "
           >
             {/* Mentor */}
@@ -260,7 +260,7 @@ const RecentMentors = ({
                       className="
                         font-semibold
 
-                        text-slate-900
+                        text-foreground
                       "
                     >
                       {mentor.name}
@@ -283,7 +283,7 @@ const RecentMentors = ({
 
                       text-sm
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     Mentor ID : {mentor.id}
@@ -299,7 +299,7 @@ const RecentMentors = ({
                 className="
                   font-medium
 
-                  text-slate-700
+                  text-foreground
                 "
               >
                 {mentor.profession}
@@ -328,9 +328,9 @@ const RecentMentors = ({
                 <Star
                   size={16}
                   className="
-                    fill-amber-400
+                    fill-[#F59E0B]
 
-                    text-amber-400
+                    text-[#F59E0B]
                   "
                 />
 
@@ -339,7 +339,7 @@ const RecentMentors = ({
                     text-sm
                     font-semibold
 
-                    text-amber-700
+                    text-[#B45309]
                   "
                 >
                   {mentor.rating}
@@ -365,9 +365,9 @@ const RecentMentors = ({
                   ${
                     mentor.status ===
                     "approved"
-                      ? "bg-emerald-100 text-emerald-700"
+                      ? "bg-[#ECFDF5] text-[#065F46]"
 
-                      : "bg-amber-100 text-amber-700"
+                      : "bg-[#FFFBEB] text-[#B45309]"
                   }
                 `}
               >
@@ -407,11 +407,11 @@ const RecentMentors = ({
 
                   bg-blue-50
 
-                  text-blue-600
+                  text-primary
 
                   transition
 
-                  hover:bg-blue-100
+                  hover:bg-[#EFF6FF]
                 "
               >
                 <Eye size={18} />
@@ -434,13 +434,13 @@ const RecentMentors = ({
 
                   rounded-xl
 
-                  bg-emerald-50
+                  bg-[#ECFDF5]
 
-                  text-emerald-600
+                  text-[#0F8F65]
 
                   transition
 
-                  hover:bg-emerald-100
+                  hover:bg-[#ECFDF5]
                 "
               >
                 <Check size={18} />
@@ -469,7 +469,7 @@ const RecentMentors = ({
 
                   transition
 
-                  hover:bg-red-100
+                  hover:bg-[#FFDAD6]
                 "
               >
                 <X size={18} />
@@ -491,7 +491,7 @@ const RecentMentors = ({
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 <MoreVertical size={18} />
@@ -511,9 +511,9 @@ const RecentMentors = ({
             gap-4
 
             border-t
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             px-6
             py-5
@@ -527,7 +527,7 @@ const RecentMentors = ({
             className="
               text-sm
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Showing
@@ -542,7 +542,7 @@ const RecentMentors = ({
             className="
               rounded-2xl
 
-              bg-blue-600
+              bg-primary
 
               px-6
               py-3
@@ -553,7 +553,7 @@ const RecentMentors = ({
 
               transition
 
-              hover:bg-blue-700
+              hover:bg-primary/90
             "
           >
             View All Mentors

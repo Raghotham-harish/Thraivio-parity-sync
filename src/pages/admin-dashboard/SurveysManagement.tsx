@@ -183,16 +183,16 @@ export default function SurveysManagement() {
    */
   if (selectedSurvey) {
     return (
-      <div className="min-h-full bg-slate-50 px-4 py-6 sm:px-6 lg:px-8">
+      <div className="min-h-full bg-secondary px-4 py-6 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-5xl">
-          <div className="rounded-xl border border-slate-200 bg-white shadow-sm">
-            <div className="flex items-center justify-between gap-4 border-b border-slate-200 p-5">
+          <div className="rounded-xl border border-border bg-card shadow-sm">
+            <div className="flex items-center justify-between gap-4 border-b border-border p-5">
               <div>
-                <h1 className="text-lg font-semibold text-slate-900">
+                <h1 className="text-lg font-semibold text-foreground">
                   Survey Preview
                 </h1>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-muted-foreground">
                   {selectedSurvey.title}
                 </p>
               </div>
@@ -202,20 +202,20 @@ export default function SurveysManagement() {
                 onClick={() =>
                   setSelectedSurvey(null)
                 }
-                className="rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+                className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground transition hover:bg-secondary"
               >
                 Back
               </button>
             </div>
 
             <div className="p-5 sm:p-6">
-              <div className="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                <h2 className="text-xl font-semibold text-slate-900">
+              <div className="rounded-xl border border-border bg-secondary p-5">
+                <h2 className="text-xl font-semibold text-foreground">
                   {selectedSurvey.title}
                 </h2>
 
                 {selectedSurvey.description && (
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">
                     {selectedSurvey.description}
                   </p>
                 )}
@@ -231,15 +231,15 @@ export default function SurveysManagement() {
                     .map((question) => (
                       <div
                         key={question.id}
-                        className="rounded-lg border border-slate-200 bg-white p-4"
+                        className="rounded-lg border border-border bg-card p-4"
                       >
                         <div className="flex items-start gap-2">
-                          <span className="text-xs font-semibold text-slate-400">
+                          <span className="text-xs font-semibold text-muted-foreground">
                             Q{question.order}
                           </span>
 
                           <div>
-                            <p className="text-sm font-medium leading-6 text-slate-900">
+                            <p className="text-sm font-medium leading-6 text-foreground">
                               {question.question}
 
                               {question.required && (
@@ -250,7 +250,7 @@ export default function SurveysManagement() {
                             </p>
 
                             {question.description && (
-                              <p className="mt-1 text-xs leading-5 text-slate-500">
+                              <p className="mt-1 text-xs leading-5 text-muted-foreground">
                                 {question.description}
                               </p>
                             )}
@@ -263,7 +263,7 @@ export default function SurveysManagement() {
                                     (option) => (
                                       <div
                                         key={option.id}
-                                        className="rounded-md border border-slate-200 px-3 py-2 text-sm text-slate-600"
+                                        className="rounded-md border border-border px-3 py-2 text-sm text-muted-foreground"
                                       >
                                         {option.label}
                                       </div>
@@ -296,7 +296,7 @@ export default function SurveysManagement() {
       );
 
     return (
-      <div className="min-h-full bg-slate-50 px-4 py-6 sm:px-6 lg:px-8">
+      <div className="min-h-full bg-secondary px-4 py-6 sm:px-6 lg:px-8">
         <div className="mx-auto w-full max-w-5xl">
           <AdminSurveyResponses
             survey={responsesSurvey}
@@ -311,21 +311,21 @@ export default function SurveysManagement() {
   }
 
   return (
-    <div className="min-h-full bg-slate-50 px-4 py-6 sm:px-6 lg:px-8">
+    <div className="min-h-full bg-secondary px-4 py-6 sm:px-6 lg:px-8">
       <div className="mx-auto w-full max-w-7xl">
         {/* Page Header */}
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-start gap-3">
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-blue-600">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-blue-50 text-primary">
               <ClipboardList size={22} />
             </div>
 
             <div>
-              <h1 className="text-2xl font-semibold text-slate-900">
+              <h1 className="text-2xl font-semibold text-foreground">
                 Survey Management
               </h1>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-muted-foreground">
                 Monitor and manage surveys across
                 the platform.
               </p>
@@ -333,13 +333,13 @@ export default function SurveysManagement() {
           </div>
 
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-600">
+            <div className="flex items-center gap-2 rounded-lg border border-border bg-card px-3 py-2 text-sm text-muted-foreground">
               <BarChart3 size={16} />
               {filteredSurveys.length} Surveys
             </div>
 
             {/* View toggle */}
-            <div className="flex rounded-lg border border-slate-300 bg-white p-1">
+            <div className="flex rounded-lg border border-border bg-card p-1">
               <button
                 type="button"
                 onClick={() =>
@@ -348,8 +348,8 @@ export default function SurveysManagement() {
                 aria-label="Grid view"
                 className={`flex h-8 w-8 items-center justify-center rounded-md transition ${
                   viewMode === "grid"
-                    ? "bg-slate-100 text-slate-900"
-                    : "text-slate-400 hover:text-slate-700"
+                    ? "bg-secondary text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 <Grid2X2 size={16} />
@@ -363,8 +363,8 @@ export default function SurveysManagement() {
                 aria-label="List view"
                 className={`flex h-8 w-8 items-center justify-center rounded-md transition ${
                   viewMode === "list"
-                    ? "bg-slate-100 text-slate-900"
-                    : "text-slate-400 hover:text-slate-700"
+                    ? "bg-secondary text-foreground"
+                    : "text-muted-foreground hover:text-foreground"
                 }`}
               >
                 <List size={17} />
@@ -388,20 +388,20 @@ export default function SurveysManagement() {
 
         {/* Empty state */}
         {filteredSurveys.length === 0 ? (
-          <div className="mt-6 flex min-h-[280px] items-center justify-center rounded-xl border border-dashed border-slate-300 bg-white px-6 py-12">
+          <div className="mt-6 flex min-h-[280px] items-center justify-center rounded-xl border border-dashed border-border bg-card px-6 py-12">
             <div className="text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-secondary">
                 <ClipboardList
                   size={22}
-                  className="text-slate-400"
+                  className="text-muted-foreground"
                 />
               </div>
 
-              <h2 className="mt-4 text-base font-semibold text-slate-900">
+              <h2 className="mt-4 text-base font-semibold text-foreground">
                 No Surveys Found
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-muted-foreground">
                 Try changing your search or filter.
               </p>
 
@@ -412,7 +412,7 @@ export default function SurveysManagement() {
                   onClick={
                     handleClearFilters
                   }
-                  className="mt-4 rounded-lg border border-slate-300 px-4 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                  className="mt-4 rounded-lg border border-border px-4 py-2 text-sm font-medium text-foreground hover:bg-secondary"
                 >
                   Clear Filters
                 </button>
@@ -452,24 +452,24 @@ export default function SurveysManagement() {
             {filteredSurveys.map((survey) => (
               <div
                 key={survey.id}
-                className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+                className="rounded-xl border border-border bg-card p-4 shadow-sm"
               >
                 <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                   <div className="min-w-0">
                     <div className="flex flex-wrap items-center gap-2">
-                      <h2 className="text-base font-semibold text-slate-900">
+                      <h2 className="text-base font-semibold text-foreground">
                         {survey.title}
                       </h2>
 
-                      <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium capitalize text-slate-600">
+                      <span className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium capitalize text-muted-foreground">
                         {survey.status}
                       </span>
                     </div>
 
-                    <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-xs text-slate-500">
+                    <div className="mt-2 flex flex-wrap gap-x-5 gap-y-2 text-xs text-muted-foreground">
                       <span>
                         Owner:{" "}
-                        <strong className="font-medium text-slate-700">
+                        <strong className="font-medium text-foreground">
                           {mentorNames[
                             survey.mentorId
                           ] ||
@@ -479,14 +479,14 @@ export default function SurveysManagement() {
 
                       <span>
                         Questions:{" "}
-                        <strong className="font-medium text-slate-700">
+                        <strong className="font-medium text-foreground">
                           {survey.questions.length}
                         </strong>
                       </span>
 
                       <span>
                         Responses:{" "}
-                        <strong className="font-medium text-slate-700">
+                        <strong className="font-medium text-foreground">
                           {survey.responseCount}
                         </strong>
                       </span>
@@ -499,7 +499,7 @@ export default function SurveysManagement() {
                       onClick={() =>
                         handlePreview(survey)
                       }
-                      className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                      className="rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary"
                     >
                       Preview
                     </button>
@@ -511,7 +511,7 @@ export default function SurveysManagement() {
                           survey
                         )
                       }
-                      className="rounded-lg border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
+                      className="rounded-lg border border-border px-3 py-2 text-sm font-medium text-foreground hover:bg-secondary"
                     >
                       Responses
                     </button>

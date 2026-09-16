@@ -48,21 +48,21 @@ interface CertificateGridCardProps {
 
 const statusStyles = {
   issued:
-    "bg-green-100 text-green-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   pending:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   revoked:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 
   expired:
-    "bg-slate-200 text-slate-700",
+    "bg-secondary text-foreground",
 };
 
 const verificationStyles = {
   verified:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   unverified:
     "bg-orange-100 text-orange-700",
@@ -85,11 +85,11 @@ const CertificateGridCard = ({
         relative
         overflow-hidden
 
-        rounded-[30px]
+        rounded-2xl
 
         border
 
-        bg-white
+        bg-card
 
         shadow-sm
 
@@ -145,7 +145,7 @@ const CertificateGridCard = ({
                 items-center
                 justify-center
 
-                rounded-3xl
+                rounded-2xl
 
                 bg-gradient-to-br
                 from-amber-100
@@ -232,7 +232,7 @@ const CertificateGridCard = ({
                   className="
                     rounded-full
 
-                    bg-slate-100
+                    bg-secondary
 
                     px-3
                     py-1
@@ -272,11 +272,11 @@ const CertificateGridCard = ({
           className="
             mt-7
 
-            rounded-3xl
+            rounded-2xl
 
             border
 
-            bg-slate-50
+            bg-secondary
 
             p-5
           "
@@ -302,9 +302,9 @@ const CertificateGridCard = ({
 
               <div className="flex items-center gap-2">
 
-                <User2 className="h-4 w-4 text-slate-500" />
+                <User2 className="h-4 w-4 text-muted-foreground" />
 
-                <span className="text-xs font-medium text-slate-500">
+                <span className="text-xs font-medium text-muted-foreground">
 
                   Student
 
@@ -336,11 +336,11 @@ const CertificateGridCard = ({
           className="
             mt-5
 
-            rounded-3xl
+            rounded-2xl
 
             border
 
-            bg-white
+            bg-card
 
             p-5
           "
@@ -366,9 +366,9 @@ const CertificateGridCard = ({
 
               <div className="flex items-center gap-2">
 
-                <Building2 className="h-4 w-4 text-slate-500" />
+                <Building2 className="h-4 w-4 text-muted-foreground" />
 
-                <span className="text-xs font-medium text-slate-500">
+                <span className="text-xs font-medium text-muted-foreground">
 
                   Mentor
 
@@ -388,7 +388,7 @@ const CertificateGridCard = ({
 
               </p>
 
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-muted-foreground">
 
                 {certificate.mentorCompany}
 
@@ -417,7 +417,7 @@ const CertificateGridCard = ({
             className="
               rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
@@ -440,7 +440,7 @@ const CertificateGridCard = ({
             className="
               rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
@@ -472,14 +472,14 @@ const CertificateGridCard = ({
             className="
               rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
           >
             <div className="flex items-center gap-2">
 
-              <CalendarDays className="h-4 w-4 text-slate-500" />
+              <CalendarDays className="h-4 w-4 text-muted-foreground" />
 
               <span className="text-xs text-muted-foreground">
 
@@ -501,14 +501,14 @@ const CertificateGridCard = ({
             className="
               rounded-2xl
 
-              bg-slate-50
+              bg-secondary
 
               p-4
             "
           >
             <div className="flex items-center gap-2">
 
-              <BadgeCheck className="h-4 w-4 text-green-600" />
+              <BadgeCheck className="h-4 w-4 text-[#0F8F65]" />
 
               <span className="text-xs text-muted-foreground">
 
@@ -526,7 +526,7 @@ const CertificateGridCard = ({
 
                 font-bold
 
-                text-green-600
+                text-[#0F8F65]
               "
             >
               {certificate.score ?? "--"}
@@ -565,7 +565,7 @@ const CertificateGridCard = ({
                     text-xs
                     font-medium
 
-                    text-blue-700
+                    text-[#2563EB]
                   "
                 >
                   {skill}
@@ -594,7 +594,7 @@ const CertificateGridCard = ({
 
               border
 
-              bg-white
+              bg-card
 
               p-4
 
@@ -608,7 +608,7 @@ const CertificateGridCard = ({
                 h-5
                 w-5
 
-                text-blue-600
+                text-primary
               "
             />
 
@@ -644,7 +644,7 @@ const CertificateGridCard = ({
 
               border
 
-              bg-white
+              bg-card
 
               p-4
 
@@ -658,7 +658,7 @@ const CertificateGridCard = ({
                 h-5
                 w-5
 
-                text-green-600
+                text-[#0F8F65]
               "
             />
 
@@ -696,7 +696,7 @@ const CertificateGridCard = ({
           className="
             mt-6
 
-            rounded-3xl
+            rounded-2xl
 
             border
 
@@ -733,7 +733,7 @@ const CertificateGridCard = ({
                     h-5
                     w-5
 
-                    text-green-600
+                    text-[#0F8F65]
                   "
                 />
 
@@ -776,7 +776,7 @@ const CertificateGridCard = ({
                 border-2
                 border-dashed
 
-                bg-white
+                bg-card
 
                 text-xs
 

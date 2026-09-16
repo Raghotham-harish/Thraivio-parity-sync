@@ -62,7 +62,7 @@ export default function RefundPaymentDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="sm:max-w-xl rounded-3xl">
+      <DialogContent className="sm:max-w-xl rounded-2xl">
 
         <DialogHeader>
 
@@ -369,7 +369,7 @@ export default function RefundPaymentDialog({
 
           <div className="rounded-2xl border border-red-200 bg-red-50 p-5 dark:border-red-900 dark:bg-red-950/20">
 
-            <h4 className="font-semibold text-red-700 dark:text-red-400">
+            <h4 className="font-semibold text-[#BA1A1A] dark:text-red-400">
               Important Notice
             </h4>
 

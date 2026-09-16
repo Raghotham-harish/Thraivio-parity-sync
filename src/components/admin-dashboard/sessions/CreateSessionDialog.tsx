@@ -116,9 +116,9 @@ const CreateSessionDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
         "
       >
         {/* Header */}
@@ -170,11 +170,11 @@ const CreateSessionDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               transition
 
-              hover:bg-white/30
+              hover:bg-card/30
             "
           >
             <X size={20} />
@@ -202,12 +202,12 @@ const CreateSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -224,7 +224,7 @@ const CreateSessionDialog = ({
               >
                 <UserRound
                   size={20}
-                  className="text-indigo-600"
+                  className="text-primary"
                 />
 
                 <h3
@@ -251,7 +251,7 @@ const CreateSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   px-4
 
@@ -282,12 +282,12 @@ const CreateSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -304,7 +304,7 @@ const CreateSessionDialog = ({
               >
                 <GraduationCap
                   size={20}
-                  className="text-emerald-600"
+                  className="text-[#0F8F65]"
                 />
 
                 <h3
@@ -331,7 +331,7 @@ const CreateSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   px-4
 
@@ -364,12 +364,12 @@ const CreateSessionDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -448,13 +448,13 @@ const CreateSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
                     outline-none
 
-                    disabled:bg-slate-100
+                    disabled:bg-secondary
 
                     focus:border-indigo-500
                   "
@@ -517,7 +517,7 @@ const CreateSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -561,7 +561,7 @@ const CreateSessionDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -600,12 +600,12 @@ const CreateSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -622,7 +622,7 @@ const CreateSessionDialog = ({
               >
                 <CalendarDays
                   size={20}
-                  className="text-indigo-600"
+                  className="text-primary"
                 />
 
                 <h3
@@ -668,7 +668,7 @@ const CreateSessionDialog = ({
                       rounded-2xl
 
                       border
-                      border-slate-200
+                      border-border
 
                       px-4
 
@@ -712,7 +712,7 @@ const CreateSessionDialog = ({
                       rounded-2xl
 
                       border
-                      border-slate-200
+                      border-border
 
                       px-4
 
@@ -753,7 +753,7 @@ const CreateSessionDialog = ({
                       rounded-2xl
 
                       border
-                      border-slate-200
+                      border-border
 
                       px-4
 
@@ -816,7 +816,7 @@ const CreateSessionDialog = ({
                       rounded-2xl
 
                       border
-                      border-slate-200
+                      border-border
 
                       px-4
 
@@ -834,10 +834,10 @@ const CreateSessionDialog = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
                 bg-gradient-to-br
                 from-indigo-50
@@ -859,7 +859,7 @@ const CreateSessionDialog = ({
               >
                 <MonitorPlay
                   size={20}
-                  className="text-indigo-600"
+                  className="text-primary"
                 />
 
                 <h3
@@ -878,12 +878,12 @@ const CreateSessionDialog = ({
                   className="
                     rounded-2xl
 
-                    bg-white
+                    bg-card
 
                     p-4
                   "
                 >
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-muted-foreground">
                     Mentor
                   </p>
 
@@ -901,12 +901,12 @@ const CreateSessionDialog = ({
                   className="
                     rounded-2xl
 
-                    bg-white
+                    bg-card
 
                     p-4
                   "
                 >
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-muted-foreground">
                     Student
                   </p>
 
@@ -924,12 +924,12 @@ const CreateSessionDialog = ({
                   className="
                     rounded-2xl
 
-                    bg-white
+                    bg-card
 
                     p-4
                   "
                 >
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-muted-foreground">
                     Program
                   </p>
 
@@ -943,12 +943,12 @@ const CreateSessionDialog = ({
                   className="
                     rounded-2xl
 
-                    bg-white
+                    bg-card
 
                     p-4
                   "
                 >
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-muted-foreground">
                     Schedule
                   </p>
 
@@ -956,7 +956,7 @@ const CreateSessionDialog = ({
                     {date || "--"}
                   </h4>
 
-                  <p className="mt-1 text-sm text-slate-500">
+                  <p className="mt-1 text-sm text-muted-foreground">
                     {time || "--"}
                   </p>
                 </div>
@@ -965,12 +965,12 @@ const CreateSessionDialog = ({
                   className="
                     rounded-2xl
 
-                    bg-white
+                    bg-card
 
                     p-4
                   "
                 >
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-muted-foreground">
                     Platform
                   </p>
 
@@ -983,12 +983,12 @@ const CreateSessionDialog = ({
                   className="
                     rounded-2xl
 
-                    bg-white
+                    bg-card
 
                     p-4
                   "
                 >
-                  <p className="text-xs text-slate-500">
+                  <p className="text-xs text-muted-foreground">
                     Amount
                   </p>
 
@@ -999,7 +999,7 @@ const CreateSessionDialog = ({
                       text-2xl
                       font-bold
 
-                      text-green-600
+                      text-[#0F8F65]
                     "
                   >
                     ₹{amount || "0"}
@@ -1014,12 +1014,12 @@ const CreateSessionDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -1050,7 +1050,7 @@ const CreateSessionDialog = ({
                 rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
                 p-4
 
@@ -1068,12 +1068,12 @@ const CreateSessionDialog = ({
 
           <div
             className="
-              rounded-3xl
+              rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               p-6
             "
@@ -1097,7 +1097,7 @@ const CreateSessionDialog = ({
                 rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
                 px-4
 
@@ -1139,9 +1139,9 @@ const CreateSessionDialog = ({
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -1164,7 +1164,7 @@ const CreateSessionDialog = ({
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
@@ -1173,7 +1173,7 @@ const CreateSessionDialog = ({
 
                   transition-all
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 Cancel

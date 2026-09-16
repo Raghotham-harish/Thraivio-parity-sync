@@ -47,7 +47,7 @@ export default function ReplyTicketDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="max-w-2xl rounded-3xl">
+      <DialogContent className="max-w-2xl rounded-2xl">
 
         <DialogHeader>
 

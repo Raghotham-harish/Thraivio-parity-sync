@@ -15,23 +15,23 @@ export default function ProgramsEmptyState({
   onResetFilters,
 }: ProgramsEmptyStateProps) {
   return (
-    <section className="rounded-[32px] border border-dashed border-slate-300 bg-white p-12">
+    <section className="rounded-2xl border border-dashed border-border bg-card p-12">
 
       <div className="mx-auto flex max-w-xl flex-col items-center text-center">
 
         <div className="flex h-24 w-24 items-center justify-center rounded-full bg-indigo-100">
 
-          <BookOpen className="h-12 w-12 text-indigo-600" />
+          <BookOpen className="h-12 w-12 text-primary" />
 
         </div>
 
-        <h2 className="mt-8 text-3xl font-bold text-slate-900">
+        <h2 className="mt-8 text-3xl font-bold text-foreground">
 
           No Programs Found
 
         </h2>
 
-        <p className="mt-4 leading-7 text-slate-500">
+        <p className="mt-4 leading-7 text-muted-foreground">
 
           We couldn't find any programs matching your
           current search or filters. Try resetting the
@@ -44,7 +44,7 @@ export default function ProgramsEmptyState({
           <button
             type="button"
             onClick={onResetFilters}
-            className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="inline-flex items-center gap-2 rounded-2xl border border-border bg-card px-6 py-3 font-semibold text-foreground transition hover:bg-secondary"
           >
             <RotateCcw className="h-5 w-5" />
 

@@ -26,7 +26,7 @@ export default function MentorPerformanceChart({
   );
 
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -44,9 +44,9 @@ export default function MentorPerformanceChart({
 
           </div>
 
-          <div className="rounded-2xl bg-orange-500/10 p-3">
+          <div className="rounded-2xl bg-[#FFFBEB] p-3">
 
-            <GraduationCap className="h-6 w-6 text-orange-600" />
+            <GraduationCap className="h-6 w-6 text-[#B45309]" />
 
           </div>
 
@@ -72,7 +72,7 @@ export default function MentorPerformanceChart({
 
           </div>
 
-          <div className="flex items-center gap-2 rounded-full bg-orange-500/10 px-4 py-2 text-sm font-semibold text-orange-600">
+          <div className="flex items-center gap-2 rounded-full bg-[#FFFBEB] px-4 py-2 text-sm font-semibold text-[#B45309]">
 
             <TrendingUp className="h-4 w-4" />
 

@@ -28,7 +28,7 @@ export default function MaintenanceSettings({
   onChange,
 }: MaintenanceSettingsProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -90,7 +90,7 @@ export default function MaintenanceSettings({
         </div>
                 <div className="rounded-2xl border bg-amber-50 dark:bg-amber-950/20 border-amber-200 dark:border-amber-900 p-5">
 
-          <h3 className="font-semibold text-amber-700 dark:text-amber-400">
+          <h3 className="font-semibold text-[#B45309] dark:text-[#F59E0B]">
 
             Maintenance Notice
 

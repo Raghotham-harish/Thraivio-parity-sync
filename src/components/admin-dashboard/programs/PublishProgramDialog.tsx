@@ -54,7 +54,7 @@ export default function PublishProgramDialog({
         className="
           max-w-2xl
           overflow-hidden
-          rounded-[30px]
+          rounded-2xl
           p-0
         "
       >
@@ -65,7 +65,7 @@ export default function PublishProgramDialog({
 
           <div className="flex items-center gap-5">
 
-            <div className="rounded-3xl bg-white/20 p-4">
+            <div className="rounded-2xl bg-card/20 p-4">
 
               <Rocket className="h-10 w-10" />
 
@@ -102,7 +102,7 @@ export default function PublishProgramDialog({
 
           {/* Program */}
 
-          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <div className="flex items-center gap-5 rounded-2xl border border-border bg-secondary p-5">
 
             <img
               src={mentor.image}
@@ -112,19 +112,19 @@ export default function PublishProgramDialog({
 
             <div>
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 {program.title}
 
               </h3>
 
-              <p className="mt-1 text-slate-500">
+              <p className="mt-1 text-muted-foreground">
 
                 {mentor.name}
 
               </p>
 
-              <span className="mt-3 inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+              <span className="mt-3 inline-flex rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold text-[#065F46]">
 
                 Ready to Publish
 
@@ -136,9 +136,9 @@ export default function PublishProgramDialog({
 
           {/* Visibility */}
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-6">
+          <div className="rounded-2xl border border-border bg-card p-6">
 
-            <h3 className="font-bold text-slate-900">
+            <h3 className="font-bold text-foreground">
 
               After publishing, this program will appear in:
 
@@ -146,9 +146,9 @@ export default function PublishProgramDialog({
 
             <div className="mt-6 space-y-4">
 
-              <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
+              <div className="flex items-center gap-4 rounded-2xl bg-secondary p-4">
 
-                <Globe className="h-6 w-6 text-indigo-600" />
+                <Globe className="h-6 w-6 text-primary" />
 
                 <div>
 
@@ -158,7 +158,7 @@ export default function PublishProgramDialog({
 
                   </h4>
 
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-muted-foreground">
 
                     Public program listing.
 
@@ -168,7 +168,7 @@ export default function PublishProgramDialog({
 
               </div>
 
-              <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
+              <div className="flex items-center gap-4 rounded-2xl bg-secondary p-4">
 
                 <GraduationCap className="h-6 w-6 text-violet-600" />
 
@@ -180,7 +180,7 @@ export default function PublishProgramDialog({
 
                   </h4>
 
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-muted-foreground">
 
                     Mentor can manage this program.
 
@@ -190,9 +190,9 @@ export default function PublishProgramDialog({
 
               </div>
 
-              <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
+              <div className="flex items-center gap-4 rounded-2xl bg-secondary p-4">
 
-                <Users className="h-6 w-6 text-emerald-600" />
+                <Users className="h-6 w-6 text-[#0F8F65]" />
 
                 <div>
 
@@ -202,7 +202,7 @@ export default function PublishProgramDialog({
 
                   </h4>
 
-                  <p className="text-sm text-slate-500">
+                  <p className="text-sm text-muted-foreground">
 
                     Learners can enroll and track progress.
 
@@ -217,11 +217,11 @@ export default function PublishProgramDialog({
           </div>
                     {/* Confirmation */}
 
-          <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-6">
+          <div className="rounded-2xl border border-[#A7E8CE] bg-[#ECFDF5] p-6">
 
             <div className="flex items-start gap-4">
 
-              <CheckCircle2 className="mt-1 h-8 w-8 text-emerald-600" />
+              <CheckCircle2 className="mt-1 h-8 w-8 text-[#0F8F65]" />
 
               <div>
 
@@ -231,7 +231,7 @@ export default function PublishProgramDialog({
 
                 </h4>
 
-                <p className="mt-3 leading-7 text-emerald-700">
+                <p className="mt-3 leading-7 text-[#065F46]">
 
                   Once published, this program will become
                   available across all platform modules.
@@ -250,12 +250,12 @@ export default function PublishProgramDialog({
 
         {/* Footer */}
 
-        <DialogFooter className="border-t border-slate-200 bg-white p-6">
+        <DialogFooter className="border-t border-border bg-card p-6">
 
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="rounded-2xl border border-border bg-card px-6 py-3 font-semibold text-foreground transition hover:bg-secondary"
           >
             Cancel
           </button>
@@ -265,7 +265,7 @@ export default function PublishProgramDialog({
             onClick={() =>
               onConfirm(mentor, program)
             }
-            className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+            className="inline-flex items-center gap-2 rounded-2xl bg-[#10B981] px-6 py-3 font-semibold text-white transition hover:bg-[#0da271]"
           >
             <Rocket className="h-5 w-5" />
 

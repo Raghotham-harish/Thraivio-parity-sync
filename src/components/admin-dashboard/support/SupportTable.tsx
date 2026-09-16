@@ -40,7 +40,7 @@ export default function SupportTable({
   onClose,
 }: SupportTableProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardContent className="p-0">
 

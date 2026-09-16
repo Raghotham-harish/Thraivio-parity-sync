@@ -62,7 +62,7 @@ export default function VerificationDialog({
           max-w-2xl
           flex-col
           overflow-hidden
-          rounded-[32px]
+          rounded-2xl
           p-0
         "
       >
@@ -73,7 +73,7 @@ export default function VerificationDialog({
 
           <div className="flex items-center gap-5">
 
-            <div className="rounded-3xl bg-white/20 p-4">
+            <div className="rounded-2xl bg-card/20 p-4">
 
               <ShieldCheck className="h-10 w-10" />
 
@@ -110,7 +110,7 @@ export default function VerificationDialog({
 
           {/* Mentor */}
 
-          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <div className="flex items-center gap-5 rounded-2xl border border-border bg-secondary p-5">
 
             <img
               src={mentor.avatar}
@@ -120,13 +120,13 @@ export default function VerificationDialog({
 
             <div className="flex-1">
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 {mentor.name}
 
               </h3>
 
-              <p className="mt-2 text-slate-500">
+              <p className="mt-2 text-muted-foreground">
 
                 {mentor.email}
 
@@ -134,13 +134,13 @@ export default function VerificationDialog({
 
               <div className="mt-3 flex gap-2">
 
-                <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                <span className="rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-semibold text-[#2563EB]">
 
                   {mentor.membership}
 
                 </span>
 
-                <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+                <span className="rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold text-[#065F46]">
 
                   {mentor.status}
 
@@ -154,7 +154,7 @@ export default function VerificationDialog({
 
           {/* Verification Checklist */}
 
-          <div className="rounded-3xl border border-blue-200 bg-blue-50 p-6">
+          <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
 
             <h3 className="text-lg font-bold text-blue-800">
 
@@ -176,7 +176,7 @@ export default function VerificationDialog({
                   key={item}
                   className="flex items-center gap-3"
                 >
-                  <BadgeCheck className="h-5 w-5 text-blue-600" />
+                  <BadgeCheck className="h-5 w-5 text-primary" />
 
                   <span className="text-sm text-blue-800">
 
@@ -193,11 +193,11 @@ export default function VerificationDialog({
 
           {/* Documents */}
 
-          <div className="rounded-3xl border border-slate-200 bg-white p-6">
+          <div className="rounded-2xl border border-border bg-card p-6">
 
-            <h3 className="flex items-center gap-2 text-lg font-bold text-slate-900">
+            <h3 className="flex items-center gap-2 text-lg font-bold text-foreground">
 
-              <FileCheck2 className="h-5 w-5 text-indigo-600" />
+              <FileCheck2 className="h-5 w-5 text-primary" />
 
               Submitted Documents
 
@@ -213,15 +213,15 @@ export default function VerificationDialog({
               ].map((doc) => (
                 <div
                   key={doc}
-                  className="flex items-center justify-between rounded-2xl border border-slate-200 p-4"
+                  className="flex items-center justify-between rounded-2xl border border-border p-4"
                 >
-                  <span className="font-medium text-slate-700">
+                  <span className="font-medium text-foreground">
 
                     {doc}
 
                   </span>
 
-                  <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
+                  <span className="rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold text-[#065F46]">
 
                     Verified
 
@@ -237,7 +237,7 @@ export default function VerificationDialog({
 
           <div>
 
-            <label className="mb-3 block text-sm font-semibold text-slate-700">
+            <label className="mb-3 block text-sm font-semibold text-foreground">
 
               Verification Status
 
@@ -248,7 +248,7 @@ export default function VerificationDialog({
               onChange={(e) =>
                 setStatus(e.target.value)
               }
-              className="h-12 w-full rounded-2xl border border-slate-200 bg-white px-4 outline-none transition focus:border-blue-500"
+              className="h-12 w-full rounded-2xl border border-border bg-card px-4 outline-none transition focus:border-blue-500"
             >
               <option value="verified">
                 Verified
@@ -270,7 +270,7 @@ export default function VerificationDialog({
 
           <div>
 
-            <label className="mb-3 block text-sm font-semibold text-slate-700">
+            <label className="mb-3 block text-sm font-semibold text-foreground">
 
               Admin Remarks
 
@@ -283,14 +283,14 @@ export default function VerificationDialog({
                 setRemarks(e.target.value)
               }
               placeholder="Write verification remarks..."
-              className="w-full rounded-3xl border border-slate-200 bg-white p-4 outline-none transition-all focus:border-blue-500"
+              className="w-full rounded-2xl border border-border bg-card p-4 outline-none transition-all focus:border-blue-500"
             />
 
           </div>
 
           {/* Notify Mentor */}
 
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+          <div className="rounded-2xl border border-border bg-secondary p-6">
 
             <label className="flex cursor-pointer items-start justify-between gap-5">
 
@@ -298,9 +298,9 @@ export default function VerificationDialog({
 
                 <div className="flex items-center gap-3">
 
-                  <Bell className="h-5 w-5 text-blue-600" />
+                  <Bell className="h-5 w-5 text-primary" />
 
-                  <h4 className="font-semibold text-slate-900">
+                  <h4 className="font-semibold text-foreground">
 
                     Notify Mentor
 
@@ -308,7 +308,7 @@ export default function VerificationDialog({
 
                 </div>
 
-                <p className="mt-2 text-sm leading-6 text-slate-500">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
 
                   Send the verification result to the mentor
                   with remarks and next steps.
@@ -323,7 +323,7 @@ export default function VerificationDialog({
                 onChange={(e) =>
                   setNotify(e.target.checked)
                 }
-                className="mt-1 h-5 w-5 rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                className="mt-1 h-5 w-5 rounded border-border text-primary focus:ring-blue-500"
               />
 
             </label>
@@ -332,7 +332,7 @@ export default function VerificationDialog({
 
           {/* Verification Summary */}
 
-          <div className="rounded-3xl border border-blue-200 bg-blue-50 p-6">
+          <div className="rounded-2xl border border-blue-200 bg-blue-50 p-6">
 
             <h4 className="font-semibold text-blue-800">
 
@@ -340,7 +340,7 @@ export default function VerificationDialog({
 
             </h4>
 
-            <ul className="mt-4 space-y-2 text-sm leading-7 text-blue-700">
+            <ul className="mt-4 space-y-2 text-sm leading-7 text-[#2563EB]">
 
               <li>
                 • Verified mentors receive a verification badge.
@@ -371,8 +371,8 @@ export default function VerificationDialog({
             sticky
             bottom-0
             border-t
-            border-slate-200
-            bg-white
+            border-border
+            bg-card
             px-8
             py-6
           "
@@ -381,7 +381,7 @@ export default function VerificationDialog({
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="h-12 rounded-2xl border border-slate-200 bg-white px-6 font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="h-12 rounded-2xl border border-border bg-card px-6 font-semibold text-foreground transition hover:bg-secondary"
           >
             Cancel
           </button>
@@ -396,7 +396,7 @@ export default function VerificationDialog({
                 notify
               )
             }
-            className="h-12 rounded-2xl bg-blue-600 px-6 font-semibold text-white transition hover:bg-blue-700"
+            className="h-12 rounded-2xl bg-primary px-6 font-semibold text-white transition hover:bg-primary/90"
           >
 
             <ShieldCheck className="mr-2 inline h-5 w-5" />

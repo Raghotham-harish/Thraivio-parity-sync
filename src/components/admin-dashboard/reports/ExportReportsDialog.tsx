@@ -64,7 +64,7 @@ export default function ExportReportsDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="max-w-2xl rounded-3xl">
+      <DialogContent className="max-w-2xl rounded-2xl">
 
         <DialogHeader>
 
@@ -155,7 +155,7 @@ export default function ExportReportsDialog({
               className="justify-start rounded-xl"
               onClick={onExportExcel}
             >
-              <FileSpreadsheet className="mr-2 h-4 w-4 text-emerald-600" />
+              <FileSpreadsheet className="mr-2 h-4 w-4 text-[#0F8F65]" />
               Export Excel
             </Button>
 
@@ -164,7 +164,7 @@ export default function ExportReportsDialog({
               className="justify-start rounded-xl"
               onClick={onExportCSV}
             >
-              <FileText className="mr-2 h-4 w-4 text-blue-600" />
+              <FileText className="mr-2 h-4 w-4 text-primary" />
               Export CSV
             </Button>
 

@@ -84,9 +84,9 @@ const CertificateDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
         "
       >
 
@@ -121,7 +121,7 @@ const CertificateDialog = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
 
                 px-4
                 py-2
@@ -171,11 +171,11 @@ const CertificateDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               transition
 
-              hover:bg-white/30
+              hover:bg-card/30
             "
           >
             <X size={20}/>
@@ -201,7 +201,7 @@ const CertificateDialog = ({
 
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
               border
               border-amber-100
@@ -240,9 +240,9 @@ const CertificateDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -255,7 +255,7 @@ const CertificateDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -276,7 +276,7 @@ const CertificateDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.mentorRole}
@@ -291,7 +291,7 @@ const CertificateDialog = ({
                       gap-2
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
 
@@ -313,9 +313,9 @@ const CertificateDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -328,7 +328,7 @@ const CertificateDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -349,7 +349,7 @@ const CertificateDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.studentEmail}
@@ -436,12 +436,12 @@ const CertificateDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -489,7 +489,7 @@ const CertificateDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -569,7 +569,7 @@ const CertificateDialog = ({
                         mt-1
 
                         text-xs
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Student completed
@@ -585,7 +585,7 @@ const CertificateDialog = ({
 
                       border
 
-                      border-slate-200
+                      border-border
 
                       p-5
 
@@ -598,7 +598,7 @@ const CertificateDialog = ({
                       className="
                         mx-auto
 
-                        text-green-600
+                        text-[#0F8F65]
                       "
                     />
 
@@ -617,7 +617,7 @@ const CertificateDialog = ({
                         mt-1
 
                         text-xs
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Already shared with
@@ -676,7 +676,7 @@ const CertificateDialog = ({
                       <p
                         className="
                           text-sm
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         Send certificate
@@ -723,7 +723,7 @@ const CertificateDialog = ({
                       <p
                         className="
                           text-sm
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         Generate printable
@@ -753,7 +753,7 @@ const CertificateDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
                 border-amber-200
@@ -773,7 +773,7 @@ const CertificateDialog = ({
                   border-[10px]
                   border-amber-200
 
-                  bg-white
+                  bg-card
 
                   p-8
 
@@ -800,7 +800,7 @@ const CertificateDialog = ({
 
                     tracking-[6px]
 
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   Certificate of Completion
@@ -821,7 +821,7 @@ const CertificateDialog = ({
                   className="
                     mt-6
 
-                    text-slate-600
+                    text-muted-foreground
 
                     leading-7
                   "
@@ -856,7 +856,7 @@ const CertificateDialog = ({
                     <p
                       className="
                         text-xs
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Date
@@ -879,7 +879,7 @@ const CertificateDialog = ({
                     <p
                       className="
                         text-xs
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Certificate ID
@@ -919,12 +919,12 @@ const CertificateDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -969,9 +969,9 @@ const CertificateDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
-                    bg-slate-50
+                    bg-secondary
 
                     px-4
                   "
@@ -985,13 +985,13 @@ const CertificateDialog = ({
                 className="
                   mt-8
 
-                  rounded-3xl
+                  rounded-2xl
 
                   border-2
                   border-dashed
-                  border-slate-300
+                  border-border
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-8
 
@@ -1012,9 +1012,9 @@ const CertificateDialog = ({
 
                     rounded-2xl
 
-                    bg-white
+                    bg-card
 
-                    text-slate-400
+                    text-muted-foreground
                   "
                 >
                   QR CODE
@@ -1035,7 +1035,7 @@ const CertificateDialog = ({
                     mt-2
 
                     text-sm
-                    text-slate-500
+                    text-muted-foreground
                   "
                 >
                   QR generation will be connected
@@ -1051,7 +1051,7 @@ const CertificateDialog = ({
                 className="
                   mt-8
 
-                  rounded-3xl
+                  rounded-2xl
 
                   bg-green-50
 
@@ -1063,7 +1063,7 @@ const CertificateDialog = ({
                   className="
                     font-semibold
 
-                    text-green-700
+                    text-[#065F46]
                   "
                 >
                   Security Features
@@ -1076,7 +1076,7 @@ const CertificateDialog = ({
                     space-y-3
 
                     text-sm
-                    text-green-700
+                    text-[#065F46]
                   "
                 >
                   <li>
@@ -1105,12 +1105,12 @@ const CertificateDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -1146,7 +1146,7 @@ Additional internal notes..."
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   p-4
 
@@ -1164,9 +1164,9 @@ Additional internal notes..."
                 className="
                   mt-8
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-5
                 "
@@ -1221,7 +1221,7 @@ Additional internal notes..."
                 className="
                   mt-6
 
-                  rounded-3xl
+                  rounded-2xl
 
                   bg-amber-50
 
@@ -1233,7 +1233,7 @@ Additional internal notes..."
                   className="
                     font-semibold
 
-                    text-amber-700
+                    text-[#B45309]
                   "
                 >
                   Certificate Workflow
@@ -1247,7 +1247,7 @@ Additional internal notes..."
 
                     leading-6
 
-                    text-amber-700
+                    text-[#B45309]
                   "
                 >
                   After clicking
@@ -1296,9 +1296,9 @@ Additional internal notes..."
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -1321,7 +1321,7 @@ Additional internal notes..."
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
@@ -1330,7 +1330,7 @@ Additional internal notes..."
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 Cancel
@@ -1427,7 +1427,7 @@ function InfoCard({
       className="
         rounded-2xl
 
-        bg-white
+        bg-card
 
         p-5
       "
@@ -1442,7 +1442,7 @@ function InfoCard({
           mt-3
 
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1483,7 +1483,7 @@ function ChecklistItem({
 
         rounded-xl
 
-        bg-white
+        bg-card
 
         p-3
       "
@@ -1511,8 +1511,8 @@ function ChecklistItem({
 
           ${
             checked
-              ? "bg-green-100 text-green-600"
-              : "bg-slate-100 text-slate-400"
+              ? "bg-[#ECFDF5] text-[#0F8F65]"
+              : "bg-secondary text-muted-foreground"
           }
         `}
       >

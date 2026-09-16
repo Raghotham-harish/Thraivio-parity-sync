@@ -56,7 +56,7 @@ export default function MentorProfileDrawer({
 
       {/* Drawer */}
 
-      <div className="absolute right-0 top-0 flex h-screen w-full max-w-3xl flex-col overflow-hidden bg-white shadow-2xl">
+      <div className="absolute right-0 top-0 flex h-screen w-full max-w-3xl flex-col overflow-hidden bg-card shadow-2xl">
 
         {/* Cover */}
 
@@ -72,7 +72,7 @@ export default function MentorProfileDrawer({
 
           <button
             onClick={onClose}
-            className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-white/20 text-white backdrop-blur transition hover:bg-white/30"
+            className="absolute right-6 top-6 flex h-11 w-11 items-center justify-center rounded-2xl bg-card/20 text-white backdrop-blur transition hover:bg-card/30"
           >
             <X className="h-5 w-5" />
           </button>
@@ -107,7 +107,7 @@ export default function MentorProfileDrawer({
 
                 <div className="flex items-center gap-3">
 
-                  <h2 className="text-3xl font-bold text-slate-900">
+                  <h2 className="text-3xl font-bold text-foreground">
 
                     {mentor.name}
 
@@ -119,13 +119,13 @@ export default function MentorProfileDrawer({
 
                 </div>
 
-                <p className="mt-2 text-lg text-slate-500">
+                <p className="mt-2 text-lg text-muted-foreground">
 
                   {mentor.headline}
 
                 </p>
 
-                <div className="mt-5 flex flex-wrap items-center gap-5 text-sm text-slate-500">
+                <div className="mt-5 flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
 
                   <div className="flex items-center gap-2">
 
@@ -155,11 +155,11 @@ export default function MentorProfileDrawer({
 
               </div>
 
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 px-5 py-4">
+              <div className="rounded-2xl border border-border bg-secondary px-5 py-4">
 
                 <div className="flex items-center gap-2">
 
-                  <Star className="h-5 w-5 fill-amber-400 text-amber-400" />
+                  <Star className="h-5 w-5 fill-[#F59E0B] text-[#F59E0B]" />
 
                   <span className="text-lg font-bold">
 
@@ -169,7 +169,7 @@ export default function MentorProfileDrawer({
 
                 </div>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-muted-foreground">
 
                   {mentor.totalReviews} Reviews
 
@@ -182,13 +182,13 @@ export default function MentorProfileDrawer({
 
             <div className="mt-10">
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 About Mentor
 
               </h3>
 
-              <p className="mt-4 leading-8 text-slate-600">
+              <p className="mt-4 leading-8 text-muted-foreground">
 
                 {mentor.bio}
 
@@ -202,19 +202,19 @@ export default function MentorProfileDrawer({
 
               {/* Experience */}
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:shadow-lg">
 
                 <div className="flex items-center justify-between">
 
                   <div>
 
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-muted-foreground">
 
                       Experience
 
                     </p>
 
-                    <h3 className="mt-3 text-3xl font-bold text-slate-900">
+                    <h3 className="mt-3 text-3xl font-bold text-foreground">
 
                       {mentor.experience} Years
 
@@ -222,9 +222,9 @@ export default function MentorProfileDrawer({
 
                   </div>
 
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-blue-100">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EFF6FF]">
 
-                    <Award className="h-7 w-7 text-blue-600" />
+                    <Award className="h-7 w-7 text-primary" />
 
                   </div>
 
@@ -234,19 +234,19 @@ export default function MentorProfileDrawer({
 
               {/* Sessions */}
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:shadow-lg">
 
                 <div className="flex items-center justify-between">
 
                   <div>
 
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-muted-foreground">
 
                       Completed Sessions
 
                     </p>
 
-                    <h3 className="mt-3 text-3xl font-bold text-slate-900">
+                    <h3 className="mt-3 text-3xl font-bold text-foreground">
 
                       {mentor.completedSessions.toLocaleString()}
 
@@ -254,9 +254,9 @@ export default function MentorProfileDrawer({
 
                   </div>
 
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-emerald-100">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ECFDF5]">
 
-                    <Calendar className="h-7 w-7 text-emerald-600" />
+                    <Calendar className="h-7 w-7 text-[#0F8F65]" />
 
                   </div>
 
@@ -266,19 +266,19 @@ export default function MentorProfileDrawer({
 
               {/* Programs */}
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:shadow-lg">
 
                 <div className="flex items-center justify-between">
 
                   <div>
 
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-muted-foreground">
 
                       Active Programs
 
                     </p>
 
-                    <h3 className="mt-3 text-3xl font-bold text-slate-900">
+                    <h3 className="mt-3 text-3xl font-bold text-foreground">
 
                       {mentor.activePrograms}
 
@@ -286,7 +286,7 @@ export default function MentorProfileDrawer({
 
                   </div>
 
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-violet-100">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-secondary">
 
                     <BookOpen className="h-7 w-7 text-violet-600" />
 
@@ -298,19 +298,19 @@ export default function MentorProfileDrawer({
 
               {/* Earnings */}
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:shadow-lg">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm transition hover:shadow-lg">
 
                 <div className="flex items-center justify-between">
 
                   <div>
 
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-muted-foreground">
 
                       Total Earnings
 
                     </p>
 
-                    <h3 className="mt-3 text-3xl font-bold text-slate-900">
+                    <h3 className="mt-3 text-3xl font-bold text-foreground">
 
                       ${mentor.earnings.toLocaleString()}
 
@@ -318,7 +318,7 @@ export default function MentorProfileDrawer({
 
                   </div>
 
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-amber-100">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FFFBEB]">
 
                     <Wallet className="h-7 w-7 text-amber-600" />
 
@@ -333,7 +333,7 @@ export default function MentorProfileDrawer({
 
             <div className="mt-10">
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 Skills & Expertise
 
@@ -345,7 +345,7 @@ export default function MentorProfileDrawer({
 
                   <span
                     key={skill.id}
-                    className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700 transition hover:bg-blue-100"
+                    className="rounded-full border border-blue-200 bg-blue-50 px-4 py-2 text-sm font-semibold text-[#2563EB] transition hover:bg-[#EFF6FF]"
                   >
                     {skill.name}
                   </span>
@@ -360,7 +360,7 @@ export default function MentorProfileDrawer({
 
             <div className="mt-10">
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 Languages
 
@@ -372,7 +372,7 @@ export default function MentorProfileDrawer({
 
                   <span
                     key={language.id}
-                    className="rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-semibold text-emerald-700"
+                    className="rounded-full border border-[#A7E8CE] bg-[#ECFDF5] px-4 py-2 text-sm font-semibold text-[#065F46]"
                   >
                     {language.name}
                   </span>
@@ -387,7 +387,7 @@ export default function MentorProfileDrawer({
 
             <div className="mt-10">
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 Certifications
 
@@ -399,18 +399,18 @@ export default function MentorProfileDrawer({
 
                   <div
                     key={certificate.id}
-                    className="flex items-start justify-between rounded-3xl border border-slate-200 bg-slate-50 p-5 transition hover:border-blue-300 hover:bg-white"
+                    className="flex items-start justify-between rounded-2xl border border-border bg-secondary p-5 transition hover:border-blue-300 hover:bg-card"
                   >
 
                     <div>
 
-                      <h4 className="font-semibold text-slate-900">
+                      <h4 className="font-semibold text-foreground">
 
                         {certificate.title}
 
                       </h4>
 
-                      <p className="mt-2 text-sm text-slate-500">
+                      <p className="mt-2 text-sm text-muted-foreground">
 
                         Issued by {certificate.issuer}
 
@@ -418,7 +418,7 @@ export default function MentorProfileDrawer({
 
                     </div>
 
-                    <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold text-blue-700">
+                    <span className="rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-semibold text-[#2563EB]">
 
                       {certificate.year}
 
@@ -438,9 +438,9 @@ export default function MentorProfileDrawer({
 
               {/* Membership */}
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
 
                   Membership
 
@@ -451,10 +451,10 @@ export default function MentorProfileDrawer({
                   <span
                     className={`rounded-full px-4 py-2 text-sm font-semibold capitalize ${
                       mentor.membership === "enterprise"
-                        ? "bg-violet-100 text-violet-700"
+                        ? "bg-secondary text-muted-foreground"
                         : mentor.membership === "pro"
-                        ? "bg-blue-100 text-blue-700"
-                        : "bg-slate-100 text-slate-700"
+                        ? "bg-[#EFF6FF] text-[#2563EB]"
+                        : "bg-secondary text-foreground"
                     }`}
                   >
                     {mentor.membership}
@@ -466,9 +466,9 @@ export default function MentorProfileDrawer({
 
               {/* Status */}
 
-              <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+              <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
 
-                <p className="text-sm text-slate-500">
+                <p className="text-sm text-muted-foreground">
 
                   Account Status
 
@@ -479,10 +479,10 @@ export default function MentorProfileDrawer({
                   <span
                     className={`rounded-full px-4 py-2 text-sm font-semibold capitalize ${
                       mentor.status === "active"
-                        ? "bg-emerald-100 text-emerald-700"
+                        ? "bg-[#ECFDF5] text-[#065F46]"
                         : mentor.status === "pending"
-                        ? "bg-amber-100 text-amber-700"
-                        : "bg-red-100 text-red-700"
+                        ? "bg-[#FFFBEB] text-[#B45309]"
+                        : "bg-[#FFDAD6] text-[#BA1A1A]"
                     }`}
                   >
                     {mentor.status}
@@ -491,10 +491,10 @@ export default function MentorProfileDrawer({
                   <span
                     className={`rounded-full px-4 py-2 text-sm font-semibold capitalize ${
                       mentor.verification === "verified"
-                        ? "bg-blue-100 text-blue-700"
+                        ? "bg-[#EFF6FF] text-[#2563EB]"
                         : mentor.verification === "pending"
-                        ? "bg-amber-100 text-amber-700"
-                        : "bg-red-100 text-red-700"
+                        ? "bg-[#FFFBEB] text-[#B45309]"
+                        : "bg-[#FFDAD6] text-[#BA1A1A]"
                     }`}
                   >
                     {mentor.verification}
@@ -503,8 +503,8 @@ export default function MentorProfileDrawer({
                   <span
                     className={`rounded-full px-4 py-2 text-sm font-semibold ${
                       mentor.available
-                        ? "bg-emerald-100 text-emerald-700"
-                        : "bg-red-100 text-red-700"
+                        ? "bg-[#ECFDF5] text-[#065F46]"
+                        : "bg-[#FFDAD6] text-[#BA1A1A]"
                     }`}
                   >
                     {mentor.available
@@ -521,7 +521,7 @@ export default function MentorProfileDrawer({
 
             <div className="mt-10">
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
 
                 Account Timeline
 
@@ -529,17 +529,17 @@ export default function MentorProfileDrawer({
 
               <div className="mt-5 space-y-4">
 
-                <div className="flex items-center justify-between rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <div className="flex items-center justify-between rounded-2xl border border-border bg-secondary p-5">
 
                   <div>
 
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-muted-foreground">
 
                       Joined Platform
 
                     </p>
 
-                    <h4 className="mt-2 text-lg font-semibold text-slate-900">
+                    <h4 className="mt-2 text-lg font-semibold text-foreground">
 
                       {mentor.joinedAt}
 
@@ -547,25 +547,25 @@ export default function MentorProfileDrawer({
 
                   </div>
 
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-blue-100">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EFF6FF]">
 
-                    <Calendar className="h-7 w-7 text-blue-600" />
+                    <Calendar className="h-7 w-7 text-primary" />
 
                   </div>
 
                 </div>
 
-                <div className="flex items-center justify-between rounded-3xl border border-slate-200 bg-slate-50 p-5">
+                <div className="flex items-center justify-between rounded-2xl border border-border bg-secondary p-5">
 
                   <div>
 
-                    <p className="text-sm text-slate-500">
+                    <p className="text-sm text-muted-foreground">
 
                       Last Active
 
                     </p>
 
-                    <h4 className="mt-2 text-lg font-semibold text-slate-900">
+                    <h4 className="mt-2 text-lg font-semibold text-foreground">
 
                       {mentor.lastActive}
 
@@ -573,9 +573,9 @@ export default function MentorProfileDrawer({
 
                   </div>
 
-                  <div className="flex h-14 w-14 items-center justify-center rounded-3xl bg-emerald-100">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ECFDF5]">
 
-                    <Clock3 className="h-7 w-7 text-emerald-600" />
+                    <Clock3 className="h-7 w-7 text-[#0F8F65]" />
 
                   </div>
 
@@ -591,14 +591,14 @@ export default function MentorProfileDrawer({
 
         {/* Footer */}
 
-        <div className="border-t border-slate-200 bg-white px-8 py-6">
+        <div className="border-t border-border bg-card px-8 py-6">
 
           <div className="flex flex-wrap justify-end gap-4">
 
             <button
               type="button"
               onClick={onClose}
-              className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+              className="rounded-2xl border border-border bg-card px-6 py-3 font-semibold text-foreground transition hover:bg-secondary"
             >
               Close
             </button>
@@ -607,7 +607,7 @@ export default function MentorProfileDrawer({
   <button
     type="button"
     onClick={() => onDeactivate(mentor)}
-    className="rounded-2xl bg-red-500 px-6 py-3 font-semibold text-white transition hover:bg-red-600"
+    className="rounded-2xl bg-red-500 px-6 py-3 font-semibold text-white transition hover:bg-destructive"
   >
     Deactivate Mentor
   </button>
@@ -615,7 +615,7 @@ export default function MentorProfileDrawer({
   <button
     type="button"
     onClick={() => onActivate(mentor)}
-    className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+    className="rounded-2xl bg-[#10B981] px-6 py-3 font-semibold text-white transition hover:bg-[#0da271]"
   >
     Activate Mentor
   </button>
@@ -625,7 +625,7 @@ export default function MentorProfileDrawer({
   <button
     type="button"
     onClick={() => onUnblock(mentor)}
-    className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+    className="rounded-2xl bg-[#10B981] px-6 py-3 font-semibold text-white transition hover:bg-[#0da271]"
   >
     Unblock Mentor
   </button>
@@ -640,7 +640,7 @@ export default function MentorProfileDrawer({
           ? onUnpublish(mentor)
           : onPublish(mentor)
       }
-      className="rounded-2xl bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700"
+      className="rounded-2xl bg-primary px-6 py-3 font-semibold text-white transition hover:bg-primary/90"
     >
       {mentor.published
         ? "Unpublish Mentor"
@@ -652,7 +652,7 @@ export default function MentorProfileDrawer({
             <button
   type="button"
   onClick={() => onSuspend(mentor)}
-  className="rounded-2xl bg-amber-500 px-6 py-3 font-semibold text-white transition hover:bg-amber-600"
+  className="rounded-2xl bg-[#F59E0B] px-6 py-3 font-semibold text-white transition hover:bg-[#D97706]"
 >
   Suspend Mentor
 </button>
@@ -660,7 +660,7 @@ export default function MentorProfileDrawer({
             <button
   type="button"
   onClick={() => onApprove(mentor)}
-  className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+  className="rounded-2xl bg-[#10B981] px-6 py-3 font-semibold text-white transition hover:bg-[#0da271]"
 >
   Approve Mentor
 </button>
@@ -669,7 +669,7 @@ export default function MentorProfileDrawer({
   <button
     type="button"
     onClick={() => onRestore(mentor)}
-    className="rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+    className="rounded-2xl bg-[#10B981] px-6 py-3 font-semibold text-white transition hover:bg-[#0da271]"
   >
     Restore Mentor
   </button>
@@ -677,7 +677,7 @@ export default function MentorProfileDrawer({
   <button
     type="button"
     onClick={() => onSoftDelete(mentor)}
-    className="rounded-2xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
+    className="rounded-2xl bg-destructive px-6 py-3 font-semibold text-white transition hover:bg-destructive/90"
   >
     Soft Delete Mentor
   </button>

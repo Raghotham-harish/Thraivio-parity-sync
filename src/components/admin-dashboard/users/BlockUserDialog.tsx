@@ -74,7 +74,7 @@ function BlockUserDialog({
 
           <div className="flex items-center gap-5">
 
-            <div className="rounded-3xl bg-white/20 p-4">
+            <div className="rounded-2xl bg-card/20 p-4">
 
               <ShieldBan className="h-10 w-10" />
 
@@ -119,7 +119,7 @@ function BlockUserDialog({
 
           {/* User */}
 
-          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <div className="flex items-center gap-5 rounded-2xl border border-border bg-secondary p-5">
 
             <img
               src={user.avatar}
@@ -129,11 +129,11 @@ function BlockUserDialog({
 
             <div>
 
-              <h3 className="text-xl font-bold text-slate-900">
+              <h3 className="text-xl font-bold text-foreground">
                 {user.name}
               </h3>
 
-              <p className="text-slate-500">
+              <p className="text-muted-foreground">
                 {user.email}
               </p>
 
@@ -145,7 +145,7 @@ function BlockUserDialog({
 
           <div>
 
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
+            <label className="mb-2 block text-sm font-semibold text-foreground">
 
               Block Reason
 
@@ -156,7 +156,7 @@ function BlockUserDialog({
               onChange={(e) =>
                 setReason(e.target.value)
               }
-              className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none focus:border-amber-500"
+              className="h-12 w-full rounded-2xl border border-border px-4 outline-none focus:border-amber-500"
             >
               <option value="">
                 Select reason
@@ -190,7 +190,7 @@ function BlockUserDialog({
 
           <div>
 
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
+            <label className="mb-2 block text-sm font-semibold text-foreground">
 
               Block Duration
 
@@ -201,7 +201,7 @@ function BlockUserDialog({
               onChange={(e) =>
                 setDuration(e.target.value)
               }
-              className="h-12 w-full rounded-2xl border border-slate-200 px-4 outline-none focus:border-amber-500"
+              className="h-12 w-full rounded-2xl border border-border px-4 outline-none focus:border-amber-500"
             >
               <option>1 Day</option>
 
@@ -218,7 +218,7 @@ function BlockUserDialog({
 
           <div>
 
-            <label className="mb-2 block text-sm font-semibold text-slate-700">
+            <label className="mb-2 block text-sm font-semibold text-foreground">
               Admin Notes
             </label>
 
@@ -227,14 +227,14 @@ function BlockUserDialog({
               value={notes}
               onChange={(e) => setNotes(e.target.value)}
               placeholder="Write additional notes for this action..."
-              className="w-full rounded-2xl border border-slate-200 p-4 outline-none transition-all focus:border-amber-500"
+              className="w-full rounded-2xl border border-border p-4 outline-none transition-all focus:border-amber-500"
             />
 
           </div>
 
           {/* Notify User */}
 
-          <div className="rounded-3xl border border-slate-200 bg-slate-50 p-5">
+          <div className="rounded-2xl border border-border bg-secondary p-5">
 
             <label className="flex cursor-pointer items-start justify-between gap-5">
 
@@ -244,13 +244,13 @@ function BlockUserDialog({
 
                   <Bell className="h-5 w-5 text-amber-600" />
 
-                  <h4 className="font-semibold text-slate-900">
+                  <h4 className="font-semibold text-foreground">
                     Notify User
                   </h4>
 
                 </div>
 
-                <p className="mt-2 text-sm leading-6 text-slate-500">
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
                   Send an email notification explaining why the account
                   has been blocked and include the selected duration.
                 </p>
@@ -261,7 +261,7 @@ function BlockUserDialog({
                 type="checkbox"
                 checked={notify}
                 onChange={(e) => setNotify(e.target.checked)}
-                className="mt-1 h-5 w-5 rounded border-slate-300 text-amber-600 focus:ring-amber-500"
+                className="mt-1 h-5 w-5 rounded border-border text-amber-600 focus:ring-amber-500"
               />
 
             </label>
@@ -270,13 +270,13 @@ function BlockUserDialog({
 
           {/* Warning */}
 
-          <div className="rounded-3xl border border-amber-200 bg-amber-50 p-5">
+          <div className="rounded-2xl border border-amber-200 bg-amber-50 p-5">
 
             <h4 className="font-semibold text-amber-800">
               Before you continue
             </h4>
 
-            <ul className="mt-3 space-y-2 text-sm leading-6 text-amber-700">
+            <ul className="mt-3 space-y-2 text-sm leading-6 text-[#B45309]">
 
               <li>
                 • User won't be able to access the platform while blocked.
@@ -302,9 +302,9 @@ function BlockUserDialog({
   className="
     sticky
     bottom-0
-    bg-white
+    bg-card
     border-t
-    border-slate-200
+    border-border
     px-8
     py-5
     flex
@@ -317,7 +317,7 @@ function BlockUserDialog({
           <button
             type="button"
             onClick={() => onOpenChange(false)}
-            className="h-12 rounded-2xl border border-slate-200 bg-white px-6 font-semibold text-slate-700 transition hover:bg-slate-50"
+            className="h-12 rounded-2xl border border-border bg-card px-6 font-semibold text-foreground transition hover:bg-secondary"
           >
             Cancel
           </button>
@@ -333,7 +333,7 @@ function BlockUserDialog({
                 notify
               )
             }
-            className="h-12 rounded-2xl bg-amber-500 px-6 font-semibold text-white transition hover:bg-amber-600"
+            className="h-12 rounded-2xl bg-[#F59E0B] px-6 font-semibold text-white transition hover:bg-[#D97706]"
           >
             <ShieldBan className="mr-2 inline h-4 w-4" />
 

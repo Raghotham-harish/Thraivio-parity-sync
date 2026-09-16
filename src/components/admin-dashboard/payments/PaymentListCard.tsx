@@ -56,7 +56,7 @@ export default function PaymentListCard({
   onDelete,
 }: PaymentListCardProps) {
   return (
-    <Card className="overflow-hidden rounded-3xl transition-all duration-300 hover:shadow-lg">
+    <Card className="overflow-hidden rounded-2xl transition-all duration-300 hover:shadow-lg">
 
       <CardContent className="p-6">
 
@@ -287,7 +287,7 @@ export default function PaymentListCard({
               Discount
             </p>
 
-            <h4 className="mt-2 text-lg font-semibold text-green-600">
+            <h4 className="mt-2 text-lg font-semibold text-[#0F8F65]">
               ₹{payment.breakdown.discount.toLocaleString("en-IN")}
             </h4>
 

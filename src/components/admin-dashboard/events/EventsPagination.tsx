@@ -46,9 +46,9 @@ const EventsPagination = ({
         flex
         flex-col
         gap-5
-        rounded-3xl
+        rounded-2xl
         border
-        bg-white
+        bg-card
         p-6
         shadow-sm
         lg:flex-row
@@ -159,7 +159,7 @@ const EventsPagination = ({
       <div
         className="
           rounded-xl
-          bg-slate-50
+          bg-secondary
           px-4
           py-2
           text-sm

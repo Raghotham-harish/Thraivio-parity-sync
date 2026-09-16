@@ -36,7 +36,7 @@ export default function PaymentsPagination({
   );
 
   return (
-    <div className="mt-8 flex flex-col gap-5 rounded-3xl border bg-background p-5 shadow-sm lg:flex-row lg:items-center lg:justify-between">
+    <div className="mt-8 flex flex-col gap-5 rounded-2xl border bg-background p-5 shadow-sm lg:flex-row lg:items-center lg:justify-between">
 
       <div className="text-sm text-muted-foreground">
         Showing{" "}

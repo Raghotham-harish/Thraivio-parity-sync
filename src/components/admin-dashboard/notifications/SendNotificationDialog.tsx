@@ -42,7 +42,7 @@ export default function SendNotificationDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="max-w-2xl rounded-3xl">
+      <DialogContent className="max-w-2xl rounded-2xl">
 
         <DialogHeader>
 
@@ -164,7 +164,7 @@ export default function SendNotificationDialog({
 
             <div className="mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-4">
 
-              <p className="text-sm text-amber-700">
+              <p className="text-sm text-[#B45309]">
 
                 This notification will be sent to the selected
                 audience immediately after confirmation.

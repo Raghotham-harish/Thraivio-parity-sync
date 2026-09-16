@@ -30,9 +30,9 @@ const EventsTable = ({
     <div
       className="
         overflow-hidden
-        rounded-3xl
+        rounded-2xl
         border
-        bg-white
+        bg-card
         shadow-sm
       "
     >
@@ -47,7 +47,7 @@ const EventsTable = ({
               sticky
               top-0
               z-10
-              bg-slate-50
+              bg-secondary
               border-b
             "
           >
@@ -120,7 +120,7 @@ const EventsTable = ({
           items-center
           justify-between
           border-t
-          bg-slate-50
+          bg-secondary
           px-6
           py-4
         "
@@ -138,7 +138,7 @@ const EventsTable = ({
 
         <div className="flex items-center gap-2">
 
-          <div className="h-2 w-2 rounded-full bg-emerald-500" />
+          <div className="h-2 w-2 rounded-full bg-[#ECFDF5]0" />
 
           <span className="text-sm text-muted-foreground">
 

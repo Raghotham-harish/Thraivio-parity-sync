@@ -56,7 +56,7 @@ export default function PaymentGridCard({
   onDelete,
 }: PaymentGridCardProps) {
   return (
-    <Card className="group overflow-hidden rounded-3xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <Card className="group overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
       <div className="h-2 w-full bg-gradient-to-r from-primary via-sky-500 to-violet-500" />
 
@@ -308,7 +308,7 @@ export default function PaymentGridCard({
                 Discount
               </span>
 
-              <span className="font-medium text-green-600">
+              <span className="font-medium text-[#0F8F65]">
                 - ₹{payment.breakdown.discount.toLocaleString("en-IN")}
               </span>
             </div>
@@ -338,7 +338,7 @@ export default function PaymentGridCard({
                 Mentor Payout
               </span>
 
-              <span className="font-medium text-blue-600">
+              <span className="font-medium text-primary">
                 ₹{payment.breakdown.mentorPayout.toLocaleString("en-IN")}
               </span>
             </div>

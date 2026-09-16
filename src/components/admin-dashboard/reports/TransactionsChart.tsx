@@ -32,7 +32,7 @@ export default function TransactionsChart({
   );
 
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -50,9 +50,9 @@ export default function TransactionsChart({
 
           </div>
 
-          <div className="rounded-2xl bg-blue-500/10 p-3">
+          <div className="rounded-2xl bg-[#EFF6FF] p-3">
 
-            <CreditCard className="h-6 w-6 text-blue-600" />
+            <CreditCard className="h-6 w-6 text-primary" />
 
           </div>
 
@@ -66,7 +66,7 @@ export default function TransactionsChart({
 
           <div className="flex items-center gap-2">
 
-            <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+            <CheckCircle2 className="h-4 w-4 text-[#0F8F65]" />
 
             <span>Successful</span>
 
@@ -99,7 +99,7 @@ export default function TransactionsChart({
               <div className="flex h-60 items-end gap-1">
 
                 <div
-                  className="w-4 rounded-t-xl bg-emerald-500 transition-all"
+                  className="w-4 rounded-t-xl bg-[#ECFDF5]0 transition-all"
                   style={{
                     height: `${
                       (item.successful / maxValue) * 100
@@ -108,7 +108,7 @@ export default function TransactionsChart({
                 />
 
                 <div
-                  className="w-4 rounded-t-xl bg-amber-500 transition-all"
+                  className="w-4 rounded-t-xl bg-[#F59E0B] transition-all"
                   style={{
                     height: `${
                       (item.pending / maxValue) * 100

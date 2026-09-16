@@ -102,9 +102,9 @@ const RefundDialog = ({
 
           overflow-hidden
 
-          rounded-[36px]
+          rounded-2xl
 
-          bg-white
+          bg-card
         "
       >
 
@@ -139,7 +139,7 @@ const RefundDialog = ({
 
                 rounded-full
 
-                bg-white/20
+                bg-card/20
 
                 px-4
                 py-2
@@ -191,11 +191,11 @@ const RefundDialog = ({
 
               rounded-full
 
-              bg-white/20
+              bg-card/20
 
               transition
 
-              hover:bg-white/30
+              hover:bg-card/30
             "
           >
             <X size={20}/>
@@ -221,7 +221,7 @@ const RefundDialog = ({
 
           <div
             className="
-              rounded-[32px]
+              rounded-2xl
 
               border
               border-green-100
@@ -260,9 +260,9 @@ const RefundDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -275,7 +275,7 @@ const RefundDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -296,7 +296,7 @@ const RefundDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.mentorRole}
@@ -311,7 +311,7 @@ const RefundDialog = ({
                       gap-2
 
                       text-sm
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
 
@@ -335,9 +335,9 @@ const RefundDialog = ({
                   items-center
                   gap-5
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-white
+                  bg-card
 
                   p-5
                 "
@@ -350,7 +350,7 @@ const RefundDialog = ({
                     h-20
                     w-20
 
-                    rounded-3xl
+                    rounded-2xl
 
                     object-cover
                   "
@@ -371,7 +371,7 @@ const RefundDialog = ({
                     className="
                       mt-1
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {session.studentEmail}
@@ -456,12 +456,12 @@ const RefundDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -524,8 +524,8 @@ const RefundDialog = ({
 
                       ${
                         refundType==="full"
-                          ? "border-green-600 bg-green-50 text-green-700"
-                          : "border-slate-200 hover:border-green-300"
+                          ? "border-green-600 bg-green-50 text-[#065F46]"
+                          : "border-border hover:border-green-300"
                       }
                     `}
                   >
@@ -550,7 +550,7 @@ const RefundDialog = ({
                         mt-1
 
                         text-xs
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Refund complete payment
@@ -574,8 +574,8 @@ const RefundDialog = ({
 
                       ${
                         refundType==="partial"
-                          ? "border-green-600 bg-green-50 text-green-700"
-                          : "border-slate-200 hover:border-green-300"
+                          ? "border-green-600 bg-green-50 text-[#065F46]"
+                          : "border-border hover:border-green-300"
                       }
                     `}
                   >
@@ -600,7 +600,7 @@ const RefundDialog = ({
                         mt-1
 
                         text-xs
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       Refund selected amount
@@ -640,7 +640,7 @@ const RefundDialog = ({
 
                       -translate-y-1/2
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     ₹
@@ -664,14 +664,14 @@ const RefundDialog = ({
                       rounded-2xl
 
                       border
-                      border-slate-200
+                      border-border
 
                       pl-10
                       pr-4
 
                       outline-none
 
-                      disabled:bg-slate-100
+                      disabled:bg-secondary
 
                       focus:border-green-500
                       focus:ring-2
@@ -714,7 +714,7 @@ const RefundDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -756,12 +756,12 @@ const RefundDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -812,7 +812,7 @@ const RefundDialog = ({
                 className="
                   mt-8
 
-                  rounded-3xl
+                  rounded-2xl
 
                   bg-green-50
 
@@ -824,7 +824,7 @@ const RefundDialog = ({
                   className="
                     font-semibold
 
-                    text-green-700
+                    text-[#065F46]
                   "
                 >
                   Refund Calculation
@@ -866,7 +866,7 @@ const RefundDialog = ({
 
                     <strong
                       className="
-                        text-green-700
+                        text-[#065F46]
                       "
                     >
                       ₹{refundAmount}
@@ -894,7 +894,7 @@ const RefundDialog = ({
 
                     <strong
                       className="
-                        text-blue-600
+                        text-primary
                       "
                     >
                       ₹
@@ -930,12 +930,12 @@ const RefundDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -977,7 +977,7 @@ const RefundDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -1042,7 +1042,7 @@ const RefundDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -1101,7 +1101,7 @@ const RefundDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -1141,7 +1141,7 @@ const RefundDialog = ({
                     rounded-2xl
 
                     border
-                    border-slate-200
+                    border-border
 
                     px-4
 
@@ -1179,12 +1179,12 @@ const RefundDialog = ({
 
             <div
               className="
-                rounded-[32px]
+                rounded-2xl
 
                 border
-                border-slate-200
+                border-border
 
-                bg-white
+                bg-card
 
                 p-6
               "
@@ -1221,7 +1221,7 @@ Refund processing notes...
                   rounded-2xl
 
                   border
-                  border-slate-200
+                  border-border
 
                   p-4
 
@@ -1239,9 +1239,9 @@ Refund processing notes...
                 className="
                   mt-8
 
-                  rounded-3xl
+                  rounded-2xl
 
-                  bg-slate-50
+                  bg-secondary
 
                   p-5
                 "
@@ -1316,7 +1316,7 @@ Refund processing notes...
                   className="
                     font-semibold
 
-                    text-green-700
+                    text-[#065F46]
                   "
                 >
                   Finance Preview
@@ -1330,7 +1330,7 @@ Refund processing notes...
 
                     leading-6
 
-                    text-green-600
+                    text-[#0F8F65]
                   "
                 >
                   After confirmation this refund
@@ -1356,9 +1356,9 @@ Refund processing notes...
               bottom-0
 
               border-t
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               pt-6
             "
@@ -1381,7 +1381,7 @@ Refund processing notes...
                   rounded-2xl
 
                   border
-                  border-slate-300
+                  border-border
 
                   px-8
                   py-3.5
@@ -1390,7 +1390,7 @@ Refund processing notes...
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 Cancel
@@ -1498,13 +1498,13 @@ function InfoCard({
       className="
         rounded-2xl
 
-        bg-white
+        bg-card
 
         p-5
       "
     >
 
-      <div className="text-green-600">
+      <div className="text-[#0F8F65]">
         {icon}
       </div>
 
@@ -1513,7 +1513,7 @@ function InfoCard({
           mt-3
 
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1549,7 +1549,7 @@ function SummaryCard({
       className="
         rounded-2xl
 
-        bg-slate-50
+        bg-secondary
 
         p-5
       "
@@ -1558,7 +1558,7 @@ function SummaryCard({
       <p
         className="
           text-sm
-          text-slate-500
+          text-muted-foreground
         "
       >
         {title}
@@ -1599,7 +1599,7 @@ function ChecklistItem({
 
         rounded-xl
 
-        bg-white
+        bg-card
 
         p-3
       "
@@ -1627,8 +1627,8 @@ function ChecklistItem({
 
           ${
             checked
-              ? "bg-green-100 text-green-600"
-              : "bg-slate-100 text-slate-400"
+              ? "bg-[#ECFDF5] text-[#0F8F65]"
+              : "bg-secondary text-muted-foreground"
           }
         `}
       >

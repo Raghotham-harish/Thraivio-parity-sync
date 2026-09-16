@@ -35,44 +35,44 @@ interface SessionsTableProps {
 
 const statusStyles = {
   scheduled:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   live:
-    "bg-emerald-100 text-emerald-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   completed:
-    "bg-violet-100 text-violet-700",
+    "bg-secondary text-muted-foreground",
 
   cancelled:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 
   missed:
-    "bg-slate-200 text-slate-700",
+    "bg-secondary text-foreground",
 };
 
 const paymentStyles = {
   paid:
-    "bg-green-100 text-green-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   pending:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   refunded:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 };
 
 const attendanceStyles = {
   waiting:
-    "bg-amber-100 text-amber-700",
+    "bg-[#FFFBEB] text-[#B45309]",
 
   joined:
-    "bg-blue-100 text-blue-700",
+    "bg-[#EFF6FF] text-[#2563EB]",
 
   completed:
-    "bg-green-100 text-green-700",
+    "bg-[#ECFDF5] text-[#065F46]",
 
   absent:
-    "bg-red-100 text-red-700",
+    "bg-[#FFDAD6] text-[#BA1A1A]",
 };
 
 const SessionsTable = ({
@@ -88,12 +88,12 @@ const SessionsTable = ({
       className="
         overflow-hidden
 
-        rounded-[30px]
+        rounded-2xl
 
         border
-        border-slate-200
+        border-border
 
-        bg-white
+        bg-card
       "
     >
       <div className="overflow-x-auto">
@@ -104,7 +104,7 @@ const SessionsTable = ({
             className="
               border-b
 
-              bg-slate-50
+              bg-secondary
             "
           >
             <tr>
@@ -156,7 +156,7 @@ const SessionsTable = ({
                 className="
                   border-b
 
-                  hover:bg-slate-50
+                  hover:bg-secondary
 
                   transition
                 "
@@ -168,7 +168,7 @@ const SessionsTable = ({
                     <h4
                       className="
                         font-semibold
-                        text-slate-900
+                        text-foreground
                       "
                     >
                       {session.programTitle}
@@ -180,7 +180,7 @@ const SessionsTable = ({
 
                         text-sm
 
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       {session.sessionType}
@@ -192,7 +192,7 @@ const SessionsTable = ({
 
                         text-xs
 
-                        text-slate-400
+                        text-muted-foreground
                       "
                     >
                       {session.bookingReference}
@@ -239,7 +239,7 @@ const SessionsTable = ({
 
                           text-sm
 
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         {session.mentorCompany}
@@ -249,7 +249,7 @@ const SessionsTable = ({
                         className="
                           text-xs
 
-                          text-slate-400
+                          text-muted-foreground
                         "
                       >
                         {session.mentorRole}
@@ -297,7 +297,7 @@ const SessionsTable = ({
 
                           text-sm
 
-                          text-slate-500
+                          text-muted-foreground
                         "
                       >
                         {session.studentEmail}
@@ -324,7 +324,7 @@ const SessionsTable = ({
 
                         text-sm
 
-                        text-slate-500
+                        text-muted-foreground
                       "
                     >
                       {session.time}
@@ -336,7 +336,7 @@ const SessionsTable = ({
 
                         text-xs
 
-                        text-slate-400
+                        text-muted-foreground
                       "
                     >
                       {session.duration}
@@ -354,7 +354,7 @@ const SessionsTable = ({
 
                         rounded-full
 
-                        bg-indigo-50
+                        bg-[#EFF6FF]
 
                         px-3
                         py-1.5
@@ -362,7 +362,7 @@ const SessionsTable = ({
                         text-xs
                         font-semibold
 
-                        text-indigo-700
+                        text-[#2563EB]
                       "
                     >
                       {session.meetingPlatform}
@@ -374,7 +374,7 @@ const SessionsTable = ({
 
                         text-xs
 
-                        text-slate-400
+                        text-muted-foreground
                       "
                     >
                       {session.timezone}
@@ -413,7 +413,7 @@ const SessionsTable = ({
 
                         font-semibold
 
-                        text-green-600
+                        text-[#0F8F65]
                       "
                     >
                       ₹{session.amount}
@@ -499,11 +499,11 @@ const SessionsTable = ({
                         rounded-xl
 
                         border
-                        border-slate-200
+                        border-border
 
                         transition
 
-                        hover:bg-slate-100
+                        hover:bg-secondary
                       "
                       title="View"
                     >
@@ -523,13 +523,13 @@ const SessionsTable = ({
 
                         rounded-xl
 
-                        bg-blue-600
+                        bg-primary
 
                         text-white
 
                         transition
 
-                        hover:bg-blue-700
+                        hover:bg-primary/90
                       "
                       title="Edit"
                     >
@@ -553,16 +553,16 @@ const SessionsTable = ({
 
                         rounded-xl
 
-                        bg-emerald-600
+                        bg-[#10B981]
 
                         text-white
 
                         transition
 
-                        hover:bg-emerald-700
+                        hover:bg-[#0da271]
 
                         disabled:cursor-not-allowed
-                        disabled:bg-slate-300
+                        disabled:bg-muted
                       "
                       title="Complete"
                     >
@@ -586,16 +586,16 @@ const SessionsTable = ({
 
                         rounded-xl
 
-                        bg-amber-500
+                        bg-[#F59E0B]
 
                         text-white
 
                         transition
 
-                        hover:bg-amber-600
+                        hover:bg-[#D97706]
 
                         disabled:cursor-not-allowed
-                        disabled:bg-slate-300
+                        disabled:bg-muted
                       "
                       title="Cancel"
                     >
@@ -615,13 +615,13 @@ const SessionsTable = ({
 
                         rounded-xl
 
-                        bg-red-600
+                        bg-destructive
 
                         text-white
 
                         transition
 
-                        hover:bg-red-700
+                        hover:bg-destructive/90
                       "
                       title="Delete"
                     >
@@ -639,11 +639,11 @@ const SessionsTable = ({
                         rounded-xl
 
                         border
-                        border-slate-200
+                        border-border
 
                         transition
 
-                        hover:bg-slate-100
+                        hover:bg-secondary
                       "
                       title="More"
                     >

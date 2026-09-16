@@ -33,7 +33,7 @@ function UsersGrid({
         {Array.from({ length: 8 }).map((_, index) => (
           <div
             key={index}
-            className="h-[540px] animate-pulse rounded-[32px] border border-slate-200 bg-white"
+            className="h-[540px] animate-pulse rounded-2xl border border-border bg-card"
           />
         ))}
       </section>

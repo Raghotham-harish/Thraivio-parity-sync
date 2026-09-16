@@ -28,7 +28,7 @@ export default function StorageSettings({
   onChange,
 }: StorageSettingsProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 

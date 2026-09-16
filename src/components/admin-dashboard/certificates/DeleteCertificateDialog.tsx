@@ -47,7 +47,7 @@ const DeleteCertificateDialog = ({
         onOpenChange
       }
     >
-      <DialogContent className="max-w-2xl overflow-hidden rounded-[32px] p-0">
+      <DialogContent className="max-w-2xl overflow-hidden rounded-2xl p-0">
 
         {/* Hero */}
 
@@ -63,11 +63,11 @@ const DeleteCertificateDialog = ({
             text-white
           "
         >
-          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-white/10 blur-3xl" />
+          <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-card/10 blur-3xl" />
 
           <div className="relative z-10">
 
-            <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-4 py-2 text-sm backdrop-blur">
+            <div className="inline-flex items-center gap-2 rounded-full bg-card/15 px-4 py-2 text-sm backdrop-blur">
 
               <AlertTriangle className="h-4 w-4" />
 
@@ -104,11 +104,11 @@ const DeleteCertificateDialog = ({
 
           {/* Certificate */}
 
-          <div className="rounded-3xl border bg-white p-6">
+          <div className="rounded-2xl border bg-card p-6">
 
             <div className="flex gap-5">
 
-              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-red-100">
+              <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-[#FFDAD6]">
 
                 <Award className="h-8 w-8 text-red-600" />
 
@@ -146,7 +146,7 @@ const DeleteCertificateDialog = ({
 
           <div className="grid gap-5 md:grid-cols-2">
 
-            <div className="rounded-3xl border p-5">
+            <div className="rounded-2xl border p-5">
 
               <h4 className="mb-4 font-semibold">
 
@@ -182,7 +182,7 @@ const DeleteCertificateDialog = ({
 
             </div>
 
-            <div className="rounded-3xl border p-5">
+            <div className="rounded-2xl border p-5">
 
               <h4 className="mb-4 font-semibold">
 
@@ -224,7 +224,7 @@ const DeleteCertificateDialog = ({
 
           {/* Warning */}
 
-          <div className="rounded-3xl border border-red-200 bg-red-50 p-6">
+          <div className="rounded-2xl border border-red-200 bg-red-50 p-6">
 
             <div className="flex items-start gap-4">
 
@@ -232,13 +232,13 @@ const DeleteCertificateDialog = ({
 
               <div>
 
-                <h3 className="text-lg font-bold text-red-700">
+                <h3 className="text-lg font-bold text-[#BA1A1A]">
 
                   Warning
 
                 </h3>
 
-                <ul className="mt-4 space-y-2 text-sm leading-7 text-red-700">
+                <ul className="mt-4 space-y-2 text-sm leading-7 text-[#BA1A1A]">
 
                   <li>
                     • Certificate will be removed permanently.
@@ -272,7 +272,7 @@ const DeleteCertificateDialog = ({
 
         {/* Footer */}
 
-        <DialogFooter className="border-t bg-slate-50 px-8 py-6">
+        <DialogFooter className="border-t bg-secondary px-8 py-6">
 
           <Button
             variant="outline"

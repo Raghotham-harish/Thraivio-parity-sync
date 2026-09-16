@@ -26,7 +26,7 @@ export default function TopMentorsCard({
   mentors,
 }: TopMentorsCardProps) {
   return (
-    <Card className="rounded-3xl shadow-sm">
+    <Card className="rounded-2xl shadow-sm">
 
       <CardHeader>
 
@@ -44,9 +44,9 @@ export default function TopMentorsCard({
 
           </div>
 
-          <div className="rounded-2xl bg-orange-500/10 p-3">
+          <div className="rounded-2xl bg-[#FFFBEB] p-3">
 
-            <GraduationCap className="h-6 w-6 text-orange-600" />
+            <GraduationCap className="h-6 w-6 text-[#B45309]" />
 
           </div>
 
@@ -114,9 +114,9 @@ export default function TopMentorsCard({
 
                 <div className="flex items-center justify-end gap-2">
 
-                  <IndianRupee className="h-4 w-4 text-emerald-600" />
+                  <IndianRupee className="h-4 w-4 text-[#0F8F65]" />
 
-                  <span className="font-semibold text-emerald-600">
+                  <span className="font-semibold text-[#0F8F65]">
                     ₹
                     {mentor.totalRevenue.toLocaleString("en-IN")}
                   </span>

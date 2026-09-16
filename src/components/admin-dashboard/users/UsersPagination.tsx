@@ -32,7 +32,7 @@ export default function UsersPagination({
   );
 
   return (
-    <section className="rounded-[30px] border border-slate-200 bg-white p-6 shadow-sm">
+    <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
 
       <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
 
@@ -40,23 +40,23 @@ export default function UsersPagination({
 
         <div>
 
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-muted-foreground">
 
             Showing
 
-            <span className="mx-1 font-semibold text-slate-900">
+            <span className="mx-1 font-semibold text-foreground">
               {start}
             </span>
 
             -
 
-            <span className="mx-1 font-semibold text-slate-900">
+            <span className="mx-1 font-semibold text-foreground">
               {end}
             </span>
 
             of
 
-            <span className="mx-1 font-semibold text-slate-900">
+            <span className="mx-1 font-semibold text-foreground">
               {totalItems}
             </span>
 
@@ -76,7 +76,7 @@ export default function UsersPagination({
             onClick={() =>
               onPageChange(currentPage - 1)
             }
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-card transition hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
@@ -89,8 +89,8 @@ export default function UsersPagination({
               onClick={() => onPageChange(page)}
               className={`flex h-11 w-11 items-center justify-center rounded-2xl font-semibold transition-all ${
                 currentPage === page
-                  ? "bg-blue-600 text-white shadow-lg"
-                  : "border border-slate-200 bg-white text-slate-700 hover:bg-slate-50"
+                  ? "bg-primary text-white shadow-lg"
+                  : "border border-border bg-card text-foreground hover:bg-secondary"
               }`}
             >
               {page}
@@ -104,7 +104,7 @@ export default function UsersPagination({
             onClick={() =>
               onPageChange(currentPage + 1)
             }
-            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-slate-200 bg-white transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+            className="flex h-11 w-11 items-center justify-center rounded-2xl border border-border bg-card transition hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ChevronRight className="h-5 w-5" />
           </button>

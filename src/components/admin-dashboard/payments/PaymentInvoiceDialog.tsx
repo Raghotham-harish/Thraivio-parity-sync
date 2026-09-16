@@ -44,7 +44,7 @@ export default function PaymentInvoiceDialog({
       open={open}
       onOpenChange={onOpenChange}
     >
-      <DialogContent className="sm:max-w-4xl rounded-3xl">
+      <DialogContent className="sm:max-w-4xl rounded-2xl">
 
         <DialogHeader>
 
@@ -65,7 +65,7 @@ export default function PaymentInvoiceDialog({
 
         <div className="space-y-6">
 
-          <div className="rounded-3xl border p-8">
+          <div className="rounded-2xl border p-8">
 
             <div className="flex flex-col gap-6 border-b pb-6 md:flex-row md:items-start md:justify-between">
 
@@ -263,7 +263,7 @@ export default function PaymentInvoiceDialog({
                     Discount
                   </span>
 
-                  <span className="text-green-600">
+                  <span className="text-[#0F8F65]">
                     - ₹
                     {payment.breakdown.discount.toLocaleString(
                       "en-IN"

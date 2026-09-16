@@ -56,7 +56,7 @@ const RecentPayments = ({
 
               rounded-full
 
-              bg-emerald-50
+              bg-[#ECFDF5]
 
               px-4
               py-2
@@ -64,7 +64,7 @@ const RecentPayments = ({
               text-sm
               font-medium
 
-              text-emerald-700
+              text-[#065F46]
             "
           >
             <CreditCard size={16} />
@@ -92,7 +92,7 @@ const RecentPayments = ({
 
               leading-7
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Monitor platform payments,
@@ -116,7 +116,7 @@ const RecentPayments = ({
 
               -translate-y-1/2
 
-              text-slate-400
+              text-muted-foreground
             "
           />
 
@@ -130,9 +130,9 @@ const RecentPayments = ({
               rounded-2xl
 
               border
-              border-slate-200
+              border-border
 
-              bg-white
+              bg-card
 
               py-3
 
@@ -159,12 +159,12 @@ const RecentPayments = ({
 
           overflow-hidden
 
-          rounded-[30px]
+          rounded-2xl
 
           border
-          border-slate-200
+          border-border
 
-          bg-white
+          bg-card
         "
       >
 
@@ -177,9 +177,9 @@ const RecentPayments = ({
             grid-cols-12
 
             border-b
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             px-6
             py-4
@@ -187,7 +187,7 @@ const RecentPayments = ({
             text-sm
             font-semibold
 
-            text-slate-600
+            text-muted-foreground
           "
         >
           <div className="col-span-3">
@@ -237,7 +237,7 @@ const RecentPayments = ({
 
               transition
 
-              hover:bg-slate-50
+              hover:bg-secondary
             "
           >
                         {/* User */}
@@ -256,11 +256,11 @@ const RecentPayments = ({
 
                     rounded-2xl
 
-                    bg-blue-100
+                    bg-[#EFF6FF]
 
                     font-bold
 
-                    text-blue-700
+                    text-[#2563EB]
                   "
                 >
                   {payment.user.charAt(0)}
@@ -271,7 +271,7 @@ const RecentPayments = ({
                     className="
                       font-semibold
 
-                      text-slate-900
+                      text-foreground
                     "
                   >
                     {payment.user}
@@ -283,7 +283,7 @@ const RecentPayments = ({
 
                       text-sm
 
-                      text-slate-500
+                      text-muted-foreground
                     "
                   >
                     {payment.id}
@@ -299,7 +299,7 @@ const RecentPayments = ({
                 className="
                   font-medium
 
-                  text-slate-700
+                  text-foreground
                 "
               >
                 {payment.mentor}
@@ -311,7 +311,7 @@ const RecentPayments = ({
 
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 Mentor
@@ -326,7 +326,7 @@ const RecentPayments = ({
                   text-lg
                   font-bold
 
-                  text-slate-900
+                  text-foreground
                 "
               >
                 ${payment.amount}
@@ -338,7 +338,7 @@ const RecentPayments = ({
 
                   text-xs
 
-                  text-slate-500
+                  text-muted-foreground
                 "
               >
                 {payment.date}
@@ -354,7 +354,7 @@ const RecentPayments = ({
 
                   rounded-full
 
-                  bg-slate-100
+                  bg-secondary
 
                   px-3
                   py-2
@@ -362,7 +362,7 @@ const RecentPayments = ({
                   text-sm
                   font-medium
 
-                  text-slate-700
+                  text-foreground
                 "
               >
                 {payment.paymentMethod}
@@ -387,11 +387,11 @@ const RecentPayments = ({
                   ${
                     payment.status ===
                     "completed"
-                      ? "bg-emerald-100 text-emerald-700"
+                      ? "bg-[#ECFDF5] text-[#065F46]"
                       : payment.status ===
                         "pending"
-                      ? "bg-amber-100 text-amber-700"
-                      : "bg-red-100 text-red-700"
+                      ? "bg-[#FFFBEB] text-[#B45309]"
+                      : "bg-[#FFDAD6] text-[#BA1A1A]"
                   }
                 `}
               >
@@ -431,11 +431,11 @@ const RecentPayments = ({
 
                   bg-blue-50
 
-                  text-blue-600
+                  text-primary
 
                   transition
 
-                  hover:bg-blue-100
+                  hover:bg-[#EFF6FF]
                 "
               >
                 <Eye size={18} />
@@ -464,7 +464,7 @@ const RecentPayments = ({
 
                   transition
 
-                  hover:bg-amber-100
+                  hover:bg-[#FFFBEB]
                 "
               >
                 <RefreshCcw size={18} />
@@ -487,13 +487,13 @@ const RecentPayments = ({
 
                   rounded-xl
 
-                  bg-emerald-50
+                  bg-[#ECFDF5]
 
-                  text-emerald-600
+                  text-[#0F8F65]
 
                   transition
 
-                  hover:bg-emerald-100
+                  hover:bg-[#ECFDF5]
                 "
               >
                 <Download size={18} />
@@ -515,7 +515,7 @@ const RecentPayments = ({
 
                   transition
 
-                  hover:bg-slate-100
+                  hover:bg-secondary
                 "
               >
                 <MoreVertical size={18} />
@@ -535,9 +535,9 @@ const RecentPayments = ({
             gap-4
 
             border-t
-            border-slate-200
+            border-border
 
-            bg-slate-50
+            bg-secondary
 
             px-6
             py-5
@@ -551,7 +551,7 @@ const RecentPayments = ({
             className="
               text-sm
 
-              text-slate-500
+              text-muted-foreground
             "
           >
             Showing
@@ -566,7 +566,7 @@ const RecentPayments = ({
             className="
               rounded-2xl
 
-              bg-blue-600
+              bg-primary
 
               px-6
               py-3
@@ -577,7 +577,7 @@ const RecentPayments = ({
 
               transition
 
-              hover:bg-blue-700
+              hover:bg-primary/90
             "
           >
             View All Transactions

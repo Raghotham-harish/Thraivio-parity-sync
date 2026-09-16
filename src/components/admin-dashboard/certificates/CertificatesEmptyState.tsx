@@ -50,7 +50,7 @@ const CertificatesEmptyState = ({
       className="
         relative
         overflow-hidden
-        rounded-[36px]
+        rounded-2xl
         border
         bg-gradient-to-br
         from-white
@@ -62,9 +62,9 @@ const CertificatesEmptyState = ({
     >
       {/* Background */}
 
-      <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-amber-500/10 blur-3xl" />
+      <div className="absolute -left-24 -top-24 h-72 w-72 rounded-full bg-[#F59E0B]/10 blur-3xl" />
 
-      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-orange-500/10 blur-3xl" />
+      <div className="absolute -right-20 bottom-0 h-72 w-72 rounded-full bg-[#FFFBEB] blur-3xl" />
 
       <div className="relative z-10">
 
@@ -79,7 +79,7 @@ const CertificatesEmptyState = ({
                 absolute
                 inset-0
                 rounded-full
-                bg-amber-500/20
+                bg-[#F59E0B]/20
                 blur-3xl
               "
             />
@@ -113,12 +113,12 @@ const CertificatesEmptyState = ({
               items-center
               gap-2
               rounded-full
-              bg-amber-100
+              bg-[#FFFBEB]
               px-4
               py-2
               text-sm
               font-medium
-              text-amber-700
+              text-[#B45309]
             "
           >
             <Sparkles className="h-4 w-4" />
@@ -164,7 +164,7 @@ const CertificatesEmptyState = ({
                   gap-2
                   rounded-full
                   border
-                  bg-white
+                  bg-card
                   px-5
                   py-3
                   shadow-sm
@@ -190,7 +190,7 @@ const CertificatesEmptyState = ({
                 gap-2
                 rounded-full
                 border
-                bg-white
+                bg-card
                 px-5
                 py-3
                 shadow-sm
@@ -216,7 +216,7 @@ const CertificatesEmptyState = ({
                   gap-2
                   rounded-full
                   border
-                  bg-white
+                  bg-card
                   px-5
                   py-3
                   shadow-sm
@@ -248,9 +248,9 @@ const CertificatesEmptyState = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
                 transition-all
@@ -258,9 +258,9 @@ const CertificatesEmptyState = ({
                 hover:shadow-lg
               "
             >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-100">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#EFF6FF]">
 
-                <Search className="h-7 w-7 text-blue-600" />
+                <Search className="h-7 w-7 text-primary" />
 
               </div>
 
@@ -280,9 +280,9 @@ const CertificatesEmptyState = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
                 transition-all
@@ -292,7 +292,7 @@ const CertificatesEmptyState = ({
             >
               <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100">
 
-                <RotateCcw className="h-7 w-7 text-orange-600" />
+                <RotateCcw className="h-7 w-7 text-[#B45309]" />
 
               </div>
 
@@ -312,9 +312,9 @@ const CertificatesEmptyState = ({
 
             <div
               className="
-                rounded-3xl
+                rounded-2xl
                 border
-                bg-white
+                bg-card
                 p-6
                 shadow-sm
                 transition-all
@@ -322,9 +322,9 @@ const CertificatesEmptyState = ({
                 hover:shadow-lg
               "
             >
-              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-100">
+              <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ECFDF5]">
 
-                <FileBadge2 className="h-7 w-7 text-emerald-600" />
+                <FileBadge2 className="h-7 w-7 text-[#0F8F65]" />
 
               </div>
 
@@ -349,7 +349,7 @@ const CertificatesEmptyState = ({
               w-full
               rounded-[28px]
               border
-              bg-white
+              bg-card
               p-8
               shadow-sm
             "
@@ -373,12 +373,12 @@ const CertificatesEmptyState = ({
                     items-center
                     gap-2
                     rounded-full
-                    bg-blue-100
+                    bg-[#EFF6FF]
                     px-4
                     py-2
                     text-sm
                     font-medium
-                    text-blue-700
+                    text-[#2563EB]
                   "
                 >
                   <BookOpen className="h-4 w-4" />
@@ -512,7 +512,7 @@ const CertificatesEmptyState = ({
           <div
             className="
               mt-14
-              rounded-[30px]
+              rounded-2xl
               border
               bg-gradient-to-r
               from-amber-500
@@ -542,7 +542,7 @@ const CertificatesEmptyState = ({
                     items-center
                     gap-2
                     rounded-full
-                    bg-white/10
+                    bg-card/10
                     px-4
                     py-2
                     text-sm
@@ -582,9 +582,9 @@ const CertificatesEmptyState = ({
                 className="
                   h-14
                   rounded-2xl
-                  bg-white
+                  bg-card
                   px-8
-                  text-amber-700
+                  text-[#B45309]
                   hover:bg-amber-50
                 "
               >
