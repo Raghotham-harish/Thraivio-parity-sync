@@ -1,17 +1,14 @@
 import {
-  BookOpen,
-  TrendingUp,
-  CheckCircle2,
   Award,
+  BookOpen,
+  CheckCircle2,
+  Layers3,
 } from "lucide-react";
 
 interface MyProgramsStatsProps {
   activePrograms: number;
-
   completedPrograms: number;
-
   certificatesEarned: number;
-
   totalPrograms: number;
 }
 
@@ -23,43 +20,28 @@ const MyProgramsStats = ({
 }: MyProgramsStatsProps) => {
   const stats = [
     {
-      title: "Active Programs",
+      title: "Published Programs",
       value: activePrograms,
-      icon: TrendingUp,
-      iconBg: "bg-blue-50",
-      iconColor: "text-blue-600",
-      description:
-        "Currently learning",
-    },
-
-    {
-      title: "Completed",
-      value: completedPrograms,
-      icon: CheckCircle2,
-      iconBg: "bg-green-50",
-      iconColor: "text-green-600",
-      description:
-        "Successfully finished",
-    },
-
-    {
-      title: "Certificates",
-      value: certificatesEarned,
-      icon: Award,
-      iconBg: "bg-amber-50",
-      iconColor: "text-amber-600",
-      description:
-        "Achievements earned",
-    },
-
-    {
-      title: "Programs",
-      value: totalPrograms,
       icon: BookOpen,
-      iconBg: "bg-purple-50",
-      iconColor: "text-purple-600",
-      description:
-        "Total enrolled programs",
+      description: "Currently published",
+    },
+    {
+      title: "Featured Programs",
+      value: completedPrograms,
+      icon: Award,
+      description: "Featured programs",
+    },
+    {
+      title: "Free Programs",
+      value: certificatesEarned,
+      icon: CheckCircle2,
+      description: "Available for free",
+    },
+    {
+      title: "Total Programs",
+      value: totalPrograms,
+      icon: Layers3,
+      description: "Programs available",
     },
   ];
 
@@ -67,10 +49,12 @@ const MyProgramsStats = ({
     <div
       className="
         grid
+        grid-cols-1
         sm:grid-cols-2
         xl:grid-cols-4
 
-        gap-6
+        gap-4
+        lg:gap-6
       "
     >
       {stats.map((stat) => {
@@ -85,15 +69,15 @@ const MyProgramsStats = ({
               border
               border-slate-200
 
-              rounded-[28px]
+              rounded-2xl
 
-              p-6
+              p-5
 
-              hover:shadow-xl
-              hover:-translate-y-1
+              shadow-sm
 
-              transition-all
-              duration-300
+              transition
+
+              hover:shadow-md
             "
           >
             <div
@@ -101,35 +85,44 @@ const MyProgramsStats = ({
                 flex
                 items-start
                 justify-between
+
+                gap-4
               "
             >
               <div>
                 <p
                   className="
                     text-sm
+                    font-medium
+
                     text-slate-500
                   "
                 >
                   {stat.title}
                 </p>
 
-                <h3
+                <p
                   className="
-                    text-4xl
+                    text-2xl
+                    lg:text-3xl
+
                     font-bold
 
-                    mt-3
+                    text-slate-900
+
+                    mt-2
                   "
                 >
                   {stat.value}
-                </h3>
+                </p>
 
                 <p
                   className="
                     text-xs
+
                     text-slate-400
 
-                    mt-2
+                    mt-1
                   "
                 >
                   {stat.description}
@@ -137,58 +130,24 @@ const MyProgramsStats = ({
               </div>
 
               <div
-                className={`
-                  h-14
-                  w-14
+                className="
+                  h-11
+                  w-11
 
-                  rounded-2xl
+                  rounded-xl
+
+                  bg-blue-50
+                  text-blue-600
 
                   flex
                   items-center
                   justify-center
 
-                  ${stat.iconBg}
-                `}
+                  shrink-0
+                "
               >
-                <Icon
-                  size={26}
-                  className={stat.iconColor}
-                />
+                <Icon size={21} />
               </div>
-            </div>
-
-            <div
-              className="
-                mt-6
-
-                h-2
-
-                rounded-full
-
-                bg-slate-100
-
-                overflow-hidden
-              "
-            >
-              <div
-                className={`
-                  h-full
-                  rounded-full
-
-                  ${
-                    stat.title ===
-                    "Active Programs"
-                      ? "bg-blue-600 w-[80%]"
-                      : stat.title ===
-                        "Completed"
-                      ? "bg-green-600 w-[70%]"
-                      : stat.title ===
-                        "Certificates"
-                      ? "bg-amber-500 w-[60%]"
-                      : "bg-purple-600 w-[90%]"
-                  }
-                `}
-              />
             </div>
           </div>
         );

@@ -1,8 +1,15 @@
-import { useMemo, useState } from "react";
-
-import { mentors } from "@/data/mentors";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
 import type { Program } from "@/types/program";
+
+import {
+  getMyPrograms,
+  deleteProgram,
+} from "@/services/program.service";
 
 import ProgramsHeader from "@/components/mentor-dashboard/programs/ProgramsHeader";
 import ProgramsToolbar from "@/components/mentor-dashboard/programs/ProgramsToolbar";
@@ -17,18 +24,8 @@ import ProgramFormModal from "@/components/mentor-dashboard/programs/ProgramForm
 import DeleteProgramDialog from "@/components/mentor-dashboard/programs/DeleteProgramDialog";
 
 const Programs = () => {
-  /**
-   * Temporary
-   *
-   * Later:
-   * Logged In Mentor ID
-   */
-
-  const mentorId = 1;
-
-  const mentor = mentors.find(
-    (item) => item.id === mentorId
-  );
+  const [programs, setPrograms] =
+    useState<Program[]>([]);
 
   const [search, setSearch] =
     useState("");
@@ -37,6 +34,12 @@ const Programs = () => {
     useState<"grid" | "list">(
       "grid"
     );
+
+  const [isLoading, setIsLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState<string | null>(null);
 
   const [isFormOpen, setIsFormOpen] =
     useState(false);
@@ -53,62 +56,69 @@ const Programs = () => {
     setIsDeleteOpen,
   ] = useState(false);
 
-  if (!mentor) {
-    return (
-      <div
-        className="
-          bg-white
-          border
-          rounded-3xl
-          p-10
-          text-center
-        "
-      >
-        <h2
-          className="
-            text-3xl
-            font-bold
-          "
-        >
-          Mentor Not Found
-        </h2>
+  useEffect(() => {
+    const loadPrograms = async () => {
+      try {
+        setIsLoading(true);
+        setError(null);
 
-        <p
-          className="
-            text-slate-500
-            mt-3
-          "
-        >
-          Unable to load mentor
-          information.
-        </p>
-      </div>
-    );
-  }
+        const response =
+          await getMyPrograms();
+
+        setPrograms(
+          response.data ?? []
+        );
+      } catch (error) {
+        console.error(
+          "Failed to load mentor programs:",
+          error
+        );
+
+        setError(
+          "Unable to load your programs. Please try again."
+        );
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadPrograms();
+  }, []);
 
   const filteredPrograms =
     useMemo(() => {
-      return mentor.programs.filter(
+      const normalizedSearch =
+        search
+          .trim()
+          .toLowerCase();
+
+      if (!normalizedSearch) {
+        return programs;
+      }
+
+      return programs.filter(
         (program) =>
           program.title
             .toLowerCase()
             .includes(
-              search.toLowerCase()
+              normalizedSearch
             ) ||
           program.level
             .toLowerCase()
             .includes(
-              search.toLowerCase()
+              normalizedSearch
+            ) ||
+          program.category
+            .toLowerCase()
+            .includes(
+              normalizedSearch
             )
       );
-    }, [mentor, search]);
+    }, [programs, search]);
 
   const handleAddProgram =
     () => {
-      setSelectedProgram(
-        null
-      );
-
+      setSelectedProgram(null);
       setIsFormOpen(true);
     };
 
@@ -116,10 +126,7 @@ const Programs = () => {
     (
       program: Program
     ) => {
-      setSelectedProgram(
-        program
-      );
-
+      setSelectedProgram(program);
       setIsFormOpen(true);
     };
 
@@ -127,10 +134,7 @@ const Programs = () => {
     (
       program: Program
     ) => {
-      setSelectedProgram(
-        program
-      );
-
+      setSelectedProgram(program);
       setIsDeleteOpen(true);
     };
 
@@ -138,31 +142,170 @@ const Programs = () => {
     (
       program: Program
     ) => {
-      /**
-       * Backend Integration Later
-       */
+      setPrograms(
+        (currentPrograms) => {
+          const exists =
+            currentPrograms.some(
+              (item) =>
+                item.id === program.id
+            );
 
-      console.log(
-        "Save Program",
-        program
+          if (exists) {
+            return currentPrograms.map(
+              (item) =>
+                item.id === program.id
+                  ? program
+                  : item
+            );
+          }
+
+          return [
+            program,
+            ...currentPrograms,
+          ];
+        }
       );
 
       setIsFormOpen(false);
+      setSelectedProgram(null);
     };
 
-  const confirmDelete =
-    () => {
-      /**
-       * Backend Integration Later
-       */
+  const handleProgramUpdate =
+    (
+      updatedProgram: Program
+    ) => {
+      setPrograms(
+        (currentPrograms) =>
+          currentPrograms.map(
+            (program) =>
+              program.id ===
+              updatedProgram.id
+                ? updatedProgram
+                : program
+          )
+      );
+    };
 
-      console.log(
-        "Delete Program",
-        selectedProgram
+  const confirmDelete = async () => {
+    if (!selectedProgram) {
+      return;
+    }
+
+    try {
+      await deleteProgram(
+        selectedProgram.id
+      );
+
+      setPrograms(
+        (currentPrograms) =>
+          currentPrograms.filter(
+            (program) =>
+              program.id !==
+              selectedProgram.id
+          )
       );
 
       setIsDeleteOpen(false);
-    };
+      setSelectedProgram(null);
+    } catch (error) {
+      console.error(
+        "Failed to delete program:",
+        error
+      );
+
+      setError(
+        "Unable to delete the program. Please try again."
+      );
+
+      setIsDeleteOpen(false);
+      setSelectedProgram(null);
+    }
+  };
+
+  if (isLoading) {
+    return (
+      <div className="space-y-8">
+
+        <div
+          className="
+            bg-white
+            border
+            border-slate-200
+            rounded-3xl
+            p-10
+            text-center
+          "
+        >
+          <p
+            className="
+              text-slate-500
+              text-lg
+            "
+          >
+            Loading your programs...
+          </p>
+        </div>
+
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="space-y-8">
+
+        <div
+          className="
+            bg-white
+            border
+            border-red-200
+            rounded-3xl
+            p-10
+            text-center
+          "
+        >
+          <h2
+            className="
+              text-2xl
+              font-bold
+              text-slate-900
+            "
+          >
+            Unable to Load Programs
+          </h2>
+
+          <p
+            className="
+              text-slate-500
+              mt-3
+            "
+          >
+            {error}
+          </p>
+
+          <button
+            onClick={() =>
+              window.location.reload()
+            }
+            className="
+              mt-6
+              bg-blue-600
+              hover:bg-blue-700
+              text-white
+              px-6
+              py-3
+              rounded-xl
+              font-medium
+              transition
+            "
+          >
+            Try Again
+          </button>
+        </div>
+
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
@@ -171,7 +314,7 @@ const Programs = () => {
 
       <ProgramsHeader
         totalPrograms={
-          mentor.programs.length
+          programs.length
         }
         onAddProgram={
           handleAddProgram
@@ -210,35 +353,18 @@ const Programs = () => {
               "
             >
               {filteredPrograms.map(
-                (
-                  program,
-                  index
-                ) => (
+                (program) => (
                   <ProgramGridCard
-                    key={index}
-                    program={{
-                      ...program,
-
-                      image:
-                        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900",
-
-                      description:
-                        "Premium mentorship program designed to accelerate career growth through practical guidance and personalized coaching.",
-
-                      rating: 4.9,
-
-                      reviews: 120,
-
-                      seatsLeft: 8,
-
-                      featured:
-                        index === 0,
-                    }}
+                    key={program.id}
+                    program={program}
                     onEdit={
                       handleEditProgram
                     }
                     onDelete={
                       handleDeleteProgram
+                    }
+                    onProgramUpdate={
+                      handleProgramUpdate
                     }
                   />
                 )
@@ -249,43 +375,28 @@ const Programs = () => {
           {/* List View */}
 
           {view === "list" && (
-            <div className="space-y-6">
-
+            <div
+              className="
+                space-y-6
+              "
+            >
               {filteredPrograms.map(
-                (
-                  program,
-                  index
-                ) => (
+                (program) => (
                   <ProgramListCard
-                    key={index}
-                    program={{
-                      ...program,
-
-                      image:
-                        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900",
-
-                      description:
-                        "Premium mentorship program designed to accelerate career growth through practical guidance and personalized coaching.",
-
-                      rating: 4.9,
-
-                      reviews: 120,
-
-                      seatsLeft: 8,
-
-                      featured:
-                        index === 0,
-                    }}
+                    key={program.id}
+                    program={program}
                     onEdit={
                       handleEditProgram
                     }
                     onDelete={
                       handleDeleteProgram
                     }
+                    onProgramUpdate={
+                      handleProgramUpdate
+                    }
                   />
                 )
               )}
-
             </div>
           )}
         </>
@@ -298,9 +409,10 @@ const Programs = () => {
         program={
           selectedProgram
         }
-        onClose={() =>
-          setIsFormOpen(false)
-        }
+        onClose={() => {
+          setIsFormOpen(false);
+          setSelectedProgram(null);
+        }}
         onSave={
           handleSaveProgram
         }
@@ -313,9 +425,10 @@ const Programs = () => {
         program={
           selectedProgram
         }
-        onClose={() =>
-          setIsDeleteOpen(false)
-        }
+        onClose={() => {
+          setIsDeleteOpen(false);
+          setSelectedProgram(null);
+        }}
         onConfirm={
           confirmDelete
         }

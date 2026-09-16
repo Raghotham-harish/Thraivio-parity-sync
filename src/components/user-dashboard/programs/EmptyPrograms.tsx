@@ -1,105 +1,129 @@
 import {
-  GraduationCap,
+  BookOpen,
   Search,
 } from "lucide-react";
 
 interface EmptyProgramsProps {
-  onBrowsePrograms: () => void;
+  onBrowsePrograms?: () => void;
+  hasSearch?: boolean;
 }
 
 const EmptyPrograms = ({
   onBrowsePrograms,
+  hasSearch = false,
 }: EmptyProgramsProps) => {
   return (
     <div
       className="
-        bg-white
+        w-full
+
+        rounded-3xl
 
         border
+        border-dashed
+        border-slate-300
 
-        rounded-[32px]
+        bg-white
 
-        p-12
+        px-6
+        py-16
 
         text-center
       "
     >
       <div
         className="
-          h-24
-          w-24
-
           mx-auto
 
-          rounded-3xl
+          h-16
+          w-16
+
+          rounded-2xl
 
           bg-blue-50
+          text-blue-600
 
           flex
           items-center
           justify-center
         "
       >
-        <GraduationCap
-          size={42}
-          className="
-            text-blue-600
-          "
-        />
+        {hasSearch ? (
+          <Search size={28} />
+        ) : (
+          <BookOpen size={28} />
+        )}
       </div>
 
-      <h2
+      <h3
         className="
-          text-3xl
+          text-xl
           font-bold
 
-          mt-8
+          text-slate-900
+
+          mt-5
         "
       >
-        No Programs Found
-      </h2>
+        {hasSearch
+          ? "No Programs Found"
+          : "No Programs Available"}
+      </h3>
 
       <p
         className="
+          max-w-md
+
+          mx-auto
+
+          text-sm
+          leading-6
+
           text-slate-500
 
-          mt-4
-
-          max-w-xl
-          mx-auto
+          mt-2
         "
       >
-        You have not enrolled in any
-        mentorship programs yet.
+        {hasSearch
+          ? "We couldn't find any programs matching your search or selected filter. Try changing your search or filter."
+          : "There are no published programs available right now. Please check back later for new programs."}
       </p>
 
-      <button
-        onClick={onBrowsePrograms}
-        className="
-          mt-8
+      {onBrowsePrograms && (
+        <button
+          type="button"
+          onClick={
+            onBrowsePrograms
+          }
+          className="
+            inline-flex
+            items-center
+            justify-center
+            gap-2
 
-          bg-blue-600
-          hover:bg-blue-700
+            mt-6
 
-          text-white
+            px-5
+            py-3
 
-          px-6
-          py-3
+            rounded-xl
 
-          rounded-xl
+            bg-blue-600
+            hover:bg-blue-700
 
-          font-medium
+            text-white
 
-          inline-flex
-          items-center
-          gap-2
+            text-sm
+            font-semibold
 
-          transition
-        "
-      >
-        <Search size={18} />
-        Browse Programs
-      </button>
+            transition
+          "
+        >
+          <BookOpen size={17} />
+
+          Browse Programs
+        </button>
+      )}
     </div>
   );
 };

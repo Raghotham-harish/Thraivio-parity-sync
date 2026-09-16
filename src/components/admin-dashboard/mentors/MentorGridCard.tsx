@@ -46,11 +46,15 @@ export default function MentorGridCard({
 
       <div className="relative h-36 overflow-hidden">
 
-        <img
-          src={mentor.coverImage}
-          alt={mentor.name}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-        />
+        {mentor.coverImage ? (
+  <img
+    src={mentor.coverImage}
+    alt={mentor.name}
+    className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
+  />
+) : (
+  <div className="h-full w-full bg-slate-200" />
+)}
 
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
 
@@ -100,11 +104,19 @@ export default function MentorGridCard({
 
       <div className="relative px-6 pb-6">
 
-        <img
-          src={mentor.avatar}
-          alt={mentor.name}
-          className="-mt-12 h-24 w-24 rounded-full border-4 border-white object-cover shadow-lg"
-        />
+        {mentor.avatar ? (
+  <img
+    src={mentor.avatar}
+    alt={mentor.name}
+    className="-mt-12 h-24 w-24 rounded-full border-4 border-white object-cover shadow-lg"
+  />
+) : (
+  <div className="-mt-12 flex h-24 w-24 items-center justify-center rounded-full border-4 border-white bg-slate-200 shadow-lg">
+    <span className="text-xl font-bold text-slate-500">
+      {mentor.name?.charAt(0).toUpperCase() || "M"}
+    </span>
+  </div>
+)}
 
         <div className="mt-4">
 

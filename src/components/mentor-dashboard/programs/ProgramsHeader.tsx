@@ -80,7 +80,7 @@ const ProgramsHeader = ({
               font-medium
             "
           >
-            {totalPrograms} Active Programs
+            {totalPrograms} Total Programs
           </div>
 
           <div

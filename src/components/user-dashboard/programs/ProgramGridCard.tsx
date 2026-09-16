@@ -1,47 +1,76 @@
 import {
   Award,
   BookOpen,
-  Building2,
   Clock3,
   Eye,
-  PlayCircle,
+  GraduationCap,
   Star,
   Users,
 } from "lucide-react";
 
-import type { UserProgram } from "@/types/userProgram";
+import type {
+  Program,
+} from "@/services/program.service";
 
 interface ProgramGridCardProps {
-  program: UserProgram;
+  program: Program;
 
   onView: (
-    program: UserProgram
+    program: Program
   ) => void;
 }
+
+const PROGRAM_DUMMY_IMAGE =
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900";
 
 const ProgramGridCard = ({
   program,
   onView,
 }: ProgramGridCardProps) => {
+  const image =
+    program.thumbnail?.url ||
+    PROGRAM_DUMMY_IMAGE;
+
+  const duration =
+    `${program.duration} ${program.durationUnit}`;
+
+  const price =
+    program.isFree
+      ? "Free"
+      : `${program.pricing.currency} ${program.finalPrice}`;
+
+  const rating =
+    program.analytics.averageRating;
+
+  const reviews =
+    program.analytics.totalReviews;
+
+  const students =
+    program.analytics.enrollments;
+
   const statusStyles = {
-    active:
-      "bg-blue-100 text-blue-700",
+    draft:
+      "bg-slate-100 text-slate-700",
 
-    completed:
-      "bg-green-100 text-green-700",
-
-    paused:
+    pending:
       "bg-amber-100 text-amber-700",
 
-    upcoming:
+    published:
+      "bg-green-100 text-green-700",
+
+    rejected:
+      "bg-red-100 text-red-700",
+
+    inactive:
+      "bg-slate-100 text-slate-600",
+
+    archived:
       "bg-purple-100 text-purple-700",
   };
 
   return (
     <div
       className="
-        group
-
         bg-white
 
         border
@@ -58,17 +87,31 @@ const ProgramGridCard = ({
         duration-300
       "
     >
-      {/* Top Banner */}
+      {/* Program Image */}
 
-      <div className="relative h-44">
-
+      <div
+        className="
+          relative
+          h-52
+          overflow-hidden
+        "
+      >
         <img
-          src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200"
-          alt={program.title}
+          src={image}
+          alt={
+            program.thumbnail?.alt ||
+            program.title
+          }
           className="
-            h-full
             w-full
+            h-full
+
             object-cover
+
+            transition-transform
+            duration-500
+
+            hover:scale-105
           "
         />
 
@@ -78,50 +121,27 @@ const ProgramGridCard = ({
             inset-0
 
             bg-gradient-to-t
-            from-black/80
-            via-black/20
+            from-black/60
+            via-black/10
             to-transparent
           "
         />
 
-        <span
-          className="
-            absolute
-            top-4
-            left-4
-
-            bg-white/20
-            backdrop-blur
-
-            px-3
-            py-1
-
-            rounded-full
-
-            text-xs
-            font-semibold
-
-            text-white
-          "
-        >
-          {program.level}
-        </span>
+        {/* Status */}
 
         <span
           className={`
             absolute
             top-4
-            right-4
+            left-4
 
             px-3
-            py-1
+            py-1.5
 
             rounded-full
 
             text-xs
             font-semibold
-
-            bg-white
 
             ${
               statusStyles[
@@ -133,108 +153,173 @@ const ProgramGridCard = ({
           {program.status}
         </span>
 
-        <div
+        {/* Featured */}
+
+        {program.isFeatured && (
+          <span
+            className="
+              absolute
+              top-4
+              right-4
+
+              bg-amber-400
+              text-white
+
+              px-3
+              py-1.5
+
+              rounded-full
+
+              text-xs
+              font-semibold
+
+              flex
+              items-center
+              gap-1
+            "
+          >
+            <Award size={13} />
+            Featured
+          </span>
+        )}
+
+        {/* Level */}
+
+        <span
           className="
             absolute
-            bottom-5
-            left-5
+            bottom-4
+            left-4
 
-            text-white
+            bg-white/95
+            text-slate-800
+
+            px-3
+            py-1.5
+
+            rounded-full
+
+            text-xs
+            font-semibold
           "
         >
-          <p
-            className="
-              text-xs
-              uppercase
-              tracking-widest
-            "
-          >
-            Premium Program
-          </p>
-
-          <h2
-            className="
-              text-xl
-              font-bold
-
-              mt-1
-            "
-          >
-            {program.title}
-          </h2>
-        </div>
-
+          {program.level}
+        </span>
       </div>
 
-      {/* Body */}
+      {/* Content */}
 
       <div className="p-6">
-
-        {/* Mentor */}
+        {/* Category */}
 
         <div
           className="
             flex
             items-center
-            gap-4
+            gap-2
+
+            text-sm
+            text-blue-600
+
+            font-semibold
           "
         >
-          <img
-            src={program.mentorImage}
-            alt={program.mentorName}
-            className="
-              h-14
-              w-14
-
-              rounded-2xl
-
-              object-cover
-
-              border
-            "
+          <GraduationCap
+            size={16}
           />
 
-          <div>
+          <span>
+            {program.category}
+          </span>
 
-            <h3
-              className="
-                font-bold
-                text-lg
-              "
-            >
-              {program.mentorName}
-            </h3>
+          {program.subCategory && (
+            <>
+              <span className="text-slate-300">
+                •
+              </span>
 
-            <div
-              className="
-                flex
-                items-center
-                gap-2
+              <span>
+                {program.subCategory}
+              </span>
+            </>
+          )}
+        </div>
 
-                text-slate-500
-                text-sm
+        {/* Title */}
 
-                mt-1
-              "
-            >
-              <Building2 size={14} />
+        <h2
+          className="
+            text-xl
+            font-bold
 
-              {program.mentorCompany}
-            </div>
+            mt-3
 
-            <p
-              className="
-                text-xs
-                text-slate-400
+            line-clamp-2
+          "
+        >
+          {program.title}
+        </h2>
 
-                mt-1
-              "
-            >
-              {program.mentorRole}
-            </p>
+        {/* Description */}
 
+        <p
+          className="
+            text-sm
+            text-slate-500
+
+            mt-3
+
+            line-clamp-3
+          "
+        >
+          {program.shortDescription}
+        </p>
+
+        {/* Program Info */}
+
+        <div
+          className="
+            grid
+            grid-cols-2
+
+            gap-3
+
+            mt-5
+          "
+        >
+          <div
+            className="
+              flex
+              items-center
+              gap-2
+
+              text-sm
+              text-slate-600
+            "
+          >
+            <Clock3 size={16} />
+
+            <span>
+              {duration}
+            </span>
           </div>
 
+          <div
+            className="
+              flex
+              items-center
+              gap-2
+
+              text-sm
+              text-slate-600
+            "
+          >
+            <Users size={16} />
+
+            <span>
+              {students} Enrolled
+            </span>
+          </div>
         </div>
 
         {/* Rating */}
@@ -248,318 +333,176 @@ const ProgramGridCard = ({
             mt-5
           "
         >
-          {[1,2,3,4,5].map(
-            (star) => (
-              <Star
-                key={star}
-                size={15}
-                fill="currentColor"
-                className="
-                  text-yellow-500
-                "
-              />
-            )
-          )}
+          <Star
+            size={16}
+            fill="currentColor"
+            className="
+              text-yellow-500
+            "
+          />
 
           <span
             className="
-              ml-2
+              font-semibold
+            "
+          >
+            {rating.toFixed(1)}
+          </span>
+
+          <span
+            className="
               text-sm
               text-slate-500
             "
           >
-            4.9 (120 Reviews)
+            ({reviews} Reviews)
           </span>
         </div>
 
-        {/* Stats */}
+        {/* Tags */}
 
-        <div
-          className="
-            grid
-            grid-cols-2
-
-            gap-4
-
-            mt-6
-          "
-        >
-          <div
-            className="
-              bg-slate-50
-
-              rounded-2xl
-
-              p-4
-            "
-          >
-            <div
-              className="
-                flex
-                items-center
-                gap-2
-              "
-            >
-              <Clock3 size={16} />
-
-              <span className="text-sm">
-                Duration
-              </span>
-            </div>
-
-            <h4
-              className="
-                mt-2
-                font-bold
-              "
-            >
-              {program.duration}
-            </h4>
-          </div>
-
-          <div
-            className="
-              bg-slate-50
-
-              rounded-2xl
-
-              p-4
-            "
-          >
-            <div
-              className="
-                flex
-                items-center
-                gap-2
-              "
-            >
-              <Users size={16} />
-
-              <span className="text-sm">
-                Students
-              </span>
-            </div>
-
-            <h4
-              className="
-                mt-2
-                font-bold
-              "
-            >
-              {program.students}+
-            </h4>
-          </div>
-        </div>
-
-        {/* Progress */}
-
-        <div className="mt-6">
-
+        {program.tags.length > 0 && (
           <div
             className="
               flex
-              justify-between
+              flex-wrap
 
-              text-sm
-
-              mb-2
-            "
-          >
-            <span>
-              Progress
-            </span>
-
-            <span
-              className="
-                font-semibold
-                text-blue-600
-              "
-            >
-              {program.progress}%
-            </span>
-          </div>
-
-          <div
-            className="
-              h-3
-
-              bg-slate-100
-
-              rounded-full
-
-              overflow-hidden
-            "
-          >
-            <div
-              className="
-                h-full
-
-                bg-gradient-to-r
-                from-blue-600
-                to-indigo-600
-
-                rounded-full
-              "
-              style={{
-                width: `${program.progress}%`,
-              }}
-            />
-          </div>
-
-        </div>
-
-        {/* Features */}
-
-        <div className="mt-5 flex flex-wrap gap-2">
-  <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">
-    Live Sessions
-  </span>
-
-  <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs">
-    Mock Interviews
-  </span>
-
-  <span className="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-xs">
-    Community
-  </span>
-</div>
-
-        {/* Certificate */}
-
-        {program.certificateAvailable && (
-          <div
-            className="
-              mt-5
-
-              bg-green-50
-
-              text-green-700
-
-              px-4
-              py-3
-
-              rounded-2xl
-
-              flex
-              items-center
               gap-2
+
+              mt-5
             "
           >
-            <Award size={18} />
+            {program.tags
+              .slice(0, 3)
+              .map((tag) => (
+                <span
+                  key={tag}
+                  className="
+                    bg-slate-100
+                    text-slate-700
 
-            Certificate Available
+                    px-3
+                    py-1
+
+                    rounded-full
+
+                    text-xs
+                    font-medium
+                  "
+                >
+                  {tag}
+                </span>
+              ))}
           </div>
         )}
 
-        {/* Lessons */}
+        {/* Learning Outcomes */}
 
-        <div
-          className="
-            mt-5
-
-            bg-blue-50
-
-            rounded-2xl
-
-            p-4
-          "
-        >
+        {program.learningOutcomes
+          .length > 0 && (
           <div
             className="
               flex
               items-center
               gap-2
+
+              mt-5
+
+              text-sm
+              text-slate-600
             "
           >
             <BookOpen size={16} />
 
-            Lessons
+            <span>
+              {
+                program
+                  .learningOutcomes
+                  .length
+              }{" "}
+              Learning Outcomes
+            </span>
           </div>
+        )}
 
-          <h4
-            className="
-              font-bold
-
-              mt-2
-            "
-          >
-            {program.completedLessons}/
-            {program.totalLessons}
-          </h4>
-        </div>
-
-        {/* Price */}
-
-        <div className="mt-5">
-
-          <p
-            className="
-              text-sm
-              text-slate-500
-            "
-          >
-            Program Fee
-          </p>
-
-          <h2
-            className="
-              text-3xl
-              font-bold
-              text-blue-600
-            "
-          >
-            ${program.price}
-          </h2>
-
-        </div>
-
-        {/* Buttons */}
+        {/* Footer */}
 
         <div
           className="
-            grid
-            grid-cols-2
+            flex
+            items-center
+            justify-between
 
-            gap-3
+            gap-4
 
             mt-6
+            pt-5
+
+            border-t
+            border-slate-100
           "
         >
+          {/* Price */}
+
+          <div>
+            <p
+              className="
+                text-xs
+                text-slate-400
+              "
+            >
+              Program Fee
+            </p>
+
+            <h3
+              className="
+                text-2xl
+                font-bold
+
+                text-blue-600
+
+                mt-1
+              "
+            >
+              {price}
+            </h3>
+
+            {program.hasDiscount &&
+              !program.isFree && (
+                <p
+                  className="
+                    text-xs
+                    text-slate-400
+
+                    line-through
+                  "
+                >
+                  {
+                    program.pricing
+                      .currency
+                  }{" "}
+                  {
+                    program.pricing
+                      .price
+                  }
+                </p>
+              )}
+          </div>
+
+          {/* View Details */}
+
           <button
+            type="button"
             onClick={() =>
               onView(program)
             }
-            className="
-              border
-              border-slate-300
-
-              py-2.5
-
-              rounded-xl
-
-              font-medium
-
-              flex
-              items-center
-              justify-center
-              gap-2
-
-              hover:bg-slate-50
-
-              transition
-            "
-          >
-            <Eye size={16} />
-            Details
-          </button>
-
-          <button
             className="
               bg-blue-600
               hover:bg-blue-700
 
               text-white
 
+              px-5
               py-3
 
               rounded-xl
@@ -568,17 +511,41 @@ const ProgramGridCard = ({
 
               flex
               items-center
-              justify-center
               gap-2
 
               transition
             "
           >
-            <PlayCircle size={16} />
-            Continue
+            <Eye size={18} />
+
+            View Details
           </button>
         </div>
 
+        {/* Enrollment Availability */}
+
+        {!program.canEnroll && (
+          <div
+            className="
+              mt-4
+
+              bg-slate-50
+
+              rounded-xl
+
+              px-4
+              py-3
+
+              text-sm
+              text-slate-500
+
+              text-center
+            "
+          >
+            Enrollment is currently
+            unavailable
+          </div>
+        )}
       </div>
     </div>
   );

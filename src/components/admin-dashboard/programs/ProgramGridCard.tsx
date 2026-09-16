@@ -1,318 +1,222 @@
+
 import {
-  BookOpen,
-  Clock3,
+  Archive,
+  Edit,
   Eye,
-  Pencil,
+  MoreVertical,
   Star,
   Trash2,
-  UploadCloud,
   Users,
 } from "lucide-react";
 
-import { mentors } from "@/data/mentors";
-
-type Mentor = (typeof mentors)[number];
+import type { Program } from "@/services/program.service";
 
 interface ProgramGridCardProps {
-  mentor: Mentor;
+  program: Program;
+  onView: (program: Program) => void;
+  onEdit: (program: Program) => void;
+  onPublish: (program: Program) => void;
+  onDelete: (program: Program) => void;
+}
 
-  program: Mentor["programs"][number];
+const PROGRAM_DUMMY_IMAGE =
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900";
 
-  onView: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
+const statusStyles: Record<string, string> = {
+  published: "bg-emerald-100 text-emerald-700",
+  draft: "bg-slate-100 text-slate-700",
+  pending: "bg-amber-100 text-amber-700",
+  rejected: "bg-red-100 text-red-700",
+  inactive: "bg-orange-100 text-orange-700",
+  archived: "bg-purple-100 text-purple-700",
+};
 
-  onEdit: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
+function formatStatus(status: string) {
+  return status.charAt(0).toUpperCase() + status.slice(1);
+}
 
-  onPublish: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
-
-  onDelete: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
+function formatCurrency(amount: number, currency = "USD") {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency,
+    maximumFractionDigits: 0,
+  }).format(amount);
 }
 
 export default function ProgramGridCard({
-  mentor,
   program,
   onView,
   onEdit,
   onPublish,
   onDelete,
 }: ProgramGridCardProps) {
-  const estimatedRevenue =
-    program.price * program.students;
+  const imageUrl = program.thumbnail?.url || PROGRAM_DUMMY_IMAGE;
+
+  const statusClass =
+    statusStyles[program.status] || "bg-slate-100 text-slate-700";
+
+  const price = program.finalPrice ?? program.pricing?.price ?? 0;
 
   return (
-    <article className="overflow-hidden rounded-[30px] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-
-      {/* Cover */}
-
-      <div className="relative">
-
+    <article className="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      {/* Thumbnail */}
+      <div className="relative h-56 overflow-hidden">
         <img
-          src={mentor.image}
-          alt={program.title}
-          className="h-56 w-full object-cover"
+          src={imageUrl}
+          alt={program.thumbnail?.alt || program.title}
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
 
-        {/* Badges */}
-
-        <div className="absolute left-5 top-5 flex gap-2">
-
-          <span className="rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold text-white">
-
-            Published
-
+        {/* Status */}
+        <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+          <span
+            className={`rounded-full px-3 py-1 text-xs font-semibold ${statusClass}`}
+          >
+            {formatStatus(program.status)}
           </span>
 
-          <span className="rounded-full bg-amber-500 px-3 py-1 text-xs font-semibold text-white">
-
-            Featured
-
-          </span>
-
-        </div>
-
-        {/* Mentor */}
-
-        <div className="absolute bottom-5 left-5 flex items-center gap-3">
-
-          <img
-            src={mentor.image}
-            alt={mentor.name}
-            className="h-12 w-12 rounded-full border-2 border-white object-cover"
-          />
-
-          <div>
-
-            <h4 className="font-semibold text-white">
-
-              {mentor.name}
-
-            </h4>
-
-            <p className="text-sm text-white/80">
-
-              {mentor.company}
-
-            </p>
-
-          </div>
-
-        </div>
-
-      </div>
-
-      {/* Body */}
-
-      <div className="space-y-6 p-6">
-                <div>
-
-          <div className="flex items-center justify-between">
-
-            <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">
-
-              {mentor.category}
-
+          {program.isFeatured && (
+            <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-3 py-1 text-xs font-semibold text-white">
+              <Star className="h-3 w-3 fill-current" />
+              Featured
             </span>
-
-            <span className="font-bold text-indigo-600">
-
-              ₹{program.price.toLocaleString()}
-
-            </span>
-
-          </div>
-
-          <h3 className="mt-4 line-clamp-2 text-2xl font-bold text-slate-900">
-
-            {program.title}
-
-          </h3>
-
+          )}
         </div>
 
-        {/* Stats */}
+        {/* Menu */}
+        <div className="absolute right-4 top-4">
+          <details className="relative">
+            <summary className="flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-full bg-white/90 text-slate-700 shadow-sm transition hover:bg-white">
+              <MoreVertical className="h-4 w-4" />
+            </summary>
 
-        <div className="grid grid-cols-2 gap-4">
+            <div className="absolute right-0 z-20 mt-2 w-40 overflow-hidden rounded-xl border border-slate-200 bg-white py-1 shadow-xl">
+              <button
+                type="button"
+                onClick={() => onView(program)}
+                className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50"
+              >
+                <Eye className="h-4 w-4" />
+                View
+              </button>
 
-          <div className="rounded-2xl bg-slate-50 p-4">
+              <button
+                type="button"
+                onClick={() => onEdit(program)}
+                className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-slate-700 hover:bg-slate-50"
+              >
+                <Edit className="h-4 w-4" />
+                Edit
+              </button>
 
-            <div className="flex items-center gap-2 text-slate-500">
-
-              <Clock3 className="h-4 w-4" />
-
-              <span className="text-sm">
-
-                Duration
-
-              </span>
-
+              <button
+                type="button"
+                onClick={() => onDelete(program)}
+                className="flex w-full items-center gap-2 px-3 py-2 text-left text-sm text-red-600 hover:bg-red-50"
+              >
+                <Trash2 className="h-4 w-4" />
+                Delete
+              </button>
             </div>
-
-            <p className="mt-2 font-semibold text-slate-900">
-
-              {program.duration}
-
-            </p>
-
-          </div>
-
-          <div className="rounded-2xl bg-slate-50 p-4">
-
-            <div className="flex items-center gap-2 text-slate-500">
-
-              <Users className="h-4 w-4" />
-
-              <span className="text-sm">
-
-                Students
-
-              </span>
-
-            </div>
-
-            <p className="mt-2 font-semibold text-slate-900">
-
-              {program.students}
-
-            </p>
-
-          </div>
-
-          <div className="rounded-2xl bg-slate-50 p-4">
-
-            <div className="flex items-center gap-2 text-slate-500">
-
-              <BookOpen className="h-4 w-4" />
-
-              <span className="text-sm">
-
-                Level
-
-              </span>
-
-            </div>
-
-            <p className="mt-2 font-semibold text-slate-900">
-
-              {program.level}
-
-            </p>
-
-          </div>
-
-          <div className="rounded-2xl bg-slate-50 p-4">
-
-            <div className="flex items-center gap-2 text-slate-500">
-
-              <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-
-              <span className="text-sm">
-
-                Rating
-
-              </span>
-
-            </div>
-
-            <p className="mt-2 font-semibold text-slate-900">
-
-              {mentor.rating}
-
-            </p>
-
-          </div>
-
+          </details>
         </div>
 
-        {/* Revenue */}
-
-        <div className="rounded-3xl bg-indigo-50 p-5">
-
-          <p className="text-sm text-indigo-600">
-
-            Estimated Revenue
-
+        {/* Bottom Info */}
+        <div className="absolute bottom-4 left-4 right-4">
+          <p className="mb-1 text-xs font-medium uppercase tracking-wide text-white/75">
+            {program.category || "General"}
           </p>
 
-          <h3 className="mt-2 text-3xl font-bold text-indigo-700">
-
-            ₹{estimatedRevenue.toLocaleString()}
-
+          <h3 className="line-clamp-2 text-lg font-bold leading-snug text-white">
+            {program.title}
           </h3>
-
         </div>
-                {/* Actions */}
-
-        <div className="grid grid-cols-2 gap-3">
-
-          <button
-            type="button"
-            onClick={() =>
-              onView(mentor, program)
-            }
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border border-slate-200 bg-white px-4 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
-          >
-            <Eye className="h-5 w-5" />
-
-            View
-
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              onEdit(mentor, program)
-            }
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 font-semibold text-amber-700 transition hover:bg-amber-100"
-          >
-            <Pencil className="h-5 w-5" />
-
-            Edit
-
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              onPublish(mentor, program)
-            }
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-emerald-600 px-4 py-3 font-semibold text-white transition hover:bg-emerald-700"
-          >
-            <UploadCloud className="h-5 w-5" />
-
-            Publish
-
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              onDelete(mentor, program)
-            }
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-red-600 px-4 py-3 font-semibold text-white transition hover:bg-red-700"
-          >
-            <Trash2 className="h-5 w-5" />
-
-            Delete
-
-          </button>
-
-        </div>
-
       </div>
 
+      {/* Content */}
+      <div className="space-y-4 p-5">
+        <p className="line-clamp-2 min-h-10 text-sm leading-6 text-slate-500">
+          {program.shortDescription || "No description available."}
+        </p>
+
+        <div className="flex items-center justify-between text-sm">
+          <span className="rounded-lg bg-indigo-50 px-2.5 py-1 font-medium capitalize text-indigo-700">
+            {program.level}
+          </span>
+
+          <span className="font-semibold text-slate-900">
+            {program.pricing?.isFree
+              ? "Free"
+              : formatCurrency(price, program.pricing?.currency || "USD")}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 gap-3 border-y border-slate-100 py-4">
+          <div className="flex items-center gap-2 text-slate-500">
+            <Users className="h-4 w-4" />
+            <div>
+              <p className="text-xs">Enrollments</p>
+              <p className="font-semibold text-slate-800">
+                {program.analytics?.enrollments ?? 0}
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 text-slate-500">
+            <Star className="h-4 w-4" />
+            <div>
+              <p className="text-xs">Rating</p>
+              <p className="font-semibold text-slate-800">
+                {(program.analytics?.averageRating ?? 0).toFixed(1)}
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Actions */}
+        <div className="flex gap-2">
+          <button
+            type="button"
+            onClick={() => onView(program)}
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl border border-slate-200 px-3 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            <Eye className="h-4 w-4" />
+            View
+          </button>
+
+          <button
+            type="button"
+            onClick={() => onEdit(program)}
+            className="inline-flex flex-1 items-center justify-center gap-2 rounded-xl bg-indigo-600 px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700"
+          >
+            <Edit className="h-4 w-4" />
+            Edit
+          </button>
+        </div>
+
+        {program.status === "draft" && (
+          <button
+            type="button"
+            onClick={() => onPublish(program)}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-emerald-600 px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-emerald-700"
+          >
+            Publish Program
+          </button>
+        )}
+
+        {program.status === "published" && (
+          <button
+            type="button"
+            onClick={() => onPublish(program)}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-orange-500 px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-orange-600"
+          >
+            <Archive className="h-4 w-4" />
+            Manage Status
+          </button>
+        )}
+      </div>
     </article>
   );
 }

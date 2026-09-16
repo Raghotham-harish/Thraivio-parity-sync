@@ -1,261 +1,306 @@
 import {
-  LayoutGrid,
-  List,
   Search,
-  GraduationCap,
+  SlidersHorizontal,
 } from "lucide-react";
 
 interface MyProgramsToolbarProps {
   search: string;
-
   setSearch: (
     value: string
   ) => void;
 
-  view: "grid" | "list";
-
-  setView: (
-    value: "grid" | "list"
-  ) => void;
-
   selectedFilter: string;
-
   setSelectedFilter: (
     value: string
+  ) => void;
+
+  view: "grid" | "list";
+  setView: (
+    view: "grid" | "list"
   ) => void;
 }
 
 const MyProgramsToolbar = ({
   search,
   setSearch,
-  view,
-  setView,
   selectedFilter,
   setSelectedFilter,
+  view,
+  setView,
 }: MyProgramsToolbarProps) => {
   const filters = [
     {
-      label: "All",
       value: "all",
+      label: "All Programs",
     },
-
     {
-      label: "Active",
-      value: "active",
+      value: "featured",
+      label: "Featured",
     },
-
     {
-      label: "Completed",
-      value: "completed",
+      value: "free",
+      label: "Free",
     },
-
     {
-      label: "Paused",
-      value: "paused",
+      value: "beginner",
+      label: "Beginner",
+    },
+    {
+      value: "intermediate",
+      label: "Intermediate",
+    },
+    {
+      value: "advanced",
+      label: "Advanced",
     },
   ];
 
   return (
     <div
       className="
-        bg-white
+        flex
+        flex-col
+        lg:flex-row
 
-        border
-        border-slate-200
+        lg:items-center
+        lg:justify-between
 
-        rounded-[28px]
-
-        p-5
-
-        space-y-5
+        gap-4
       "
     >
+      {/* Search */}
+
+      <div
+        className="
+          relative
+
+          w-full
+          lg:max-w-md
+        "
+      >
+        <Search
+          size={18}
+          className="
+            absolute
+            left-4
+            top-1/2
+
+            -translate-y-1/2
+
+            text-slate-400
+          "
+        />
+
+        <input
+          type="text"
+          value={search}
+          onChange={(event) =>
+            setSearch(
+              event.target.value
+            )
+          }
+          placeholder="Search programs..."
+          className="
+            w-full
+
+            h-11
+
+            pl-11
+            pr-4
+
+            rounded-xl
+
+            border
+            border-slate-200
+
+            bg-white
+
+            text-sm
+            text-slate-900
+
+            placeholder:text-slate-400
+
+            outline-none
+
+            focus:border-blue-500
+            focus:ring-2
+            focus:ring-blue-100
+
+            transition
+          "
+        />
+      </div>
+
+      {/* Filters + View */}
+
       <div
         className="
           flex
           flex-col
-          xl:flex-row
+          sm:flex-row
 
-          xl:items-center
-          xl:justify-between
-
-          gap-4
-        "
-      >
-        <div
-          className="
-            relative
-
-            w-full
-            xl:max-w-lg
-          "
-        >
-          <Search
-            size={18}
-            className="
-              absolute
-              left-4
-              top-1/2
-              -translate-y-1/2
-
-              text-slate-400
-            "
-          />
-
-          <input
-            type="text"
-            value={search}
-            onChange={(e) =>
-              setSearch(
-                e.target.value
-              )
-            }
-            placeholder="Search programs, mentors, companies..."
-            className="
-              w-full
-
-              pl-12
-              pr-4
-              py-3.5
-
-              border
-              border-slate-200
-
-              rounded-2xl
-
-              outline-none
-
-              focus:ring-2
-              focus:ring-blue-500
-
-              transition
-            "
-          />
-        </div>
-
-        <div
-          className="
-            flex
-            gap-3
-          "
-        >
-          <button
-            onClick={() =>
-              setView("grid")
-            }
-            className={`
-              px-5
-              py-3
-
-              rounded-2xl
-
-              flex
-              items-center
-              gap-2
-
-              font-medium
-
-              transition-all
-
-              ${
-                view === "grid"
-                  ? "bg-blue-600 text-white shadow-lg"
-                  : "border border-slate-200 bg-white"
-              }
-            `}
-          >
-            <LayoutGrid size={18} />
-            Grid View
-          </button>
-
-          <button
-            onClick={() =>
-              setView("list")
-            }
-            className={`
-              px-5
-              py-3
-
-              rounded-2xl
-
-              flex
-              items-center
-              gap-2
-
-              font-medium
-
-              transition-all
-
-              ${
-                view === "list"
-                  ? "bg-blue-600 text-white shadow-lg"
-                  : "border border-slate-200 bg-white"
-              }
-            `}
-          >
-            <List size={18} />
-            List View
-          </button>
-        </div>
-      </div>
-
-      <div
-        className="
-          flex
-          flex-wrap
+          sm:items-center
 
           gap-3
         "
       >
-        {filters.map(
-          (filter) => (
-            <button
-              key={filter.value}
-              onClick={() =>
-                setSelectedFilter(
-                  filter.value
-                )
-              }
-              className={`
-                px-4
-                py-2.5
-
-                rounded-full
-
-                text-sm
-                font-semibold
-
-                transition-all
-
-                ${
-                  selectedFilter ===
-                  filter.value
-                    ? "bg-blue-600 text-white shadow-md"
-                    : "bg-slate-100 text-slate-700"
-                }
-              `}
-            >
-              {filter.label}
-            </button>
-          )
-        )}
+        {/* Filters */}
 
         <div
           className="
-            ml-auto
-
-            hidden
-            lg:flex
-
+            flex
             items-center
+
             gap-2
 
-            text-sm
-            text-slate-500
+            overflow-x-auto
+
+            pb-1
           "
         >
-          <GraduationCap size={16} />
-          Manage your enrolled programs
+          <SlidersHorizontal
+            size={18}
+            className="
+              text-slate-400
+              shrink-0
+            "
+          />
+
+          {filters.map(
+            (filter) => {
+              const isSelected =
+                selectedFilter ===
+                filter.value;
+
+              return (
+                <button
+                  key={
+                    filter.value
+                  }
+                  type="button"
+                  onClick={() =>
+                    setSelectedFilter(
+                      filter.value
+                    )
+                  }
+                  className={`
+                    whitespace-nowrap
+
+                    px-4
+                    py-2
+
+                    rounded-lg
+
+                    text-sm
+                    font-medium
+
+                    transition
+
+                    ${
+                      isSelected
+                        ? `
+                          bg-blue-600
+                          text-white
+                          shadow-sm
+                        `
+                        : `
+                          bg-white
+                          text-slate-600
+                          border
+                          border-slate-200
+                          hover:bg-slate-50
+                        `
+                    }
+                  `}
+                >
+                  {filter.label}
+                </button>
+              );
+            }
+          )}
+        </div>
+
+        {/* View Toggle */}
+
+        <div
+          className="
+            flex
+            items-center
+
+            p-1
+
+            rounded-xl
+
+            bg-slate-100
+
+            shrink-0
+          "
+        >
+          <button
+            type="button"
+            onClick={() =>
+              setView("grid")
+            }
+            className={`
+              px-3
+              py-2
+
+              rounded-lg
+
+              text-sm
+              font-medium
+
+              transition
+
+              ${
+                view === "grid"
+                  ? `
+                    bg-white
+                    text-slate-900
+                    shadow-sm
+                  `
+                  : `
+                    text-slate-500
+                    hover:text-slate-700
+                  `
+              }
+            `}
+          >
+            Grid
+          </button>
+
+          <button
+            type="button"
+            onClick={() =>
+              setView("list")
+            }
+            className={`
+              px-3
+              py-2
+
+              rounded-lg
+
+              text-sm
+              font-medium
+
+              transition
+
+              ${
+                view === "list"
+                  ? `
+                    bg-white
+                    text-slate-900
+                    shadow-sm
+                  `
+                  : `
+                    text-slate-500
+                    hover:text-slate-700
+                  `
+              }
+            `}
+          >
+            List
+          </button>
         </div>
       </div>
     </div>

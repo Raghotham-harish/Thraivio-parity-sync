@@ -182,12 +182,12 @@ export default function MentorsManagement() {
 const apiStats = statsResponse.data;
 
 setDashboardStats({
-  totalMentors: apiStats.totalMentors,
-  activeMentors: apiStats.activeMentors,
-  pendingApprovals: apiStats.pendingVerification,
-  verifiedMentors: apiStats.verifiedMentors,
-  suspendedMentors: apiStats.blockedMentors,
-  featuredMentors: apiStats.featuredMentors,
+  totalMentors: apiStats?.totalMentors ?? 0,
+  activeMentors: apiStats?.activeMentors ?? 0,
+  pendingApprovals: apiStats?.pendingVerification ?? 0,
+  verifiedMentors: apiStats?.verifiedMentors ?? 0,
+  suspendedMentors: apiStats?.blockedMentors ?? 0,
+  featuredMentors: apiStats?.featuredMentors ?? 0,
 });
 
       } catch (err) {

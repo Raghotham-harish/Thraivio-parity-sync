@@ -1,72 +1,79 @@
+
 import {
   BookOpen,
-  FolderPlus,
-  RotateCcw,
+  Plus,
+  RefreshCw,
+  SearchX,
 } from "lucide-react";
 
 interface ProgramsEmptyStateProps {
-  onAddProgram: () => void;
-
-  onResetFilters: () => void;
+  title?: string;
+  description?: string;
+  hasFilters?: boolean;
+  onClearFilters?: () => void;
+  onAddProgram?: () => void;
+  onRefresh?: () => void;
 }
 
 export default function ProgramsEmptyState({
+  title = "No Programs Found",
+  description = "There are no programs available to display right now.",
+  hasFilters = false,
+  onClearFilters,
   onAddProgram,
-  onResetFilters,
+  onRefresh,
 }: ProgramsEmptyStateProps) {
   return (
-    <section className="rounded-[32px] border border-dashed border-slate-300 bg-white p-12">
+    <div className="flex min-h-[360px] flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 bg-white px-5 py-12 text-center">
+      <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-indigo-50">
+        {hasFilters ? (
+          <SearchX className="h-8 w-8 text-indigo-600" />
+        ) : (
+          <BookOpen className="h-8 w-8 text-indigo-600" />
+        )}
+      </div>
 
-      <div className="mx-auto flex max-w-xl flex-col items-center text-center">
+      <h3 className="mt-5 text-lg font-bold text-slate-900">
+        {title}
+      </h3>
 
-        <div className="flex h-24 w-24 items-center justify-center rounded-full bg-indigo-100">
+      <p className="mt-2 max-w-md text-sm leading-6 text-slate-500">
+        {description}
+      </p>
 
-          <BookOpen className="h-12 w-12 text-indigo-600" />
-
-        </div>
-
-        <h2 className="mt-8 text-3xl font-bold text-slate-900">
-
-          No Programs Found
-
-        </h2>
-
-        <p className="mt-4 leading-7 text-slate-500">
-
-          We couldn't find any programs matching your
-          current search or filters. Try resetting the
-          filters or create a new coaching program.
-
-        </p>
-
-        <div className="mt-10 flex flex-wrap justify-center gap-4">
-
+      <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+        {hasFilters && onClearFilters && (
           <button
             type="button"
-            onClick={onResetFilters}
-            className="inline-flex items-center gap-2 rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            onClick={onClearFilters}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
           >
-            <RotateCcw className="h-5 w-5" />
-
-            Reset Filters
-
+            Clear Filters
           </button>
+        )}
 
+        {onRefresh && (
+          <button
+            type="button"
+            onClick={onRefresh}
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+          >
+            <RefreshCw className="h-4 w-4" />
+            Refresh
+          </button>
+        )}
+
+        {!hasFilters && onAddProgram && (
           <button
             type="button"
             onClick={onAddProgram}
-            className="inline-flex items-center gap-2 rounded-2xl bg-indigo-600 px-6 py-3 font-semibold text-white transition hover:bg-indigo-700"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-indigo-700"
           >
-            <FolderPlus className="h-5 w-5" />
-
-            Create Program
-
+            <Plus className="h-4 w-4" />
+            Add Program
           </button>
-
-        </div>
-
+        )}
       </div>
-
-    </section>
+    </div>
   );
 }

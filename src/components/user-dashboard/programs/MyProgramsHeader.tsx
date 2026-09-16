@@ -43,7 +43,8 @@ const MyProgramsHeader = ({
           "
         >
           <GraduationCap size={16} />
-          My Programs
+
+          Programs
         </div>
 
         <h1
@@ -54,7 +55,7 @@ const MyProgramsHeader = ({
             mt-4
           "
         >
-          Learning Dashboard
+          Program Dashboard
         </h1>
 
         <p
@@ -66,10 +67,10 @@ const MyProgramsHeader = ({
             max-w-2xl
           "
         >
-          Manage all enrolled coaching
-          programs, track learning
-          progress, complete lessons
-          and earn certificates.
+          Explore published coaching
+          programs, discover learning
+          opportunities and view detailed
+          program information.
         </p>
       </div>
 
@@ -78,6 +79,7 @@ const MyProgramsHeader = ({
           bg-white
 
           border
+          border-slate-200
 
           rounded-3xl
 
@@ -121,7 +123,7 @@ const MyProgramsHeader = ({
                 text-slate-500
               "
             >
-              Enrolled Programs
+              Available Programs
             </p>
 
             <h3

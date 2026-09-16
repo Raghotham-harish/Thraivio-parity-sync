@@ -2,40 +2,70 @@ import {
   Award,
   BookOpen,
   Building2,
-  CalendarDays,
   Clock3,
   Eye,
   GraduationCap,
-  PlayCircle,
   Star,
   Users,
 } from "lucide-react";
 
-import type { UserProgram } from "@/types/userProgram";
+import type {
+  Program,
+} from "@/services/program.service";
 
 interface ProgramListCardProps {
-  program: UserProgram;
+  program: Program;
 
   onView: (
-    program: UserProgram
+    program: Program
   ) => void;
 }
+
+const PROGRAM_DUMMY_IMAGE =
+  "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900";
 
 const ProgramListCard = ({
   program,
   onView,
 }: ProgramListCardProps) => {
+  const image =
+    program.thumbnail?.url ||
+    PROGRAM_DUMMY_IMAGE;
+
+  const duration =
+    `${program.duration} ${program.durationUnit}`;
+
+  const price =
+    program.isFree
+      ? "Free"
+      : `${program.pricing.currency} ${program.finalPrice}`;
+
+  const rating =
+    program.analytics.averageRating;
+
+  const reviews =
+    program.analytics.totalReviews;
+
+  const students =
+    program.analytics.enrollments;
+
   const statusStyles = {
-    active:
-      "bg-blue-100 text-blue-700",
+    draft:
+      "bg-slate-100 text-slate-700",
 
-    completed:
-      "bg-green-100 text-green-700",
-
-    paused:
+    pending:
       "bg-amber-100 text-amber-700",
 
-    upcoming:
+    published:
+      "bg-green-100 text-green-700",
+
+    rejected:
+      "bg-red-100 text-red-700",
+
+    inactive:
+      "bg-slate-100 text-slate-600",
+
+    archived:
       "bg-purple-100 text-purple-700",
   };
 
@@ -69,7 +99,6 @@ const ProgramListCard = ({
       />
 
       <div className="p-6">
-
         <div
           className="
             flex
@@ -93,14 +122,18 @@ const ProgramListCard = ({
               flex-1
             "
           >
-            <div className="shrink-0">
+            {/* Program Image */}
 
+            <div className="shrink-0">
               <img
-                src={program.mentorImage}
-                alt={program.mentorName}
+                src={image}
+                alt={
+                  program.thumbnail?.alt ||
+                  program.title
+                }
                 className="
-                  h-20
-                  w-20
+                  h-28
+                  w-40
 
                   rounded-3xl
 
@@ -110,11 +143,11 @@ const ProgramListCard = ({
                   border-slate-100
                 "
               />
-
             </div>
 
-            <div className="flex-1">
+            {/* Content */}
 
+            <div className="flex-1">
               {/* Badges */}
 
               <div
@@ -162,11 +195,11 @@ const ProgramListCard = ({
                   {program.level}
                 </span>
 
-                {program.certificateAvailable && (
+                {program.isFeatured && (
                   <span
                     className="
-                      bg-green-100
-                      text-green-700
+                      bg-amber-100
+                      text-amber-700
 
                       px-3
                       py-1
@@ -182,7 +215,8 @@ const ProgramListCard = ({
                     "
                   >
                     <Award size={12} />
-                    Certificate
+
+                    Featured
                   </span>
                 )}
               </div>
@@ -190,12 +224,35 @@ const ProgramListCard = ({
               {/* Title */}
 
               <h2
-                className="text-xl xl:text-2xl font-bold mt-4"
+                className="
+                  text-xl
+                  xl:text-2xl
+                  font-bold
+
+                  mt-4
+                "
               >
                 {program.title}
               </h2>
 
-              {/* Mentor */}
+              {/* Description */}
+
+              <p
+                className="
+                  text-sm
+                  text-slate-500
+
+                  mt-2
+
+                  max-w-3xl
+
+                  line-clamp-2
+                "
+              >
+                {program.shortDescription}
+              </p>
+
+              {/* Category */}
 
               <div
                 className="
@@ -206,40 +263,36 @@ const ProgramListCard = ({
 
                   gap-2
 
-                  text-slate-600
+                  text-sm
+                  text-blue-600
+
+                  font-medium
 
                   mt-3
                 "
               >
-                <span className="font-semibold">
-                  {program.mentorName}
+                <GraduationCap
+                  size={15}
+                />
+
+                <span>
+                  {program.category}
                 </span>
 
-                <span>•</span>
+                {program.subCategory && (
+                  <>
+                    <span className="text-slate-300">
+                      •
+                    </span>
 
-                <div
-                  className="
-                    flex
-                    items-center
-                    gap-1
-                  "
-                >
-                  <Building2 size={14} />
-
-                  {program.mentorCompany}
-                </div>
+                    <span>
+                      {
+                        program.subCategory
+                      }
+                    </span>
+                  </>
+                )}
               </div>
-
-              <p
-                className="
-                  text-sm
-                  text-slate-500
-
-                  mt-1
-                "
-              >
-                {program.mentorRole}
-              </p>
 
               {/* Rating */}
 
@@ -252,28 +305,31 @@ const ProgramListCard = ({
                   mt-4
                 "
               >
-                {[1,2,3,4,5].map(
-                  (star) => (
-                    <Star
-                      key={star}
-                      size={14}
-                      fill="currentColor"
-                      className="
-                        text-yellow-500
-                      "
-                    />
-                  )
-                )}
+                <Star
+                  size={14}
+                  fill="currentColor"
+                  className="
+                    text-yellow-500
+                  "
+                />
 
                 <span
                   className="
-                    ml-2
+                    font-semibold
+                  "
+                >
+                  {rating.toFixed(1)}
+                </span>
+
+                <span
+                  className="
+                    ml-1
 
                     text-sm
                     text-slate-500
                   "
                 >
-                  4.9 (120 Reviews)
+                  ({reviews} Reviews)
                 </span>
               </div>
 
@@ -287,7 +343,7 @@ const ProgramListCard = ({
 
                   gap-4
 
-                  mt-6
+                  mt-5
                 "
               >
                 <div
@@ -301,7 +357,7 @@ const ProgramListCard = ({
                 >
                   <Clock3 size={16} />
 
-                  {program.duration}
+                  {duration}
                 </div>
 
                 <div
@@ -315,7 +371,7 @@ const ProgramListCard = ({
                 >
                   <Users size={16} />
 
-                  {program.students}+ Students
+                  {students} Enrolled
                 </div>
 
                 <div
@@ -327,11 +383,16 @@ const ProgramListCard = ({
                     text-slate-600
                   "
                 >
-                  <BookOpen size={16} />
+                  <BookOpen
+                    size={16}
+                  />
 
-                  {program.completedLessons}/
-                  {program.totalLessons}
-                  Lessons
+                  {
+                    program
+                      .learningOutcomes
+                      .length
+                  }{" "}
+                  Outcomes
                 </div>
 
                 <div
@@ -351,33 +412,88 @@ const ProgramListCard = ({
                 </div>
               </div>
 
-              <div
-  className="
-    flex
-    flex-wrap
-    gap-2
-    mt-5
-  "
->
-  <span className="bg-blue-50 text-blue-700 px-3 py-1 rounded-full text-xs">
-    Live Sessions
-  </span>
+              {/* Tags */}
 
-  <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-xs">
-    Mock Interviews
-  </span>
+              {program.tags.length >
+                0 && (
+                <div
+                  className="
+                    flex
+                    flex-wrap
 
-  <span className="bg-purple-50 text-purple-700 px-3 py-1 rounded-full text-xs">
-    Community
-  </span>
+                    gap-2
 
-  <span className="bg-amber-50 text-amber-700 px-3 py-1 rounded-full text-xs">
-    Assignments
-  </span>
-</div>
+                    mt-5
+                  "
+                >
+                  {program.tags
+                    .slice(0, 4)
+                    .map((tag) => (
+                      <span
+                        key={tag}
+                        className="
+                          bg-slate-100
+                          text-slate-700
 
+                          px-3
+                          py-1
+
+                          rounded-full
+
+                          text-xs
+                          font-medium
+                        "
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                </div>
+              )}
+
+              {/* Benefits */}
+
+              {program.benefits
+                .length > 0 && (
+                <div
+                  className="
+                    flex
+                    flex-wrap
+
+                    gap-2
+
+                    mt-4
+                  "
+                >
+                  {program.benefits
+                    .slice(0, 3)
+                    .map(
+                      (benefit) => (
+                        <span
+                          key={
+                            benefit.order
+                          }
+                          className="
+                            bg-blue-50
+                            text-blue-700
+
+                            px-3
+                            py-1
+
+                            rounded-full
+
+                            text-xs
+                            font-medium
+                          "
+                        >
+                          {
+                            benefit.title
+                          }
+                        </span>
+                      )
+                    )}
+                </div>
+              )}
             </div>
-
           </div>
 
           {/* Right */}
@@ -404,50 +520,44 @@ const ProgramListCard = ({
                   text-slate-500
                 "
               >
-                Program Progress
+                Program Fee
               </p>
 
-              <h4
+              <h3
                 className="
-                  text-3xl
+                  text-2xl
                   font-bold
 
                   text-blue-600
 
-                  mt-2
+                  mt-1
                 "
               >
-                {program.progress}%
-              </h4>
+                {price}
+              </h3>
 
-              <div
-                className="
-                  h-3
+              {program.hasDiscount &&
+                !program.isFree && (
+                  <p
+                    className="
+                      text-xs
+                      text-slate-400
 
-                  bg-slate-200
+                      line-through
 
-                  rounded-full
-
-                  overflow-hidden
-
-                  mt-4
-                "
-              >
-                <div
-                  className="
-                    h-full
-
-                    bg-gradient-to-r
-                    from-blue-600
-                    to-indigo-600
-
-                    rounded-full
-                  "
-                  style={{
-                    width: `${program.progress}%`,
-                  }}
-                />
-              </div>
+                      mt-1
+                    "
+                  >
+                    {
+                      program.pricing
+                        .currency
+                    }{" "}
+                    {
+                      program.pricing
+                        .price
+                    }
+                  </p>
+                )}
 
               <div
                 className="
@@ -463,15 +573,14 @@ const ProgramListCard = ({
                     gap-2
 
                     text-sm
+                    text-slate-600
                   "
                 >
-                  <CalendarDays
+                  <Clock3
                     size={16}
                   />
 
-                  Enrolled:
-                  {" "}
-                  {program.enrolledDate}
+                  {duration}
                 </div>
 
                 <div
@@ -481,48 +590,32 @@ const ProgramListCard = ({
                     gap-2
 
                     text-sm
+                    text-slate-600
                   "
                 >
-                  <Clock3 size={16} />
+                  <Users
+                    size={16}
+                  />
 
-                  {program.nextSession}
+                  {students} Enrolled
                 </div>
-              </div>
 
-              <div
-                className="
-                  mt-5
-
-                  bg-gradient-to-r
-from-blue-50
-to-indigo-50
-
-                  rounded-2xl
-
-                  p-4
-                "
-              >
-                <p
+                <div
                   className="
+                    flex
+                    items-center
+                    gap-2
+
                     text-sm
-                    text-slate-500
+                    text-slate-600
                   "
                 >
-                  Program Fee
-                </p>
+                  <Building2
+                    size={16}
+                  />
 
-                <h3
-                  className="
-                    text-2xl
-                    font-bold
-
-                    text-blue-600
-
-                    mt-1
-                  "
-                >
-                  ${program.price}
-                </h3>
+                  {program.category}
+                </div>
               </div>
 
               <div
@@ -532,10 +625,11 @@ to-indigo-50
 
                   gap-3
 
-                  mt-5
+                  mt-6
                 "
               >
                 <button
+                  type="button"
                   onClick={() =>
                     onView(program)
                   }
@@ -560,43 +654,33 @@ to-indigo-50
                   "
                 >
                   <Eye size={18} />
+
                   View Details
                 </button>
 
-                <button
-                  className="
-                    bg-blue-600
-                    hover:bg-blue-700
+                {!program.canEnroll && (
+                  <div
+                    className="
+                      bg-slate-100
+                      text-slate-500
 
-                    text-white
+                      py-3
 
-                    py-3
+                      rounded-xl
 
-                    rounded-xl
+                      font-medium
 
-                    font-medium
-
-                    flex
-                    items-center
-                    justify-center
-                    gap-2
-
-                    transition
-                  "
-                >
-                  <PlayCircle
-                    size={18}
-                  />
-                  Continue Learning
-                </button>
+                      text-center
+                    "
+                  >
+                    Enrollment
+                    Unavailable
+                  </div>
+                )}
               </div>
-
             </div>
-
           </div>
-
         </div>
-
       </div>
     </div>
   );

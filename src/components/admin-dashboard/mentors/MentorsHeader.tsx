@@ -72,7 +72,7 @@ export default function MentorsHeader({
 
                 <h3 className="mt-1 text-3xl font-bold">
 
-                  {totalMentors.toLocaleString()}
+                  {(totalMentors ?? 0).toLocaleString()}
 
                 </h3>
 
@@ -98,7 +98,7 @@ export default function MentorsHeader({
 
                 <h3 className="mt-1 text-3xl font-bold">
 
-                  {verifiedMentors.toLocaleString()}
+                  {(verifiedMentors ?? 0).toLocaleString()}
 
                 </h3>
 

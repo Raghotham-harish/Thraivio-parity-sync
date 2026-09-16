@@ -114,25 +114,13 @@ const DeleteProgramDialog = ({
               {program.title}
             </h3>
 
-            <p
-              className="
-                text-sm
-                text-slate-500
-                mt-1
-              "
-            >
-              {program.duration}
-            </p>
+            <p className="text-sm text-slate-500 mt-1">
+  {program.duration} {program.durationUnit}
+</p>
 
-            <p
-              className="
-                text-sm
-                text-blue-600
-                mt-2
-              "
-            >
-              ${program.price}
-            </p>
+<p className="text-sm text-blue-600 mt-2">
+  {program.isFree ? "Free" : `$${program.finalPrice}`}
+</p>
 
           </div>
 

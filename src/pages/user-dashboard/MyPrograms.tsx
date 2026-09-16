@@ -1,7 +1,16 @@
-import { useMemo, useState } from "react";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 
-import { userPrograms } from "@/data/userPrograms";
-import type { UserProgram } from "@/types/userProgram";
+import {
+  getPublishedPrograms,
+} from "@/services/program.service";
+
+import type {
+  Program,
+} from "@/services/program.service";
 
 import MyProgramsHeader from "@/components/user-dashboard/programs/MyProgramsHeader";
 import MyProgramsStats from "@/components/user-dashboard/programs/MyProgramsStats";
@@ -15,13 +24,20 @@ import ProgramDetailsModal from "@/components/user-dashboard/programs/ProgramDet
 import EmptyPrograms from "@/components/user-dashboard/programs/EmptyPrograms";
 
 const MyPrograms = () => {
+  const [programs, setPrograms] =
+    useState<Program[]>([]);
+
+  const [isLoading, setIsLoading] =
+    useState(true);
+
+  const [error, setError] =
+    useState("");
+
   const [search, setSearch] =
     useState("");
 
   const [view, setView] =
-    useState<"grid" | "list">(
-      "grid"
-    );
+    useState<"grid" | "list">("grid");
 
   const [
     selectedFilter,
@@ -31,41 +47,115 @@ const MyPrograms = () => {
   const [
     selectedProgram,
     setSelectedProgram,
-  ] =
-    useState<UserProgram | null>(
-      null
-    );
+  ] = useState<Program | null>(null);
 
   const [
     isDetailsOpen,
     setIsDetailsOpen,
   ] = useState(false);
 
+  useEffect(() => {
+    let isMounted = true;
+
+    const loadPrograms = async () => {
+      try {
+        setIsLoading(true);
+        setError("");
+
+        const response =
+          await getPublishedPrograms();
+
+        if (!isMounted) {
+          return;
+        }
+
+        setPrograms(
+          response.data ?? []
+        );
+      } catch (err) {
+        if (!isMounted) {
+          return;
+        }
+
+        console.error(
+          "Failed to load published programs:",
+          err
+        );
+
+        setError(
+          "Unable to load programs. Please try again."
+        );
+
+        setPrograms([]);
+      } finally {
+        if (isMounted) {
+          setIsLoading(false);
+        }
+      }
+    };
+
+    loadPrograms();
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
+
   const filteredPrograms =
     useMemo(() => {
-      return userPrograms.filter(
+      const normalizedSearch =
+        search
+          .toLowerCase()
+          .trim();
+
+      return programs.filter(
         (program) => {
           const matchesSearch =
+            normalizedSearch === "" ||
             program.title
               .toLowerCase()
               .includes(
-                search.toLowerCase()
+                normalizedSearch
               ) ||
-            program.mentorName
+            program.shortDescription
               .toLowerCase()
               .includes(
-                search.toLowerCase()
+                normalizedSearch
               ) ||
-            program.mentorCompany
+            program.description
               .toLowerCase()
               .includes(
-                search.toLowerCase()
-              );
+                normalizedSearch
+              ) ||
+            program.category
+              .toLowerCase()
+              .includes(
+                normalizedSearch
+              ) ||
+            program.subCategory
+              .toLowerCase()
+              .includes(
+                normalizedSearch
+              ) ||
+            program.tags.some(
+              (tag) =>
+                tag
+                  .toLowerCase()
+                  .includes(
+                    normalizedSearch
+                  )
+            );
 
           const matchesFilter =
             selectedFilter === "all"
               ? true
-              : program.status ===
+              : selectedFilter ===
+                "featured"
+              ? program.isFeatured
+              : selectedFilter ===
+                "free"
+              ? program.isFree
+              : program.level ===
                 selectedFilter;
 
           return (
@@ -74,59 +164,78 @@ const MyPrograms = () => {
           );
         }
       );
-    }, [search, selectedFilter]);
+    }, [
+      programs,
+      search,
+      selectedFilter,
+    ]);
 
-  const handleViewProgram =
-    (
-      program: UserProgram
-    ) => {
-      setSelectedProgram(
-        program
-      );
+  const handleViewProgram = (
+    program: Program
+  ) => {
+    setSelectedProgram(
+      program
+    );
 
-      setIsDetailsOpen(true);
-    };
+    setIsDetailsOpen(true);
+  };
 
-  const activePrograms =
-    userPrograms.filter(
+  const handleCloseDetails = () => {
+    setIsDetailsOpen(false);
+    setSelectedProgram(null);
+  };
+
+  const handleBrowsePrograms = () => {
+    setSearch("");
+    setSelectedFilter("all");
+  };
+
+  const totalPrograms =
+    programs.length;
+
+  const featuredPrograms =
+    programs.filter(
+      (program) =>
+        program.isFeatured
+    ).length;
+
+  const freePrograms =
+    programs.filter(
+      (program) =>
+        program.isFree
+    ).length;
+
+  const publishedPrograms =
+    programs.filter(
       (program) =>
         program.status ===
-        "active"
+        "published"
     ).length;
 
-  const completedPrograms =
-    userPrograms.filter(
-      (program) =>
-        program.status ===
-        "completed"
-    ).length;
-
-  const certificatesEarned =
-    userPrograms.filter(
-      (program) =>
-        program.certificateAvailable
-    ).length;
+  const hasActiveSearchOrFilter =
+    search.trim() !== "" ||
+    selectedFilter !== "all";
 
   return (
     <div className="space-y-8">
       <MyProgramsHeader
         totalPrograms={
-          userPrograms.length
+          totalPrograms
         }
       />
 
       <MyProgramsStats
         activePrograms={
-          activePrograms
+          publishedPrograms
         }
         completedPrograms={
-          completedPrograms
+          featuredPrograms
         }
         certificatesEarned={
-          certificatesEarned
+          freePrograms
         }
         totalPrograms={
-          userPrograms.length
+          totalPrograms
         }
       />
 
@@ -143,13 +252,59 @@ const MyPrograms = () => {
         }
       />
 
-      {filteredPrograms.length ===
-      0 ? (
+      {isLoading ? (
+        <div
+          className="
+            bg-white
+            border
+            border-slate-200
+            rounded-[32px]
+            p-12
+            text-center
+          "
+        >
+          <p className="text-slate-500">
+            Loading programs...
+          </p>
+        </div>
+      ) : error ? (
+        <div
+          className="
+            bg-white
+            border
+            border-red-200
+            rounded-[32px]
+            p-12
+            text-center
+          "
+        >
+          <h2
+            className="
+              text-2xl
+              font-bold
+              text-slate-800
+            "
+          >
+            Unable to Load Programs
+          </h2>
+
+          <p
+            className="
+              text-slate-500
+              mt-3
+            "
+          >
+            {error}
+          </p>
+        </div>
+      ) : filteredPrograms.length ===
+        0 ? (
         <EmptyPrograms
-          onBrowsePrograms={() =>
-            console.log(
-              "Browse Programs"
-            )
+          onBrowsePrograms={
+            handleBrowsePrograms
+          }
+          hasSearch={
+            hasActiveSearchOrFilter
           }
         />
       ) : (
@@ -158,9 +313,9 @@ const MyPrograms = () => {
             <div
               className="
                 grid
-md:grid-cols-2
-xl:grid-cols-3
-gap-6
+                md:grid-cols-2
+                xl:grid-cols-3
+                gap-6
               "
             >
               {filteredPrograms.map(
@@ -182,7 +337,11 @@ gap-6
           )}
 
           {view === "list" && (
-            <div className="space-y-6">
+            <div
+              className="
+                space-y-6
+              "
+            >
               {filteredPrograms.map(
                 (program) => (
                   <ProgramListCard
@@ -210,8 +369,8 @@ gap-6
         program={
           selectedProgram
         }
-        onClose={() =>
-          setIsDetailsOpen(false)
+        onClose={
+          handleCloseDetails
         }
       />
     </div>

@@ -1,7 +1,8 @@
 import {
   AlertTriangle,
-  BookOpen,
+  Loader2,
   Trash2,
+  X,
 } from "lucide-react";
 
 import {
@@ -13,218 +14,150 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import { mentors } from "@/data/mentors";
-
-type Mentor = (typeof mentors)[number];
-
-type Program = Mentor["programs"][number];
+import type { Program } from "@/services/program.service";
 
 interface DeleteProgramDialogProps {
   open: boolean;
-
-  mentor: Mentor | null;
-
   program: Program | null;
-
   onOpenChange: (open: boolean) => void;
-
-  onConfirm: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
+  onConfirm: (programId: string) => void;
+  isLoading?: boolean;
 }
 
 export default function DeleteProgramDialog({
   open,
-  mentor,
   program,
   onOpenChange,
   onConfirm,
+  isLoading = false,
 }: DeleteProgramDialogProps) {
-  if (!mentor || !program) return null;
+  if (!program) {
+    return null;
+  }
+
+  const handleClose = () => {
+    if (!isLoading) {
+      onOpenChange(false);
+    }
+  };
+
+  const handleConfirm = () => {
+    if (!program.id || isLoading) {
+      return;
+    }
+
+    onConfirm(program.id);
+  };
 
   return (
     <Dialog
       open={open}
-      onOpenChange={onOpenChange}
+      onOpenChange={(value) => {
+        if (!isLoading) {
+          onOpenChange(value);
+        }
+      }}
     >
       <DialogContent
         className="
-          max-w-2xl
+          w-[calc(100%-2rem)]
+          max-w-md
           overflow-hidden
-          rounded-[30px]
+          rounded-3xl
+          border-0
+          bg-white
           p-0
         "
       >
-
         {/* Header */}
-
-        <div className="bg-gradient-to-r from-red-500 via-rose-500 to-pink-500 p-8 text-white">
-
-          <div className="flex items-center gap-5">
-
-            <div className="rounded-3xl bg-white/20 p-4">
-
-              <Trash2 className="h-10 w-10" />
-
-            </div>
-
-            <div>
-
-              <DialogHeader>
-
-                <DialogTitle className="text-3xl font-bold text-white">
-
-                  Delete Program
-
-                </DialogTitle>
-
-                <DialogDescription className="mt-2 text-red-100">
-
-                  This action cannot be undone.
-
-                </DialogDescription>
-
-              </DialogHeader>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Body */}
-
-        <div className="space-y-6 p-8">
-
-          {/* Program */}
-
-          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
-
-            <img
-              src={mentor.image}
-              alt={program.title}
-              className="h-20 w-20 rounded-2xl object-cover"
-            />
-
-            <div>
-
-              <h3 className="text-xl font-bold text-slate-900">
-
-                {program.title}
-
-              </h3>
-
-              <p className="mt-1 text-slate-500">
-
-                {mentor.name}
-
-              </p>
-
-              <span className="mt-3 inline-flex rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-indigo-700">
-
-                {mentor.category}
-
-              </span>
-
-            </div>
-
-          </div>
-
-          {/* Warning */}
-
-          <div className="rounded-3xl border border-red-200 bg-red-50 p-6">
-
-            <div className="flex items-start gap-4">
-
-              <AlertTriangle className="mt-1 h-8 w-8 text-red-600" />
-
-              <div>
-
-                <h4 className="font-bold text-red-800">
-
-                  Warning
-
-                </h4>
-
-                <p className="mt-3 leading-7 text-red-700">
-
-                  Deleting this program will remove it from
-                  the Main Website, Mentor Dashboard,
-                  User Dashboard and Admin Dashboard.
-
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* Impact */}
-
-          <div className="rounded-3xl border border-slate-200 bg-white p-6">
-
-            <h4 className="flex items-center gap-2 font-semibold">
-
-              <BookOpen className="h-5 w-5 text-indigo-600" />
-
-              What will happen?
-
-            </h4>
-
-            <ul className="mt-4 space-y-3 text-sm leading-7 text-slate-600">
-
-              <li>
-                • Program will no longer appear on the website.
-              </li>
-
-              <li>
-                • Students won't be able to enroll.
-              </li>
-
-              <li>
-                • Mentor dashboard listing will be removed.
-              </li>
-
-              <li>
-                • Existing analytics may remain in reports.
-              </li>
-
-            </ul>
-
-          </div>
-                  </div>
-
-        {/* Footer */}
-
-        <DialogFooter className="border-t border-slate-200 bg-white p-6">
-
+        <div className="relative bg-red-50 px-6 pb-5 pt-7 sm:px-8">
           <button
             type="button"
-            onClick={() => onOpenChange(false)}
-            className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            onClick={handleClose}
+            disabled={isLoading}
+            className="absolute right-4 top-4 rounded-xl p-2 text-slate-400 transition hover:bg-white hover:text-slate-700 disabled:opacity-50"
+            aria-label="Close dialog"
+          >
+            <X className="h-5 w-5" />
+          </button>
+
+          <div className="flex flex-col items-center text-center">
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
+              <AlertTriangle className="h-8 w-8 text-red-600" />
+            </div>
+
+            <DialogHeader>
+              <DialogTitle className="text-xl font-bold text-slate-900">
+                Delete Program?
+              </DialogTitle>
+
+              <DialogDescription className="mt-2 text-sm leading-6 text-slate-500">
+                This action cannot be undone. The selected program
+                will be permanently deleted.
+              </DialogDescription>
+            </DialogHeader>
+          </div>
+        </div>
+
+        {/* Program Information */}
+        <div className="px-6 py-5 sm:px-8">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+              Selected Program
+            </p>
+
+            <h3 className="mt-2 line-clamp-2 text-base font-bold text-slate-900">
+              {program.title}
+            </h3>
+
+            <div className="mt-3 flex flex-wrap items-center gap-2">
+              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold capitalize text-slate-600 ring-1 ring-slate-200">
+                {program.status}
+              </span>
+
+              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-200">
+                {program.category}
+              </span>
+            </div>
+          </div>
+
+          <div className="mt-4 flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-3">
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+
+            <p className="text-xs leading-5 text-amber-800">
+              Please verify that you want to remove this program
+              before continuing.
+            </p>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <DialogFooter className="flex-col gap-3 border-t border-slate-200 bg-white px-6 py-5 sm:flex-row sm:px-8">
+          <button
+            type="button"
+            onClick={handleClose}
+            disabled={isLoading}
+            className="w-full rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
           >
             Cancel
           </button>
 
           <button
             type="button"
-            onClick={() =>
-              onConfirm(mentor, program)
-            }
-            className="inline-flex items-center gap-2 rounded-2xl bg-red-600 px-6 py-3 font-semibold text-white transition hover:bg-red-700"
+            onClick={handleConfirm}
+            disabled={isLoading}
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
-            <Trash2 className="h-5 w-5" />
+            {isLoading ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <Trash2 className="h-4 w-4" />
+            )}
 
-            Delete Program
-
+            {isLoading ? "Deleting..." : "Delete Program"}
           </button>
-
         </DialogFooter>
-
       </DialogContent>
-
     </Dialog>
   );
 }

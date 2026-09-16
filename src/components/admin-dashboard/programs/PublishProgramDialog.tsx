@@ -1,9 +1,8 @@
 import {
-  Globe,
-  Rocket,
-  Users,
-  GraduationCap,
   CheckCircle2,
+  Globe,
+  Loader2,
+  X,
 } from "lucide-react";
 
 import {
@@ -15,268 +14,166 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-import { mentors } from "@/data/mentors";
-
-type Mentor = (typeof mentors)[number];
-
-type Program = Mentor["programs"][number];
+import type { Program } from "@/services/program.service";
 
 interface PublishProgramDialogProps {
   open: boolean;
-
-  mentor: Mentor | null;
-
   program: Program | null;
-
   onOpenChange: (open: boolean) => void;
-
   onConfirm: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
+    programId: string,
+    action: "publish" | "unpublish"
   ) => void;
+  isLoading?: boolean;
 }
 
 export default function PublishProgramDialog({
   open,
-  mentor,
   program,
   onOpenChange,
   onConfirm,
+  isLoading = false,
 }: PublishProgramDialogProps) {
-  if (!mentor || !program) return null;
+  if (!program) {
+    return null;
+  }
+
+  const isPublished = program.status === "published";
+  const action = isPublished ? "unpublish" : "publish";
+
+  const handleClose = () => {
+    if (!isLoading) {
+      onOpenChange(false);
+    }
+  };
+
+  const handleConfirm = () => {
+    if (!program.id || isLoading) {
+      return;
+    }
+
+    onConfirm(program.id, action);
+  };
 
   return (
     <Dialog
       open={open}
-      onOpenChange={onOpenChange}
+      onOpenChange={(value) => {
+        if (!isLoading) {
+          onOpenChange(value);
+        }
+      }}
     >
       <DialogContent
         className="
-          max-w-2xl
+          w-[calc(100%-2rem)]
+          max-w-md
           overflow-hidden
-          rounded-[30px]
+          rounded-3xl
+          border-0
+          bg-white
           p-0
         "
       >
-
         {/* Header */}
+        <div
+          className={`px-6 pb-6 pt-7 sm:px-8 ${
+            isPublished ? "bg-amber-50" : "bg-emerald-50"
+          }`}
+        >
+          <button
+            type="button"
+            onClick={handleClose}
+            disabled={isLoading}
+            className="absolute right-4 top-4 rounded-xl p-2 text-slate-400 transition hover:bg-white hover:text-slate-700 disabled:opacity-50"
+            aria-label="Close dialog"
+          >
+            <X className="h-5 w-5" />
+          </button>
 
-        <div className="bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 p-8 text-white">
-
-          <div className="flex items-center gap-5">
-
-            <div className="rounded-3xl bg-white/20 p-4">
-
-              <Rocket className="h-10 w-10" />
-
+          <div className="flex flex-col items-center text-center">
+            <div
+              className={`mb-4 flex h-16 w-16 items-center justify-center rounded-full ${
+                isPublished ? "bg-amber-100" : "bg-emerald-100"
+              }`}
+            >
+              {isPublished ? (
+                <Globe className="h-8 w-8 text-amber-600" />
+              ) : (
+                <CheckCircle2 className="h-8 w-8 text-emerald-600" />
+              )}
             </div>
 
-            <div>
+            <DialogHeader>
+              <DialogTitle className="text-xl font-bold text-slate-900">
+                {isPublished
+                  ? "Unpublish Program?"
+                  : "Publish Program?"}
+              </DialogTitle>
 
-              <DialogHeader>
-
-                <DialogTitle className="text-3xl font-bold text-white">
-
-                  Publish Program
-
-                </DialogTitle>
-
-                <DialogDescription className="mt-2 text-emerald-100">
-
-                  Make this coaching program available
-                  across the entire platform.
-
-                </DialogDescription>
-
-              </DialogHeader>
-
-            </div>
-
+              <DialogDescription className="mt-2 text-sm leading-6 text-slate-500">
+                {isPublished
+                  ? "This program will no longer be visible as a published program."
+                  : "This program will become available to users after publishing."}
+              </DialogDescription>
+            </DialogHeader>
           </div>
-
         </div>
 
-        {/* Body */}
+        {/* Program Details */}
+        <div className="px-6 py-5 sm:px-8">
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+              Selected Program
+            </p>
 
-        <div className="space-y-6 p-8">
-
-          {/* Program */}
-
-          <div className="flex items-center gap-5 rounded-3xl border border-slate-200 bg-slate-50 p-5">
-
-            <img
-              src={mentor.image}
-              alt={program.title}
-              className="h-20 w-20 rounded-2xl object-cover"
-            />
-
-            <div>
-
-              <h3 className="text-xl font-bold text-slate-900">
-
-                {program.title}
-
-              </h3>
-
-              <p className="mt-1 text-slate-500">
-
-                {mentor.name}
-
-              </p>
-
-              <span className="mt-3 inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
-
-                Ready to Publish
-
-              </span>
-
-            </div>
-
-          </div>
-
-          {/* Visibility */}
-
-          <div className="rounded-3xl border border-slate-200 bg-white p-6">
-
-            <h3 className="font-bold text-slate-900">
-
-              After publishing, this program will appear in:
-
+            <h3 className="mt-2 line-clamp-2 text-base font-bold text-slate-900">
+              {program.title}
             </h3>
 
-            <div className="mt-6 space-y-4">
+            <p className="mt-2 text-sm text-slate-500">
+              {program.category}
+            </p>
 
-              <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
-
-                <Globe className="h-6 w-6 text-indigo-600" />
-
-                <div>
-
-                  <h4 className="font-semibold">
-
-                    Main Website
-
-                  </h4>
-
-                  <p className="text-sm text-slate-500">
-
-                    Public program listing.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
-
-                <GraduationCap className="h-6 w-6 text-violet-600" />
-
-                <div>
-
-                  <h4 className="font-semibold">
-
-                    Mentor Dashboard
-
-                  </h4>
-
-                  <p className="text-sm text-slate-500">
-
-                    Mentor can manage this program.
-
-                  </p>
-
-                </div>
-
-              </div>
-
-              <div className="flex items-center gap-4 rounded-2xl bg-slate-50 p-4">
-
-                <Users className="h-6 w-6 text-emerald-600" />
-
-                <div>
-
-                  <h4 className="font-semibold">
-
-                    User Dashboard
-
-                  </h4>
-
-                  <p className="text-sm text-slate-500">
-
-                    Learners can enroll and track progress.
-
-                  </p>
-
-                </div>
-
-              </div>
-
+            <div className="mt-3 inline-flex rounded-full bg-white px-3 py-1 text-xs font-semibold capitalize text-slate-600 ring-1 ring-slate-200">
+              Current status: {program.status}
             </div>
-
           </div>
-                    {/* Confirmation */}
-
-          <div className="rounded-3xl border border-emerald-200 bg-emerald-50 p-6">
-
-            <div className="flex items-start gap-4">
-
-              <CheckCircle2 className="mt-1 h-8 w-8 text-emerald-600" />
-
-              <div>
-
-                <h4 className="font-bold text-emerald-800">
-
-                  Ready to Publish
-
-                </h4>
-
-                <p className="mt-3 leading-7 text-emerald-700">
-
-                  Once published, this program will become
-                  available across all platform modules.
-                  Future backend integration can also notify
-                  followers and enrolled users automatically.
-
-                </p>
-
-              </div>
-
-            </div>
-
-          </div>
-
         </div>
 
         {/* Footer */}
-
-        <DialogFooter className="border-t border-slate-200 bg-white p-6">
-
+        <DialogFooter className="flex-col gap-3 border-t border-slate-200 bg-white px-6 py-5 sm:flex-row sm:px-8">
           <button
             type="button"
-            onClick={() => onOpenChange(false)}
-            className="rounded-2xl border border-slate-200 bg-white px-6 py-3 font-semibold text-slate-700 transition hover:bg-slate-50"
+            onClick={handleClose}
+            disabled={isLoading}
+            className="w-full rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
           >
             Cancel
           </button>
 
           <button
             type="button"
-            onClick={() =>
-              onConfirm(mentor, program)
-            }
-            className="inline-flex items-center gap-2 rounded-2xl bg-emerald-600 px-6 py-3 font-semibold text-white transition hover:bg-emerald-700"
+            onClick={handleConfirm}
+            disabled={isLoading}
+            className={`inline-flex w-full items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-semibold text-white transition disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto ${
+              isPublished
+                ? "bg-amber-600 hover:bg-amber-700"
+                : "bg-emerald-600 hover:bg-emerald-700"
+            }`}
           >
-            <Rocket className="h-5 w-5" />
+            {isLoading && (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            )}
 
-            Publish Program
-
+            {isLoading
+              ? "Processing..."
+              : isPublished
+                ? "Unpublish Program"
+                : "Publish Program"}
           </button>
-
         </DialogFooter>
-
       </DialogContent>
-
     </Dialog>
   );
 }
