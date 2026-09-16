@@ -104,9 +104,9 @@ const SessionGridCard = ({
 
           bg-gradient-to-r
 
-          from-indigo-600
-          via-blue-600
-          to-cyan-500
+          bg-primary
+          
+          
         "
       />
 
@@ -993,9 +993,9 @@ const SessionGridCard = ({
 
             bg-gradient-to-r
 
-            from-slate-50
-            via-blue-50
-            to-indigo-50
+            bg-primary
+            
+            
 
             p-5
           "

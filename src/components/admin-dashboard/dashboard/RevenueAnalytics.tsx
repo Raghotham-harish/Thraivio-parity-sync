@@ -312,9 +312,9 @@ const RevenueAnalytics = ({
 
             bg-gradient-to-r
 
-            from-blue-600
-            via-indigo-600
-            to-violet-600
+            bg-primary
+            
+            
 
             p-6
 
@@ -530,8 +530,8 @@ const RevenueAnalytics = ({
                     rounded-t-2xl
 
                     bg-gradient-to-t
-                    from-blue-600
-                    to-violet-500
+                    bg-primary
+                    
 
                     transition-all
                     duration-300

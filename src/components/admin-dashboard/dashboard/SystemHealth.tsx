@@ -416,11 +416,11 @@ const SystemHealth = ({
 
           bg-gradient-to-r
 
-          from-emerald-600
+          bg-primary
 
-          via-teal-600
+          
 
-          to-cyan-600
+          
 
           p-8
 

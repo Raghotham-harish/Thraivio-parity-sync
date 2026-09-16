@@ -42,9 +42,9 @@ const DashboardHero = ({
         rounded-2xl
 
         bg-gradient-to-r
-        from-blue-600
-        via-indigo-600
-        to-violet-600
+        bg-primary
+        
+        
 
         p-8
 

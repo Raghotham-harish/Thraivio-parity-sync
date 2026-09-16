@@ -107,9 +107,9 @@ const CertificateGridCard = ({
           h-2
 
           bg-gradient-to-r
-          from-amber-500
-          via-orange-500
-          to-yellow-500
+          bg-primary
+          
+          
         "
       />
 
@@ -148,8 +148,8 @@ const CertificateGridCard = ({
                 rounded-2xl
 
                 bg-gradient-to-br
-                from-amber-100
-                to-orange-100
+                bg-primary
+                
               "
             >
               <Award
@@ -701,9 +701,9 @@ const CertificateGridCard = ({
             border
 
             bg-gradient-to-r
-            from-blue-50
+            bg-primary
             via-white
-            to-green-50
+            
 
             p-5
           "

@@ -368,11 +368,11 @@ const PlatformOverview = ({
 
                       bg-gradient-to-r
 
-                      from-blue-600
+                      bg-primary
 
-                      via-indigo-500
+                      
 
-                      to-violet-500
+                      
                     "
                     style={{
                       width: `${
@@ -459,11 +459,11 @@ const PlatformOverview = ({
 
           bg-gradient-to-r
 
-          from-slate-900
+          bg-primary
 
-          via-slate-800
+          
 
-          to-slate-900
+          
 
           p-8
 

@@ -103,9 +103,9 @@ const SessionListRow = ({
 
           bg-gradient-to-r
 
-          from-indigo-600
-          via-blue-600
-          to-cyan-500
+          bg-primary
+          
+          
         "
       />
 
