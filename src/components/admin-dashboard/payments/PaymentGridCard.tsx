@@ -58,7 +58,7 @@ export default function PaymentGridCard({
   return (
     <Card className="group overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 
-      <div className="h-2 w-full bg-gradient-to-r from-primary via-sky-500 to-violet-500" />
+      <div className="h-2 w-full  from-primary  " />
 
       <CardContent className="space-y-6 p-6">
 

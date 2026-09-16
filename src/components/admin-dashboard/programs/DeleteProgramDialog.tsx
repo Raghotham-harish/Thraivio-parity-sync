@@ -59,7 +59,7 @@ export default function DeleteProgramDialog({
 
         {/* Header */}
 
-        <div className="bg-gradient-to-r from-red-500 via-rose-500 to-pink-500 p-8 text-white">
+        <div className=" bg-destructive   p-8 text-white">
 
           <div className="flex items-center gap-5">
 

@@ -101,10 +101,10 @@ const DeleteSessionDialog = ({
             items-center
             justify-between
 
-            bg-gradient-to-r
-            from-red-700
-            via-red-600
-            to-rose-700
+            
+            bg-destructive
+            
+            
 
             p-8
 
@@ -831,10 +831,10 @@ const DeleteSessionDialog = ({
                 className="
                   rounded-2xl
 
-                  bg-gradient-to-r
-                  from-red-700
-                  via-red-600
-                  to-rose-700
+                  
+                  bg-destructive
+                  
+                  
 
                   px-10
                   py-3.5

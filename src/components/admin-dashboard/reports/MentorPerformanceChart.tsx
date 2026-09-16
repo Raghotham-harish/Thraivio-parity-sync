@@ -95,7 +95,7 @@ export default function MentorPerformanceChart({
                 <div className="flex h-60 w-full items-end">
 
                   <div
-                    className="w-full rounded-t-2xl bg-gradient-to-t from-orange-600 to-orange-400 transition-all duration-300 hover:opacity-90"
+                    className="w-full rounded-t-2xl  bg-[#F59E0B]  transition-all duration-300 hover:opacity-90"
                     style={{
                       height: `${height}%`,
                     }}

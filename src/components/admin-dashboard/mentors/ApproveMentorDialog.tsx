@@ -63,7 +63,7 @@ export default function ApproveMentorDialog({
 
         {/* Header */}
 
-        <div className="bg-gradient-to-r from-emerald-600 via-green-600 to-teal-500 p-8 text-white">
+        <div className=" bg-[#10B981]   p-8 text-white">
 
           <div className="flex items-center gap-5">
 

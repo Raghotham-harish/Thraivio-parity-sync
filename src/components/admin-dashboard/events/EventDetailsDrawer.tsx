@@ -109,7 +109,7 @@ const EventDetailsDrawer = ({
             className="
               absolute
               inset-0
-              bg-gradient-to-t
+              
               from-black/80
               via-black/30
               to-transparent
@@ -975,9 +975,9 @@ const EventDetailsDrawer = ({
                               items-center
                               justify-center
                               rounded-full
-                              bg-gradient-to-br
-                              from-blue-600
-                              to-indigo-600
+                              
+                              bg-primary
+                              
                               text-sm
                               font-bold
                               text-white
@@ -1132,10 +1132,10 @@ const EventDetailsDrawer = ({
                           className="
                             h-full
                             rounded-full
-                            bg-gradient-to-r
-                            from-blue-600
-                            via-indigo-600
-                            to-violet-600
+                            
+                            bg-primary
+                            
+                            
                           "
                           style={{
                             width: `${Math.min(
@@ -1567,9 +1567,9 @@ const EventDetailsDrawer = ({
                 className="
                   rounded-2xl
                   border
-                  bg-gradient-to-r
-                  from-slate-50
-                  to-blue-50
+                  
+                  bg-[#0A192F]
+                  
                   p-8
                 "
               >

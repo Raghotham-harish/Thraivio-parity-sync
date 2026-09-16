@@ -38,10 +38,10 @@ const SessionsEmptyState = ({
         className="
           h-3
 
-          bg-gradient-to-r
-          from-blue-600
-          via-indigo-600
-          to-purple-600
+          
+          bg-primary
+          
+          
         "
       />
 
@@ -74,10 +74,10 @@ const SessionsEmptyState = ({
 
             rounded-full
 
-            bg-gradient-to-br
-            from-blue-50
-            via-indigo-50
-            to-purple-100
+            
+            bg-primary
+            
+            
           "
         >
           <div
@@ -286,10 +286,10 @@ const SessionsEmptyState = ({
 
                 rounded-2xl
 
-                bg-gradient-to-r
-                from-blue-600
-                via-indigo-600
-                to-purple-600
+                
+                bg-primary
+                
+                
 
                 px-8
                 py-4
@@ -320,10 +320,10 @@ const SessionsEmptyState = ({
 
                 rounded-2xl
 
-                bg-gradient-to-r
-                from-blue-600
-                via-indigo-600
-                to-purple-600
+                
+                bg-primary
+                
+                
 
                 px-8
                 py-4

@@ -129,10 +129,10 @@ const CreateSessionDialog = ({
             items-center
             justify-between
 
-            bg-gradient-to-r
-            from-indigo-600
-            via-blue-600
-            to-cyan-600
+            
+            bg-primary
+            
+            
 
             p-8
 
@@ -839,10 +839,10 @@ const CreateSessionDialog = ({
                 border
                 border-border
 
-                bg-gradient-to-br
-                from-indigo-50
-                via-blue-50
-                to-cyan-50
+                
+                bg-primary
+                
+                
 
                 p-6
               "
@@ -1288,10 +1288,10 @@ const CreateSessionDialog = ({
                 className="
                   rounded-2xl
 
-                  bg-gradient-to-r
-                  from-indigo-600
-                  via-blue-600
-                  to-cyan-600
+                  
+                  bg-primary
+                  
+                  
 
                   px-10
                   py-3.5

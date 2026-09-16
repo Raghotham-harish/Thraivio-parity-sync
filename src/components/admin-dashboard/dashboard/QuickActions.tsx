@@ -381,13 +381,13 @@ const DashboardQuickActions = ({
 
           rounded-2xl
 
-          bg-gradient-to-r
+          
 
-          from-slate-900
+          bg-[#0A192F]
 
-          via-indigo-900
+          
 
-          to-slate-900
+          
 
           p-8
 

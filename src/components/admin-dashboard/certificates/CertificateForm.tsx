@@ -835,10 +835,10 @@ const CertificateForm = ({
         className="
           rounded-2xl
           border
-          bg-gradient-to-r
-          from-amber-500
-          via-orange-500
-          to-yellow-500
+          
+          bg-[#F59E0B]
+          
+          
           p-8
           text-white
           shadow-lg

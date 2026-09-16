@@ -193,7 +193,7 @@ function UserListRow({
 
           </div>
 
-          <div className="rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 p-4 text-center">
+          <div className="rounded-2xl  bg-primary  p-4 text-center">
 
             <p className="text-xs text-muted-foreground">
               Total Spent

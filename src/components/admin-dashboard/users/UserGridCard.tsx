@@ -48,7 +48,7 @@ function UserGridCard({
           className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        <div className="absolute inset-0  from-black/40 via-transparent to-transparent" />
 
         <div className="absolute right-5 top-5">
 
@@ -258,7 +258,7 @@ function UserGridCard({
           <div className="h-2 overflow-hidden rounded-full bg-secondary">
 
             <div
-              className="h-full rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 transition-all duration-700"
+              className="h-full rounded-full  bg-primary   transition-all duration-700"
               style={{
                 width: `${user.completion}%`,
               }}
@@ -270,7 +270,7 @@ function UserGridCard({
 
         {/* Spending */}
 
-        <div className="mt-7 rounded-2xl bg-gradient-to-r from-blue-50 to-indigo-50 p-5">
+        <div className="mt-7 rounded-2xl  bg-primary  p-5">
 
           <p className="text-sm text-muted-foreground">
 

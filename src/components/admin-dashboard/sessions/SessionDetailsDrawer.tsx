@@ -95,11 +95,11 @@ const SessionDetailsDrawer = ({
 
         <div
           className="
-            bg-gradient-to-r
+            
 
-            from-indigo-600
-            via-blue-600
-            to-cyan-600
+            bg-primary
+            
+            
 
             p-8
 

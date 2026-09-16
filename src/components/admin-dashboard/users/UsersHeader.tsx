@@ -20,7 +20,7 @@ export default function UsersHeader({
   onAddUser,
 }: UsersHeaderProps) {
   return (
-    <section className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-blue-600 via-indigo-600 to-violet-600 p-8 lg:p-10 text-white shadow-2xl">
+    <section className="relative overflow-hidden rounded-2xl  bg-primary   p-8 lg:p-10 text-white shadow-2xl">
 
       {/* Background Blur */}
       <div className="absolute -top-24 -right-24 h-72 w-72 rounded-full bg-card/10 blur-3xl" />

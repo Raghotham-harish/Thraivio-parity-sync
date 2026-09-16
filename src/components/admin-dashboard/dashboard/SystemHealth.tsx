@@ -414,7 +414,7 @@ const SystemHealth = ({
 
           rounded-2xl
 
-          bg-gradient-to-r
+          
 
           bg-primary
 

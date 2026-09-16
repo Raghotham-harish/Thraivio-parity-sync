@@ -342,9 +342,9 @@ const EventListRow = ({
               className="
                 h-full
                 rounded-full
-                bg-gradient-to-r
-                from-blue-600
-                to-indigo-600
+                
+                bg-primary
+                
               "
               style={{
                 width: `${Math.min(

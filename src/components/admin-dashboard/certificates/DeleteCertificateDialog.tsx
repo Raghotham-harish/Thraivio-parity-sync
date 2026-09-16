@@ -55,10 +55,10 @@ const DeleteCertificateDialog = ({
           className="
             relative
             overflow-hidden
-            bg-gradient-to-r
-            from-red-600
-            via-rose-600
-            to-red-700
+            
+            bg-destructive
+            
+            
             p-8
             text-white
           "

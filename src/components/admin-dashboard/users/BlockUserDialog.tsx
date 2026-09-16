@@ -70,7 +70,7 @@ function BlockUserDialog({
 
         {/* Header */}
 
-        <div className="bg-gradient-to-r from-amber-500 to-orange-500 p-8 text-white">
+        <div className=" bg-[#F59E0B]  p-8 text-white">
 
           <div className="flex items-center gap-5">
 

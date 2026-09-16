@@ -101,7 +101,7 @@ const SessionListRow = ({
         className="
           h-2
 
-          bg-gradient-to-r
+          
 
           bg-primary
           

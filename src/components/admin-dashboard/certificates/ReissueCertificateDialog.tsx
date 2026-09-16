@@ -108,10 +108,10 @@ const ReissueCertificateDialog = ({
           className="
             relative
             overflow-hidden
-            bg-gradient-to-r
-            from-blue-600
-            via-indigo-600
-            to-violet-700
+            
+            bg-primary
+            
+            
             p-8
             text-white
           "

@@ -50,10 +50,10 @@ const EventsEmptyState = ({
         overflow-hidden
         rounded-2xl
         border
-        bg-gradient-to-br
+        
         from-white
-        via-slate-50
-        to-blue-50
+        
+        
         p-10
         shadow-sm
       "
@@ -91,10 +91,10 @@ const EventsEmptyState = ({
                 items-center
                 justify-center
                 rounded-full
-                bg-gradient-to-br
-                from-blue-600
-                via-indigo-600
-                to-violet-600
+                
+                bg-primary
+                
+                
                 text-white
                 shadow-2xl
               "
@@ -454,10 +454,10 @@ const EventsEmptyState = ({
               mt-14
               rounded-2xl
               border
-              bg-gradient-to-r
-              from-blue-600
-              via-indigo-600
-              to-violet-600
+              
+              bg-primary
+              
+              
               p-8
               text-white
               shadow-xl

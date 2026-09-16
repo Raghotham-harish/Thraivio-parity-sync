@@ -95,7 +95,7 @@ export default function UsersGrowthChart({
                 <div className="flex h-60 w-full items-end">
 
                   <div
-                    className="w-full rounded-t-2xl bg-gradient-to-t from-violet-600 to-violet-400 transition-all duration-300 hover:opacity-90"
+                    className="w-full rounded-t-2xl  bg-primary  transition-all duration-300 hover:opacity-90"
                     style={{
                       height: `${height}%`,
                     }}

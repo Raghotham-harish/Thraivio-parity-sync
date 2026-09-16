@@ -102,7 +102,7 @@ const SessionGridCard = ({
         className="
           h-2
 
-          bg-gradient-to-r
+          
 
           bg-primary
           
@@ -991,7 +991,7 @@ const SessionGridCard = ({
 
             rounded-2xl
 
-            bg-gradient-to-r
+            
 
             bg-primary
             

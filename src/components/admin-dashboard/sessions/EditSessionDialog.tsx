@@ -231,10 +231,10 @@ const EditSessionDialog = ({
 
         <div
           className="
-            bg-gradient-to-r
-            from-amber-500
-            via-orange-500
-            to-red-500
+            
+            bg-[#F59E0B]
+            
+            
 
             p-8
 
@@ -928,10 +928,10 @@ const EditSessionDialog = ({
                 rounded-2xl
                 border
                 border-border
-                bg-gradient-to-br
-                from-orange-50
-                via-amber-50
-                to-yellow-50
+                
+                bg-[#F59E0B]
+                
+                
                 p-6
               "
             >
@@ -1364,10 +1364,10 @@ const EditSessionDialog = ({
                 className="
                   rounded-2xl
 
-                  bg-gradient-to-r
-                  from-amber-500
-                  via-orange-500
-                  to-red-500
+                  
+                  bg-[#F59E0B]
+                  
+                  
 
                   px-10
                   py-3.5

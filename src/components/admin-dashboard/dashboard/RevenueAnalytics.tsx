@@ -310,7 +310,7 @@ const RevenueAnalytics = ({
             border
             border-border
 
-            bg-gradient-to-r
+            
 
             bg-primary
             
@@ -529,7 +529,7 @@ const RevenueAnalytics = ({
 
                     rounded-t-2xl
 
-                    bg-gradient-to-t
+                    
                     bg-primary
                     
 

@@ -131,10 +131,10 @@ const AttendanceDialog = ({
             items-center
             justify-between
 
-            bg-gradient-to-r
-            from-blue-600
-            via-indigo-600
-            to-purple-600
+            
+            bg-primary
+            
+            
 
             p-8
 
@@ -904,10 +904,10 @@ const AttendanceDialog = ({
 
                       rounded-full
 
-                      bg-gradient-to-r
-                      from-blue-500
-                      via-indigo-500
-                      to-purple-500
+                      
+                      bg-primary
+                      
+                      
 
                       transition-all
                     "
@@ -1472,10 +1472,10 @@ const AttendanceDialog = ({
                 className="
                   rounded-2xl
 
-                  bg-gradient-to-r
-                  from-blue-600
-                  via-indigo-600
-                  to-purple-600
+                  
+                  bg-primary
+                  
+                  
 
                   px-10
                   py-3.5

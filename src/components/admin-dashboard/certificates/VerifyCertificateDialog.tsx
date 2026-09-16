@@ -61,10 +61,10 @@ const VerifyCertificateDialog = ({
           className="
             relative
             overflow-hidden
-            bg-gradient-to-r
-            from-emerald-600
-            via-green-600
-            to-teal-700
+            
+            bg-[#10B981]
+            
+            
             px-8
             py-8
             text-white

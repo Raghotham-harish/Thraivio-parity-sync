@@ -85,7 +85,7 @@ export default function CreateProgramDialog({
 
         {/* Header */}
 
-        <div className="bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-600 p-8 text-white">
+        <div className=" bg-primary   p-8 text-white">
 
           <div className="flex items-center gap-5">
 

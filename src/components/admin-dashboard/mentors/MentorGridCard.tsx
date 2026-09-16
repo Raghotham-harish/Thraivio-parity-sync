@@ -52,7 +52,7 @@ export default function MentorGridCard({
           className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-0  from-black/60 via-black/10 to-transparent" />
 
         {/* Featured */}
 

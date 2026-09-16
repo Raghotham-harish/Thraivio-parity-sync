@@ -378,10 +378,10 @@ const PublishEventDialog = ({
             mt-8
             rounded-2xl
             border
-            bg-gradient-to-r
-            from-emerald-50
-            via-green-50
-            to-lime-50
+            
+            bg-[#10B981]
+            
+            
             p-8
           "
         >

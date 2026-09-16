@@ -82,10 +82,10 @@ const RevokeCertificateDialog = ({
           className="
             relative
             overflow-hidden
-            bg-gradient-to-r
-            from-orange-600
-            via-red-600
-            to-rose-700
+            
+            bg-[#F59E0B]
+            
+            
             p-8
             text-white
           "

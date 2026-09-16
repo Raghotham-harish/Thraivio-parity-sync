@@ -98,10 +98,10 @@ const CertificateDialog = ({
             items-center
             justify-between
 
-            bg-gradient-to-r
-            from-amber-500
-            via-yellow-500
-            to-orange-500
+            
+            bg-[#F59E0B]
+            
+            
 
             p-8
 
@@ -758,9 +758,9 @@ const CertificateDialog = ({
                 border
                 border-amber-200
 
-                bg-gradient-to-br
-                from-amber-50
-                to-yellow-50
+                
+                bg-[#F59E0B]
+                
 
                 p-8
               "
@@ -1370,10 +1370,10 @@ Additional internal notes..."
                 className="
                   rounded-2xl
 
-                  bg-gradient-to-r
-                  from-amber-500
-                  via-yellow-500
-                  to-orange-500
+                  
+                  bg-[#F59E0B]
+                  
+                  
 
                   px-10
                   py-3.5

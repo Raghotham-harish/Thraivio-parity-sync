@@ -41,7 +41,7 @@ const DashboardHero = ({
 
         rounded-2xl
 
-        bg-gradient-to-r
+        
         bg-primary
         
         

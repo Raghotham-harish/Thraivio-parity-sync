@@ -58,7 +58,7 @@ export default function ProgramDetailsDrawer({
             className="h-72 w-full object-cover"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+          <div className="absolute inset-0  from-black/80 via-black/20 to-transparent" />
 
           <button
             onClick={onClose}
@@ -215,7 +215,7 @@ export default function ProgramDetailsDrawer({
 
           {/* Revenue */}
 
-          <div className="rounded-2xl bg-gradient-to-r from-indigo-600 to-blue-600 p-6 text-white">
+          <div className="rounded-2xl  bg-primary  p-6 text-white">
 
             <p className="text-indigo-100">
 

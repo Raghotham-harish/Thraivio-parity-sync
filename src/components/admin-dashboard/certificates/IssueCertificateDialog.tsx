@@ -70,10 +70,10 @@ const IssueCertificateDialog = ({
             relative
             overflow-hidden
             rounded-t-[32px]
-            bg-gradient-to-r
-            from-amber-500
-            via-orange-500
-            to-yellow-500
+            
+            bg-[#F59E0B]
+            
+            
             px-10
             py-10
             text-white

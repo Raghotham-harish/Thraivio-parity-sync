@@ -106,7 +106,7 @@ const CertificateGridCard = ({
         className="
           h-2
 
-          bg-gradient-to-r
+          
           bg-primary
           
           
@@ -147,7 +147,7 @@ const CertificateGridCard = ({
 
                 rounded-2xl
 
-                bg-gradient-to-br
+                
                 bg-primary
                 
               "
@@ -700,7 +700,7 @@ const CertificateGridCard = ({
 
             border
 
-            bg-gradient-to-r
+            
             bg-primary
             via-white
             

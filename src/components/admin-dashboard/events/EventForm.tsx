@@ -39,10 +39,10 @@ const EventForm = ({
       <div
         className="
           rounded-2xl
-          bg-gradient-to-r
-          from-blue-600
-          via-indigo-600
-          to-violet-600
+          
+          bg-primary
+          
+          
           p-8
           text-white
         "
@@ -770,10 +770,10 @@ const EventForm = ({
           className="
             rounded-2xl
             border
-            bg-gradient-to-r
-            from-emerald-50
-            via-green-50
-            to-lime-50
+            
+            bg-[#10B981]
+            
+            
             p-8
           "
         >
@@ -1303,9 +1303,9 @@ const EventForm = ({
           className="
             rounded-2xl
             border
-            bg-gradient-to-r
-            from-slate-50
-            to-blue-50
+            
+            bg-[#0A192F]
+            
             p-8
           "
         >

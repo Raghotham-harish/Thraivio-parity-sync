@@ -87,7 +87,7 @@ const EventGridCard = ({
           "
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+        <div className="absolute inset-0  from-black/70 via-black/20 to-transparent" />
 
         {/* Top Badges */}
 
@@ -461,9 +461,9 @@ const EventGridCard = ({
               className="
                 h-full
                 rounded-full
-                bg-gradient-to-r
-                from-blue-600
-                to-indigo-600
+                
+                bg-primary
+                
                 transition-all
               "
               style={{
@@ -488,9 +488,9 @@ const EventGridCard = ({
           className="
             rounded-2xl
             border
-            bg-gradient-to-r
-            from-emerald-50
-            to-green-50
+            
+            bg-[#10B981]
+            
             p-5
           "
         >

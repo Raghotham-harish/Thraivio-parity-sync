@@ -134,10 +134,10 @@ const AssignMentorDialog = ({
             items-center
             justify-between
 
-            bg-gradient-to-r
-            from-violet-600
-            via-purple-600
-            to-indigo-600
+            
+            bg-primary
+            
+            
 
             p-8
 
@@ -1346,10 +1346,10 @@ Internal notes..."
                 className="
                   rounded-2xl
 
-                  bg-gradient-to-r
-                  from-violet-600
-                  via-purple-600
-                  to-indigo-600
+                  
+                  bg-primary
+                  
+                  
 
                   px-10
                   py-3.5

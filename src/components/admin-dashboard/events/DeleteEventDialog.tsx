@@ -297,10 +297,10 @@ const DeleteEventDialog = ({
             rounded-2xl
             border
             border-red-200
-            bg-gradient-to-r
-            from-red-50
-            via-rose-50
-            to-orange-50
+            
+            bg-destructive
+            
+            
             p-6
           "
         >

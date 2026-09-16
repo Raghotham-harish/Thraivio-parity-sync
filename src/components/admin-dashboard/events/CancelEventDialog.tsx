@@ -422,10 +422,10 @@ const CancelEventDialog = ({
             rounded-2xl
             border
             border-orange-200
-            bg-gradient-to-r
-            from-orange-50
-            via-amber-50
-            to-yellow-50
+            
+            bg-[#F59E0B]
+            
+            
             p-6
           "
         >

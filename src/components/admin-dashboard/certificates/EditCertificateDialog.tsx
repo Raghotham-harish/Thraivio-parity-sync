@@ -78,10 +78,10 @@ const EditCertificateDialog = ({
             relative
             overflow-hidden
             rounded-t-[32px]
-            bg-gradient-to-r
-            from-blue-600
-            via-indigo-600
-            to-slate-900
+            
+            bg-primary
+            
+            
             px-10
             py-10
             text-white

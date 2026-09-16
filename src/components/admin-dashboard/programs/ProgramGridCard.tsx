@@ -63,7 +63,7 @@ export default function ProgramGridCard({
           className="h-56 w-full object-cover"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute inset-0  from-black/60 via-black/10 to-transparent" />
 
         {/* Badges */}
 

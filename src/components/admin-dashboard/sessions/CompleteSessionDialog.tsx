@@ -125,10 +125,10 @@ const CompleteSessionDialog = ({
             items-center
             justify-between
 
-            bg-gradient-to-r
-            from-emerald-600
-            via-green-600
-            to-teal-600
+            
+            bg-[#10B981]
+            
+            
 
             p-8
 
@@ -1173,10 +1173,10 @@ const CompleteSessionDialog = ({
                 className="
                   rounded-2xl
 
-                  bg-gradient-to-r
-                  from-emerald-600
-                  via-green-600
-                  to-teal-600
+                  
+                  bg-[#10B981]
+                  
+                  
 
                   px-10
                   py-3.5

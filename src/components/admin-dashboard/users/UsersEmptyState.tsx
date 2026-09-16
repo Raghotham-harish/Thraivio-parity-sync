@@ -20,7 +20,7 @@ export default function UsersEmptyState({
 
         {/* Icon */}
 
-        <div className="flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-blue-100 to-indigo-100">
+        <div className="flex h-24 w-24 items-center justify-center rounded-full  bg-primary ">
 
           <SearchX className="h-12 w-12 text-primary" />
 

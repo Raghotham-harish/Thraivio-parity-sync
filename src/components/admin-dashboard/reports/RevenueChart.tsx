@@ -105,7 +105,7 @@ export default function RevenueChart({
                 <div className="flex h-60 w-full items-end">
 
                   <div
-                    className="w-full rounded-t-2xl bg-gradient-to-t from-primary to-primary/60 transition-all duration-300 hover:opacity-90"
+                    className="w-full rounded-t-2xl  from-primary to-primary/60 transition-all duration-300 hover:opacity-90"
                     style={{
                       height: `${height}%`,
                     }}

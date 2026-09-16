@@ -69,7 +69,7 @@ export default function VerificationDialog({
 
         {/* Header */}
 
-        <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-cyan-500 p-8 text-white">
+        <div className=" bg-primary   p-8 text-white">
 
           <div className="flex items-center gap-5">
 

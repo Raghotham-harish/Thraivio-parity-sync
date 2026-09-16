@@ -120,7 +120,7 @@ export default function EditProgramDialog({
 
         {/* Header */}
 
-        <div className="bg-gradient-to-r from-amber-500 via-orange-500 to-red-500 p-8 text-white">
+        <div className=" bg-[#F59E0B]   p-8 text-white">
 
           <div className="flex items-center gap-5">
 

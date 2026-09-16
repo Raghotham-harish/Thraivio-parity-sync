@@ -119,9 +119,9 @@ const CertificateListRow = ({
                   items-center
                   justify-center
                   rounded-2xl
-                  bg-gradient-to-br
-                  from-amber-100
-                  to-orange-100
+                  
+                  bg-[#F59E0B]
+                  
                 "
               >
                 <Award
@@ -583,10 +583,10 @@ const CertificateListRow = ({
 
               border
 
-              bg-gradient-to-r
-              from-blue-50
+              
+              bg-primary
               via-white
-              to-green-50
+              
 
               p-6
             "

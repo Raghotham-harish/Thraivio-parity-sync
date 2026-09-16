@@ -52,10 +52,10 @@ const CertificatesEmptyState = ({
         overflow-hidden
         rounded-2xl
         border
-        bg-gradient-to-br
+        
         from-white
-        via-amber-50
-        to-orange-50
+        
+        
         p-10
         shadow-sm
       "
@@ -93,10 +93,10 @@ const CertificatesEmptyState = ({
                 items-center
                 justify-center
                 rounded-full
-                bg-gradient-to-br
-                from-amber-500
-                via-orange-500
-                to-yellow-500
+                
+                bg-[#F59E0B]
+                
+                
                 text-white
                 shadow-2xl
               "
@@ -514,10 +514,10 @@ const CertificatesEmptyState = ({
               mt-14
               rounded-2xl
               border
-              bg-gradient-to-r
-              from-amber-500
-              via-orange-500
-              to-yellow-500
+              
+              bg-[#F59E0B]
+              
+              
               p-8
               text-white
               shadow-xl

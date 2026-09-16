@@ -51,7 +51,7 @@ function UserProfileDrawer({
             className="h-full w-full object-cover"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+          <div className="absolute inset-0  from-black/60 via-black/10 to-transparent" />
 
           <button
             onClick={onClose}
@@ -283,7 +283,7 @@ function UserProfileDrawer({
             <div className="mt-5 h-3 overflow-hidden rounded-full bg-secondary">
 
               <div
-                className="h-full rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 transition-all duration-700"
+                className="h-full rounded-full  bg-primary   transition-all duration-700"
                 style={{
                   width: `${user.completion}%`,
                 }}
@@ -322,7 +322,7 @@ function UserProfileDrawer({
 
           <div className="mt-6 grid gap-5 md:grid-cols-2">
 
-            <div className="rounded-[28px] bg-gradient-to-br from-blue-600 to-indigo-600 p-6 text-white">
+            <div className="rounded-[28px]  bg-primary  p-6 text-white">
 
               <p className="text-blue-100">
                 Lifetime Spending
@@ -340,7 +340,7 @@ function UserProfileDrawer({
 
             </div>
 
-            <div className="rounded-[28px] bg-gradient-to-br from-emerald-500 to-emerald-600 p-6 text-white">
+            <div className="rounded-[28px]  bg-[#10B981]  p-6 text-white">
 
               <p className="text-emerald-100">
                 Favorite Mentors
@@ -447,7 +447,7 @@ function UserProfileDrawer({
                       <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
 
                         <div
-                          className="h-full rounded-full bg-gradient-to-r from-blue-600 to-indigo-600"
+                          className="h-full rounded-full  bg-primary "
                           style={{
                             width: `${program.progress}%`,
                           }}

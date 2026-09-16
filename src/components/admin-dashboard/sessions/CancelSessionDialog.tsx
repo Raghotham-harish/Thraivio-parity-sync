@@ -134,10 +134,10 @@ const CancelSessionDialog = ({
             items-center
             justify-between
 
-            bg-gradient-to-r
-            from-red-600
-            via-rose-600
-            to-red-700
+            
+            bg-destructive
+            
+            
 
             p-8
 
@@ -1435,10 +1435,10 @@ const CancelSessionDialog = ({
                 className="
                   rounded-2xl
 
-                  bg-gradient-to-r
-                  from-red-600
-                  via-rose-600
-                  to-red-700
+                  
+                  bg-destructive
+                  
+                  
 
                   px-10
                   py-3.5

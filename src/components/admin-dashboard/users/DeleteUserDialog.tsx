@@ -42,7 +42,7 @@ function DeleteUserDialog({
 
         {/* Header */}
 
-        <div className="bg-gradient-to-r from-red-600 to-rose-600 p-8 text-white">
+        <div className=" bg-destructive  p-8 text-white">
 
           <div className="flex items-center gap-5">
 

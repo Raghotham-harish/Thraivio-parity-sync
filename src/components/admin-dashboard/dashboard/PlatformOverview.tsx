@@ -366,7 +366,7 @@ const PlatformOverview = ({
 
                       rounded-full
 
-                      bg-gradient-to-r
+                      
 
                       bg-primary
 
@@ -457,7 +457,7 @@ const PlatformOverview = ({
 
           rounded-2xl
 
-          bg-gradient-to-r
+          
 
           bg-primary
 
