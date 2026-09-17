@@ -1,289 +1,66 @@
-import {
-  CalendarDays,
-  Clock3,
-  DollarSign,
-  Mail,
-  Pencil,
-  Trash2,
-  User,
-} from "lucide-react";
+import { Pencil, Trash2, User } from "lucide-react";
 
+import { StatusBadge, type StatusBadgeVariant } from "@/components/shared/StatusBadge";
 import type { Booking } from "@/types/booking";
 
 interface BookingListCardProps {
   booking: Booking;
 
-  onEdit: (
-    booking: Booking
-  ) => void;
+  onEdit: (booking: Booking) => void;
 
-  onDelete: (
-    booking: Booking
-  ) => void;
+  onDelete: (booking: Booking) => void;
 }
 
-const BookingListCard = ({
-  booking,
-  onEdit,
-  onDelete,
-}: BookingListCardProps) => {
-  const statusStyles = {
-    pending:
-      "bg-amber-50 text-amber-700",
+const statusVariant: Record<Booking["status"], StatusBadgeVariant> = {
+  pending: "warning",
+  confirmed: "info",
+  completed: "success",
+  cancelled: "error",
+};
 
-    confirmed:
-      "bg-blue-50 text-blue-700",
-
-    completed:
-      "bg-green-50 text-green-700",
-
-    cancelled:
-      "bg-red-50 text-red-700",
-  };
-
+const BookingListCard = ({ booking, onEdit, onDelete }: BookingListCardProps) => {
   return (
-    <div
-      className="
-        bg-white
+    <div className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition-colors hover:bg-secondary/40">
+      <div className="icon-bg flex h-10 w-10 shrink-0 items-center justify-center rounded-full">
+        <User className="h-4 w-4 text-primary" />
+      </div>
+      <div className="min-w-0 flex-1">
+        <p className="truncate text-sm font-semibold text-foreground">{booking.studentName}</p>
+        <p className="truncate text-xs text-muted-foreground">{booking.sessionType}</p>
+      </div>
 
-        border
-        border-slate-200
+      <div className="hidden shrink-0 text-center text-xs text-muted-foreground sm:block">
+        <p className="font-semibold text-foreground">{booking.date}</p>
+        {booking.time} · {booking.duration}
+      </div>
 
-        rounded-3xl
+      <div className="hidden w-14 shrink-0 text-right text-xs lg:block">
+        <span className="font-semibold text-foreground">${booking.amount}</span>
+      </div>
 
-        overflow-hidden
+      <StatusBadge variant={statusVariant[booking.status]} className="shrink-0">
+        {booking.status}
+      </StatusBadge>
 
-        hover:shadow-xl
-
-        transition-all
-        duration-300
-      "
-    >
-      <div className="p-6">
-
-        <div
-          className="
-            flex
-            flex-col
-
-            xl:flex-row
-            xl:items-center
-            xl:justify-between
-
-            gap-6
-          "
+      <div className="flex shrink-0 items-center gap-1.5">
+        <button
+          type="button"
+          onClick={() => onEdit(booking)}
+          aria-label="Edit booking"
+          title="Edit"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
-          {/* Left */}
-
-          <div
-            className="
-              flex
-              gap-5
-            "
-          >
-            <div
-              className="
-                h-16
-                w-16
-
-                rounded-2xl
-
-                bg-blue-50
-
-                flex
-                items-center
-                justify-center
-
-                shrink-0
-              "
-            >
-              <User
-                size={28}
-                className="
-                  text-blue-600
-                "
-              />
-            </div>
-
-            <div>
-
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-3
-                  flex-wrap
-                "
-              >
-                <h2
-                  className="
-                    text-2xl
-                    font-bold
-                  "
-                >
-                  {booking.studentName}
-                </h2>
-
-                <span
-                  className={`
-                    px-3
-                    py-1
-
-                    rounded-full
-
-                    text-xs
-                    font-semibold
-
-                    ${
-                      statusStyles[
-                        booking.status
-                      ]
-                    }
-                  `}
-                >
-                  {booking.status}
-                </span>
-
-              </div>
-
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-2
-
-                  text-slate-500
-
-                  mt-2
-                "
-              >
-                <Mail size={16} />
-
-                {booking.studentEmail}
-              </div>
-
-              <div
-                className="
-                  grid
-                  md:grid-cols-2
-
-                  gap-4
-
-                  mt-5
-                "
-              >
-                <div className="flex items-center gap-2">
-                  <CalendarDays size={16} />
-                  {booking.date}
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <Clock3 size={16} />
-                  {booking.time}
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <DollarSign size={16} />
-                  ${booking.amount}
-                </div>
-
-                <div>
-                  {booking.duration}
-                </div>
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* Right */}
-
-          <div
-            className="
-              flex
-              flex-col
-              gap-3
-            "
-          >
-            <div
-              className="
-                bg-slate-50
-
-                rounded-xl
-
-                px-4
-                py-3
-
-                font-medium
-                text-center
-              "
-            >
-              {booking.sessionType}
-            </div>
-
-            <button
-              onClick={() =>
-                onEdit(booking)
-              }
-              className="
-                border
-                border-blue-600
-
-                text-blue-600
-
-                px-5
-                py-3
-
-                rounded-2xl
-
-                flex
-                items-center
-                justify-center
-                gap-2
-
-                hover:bg-blue-600
-                hover:text-white
-
-                transition
-              "
-            >
-              <Pencil size={18} />
-
-              Edit Booking
-            </button>
-
-            <button
-              onClick={() =>
-                onDelete(booking)
-              }
-              className="
-                bg-red-600
-                hover:bg-red-700
-
-                text-white
-
-                px-5
-                py-3
-
-                rounded-2xl
-
-                flex
-                items-center
-                justify-center
-                gap-2
-
-                transition
-              "
-            >
-              <Trash2 size={18} />
-
-              Delete Booking
-            </button>
-
-          </div>
-
-        </div>
-
+          <Pencil className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onDelete(booking)}
+          aria-label="Delete booking"
+          title="Delete"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
+        >
+          <Trash2 className="h-4 w-4" />
+        </button>
       </div>
     </div>
   );
