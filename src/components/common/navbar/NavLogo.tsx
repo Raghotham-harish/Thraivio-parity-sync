@@ -1,16 +1,15 @@
 import { Link } from "react-router-dom";
 
+import { ThraivioHorizontal } from "@/components/shared/ThraivioLogos";
+
 const NavLogo = () => {
   return (
     <Link
       to="/"
       className="flex items-center shrink-0 group"
+      aria-label="Thraivio home"
     >
-      <img
-        src="/images/Nav-Logo.png"
-        alt="Thryvio"
-        className="h-12 w-auto object-contain"
-      />
+      <ThraivioHorizontal width={149} height={48} />
     </Link>
   );
 };

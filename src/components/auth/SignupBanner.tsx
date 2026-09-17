@@ -179,7 +179,7 @@ const SignupBanner = () => {
 
           Whether you're looking to learn from
           experts or share your expertise,
-          MentorHub helps you achieve more.
+          Thraivio helps you achieve more.
 
         </p>
 

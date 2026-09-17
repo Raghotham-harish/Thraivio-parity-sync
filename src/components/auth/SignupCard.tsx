@@ -44,7 +44,7 @@ const SignupCard = ({
               text-blue-700
             "
           >
-            🚀 Join MentorHub
+            🚀 Join Thraivio
           </span>
 
           <h2 className="mt-5 text-3xl font-bold">

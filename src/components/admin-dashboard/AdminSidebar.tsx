@@ -1,7 +1,8 @@
 import { NavLink } from "react-router-dom";
 
-import { GraduationCap, LogOut } from "lucide-react";
+import { LogOut } from "lucide-react";
 
+import { ThraivioHorizontal } from "@/components/shared/ThraivioLogos";
 import { adminSidebarItems } from "@/data/admin-sidebar";
 import { cn } from "@/lib/utils";
 
@@ -11,17 +12,9 @@ const AdminSidebar = () => {
       {/* Logo */}
 
       <div className="flex h-20 items-center border-b border-border px-6">
-        <div className="flex items-center gap-3">
-          <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary text-primary-foreground">
-            <GraduationCap size={24} />
-          </div>
-
-          <div>
-            <h2 className="font-heading text-lg font-medium text-foreground">
-              Admin Panel
-            </h2>
-            <p className="text-xs text-muted-foreground">Thraivio</p>
-          </div>
+        <div>
+          <ThraivioHorizontal width={132} height={43} />
+          <p className="mt-0.5 text-xs font-medium text-muted-foreground">Admin Panel</p>
         </div>
       </div>
 

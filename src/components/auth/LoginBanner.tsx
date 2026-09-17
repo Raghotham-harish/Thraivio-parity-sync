@@ -43,7 +43,7 @@ const LoginBanner = () => {
         Welcome Back To
 
         <span className="block text-blue-600">
-          MentorHub
+          Thraivio
         </span>
 
       </h1>
@@ -221,7 +221,7 @@ const LoginBanner = () => {
         <p className="mt-4 text-blue-100 leading-relaxed">
 
           Whether you're looking for expert guidance
-          or want to become a mentor, MentorHub helps
+          or want to become a mentor, Thraivio helps
           professionals connect, learn and grow together.
 
         </p>

@@ -6,6 +6,8 @@ import {
   LockKeyhole,
 } from "lucide-react";
 
+import { ThraivioHorizontalDark } from "@/components/shared/ThraivioLogos";
+
 const Footer = () => {
   return (
     <footer className="bg-[#0A192F] text-white">
@@ -16,12 +18,8 @@ const Footer = () => {
           {/* ================= BRAND ================= */}
           <div className="pr-8">
             {/* Logo */}
-            <Link to="/" className="inline-flex items-center mb-7">
-              <img
-                src="/images/Logo.png"
-                alt="Thryvio"
-                className="h-[46px] w-auto object-contain"
-              />
+            <Link to="/" className="inline-flex items-center mb-7" aria-label="Thraivio home">
+              <ThraivioHorizontalDark width={142} height={46} />
             </Link>
             {/* Description */}
             <p className="text-[#9DA7B6] text-[13px] leading-[1.7] max-w-[300px]">
@@ -207,7 +205,7 @@ const Footer = () => {
                   to="/about"
                   className="text-[13px] text-[#AAB3C0] hover:text-white transition-colors duration-300"
                 >
-                  About Thryvio
+                  About Thraivio
                 </Link>
               </li>
 
@@ -256,7 +254,7 @@ const Footer = () => {
           >
             {/* Copyright */}
             <p className="text-[12px] text-[#60718A]">
-              © 2026 Thryvio. All rights reserved.
+              © 2026 Thraivio. All rights reserved.
             </p>
 
             {/* Trust Badges */}

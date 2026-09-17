@@ -14,8 +14,9 @@ import {
   CalendarCheck,
   ClipboardList,
   Settings,
-  GraduationCap,
 } from "lucide-react";
+
+import { ThraivioHorizontal } from "@/components/shared/ThraivioLogos";
 
 const menuItems = [
   {
@@ -129,35 +130,9 @@ const DashboardSidebar = () => {
           px-6
         "
       >
-        <div className="flex items-center gap-3">
-
-          <div
-            className="
-              h-12
-              w-12
-              rounded-2xl
-              bg-blue-600
-              flex
-              items-center
-              justify-center
-              text-white
-            "
-          >
-            <GraduationCap size={24} />
-          </div>
-
-          <div>
-
-            <h2 className="font-bold text-lg">
-              Mentor Panel
-            </h2>
-
-            <p className="text-xs text-slate-500">
-              Dashboard
-            </p>
-
-          </div>
-
+        <div>
+          <ThraivioHorizontal width={132} height={43} />
+          <p className="mt-0.5 text-xs font-medium text-slate-500">Mentor Panel</p>
         </div>
       </div>
 
