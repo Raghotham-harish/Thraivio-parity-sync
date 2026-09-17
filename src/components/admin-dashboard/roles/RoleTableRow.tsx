@@ -151,6 +151,8 @@ export default function RoleTableRow({
             size="icon"
             variant="outline"
             onClick={() => onView(role)}
+            aria-label="View role"
+            title="View"
           >
             <Eye className="h-4 w-4" />
           </Button>
@@ -159,6 +161,8 @@ export default function RoleTableRow({
             size="icon"
             variant="outline"
             onClick={() => onEdit(role)}
+            aria-label="Edit role"
+            title="Edit"
           >
             <Pencil className="h-4 w-4" />
           </Button>
@@ -167,6 +171,8 @@ export default function RoleTableRow({
             size="icon"
             variant="destructive"
             onClick={() => onDelete(role)}
+            aria-label="Delete role"
+            title="Delete"
           >
             <Trash2 className="h-4 w-4" />
           </Button>

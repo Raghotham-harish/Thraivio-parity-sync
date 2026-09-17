@@ -1,6 +1,4 @@
 import {
-  BookOpen,
-  Clock3,
   Eye,
   Pencil,
   Star,
@@ -47,272 +45,127 @@ export default function ProgramGridCard({
   onPublish,
   onDelete,
 }: ProgramGridCardProps) {
-  const estimatedRevenue =
-    program.price * program.students;
+  const estimatedRevenue = program.price * program.students;
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-
-      {/* Cover */}
-
-      <div className="relative">
-
+    <article className="rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:shadow-md">
+      {/* Thumbnail */}
+      <div className="relative h-28 overflow-hidden rounded-xl">
         <img
           src={mentor.image}
           alt={program.title}
-          className="h-56 w-full object-cover"
+          className="h-full w-full object-cover"
         />
-
-        <div className="absolute inset-0  from-black/60 via-black/10 to-transparent" />
-
-        {/* Badges */}
-
-        <div className="absolute left-5 top-5 flex gap-2">
-
-          <span className="rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold text-white">
-
+        <div className="absolute left-2 top-2 flex gap-1.5">
+          <span className="rounded-full bg-[#10B981] px-2 py-0.5 text-[10px] font-semibold text-white">
             Published
-
           </span>
-
-          <span className="rounded-full bg-[#F59E0B] px-3 py-1 text-xs font-semibold text-white">
-
+          <span className="rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-semibold text-white">
             Featured
-
           </span>
-
         </div>
-
-        {/* Mentor */}
-
-        <div className="absolute bottom-5 left-5 flex items-center gap-3">
-
-          <img
-            src={mentor.image}
-            alt={mentor.name}
-            className="h-12 w-12 rounded-full border-2 border-white object-cover"
-          />
-
-          <div>
-
-            <h4 className="font-semibold text-white">
-
-              {mentor.name}
-
-            </h4>
-
-            <p className="text-sm text-white/80">
-
-              {mentor.company}
-
-            </p>
-
-          </div>
-
-        </div>
-
       </div>
 
       {/* Body */}
-
-      <div className="space-y-6 p-6">
-                <div>
-
-          <div className="flex items-center justify-between">
-
-            <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-[#2563EB]">
-
-              {mentor.category}
-
-            </span>
-
-            <span className="font-bold text-primary">
-
-              ₹{program.price.toLocaleString()}
-
-            </span>
-
-          </div>
-
-          <h3 className="mt-4 line-clamp-2 text-2xl font-bold text-foreground">
-
-            {program.title}
-
-          </h3>
-
+      <div className="mt-3">
+        <div className="flex items-center justify-between">
+          <span className="rounded-full bg-[#EFF6FF] px-2.5 py-1 text-[11px] font-semibold text-primary">
+            {mentor.category}
+          </span>
+          <span className="font-bold text-foreground">
+            ₹{program.price.toLocaleString()}
+          </span>
         </div>
 
-        {/* Stats */}
+        <h3 className="mt-2 line-clamp-1 font-semibold text-foreground">
+          {program.title}
+        </h3>
 
-        <div className="grid grid-cols-2 gap-4">
-
-          <div className="rounded-2xl bg-secondary p-4">
-
-            <div className="flex items-center gap-2 text-muted-foreground">
-
-              <Clock3 className="h-4 w-4" />
-
-              <span className="text-sm">
-
-                Duration
-
-              </span>
-
-            </div>
-
-            <p className="mt-2 font-semibold text-foreground">
-
-              {program.duration}
-
-            </p>
-
-          </div>
-
-          <div className="rounded-2xl bg-secondary p-4">
-
-            <div className="flex items-center gap-2 text-muted-foreground">
-
-              <Users className="h-4 w-4" />
-
-              <span className="text-sm">
-
-                Students
-
-              </span>
-
-            </div>
-
-            <p className="mt-2 font-semibold text-foreground">
-
-              {program.students}
-
-            </p>
-
-          </div>
-
-          <div className="rounded-2xl bg-secondary p-4">
-
-            <div className="flex items-center gap-2 text-muted-foreground">
-
-              <BookOpen className="h-4 w-4" />
-
-              <span className="text-sm">
-
-                Level
-
-              </span>
-
-            </div>
-
-            <p className="mt-2 font-semibold text-foreground">
-
-              {program.level}
-
-            </p>
-
-          </div>
-
-          <div className="rounded-2xl bg-secondary p-4">
-
-            <div className="flex items-center gap-2 text-muted-foreground">
-
-              <Star className="h-4 w-4 fill-[#F59E0B] text-[#F59E0B]" />
-
-              <span className="text-sm">
-
-                Rating
-
-              </span>
-
-            </div>
-
-            <p className="mt-2 font-semibold text-foreground">
-
-              {mentor.rating}
-
-            </p>
-
-          </div>
-
+        <div className="mt-1.5 flex items-center gap-2">
+          <img
+            src={mentor.image}
+            alt={mentor.name}
+            className="h-5 w-5 rounded-full object-cover"
+          />
+          <p className="truncate text-sm text-muted-foreground">{mentor.name}</p>
         </div>
-
-        {/* Revenue */}
-
-        <div className="rounded-2xl bg-[#EFF6FF] p-5">
-
-          <p className="text-sm text-primary">
-
-            Estimated Revenue
-
-          </p>
-
-          <h3 className="mt-2 text-3xl font-bold text-[#2563EB]">
-
-            ₹{estimatedRevenue.toLocaleString()}
-
-          </h3>
-
-        </div>
-                {/* Actions */}
-
-        <div className="grid grid-cols-2 gap-3">
-
-          <button
-            type="button"
-            onClick={() =>
-              onView(mentor, program)
-            }
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border border-border bg-card px-4 py-3 font-semibold text-foreground transition hover:bg-secondary"
-          >
-            <Eye className="h-5 w-5" />
-
-            View
-
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              onEdit(mentor, program)
-            }
-            className="inline-flex items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 font-semibold text-[#B45309] transition hover:bg-[#FFFBEB]"
-          >
-            <Pencil className="h-5 w-5" />
-
-            Edit
-
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              onPublish(mentor, program)
-            }
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#10B981] px-4 py-3 font-semibold text-white transition hover:bg-[#0da271]"
-          >
-            <UploadCloud className="h-5 w-5" />
-
-            Publish
-
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              onDelete(mentor, program)
-            }
-            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-destructive px-4 py-3 font-semibold text-white transition hover:bg-destructive/90"
-          >
-            <Trash2 className="h-5 w-5" />
-
-            Delete
-
-          </button>
-
-        </div>
-
       </div>
 
+      {/* Stat strip */}
+      <div className="mt-3 grid grid-cols-4 divide-x divide-border rounded-xl bg-secondary py-2 text-center">
+        <div>
+          <p className="text-sm font-bold text-foreground">{program.duration}</p>
+          <p className="text-[11px] text-muted-foreground">Duration</p>
+        </div>
+        <div>
+          <p className="text-sm font-bold text-foreground">{program.students}</p>
+          <p className="text-[11px] text-muted-foreground">Students</p>
+        </div>
+        <div>
+          <p className="text-sm font-bold text-foreground">{program.level}</p>
+          <p className="text-[11px] text-muted-foreground">Level</p>
+        </div>
+        <div>
+          <p className="flex items-center justify-center gap-0.5 text-sm font-bold text-foreground">
+            <Star className="h-3 w-3 fill-[#F59E0B] text-[#F59E0B]" />
+            {mentor.rating}
+          </p>
+          <p className="text-[11px] text-muted-foreground">Rating</p>
+        </div>
+      </div>
+
+      {/* Revenue */}
+      <div className="mt-2 flex items-center justify-between text-xs text-muted-foreground">
+        <span className="flex items-center gap-1">
+          <Users className="h-3.5 w-3.5" />
+          Estimated revenue
+        </span>
+        <span className="font-semibold text-foreground">
+          ₹{estimatedRevenue.toLocaleString()}
+        </span>
+      </div>
+
+      {/* Actions */}
+      <div className="mt-3 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => onView(mentor, program)}
+          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+        >
+          <Eye className="h-4 w-4" />
+          View
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onEdit(mentor, program)}
+          aria-label="Edit program"
+          title="Edit"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-[#FFFBEB] hover:text-[#B45309]"
+        >
+          <Pencil className="h-4 w-4" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onPublish(mentor, program)}
+          aria-label="Publish program"
+          title="Publish"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-[#ECFDF5] hover:text-[#065F46]"
+        >
+          <UploadCloud className="h-4 w-4" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onDelete(mentor, program)}
+          aria-label="Delete program"
+          title="Delete"
+          className="rounded-lg border border-border p-2 text-red-600 transition-colors hover:bg-[#FFDAD6]"
+        >
+          <Trash2 className="h-4 w-4" />
+        </button>
+      </div>
     </article>
   );
 }

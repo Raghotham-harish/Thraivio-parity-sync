@@ -170,6 +170,8 @@ export default function ReviewTableRow({
             size="icon"
             variant="outline"
             onClick={() => onView(review)}
+            aria-label="View review"
+            title="View"
           >
             <Eye className="h-4 w-4" />
           </Button>
@@ -178,6 +180,8 @@ export default function ReviewTableRow({
             size="icon"
             variant="outline"
             onClick={() => onStatus(review)}
+            aria-label="Update review status"
+            title="Update status"
           >
             <CheckCircle2 className="h-4 w-4" />
           </Button>
@@ -186,6 +190,8 @@ export default function ReviewTableRow({
             size="icon"
             variant="destructive"
             onClick={() => onDelete(review)}
+            aria-label="Delete review"
+            title="Delete"
           >
             <Trash2 className="h-4 w-4" />
           </Button>

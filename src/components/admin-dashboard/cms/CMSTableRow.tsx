@@ -3,7 +3,7 @@ import {
   Eye,
   FileEdit,
   Globe,
-  MoreHorizontal,
+  Pencil,
   Trash2,
 } from "lucide-react";
 
@@ -174,6 +174,8 @@ export default function CMSTableRow({
             size="icon"
             variant="outline"
             onClick={() => onView(page)}
+            aria-label="View page"
+            title="View"
           >
             <Eye className="h-4 w-4" />
           </Button>
@@ -182,14 +184,18 @@ export default function CMSTableRow({
             size="icon"
             variant="outline"
             onClick={() => onEdit(page)}
+            aria-label="Edit page"
+            title="Edit"
           >
-            <MoreHorizontal className="h-4 w-4" />
+            <Pencil className="h-4 w-4" />
           </Button>
 
           <Button
             size="icon"
             variant="destructive"
             onClick={() => onDelete(page)}
+            aria-label="Delete page"
+            title="Delete"
           >
             <Trash2 className="h-4 w-4" />
           </Button>

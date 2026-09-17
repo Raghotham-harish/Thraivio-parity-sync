@@ -4,8 +4,8 @@ import {
   Clock3,
   Eye,
   FolderOpen,
-  MoreHorizontal,
-  Trash2,
+  MessageSquareReply,
+  XCircle,
 } from "lucide-react";
 
 import {
@@ -211,6 +211,8 @@ export default function SupportTableRow({
             size="icon"
             variant="outline"
             onClick={() => onView(ticket)}
+            aria-label="View ticket"
+            title="View"
           >
             <Eye className="h-4 w-4" />
           </Button>
@@ -219,16 +221,20 @@ export default function SupportTableRow({
             size="icon"
             variant="outline"
             onClick={() => onReply(ticket)}
+            aria-label="Reply to ticket"
+            title="Reply"
           >
-            <MoreHorizontal className="h-4 w-4" />
+            <MessageSquareReply className="h-4 w-4" />
           </Button>
 
           <Button
             size="icon"
-            variant="destructive"
+            variant="outline"
             onClick={() => onClose(ticket)}
+            aria-label="Close ticket"
+            title="Close"
           >
-            <Trash2 className="h-4 w-4" />
+            <XCircle className="h-4 w-4" />
           </Button>
 
         </div>

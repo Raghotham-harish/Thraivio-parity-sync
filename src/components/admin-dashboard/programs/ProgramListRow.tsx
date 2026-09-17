@@ -55,14 +55,14 @@ export default function ProgramListRow({
 
       {/* Program */}
 
-      <td className="px-6 py-5">
+      <td className="px-4 py-3">
 
         <div className="flex items-center gap-4">
 
           <img
             src={mentor.image}
             alt={program.title}
-            className="h-16 w-16 rounded-2xl object-cover"
+            className="h-11 w-11 rounded-xl object-cover"
           />
 
           <div>
@@ -97,14 +97,14 @@ export default function ProgramListRow({
 
       {/* Mentor */}
 
-      <td className="px-6 py-5">
+      <td className="px-4 py-3">
 
         <div className="flex items-center gap-3">
 
           <img
             src={mentor.image}
             alt={mentor.name}
-            className="h-12 w-12 rounded-full object-cover"
+            className="h-9 w-9 rounded-full object-cover"
           />
 
           <div>
@@ -129,7 +129,7 @@ export default function ProgramListRow({
 
       {/* Duration */}
 
-      <td className="px-6 py-5">
+      <td className="px-4 py-3">
 
         <div className="flex items-center gap-2">
 
@@ -143,7 +143,7 @@ export default function ProgramListRow({
 
       {/* Students */}
 
-      <td className="px-6 py-5">
+      <td className="px-4 py-3">
 
         <div className="flex items-center gap-2">
 
@@ -157,7 +157,7 @@ export default function ProgramListRow({
 
       {/* Level */}
 
-      <td className="px-6 py-5">
+      <td className="px-4 py-3">
 
         <div className="flex items-center gap-2">
 
@@ -171,7 +171,7 @@ export default function ProgramListRow({
 
       {/* Rating */}
 
-      <td className="px-6 py-5">
+      <td className="px-4 py-3">
 
         <div className="flex items-center gap-2">
 
@@ -185,7 +185,7 @@ export default function ProgramListRow({
 
       {/* Price */}
 
-      <td className="px-6 py-5 font-semibold text-primary">
+      <td className="px-4 py-3 font-semibold text-primary">
 
         ₹{program.price.toLocaleString()}
 
@@ -193,14 +193,14 @@ export default function ProgramListRow({
 
       {/* Revenue */}
 
-      <td className="px-6 py-5 font-bold text-[#0F8F65]">
+      <td className="px-4 py-3 font-bold text-[#0F8F65]">
 
         ₹{estimatedRevenue.toLocaleString()}
 
       </td>
             {/* Actions */}
 
-      <td className="px-6 py-5">
+      <td className="px-4 py-3">
 
         <div className="flex items-center gap-2">
 
@@ -209,7 +209,8 @@ export default function ProgramListRow({
             onClick={() =>
               onView(mentor, program)
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-border bg-card text-foreground transition hover:bg-secondary"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-card text-foreground transition hover:bg-secondary"
+            aria-label="View program"
             title="View Program"
           >
             <Eye className="h-4 w-4" />
@@ -220,7 +221,8 @@ export default function ProgramListRow({
             onClick={() =>
               onEdit(mentor, program)
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-amber-200 bg-amber-50 text-[#B45309] transition hover:bg-[#FFFBEB]"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-amber-200 bg-amber-50 text-[#B45309] transition hover:bg-[#FFFBEB]"
+            aria-label="Edit program"
             title="Edit Program"
           >
             <Pencil className="h-4 w-4" />
@@ -231,7 +233,8 @@ export default function ProgramListRow({
             onClick={() =>
               onPublish(mentor, program)
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#A7E8CE] bg-[#ECFDF5] text-[#065F46] transition hover:bg-[#ECFDF5]"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#A7E8CE] bg-[#ECFDF5] text-[#065F46] transition hover:bg-[#ECFDF5]"
+            aria-label="Publish program"
             title="Publish Program"
           >
             <UploadCloud className="h-4 w-4" />
@@ -242,7 +245,8 @@ export default function ProgramListRow({
             onClick={() =>
               onDelete(mentor, program)
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-red-200 bg-red-50 text-[#BA1A1A] transition hover:bg-[#FFDAD6]"
+            className="flex h-8 w-8 items-center justify-center rounded-lg border border-red-200 bg-red-50 text-[#BA1A1A] transition hover:bg-[#FFDAD6]"
+            aria-label="Delete program"
             title="Delete Program"
           >
             <Trash2 className="h-4 w-4" />

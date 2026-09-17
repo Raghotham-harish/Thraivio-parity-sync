@@ -1,14 +1,8 @@
 import {
-  Award,
-  BookOpen,
-  Calendar,
   CheckCircle2,
-  Clock3,
   Eye,
-  MoreVertical,
   ShieldCheck,
   Star,
-  Wallet,
   XCircle,
 } from "lucide-react";
 
@@ -30,6 +24,18 @@ interface MentorGridCardProps {
   onUnfeature: (mentor: AdminMentor) => void;
 }
 
+const membershipStyles: Record<string, string> = {
+  enterprise: "bg-secondary text-muted-foreground",
+  pro: "bg-[#EFF6FF] text-primary",
+  free: "bg-secondary text-foreground",
+};
+
+const statusStyles: Record<string, string> = {
+  active: "bg-[#ECFDF5] text-[#065F46]",
+  pending: "bg-[#FFFBEB] text-[#B45309]",
+  suspended: "bg-[#FFDAD6] text-[#BA1A1A]",
+};
+
 export default function MentorGridCard({
   mentor,
   onView,
@@ -37,349 +43,159 @@ export default function MentorGridCard({
   onReject,
   onVerify,
   onFeature,
-  onUnfeature
+  onUnfeature,
 }: MentorGridCardProps) {
   return (
-    <div className="group overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl">
-
-      {/* Cover */}
-
-      <div className="relative h-36 overflow-hidden">
-
-        <img
-          src={mentor.coverImage}
-          alt={mentor.name}
-          className="h-full w-full object-cover transition duration-500 group-hover:scale-110"
-        />
-
-        <div className="absolute inset-0  from-black/60 via-black/10 to-transparent" />
-
-        {/* Featured */}
-
-        {mentor.featured && (
-          <div className="absolute left-4 top-4 rounded-full bg-amber-400 px-3 py-1 text-xs font-semibold text-white shadow">
-
-            Featured
-
-          </div>
-        )}
-
-        {/* Verification */}
-
-        <div className="absolute right-4 top-4">
-
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:shadow-md">
+      {/* Header */}
+      <div className="flex items-start gap-3">
+        <div className="relative shrink-0">
+          <img
+            src={mentor.avatar}
+            alt={mentor.name}
+            className="h-11 w-11 rounded-full object-cover"
+          />
           {mentor.verification === "verified" && (
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ECFDF5] text-white shadow-lg">
-
-              <ShieldCheck className="h-5 w-5" />
-
-            </div>
+            <span className="absolute -bottom-0.5 -right-0.5 flex h-4 w-4 items-center justify-center rounded-full border-2 border-card bg-[#10B981]">
+              <ShieldCheck className="h-2.5 w-2.5 text-white" />
+            </span>
           )}
-
-          {mentor.verification === "pending" && (
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#F59E0B] text-white shadow-lg">
-
-              <Clock3 className="h-5 w-5" />
-
-            </div>
-          )}
-
-          {mentor.verification === "rejected" && (
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-red-500 text-white shadow-lg">
-
-              <XCircle className="h-5 w-5" />
-
-            </div>
-          )}
-
         </div>
 
-      </div>
-
-      {/* Profile */}
-
-      <div className="relative px-6 pb-6">
-
-        <img
-          src={mentor.avatar}
-          alt={mentor.name}
-          className="-mt-12 h-24 w-24 rounded-full border-4 border-white object-cover shadow-lg"
-        />
-
-        <div className="mt-4">
-
-          <div className="flex items-start justify-between">
-
-            <div>
-
-              <h3 className="text-xl font-bold text-foreground">
-
-                {mentor.name}
-
-              </h3>
-
-              <p className="mt-1 text-sm text-muted-foreground">
-
-                @{mentor.username}
-
-              </p>
-
-            </div>
-
-            <button className="rounded-xl p-2 transition hover:bg-secondary">
-
-              <MoreVertical className="h-5 w-5 text-muted-foreground" />
-
-            </button>
-
-          </div>
-
-          <p className="mt-4 line-clamp-2 text-sm leading-6 text-muted-foreground">
-
-            {mentor.headline}
-
+        <div className="min-w-0 flex-1">
+          <h3 className="truncate font-semibold text-foreground">
+            {mentor.name}
+          </h3>
+          <p className="truncate text-sm text-muted-foreground">
+            @{mentor.username}
           </p>
-                    {/* Rating */}
-
-          <div className="mt-5 flex items-center justify-between">
-
-            <div className="flex items-center gap-2">
-
-              <Star className="h-5 w-5 fill-[#F59E0B] text-[#F59E0B]" />
-
-              <span className="font-semibold text-foreground">
-                {mentor.rating}
-              </span>
-
-              <span className="text-sm text-muted-foreground">
-                ({mentor.totalReviews} Reviews)
-              </span>
-
-            </div>
-
-            <span
-              className={`rounded-full px-3 py-1 text-xs font-semibold ${
-                mentor.available
-                  ? "bg-[#ECFDF5] text-[#065F46]"
-                  : "bg-[#FFDAD6] text-[#BA1A1A]"
-              }`}
-            >
-              {mentor.available
-                ? "Available"
-                : "Unavailable"}
-            </span>
-
-          </div>
-
-          {/* Stats */}
-
-          <div className="mt-6 grid grid-cols-2 gap-4">
-
-            <div className="rounded-2xl bg-secondary p-4">
-
-              <div className="flex items-center gap-2">
-
-                <Award className="h-5 w-5 text-primary" />
-
-                <span className="text-xs text-muted-foreground">
-                  Experience
-                </span>
-
-              </div>
-
-              <p className="mt-2 text-lg font-bold text-foreground">
-
-                {mentor.experience} Years
-
-              </p>
-
-            </div>
-
-            <div className="rounded-2xl bg-secondary p-4">
-
-              <div className="flex items-center gap-2">
-
-                <Calendar className="h-5 w-5 text-[#0F8F65]" />
-
-                <span className="text-xs text-muted-foreground">
-                  Sessions
-                </span>
-
-              </div>
-
-              <p className="mt-2 text-lg font-bold text-foreground">
-
-                {mentor.completedSessions}
-
-              </p>
-
-            </div>
-
-            <div className="rounded-2xl bg-secondary p-4">
-
-              <div className="flex items-center gap-2">
-
-                <BookOpen className="h-5 w-5 text-violet-600" />
-
-                <span className="text-xs text-muted-foreground">
-                  Programs
-                </span>
-
-              </div>
-
-              <p className="mt-2 text-lg font-bold text-foreground">
-
-                {mentor.activePrograms}
-
-              </p>
-
-            </div>
-
-            <div className="rounded-2xl bg-secondary p-4">
-
-              <div className="flex items-center gap-2">
-
-                <Wallet className="h-5 w-5 text-amber-600" />
-
-                <span className="text-xs text-muted-foreground">
-                  Earnings
-                </span>
-
-              </div>
-
-              <p className="mt-2 text-lg font-bold text-foreground">
-
-                ${mentor.earnings.toLocaleString()}
-
-              </p>
-
-            </div>
-
-          </div>
-
-          {/* Skills */}
-
-          <div className="mt-6 flex flex-wrap gap-2">
-
-            {mentor.skills.slice(0, 4).map((skill) => (
-
-              <span
-                key={skill.id}
-                className="rounded-full bg-blue-50 px-3 py-1 text-xs font-semibold text-[#2563EB]"
-              >
-                {skill.name}
-              </span>
-
-            ))}
-
-          </div>
-
-          {/* Membership & Status */}
-
-          <div className="mt-6 flex items-center justify-between">
-
-            <span
-              className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${
-                mentor.membership === "enterprise"
-                  ? "bg-secondary text-muted-foreground"
-                  : mentor.membership === "pro"
-                  ? "bg-[#EFF6FF] text-[#2563EB]"
-                  : "bg-secondary text-foreground"
-              }`}
-            >
-              {mentor.membership}
-            </span>
-
-            <span
-              className={`rounded-full px-3 py-1 text-xs font-semibold capitalize ${
-                mentor.status === "active"
-                  ? "bg-[#ECFDF5] text-[#065F46]"
-                  : mentor.status === "pending"
-                  ? "bg-[#FFFBEB] text-[#B45309]"
-                  : "bg-[#FFDAD6] text-[#BA1A1A]"
-              }`}
-            >
-              {mentor.status}
-            </span>
-
-          </div>
-
-          {/* Actions */}
-
-          <div className="mt-8 grid grid-cols-2 gap-3">
-
-            <button
-              type="button"
-              onClick={() => onView(mentor)}
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-border bg-card font-medium text-foreground transition hover:bg-secondary"
-            >
-              <Eye className="h-4 w-4" />
-
-              View
-
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onVerify(mentor)}
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-primary font-medium text-white transition hover:bg-primary/90"
-            >
-              <ShieldCheck className="h-4 w-4" />
-
-              Verify
-
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onApprove(mentor)}
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-[#10B981] font-medium text-white transition hover:bg-[#0da271]"
-            >
-              <CheckCircle2 className="h-4 w-4" />
-
-              Approve
-
-            </button>
-
-            <button
-              type="button"
-              onClick={() => onReject(mentor)}
-              className="flex h-11 items-center justify-center gap-2 rounded-2xl bg-destructive font-medium text-white transition hover:bg-destructive/90"
-            >
-              <XCircle className="h-4 w-4" />
-
-              Reject
-
-            </button>
-
-            {mentor.featured ? (
-  <button
-    type="button"
-    onClick={() => onUnfeature(mentor)}
-    className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 font-medium text-[#B45309] transition hover:bg-[#FFFBEB]"
-  >
-    <Star className="h-4 w-4 fill-current" />
-
-    Unfeature
-  </button>
-) : (
-  <button
-    type="button"
-    onClick={() => onFeature(mentor)}
-    className="flex h-11 items-center justify-center gap-2 rounded-2xl border border-amber-200 bg-amber-50 font-medium text-[#B45309] transition hover:bg-[#FFFBEB]"
-  >
-    <Star className="h-4 w-4" />
-
-    Feature
-  </button>
-)}
-
-          </div>
-
         </div>
 
+        <div className="flex shrink-0 flex-col items-end gap-1">
+          {mentor.featured && (
+            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700">
+              Featured
+            </span>
+          )}
+          <span
+            className={`rounded-full px-2.5 py-1 text-[11px] font-semibold capitalize ${
+              membershipStyles[mentor.membership] ?? "bg-secondary text-foreground"
+            }`}
+          >
+            {mentor.membership}
+          </span>
+        </div>
       </div>
 
+      <p className="mt-2 line-clamp-1 text-sm text-muted-foreground">
+        {mentor.headline}
+      </p>
+
+      {/* Rating + status */}
+      <div className="mt-2 flex items-center justify-between text-sm">
+        <span className="flex items-center gap-1 text-foreground">
+          <Star className="h-4 w-4 fill-[#F59E0B] text-[#F59E0B]" />
+          <span className="font-semibold">{mentor.rating}</span>
+          <span className="text-xs text-muted-foreground">
+            ({mentor.totalReviews})
+          </span>
+        </span>
+        <span
+          className={`rounded-full px-2.5 py-1 text-[11px] font-semibold capitalize ${
+            statusStyles[mentor.status] ?? "bg-secondary text-foreground"
+          }`}
+        >
+          {mentor.status}
+        </span>
+      </div>
+
+      {/* Stat strip */}
+      <div className="mt-3 grid grid-cols-4 divide-x divide-border rounded-xl bg-secondary py-2 text-center">
+        <div>
+          <p className="text-sm font-bold text-foreground">{mentor.experience}y</p>
+          <p className="text-[11px] text-muted-foreground">Exp</p>
+        </div>
+        <div>
+          <p className="text-sm font-bold text-foreground">{mentor.completedSessions}</p>
+          <p className="text-[11px] text-muted-foreground">Sessions</p>
+        </div>
+        <div>
+          <p className="text-sm font-bold text-foreground">{mentor.activePrograms}</p>
+          <p className="text-[11px] text-muted-foreground">Programs</p>
+        </div>
+        <div>
+          <p className="text-sm font-bold text-foreground">
+            ${mentor.earnings.toLocaleString()}
+          </p>
+          <p className="text-[11px] text-muted-foreground">Earned</p>
+        </div>
+      </div>
+
+      {/* Skills */}
+      {mentor.skills.length > 0 && (
+        <div className="mt-3 flex flex-wrap gap-1.5">
+          {mentor.skills.slice(0, 3).map((skill) => (
+            <span
+              key={skill.id}
+              className="rounded-full bg-[#EFF6FF] px-2.5 py-1 text-[11px] font-semibold text-primary"
+            >
+              {skill.name}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {/* Actions */}
+      <div className="mt-3 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => onView(mentor)}
+          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+        >
+          <Eye className="h-4 w-4" />
+          View
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onVerify(mentor)}
+          aria-label="Verify mentor"
+          title="Verify"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
+        >
+          <ShieldCheck className="h-4 w-4" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onApprove(mentor)}
+          aria-label="Approve mentor"
+          title="Approve"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-[#ECFDF5] hover:text-[#065F46]"
+        >
+          <CheckCircle2 className="h-4 w-4" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => onReject(mentor)}
+          aria-label="Reject mentor"
+          title="Reject"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
+        >
+          <XCircle className="h-4 w-4" />
+        </button>
+
+        <button
+          type="button"
+          onClick={() => (mentor.featured ? onUnfeature(mentor) : onFeature(mentor))}
+          aria-label={mentor.featured ? "Unfeature mentor" : "Feature mentor"}
+          title={mentor.featured ? "Unfeature" : "Feature"}
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-amber-50 hover:text-amber-600"
+        >
+          <Star className={`h-4 w-4 ${mentor.featured ? "fill-current text-amber-500" : ""}`} />
+        </button>
+      </div>
     </div>
   );
 }

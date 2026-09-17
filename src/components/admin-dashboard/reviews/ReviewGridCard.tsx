@@ -2,19 +2,16 @@ import {
   CalendarDays,
   CheckCircle2,
   Clock3,
+  Eye,
   Flag,
-  MessageSquare,
+  RefreshCw,
   Star,
+  Trash2,
   User,
   XCircle,
 } from "lucide-react";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-} from "@/components/ui/card";
 import {
   Avatar,
   AvatarFallback,
@@ -43,7 +40,7 @@ export default function ReviewGridCard({
     switch (review.status) {
       case "approved":
         return (
-          <Badge className="bg-[#ECFDF5] hover:bg-[#ECFDF5]">
+          <Badge className="bg-[#ECFDF5] text-[#065F46] hover:bg-[#ECFDF5]">
             <CheckCircle2 className="mr-1 h-3 w-3" />
             Approved
           </Badge>
@@ -51,7 +48,7 @@ export default function ReviewGridCard({
 
       case "pending":
         return (
-          <Badge className="bg-[#F59E0B] text-white hover:bg-[#F59E0B]">
+          <Badge className="bg-[#FFFBEB] text-[#B45309] hover:bg-[#FFFBEB]">
             <Clock3 className="mr-1 h-3 w-3" />
             Pending
           </Badge>
@@ -59,7 +56,7 @@ export default function ReviewGridCard({
 
       case "reported":
         return (
-          <Badge className="bg-orange-500 hover:bg-orange-500">
+          <Badge className="bg-orange-100 text-orange-700 hover:bg-orange-100">
             <Flag className="mr-1 h-3 w-3" />
             Reported
           </Badge>
@@ -76,170 +73,88 @@ export default function ReviewGridCard({
   };
 
   return (
-    <Card className="rounded-2xl border shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:shadow-md">
+      <div className="flex items-start justify-between gap-3">
+        <div className="flex min-w-0 items-center gap-3">
+          <Avatar className="h-10 w-10 shrink-0">
+            <AvatarImage src={review.user.avatar} />
+            <AvatarFallback>{review.user.name.slice(0, 2)}</AvatarFallback>
+          </Avatar>
 
-      <CardContent className="space-y-6 p-6">
-
-        <div className="flex items-start justify-between">
-
-          <div className="flex items-center gap-3">
-
-            <Avatar className="h-14 w-14">
-
-              <AvatarImage src={review.user.avatar} />
-
-              <AvatarFallback>
-                {review.user.name.slice(0, 2)}
-              </AvatarFallback>
-
-            </Avatar>
-
-            <div>
-
-              <h3 className="font-semibold">
-                {review.user.name}
-              </h3>
-
-              <p className="text-sm text-muted-foreground">
-                {review.user.email}
-              </p>
-
-            </div>
-
+          <div className="min-w-0">
+            <h3 className="truncate font-semibold text-foreground">
+              {review.user.name}
+            </h3>
+            <p className="truncate text-sm text-muted-foreground">
+              {review.user.email}
+            </p>
           </div>
-
-          {statusBadge()}
-
-        </div>
-                <div className="space-y-3">
-
-          <div className="flex items-center gap-2">
-
-            <MessageSquare className="h-4 w-4 text-primary" />
-
-            <h4 className="font-semibold">
-              {review.title}
-            </h4>
-
-          </div>
-
-          <p className="line-clamp-3 text-sm leading-6 text-muted-foreground">
-            {review.review}
-          </p>
-
         </div>
 
-        <div className="grid grid-cols-2 gap-4 rounded-2xl border bg-muted/30 p-4">
+        <div className="shrink-0">{statusBadge()}</div>
+      </div>
 
-          <div>
+      <h4 className="mt-3 truncate font-semibold text-foreground">
+        {review.title}
+      </h4>
+      <p className="mt-1 line-clamp-2 text-sm leading-6 text-muted-foreground">
+        {review.review}
+      </p>
 
-            <p className="text-xs text-muted-foreground">
-              Review Type
-            </p>
+      {/* Meta row */}
+      <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1.5 text-xs text-muted-foreground">
+        <span className="flex items-center gap-1">
+          <Star className="h-3.5 w-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+          <span className="font-semibold text-foreground">
+            {review.rating.toFixed(1)}
+          </span>
+        </span>
+        <span className="capitalize">{review.type}</span>
+        <span className="flex items-center gap-1">
+          <User className="h-3.5 w-3.5" />
+          {review.mentor.name}
+        </span>
+        <span className="flex items-center gap-1">
+          <CalendarDays className="h-3.5 w-3.5" />
+          {review.createdAt}
+        </span>
+      </div>
 
-            <p className="mt-1 font-medium capitalize">
-              {review.type}
-            </p>
+      <p className="mt-2 truncate text-xs text-muted-foreground">
+        On <span className="font-medium text-foreground">{review.target.title}</span>
+      </p>
 
-          </div>
+      {/* Actions */}
+      <div className="mt-3 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => onView(review)}
+          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+        >
+          <Eye className="h-4 w-4" />
+          View
+        </button>
 
-          <div>
+        <button
+          type="button"
+          onClick={() => onStatus(review)}
+          aria-label="Update review status"
+          title="Update status"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        >
+          <RefreshCw className="h-4 w-4" />
+        </button>
 
-            <p className="text-xs text-muted-foreground">
-              Rating
-            </p>
-
-            <div className="mt-1 flex items-center gap-1">
-
-              <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-
-              <span className="font-medium">
-                {review.rating.toFixed(1)}
-              </span>
-
-            </div>
-
-          </div>
-
-          <div>
-
-            <p className="text-xs text-muted-foreground">
-              Mentor
-            </p>
-
-            <div className="mt-1 flex items-center gap-2">
-
-              <User className="h-4 w-4 text-muted-foreground" />
-
-              <span className="text-sm">
-                {review.mentor.name}
-              </span>
-
-            </div>
-
-          </div>
-
-          <div>
-
-            <p className="text-xs text-muted-foreground">
-              Date
-            </p>
-
-            <div className="mt-1 flex items-center gap-2">
-
-              <CalendarDays className="h-4 w-4 text-muted-foreground" />
-
-              <span className="text-sm">
-                {review.createdAt}
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        <div className="rounded-2xl border p-4">
-
-          <p className="text-xs text-muted-foreground">
-            Review Target
-          </p>
-
-          <p className="mt-1 font-medium">
-            {review.target.title}
-          </p>
-
-        </div>
-                <div className="flex flex-wrap gap-3">
-
-          <Button
-            variant="outline"
-            className="flex-1 rounded-xl"
-            onClick={() => onView(review)}
-          >
-            View Details
-          </Button>
-
-          <Button
-            variant="outline"
-            className="flex-1 rounded-xl"
-            onClick={() => onStatus(review)}
-          >
-            Update Status
-          </Button>
-
-          <Button
-            variant="destructive"
-            className="rounded-xl"
-            onClick={() => onDelete(review)}
-          >
-            Delete
-          </Button>
-
-        </div>
-
-      </CardContent>
-
-    </Card>
+        <button
+          type="button"
+          onClick={() => onDelete(review)}
+          aria-label="Delete review"
+          title="Delete"
+          className="rounded-lg border border-border p-2 text-red-600 transition-colors hover:bg-[#FFDAD6]"
+        >
+          <Trash2 className="h-4 w-4" />
+        </button>
+      </div>
+    </div>
   );
 }

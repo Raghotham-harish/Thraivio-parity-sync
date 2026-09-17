@@ -217,6 +217,8 @@ export default function NotificationTableRow({
             size="icon"
             variant="outline"
             onClick={() => onView(notification)}
+            aria-label="View notification"
+            title="View"
           >
             <Eye className="h-4 w-4" />
           </Button>
@@ -225,6 +227,8 @@ export default function NotificationTableRow({
             size="icon"
             variant="outline"
             onClick={() => onSend(notification)}
+            aria-label="Send notification now"
+            title="Send now"
           >
             <Send className="h-4 w-4" />
           </Button>
@@ -233,6 +237,8 @@ export default function NotificationTableRow({
             size="icon"
             variant="destructive"
             onClick={() => onDelete(notification)}
+            aria-label="Delete notification"
+            title="Delete"
           >
             <Trash2 className="h-4 w-4" />
           </Button>
