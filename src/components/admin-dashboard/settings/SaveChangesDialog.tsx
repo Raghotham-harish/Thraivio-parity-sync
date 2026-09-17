@@ -38,7 +38,7 @@ export default function SaveChangesDialog({
 
         <DialogHeader>
 
-          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ECFDF5]0/10">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-[#ECFDF5]/10">
 
             <CheckCircle2 className="h-8 w-8 text-[#0F8F65]" />
 

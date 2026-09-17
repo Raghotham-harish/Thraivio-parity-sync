@@ -583,10 +583,7 @@ const CertificateListRow = ({
 
               border
 
-              
-              bg-primary
-              via-white
-              
+              bg-[#ECFDF5]
 
               p-6
             "

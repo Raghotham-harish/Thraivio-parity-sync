@@ -41,10 +41,7 @@ const DashboardHero = ({
 
         rounded-2xl
 
-        
-        bg-primary
-        
-        
+        bg-gradient-hero
 
         p-8
 
@@ -290,7 +287,7 @@ const DashboardHero = ({
 
                   rounded-full
 
-                  bg-[#ECFDF5]0/20
+                  bg-[#1DD7A5]/20
 
                   px-4
                   py-2
@@ -497,7 +494,7 @@ const DashboardHero = ({
                   className="
                     rounded-full
 
-                    bg-[#ECFDF5]0/20
+                    bg-[#ECFDF5]/20
 
                     px-3
                     py-1

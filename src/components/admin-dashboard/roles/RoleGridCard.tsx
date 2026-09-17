@@ -83,7 +83,7 @@ export default function RoleGridCard({
           </div>
 
           {role.status === "active" ? (
-            <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
+            <Badge className="bg-[#ECFDF5] hover:bg-[#ECFDF5]">
               <BadgeCheck className="mr-1 h-3 w-3" />
               Active
             </Badge>

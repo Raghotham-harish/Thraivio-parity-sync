@@ -427,7 +427,7 @@ const PlatformOverview = ({
 
                       rounded-full
 
-                      bg-[#ECFDF5]0
+                      bg-[#10B981]
                     "
                   />
 
@@ -457,17 +457,12 @@ const PlatformOverview = ({
 
           rounded-2xl
 
-          
+          border
+          border-border
 
-          bg-primary
-
-          
-
-          
+          bg-card
 
           p-8
-
-          text-white
         "
       >
         <div
@@ -488,12 +483,14 @@ const PlatformOverview = ({
               className="
                 rounded-full
 
-                bg-card/10
+                bg-secondary
 
                 px-4
                 py-2
 
                 text-sm
+                font-semibold
+                text-primary
               "
             >
               Platform Summary
@@ -503,12 +500,13 @@ const PlatformOverview = ({
               className="
                 mt-5
 
-                text-4xl
-                font-bold
+                text-3xl
+                font-medium
+                text-foreground
               "
+              style={{ fontFamily: "var(--font-heading)" }}
             >
-              Everything is running
-              smoothly 🚀
+              Everything is running smoothly
             </h3>
 
             <p
@@ -519,7 +517,7 @@ const PlatformOverview = ({
 
                 leading-8
 
-                text-slate-300
+                text-muted-foreground
               "
             >
               Your platform is healthy with
@@ -535,18 +533,18 @@ const PlatformOverview = ({
             className="
               rounded-2xl
 
-              bg-card
+              bg-primary
 
               px-8
               py-4
 
               font-semibold
 
-              text-foreground
+              text-white
 
               transition-all
 
-              hover:scale-105
+              hover:bg-primary/90
             "
           >
             View Full Analytics

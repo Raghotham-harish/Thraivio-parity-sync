@@ -310,7 +310,7 @@ const ActivityTimeline = ({
 
                             rounded-full
 
-                            bg-[#ECFDF5]0
+                            bg-[#ECFDF5]
                           "
                         />
 

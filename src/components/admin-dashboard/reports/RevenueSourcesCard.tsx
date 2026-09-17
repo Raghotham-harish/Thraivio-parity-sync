@@ -40,7 +40,7 @@ export default function RevenueSourcesCard({
 
           </div>
 
-          <div className="rounded-2xl bg-[#ECFDF5]0/10 p-3">
+          <div className="rounded-2xl bg-[#ECFDF5]/10 p-3">
 
             <Wallet className="h-6 w-6 text-[#0F8F65]" />
 
@@ -112,7 +112,7 @@ export default function RevenueSourcesCard({
               <div className="h-2 w-full overflow-hidden rounded-full bg-muted">
 
                 <div
-                  className="h-full rounded-full bg-[#ECFDF5]0 transition-all duration-500"
+                  className="h-full rounded-full bg-[#ECFDF5] transition-all duration-500"
                   style={{
                     width: `${source.percentage}%`,
                   }}

@@ -10,12 +10,10 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
-  DialogHeader,
-  DialogTitle,
 } from "@/components/ui/dialog";
 
+import { DialogHeaderBand } from "@/components/admin-dashboard/shared/DialogHeaderBand";
 import type { AdminMentor } from "@/types/admin-mentors";
 
 interface VerificationDialogProps {
@@ -69,40 +67,11 @@ export default function VerificationDialog({
 
         {/* Header */}
 
-        <div className=" bg-primary   p-8 text-white">
-
-          <div className="flex items-center gap-5">
-
-            <div className="rounded-2xl bg-card/20 p-4">
-
-              <ShieldCheck className="h-10 w-10" />
-
-            </div>
-
-            <div>
-
-              <DialogHeader>
-
-                <DialogTitle className="text-3xl font-bold text-white">
-
-                  Verify Mentor
-
-                </DialogTitle>
-
-                <DialogDescription className="mt-2 text-blue-100">
-
-                  Review mentor identity, documents and
-                  verification status before approving.
-
-                </DialogDescription>
-
-              </DialogHeader>
-
-            </div>
-
-          </div>
-
-        </div>
+        <DialogHeaderBand
+          icon={ShieldCheck}
+          title="Verify Mentor"
+          description="Review mentor identity, documents and verification status before approving."
+        />
 
         {/* Body */}
 

@@ -130,7 +130,7 @@ const EventGridCard = ({
             <span
               className="
                 rounded-full
-                bg-[#ECFDF5]0
+                bg-[#ECFDF5]
                 px-3
                 py-1
                 text-xs

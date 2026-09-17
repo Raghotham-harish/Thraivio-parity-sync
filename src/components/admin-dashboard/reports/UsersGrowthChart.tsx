@@ -72,7 +72,7 @@ export default function UsersGrowthChart({
 
           </div>
 
-          <div className="flex items-center gap-2 rounded-full bg-[#ECFDF5]0/10 px-4 py-2 text-sm font-semibold text-[#0F8F65]">
+          <div className="flex items-center gap-2 rounded-full bg-[#ECFDF5]/10 px-4 py-2 text-sm font-semibold text-[#0F8F65]">
 
             <TrendingUp className="h-4 w-4" />
 

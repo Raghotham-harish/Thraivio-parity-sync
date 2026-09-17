@@ -138,6 +138,7 @@ const CertificateGridCard = ({
           >
             <div
               className="
+                icon-bg
                 flex
                 h-16
                 w-16
@@ -146,10 +147,6 @@ const CertificateGridCard = ({
                 justify-center
 
                 rounded-2xl
-
-                
-                bg-primary
-                
               "
             >
               <Award
@@ -700,10 +697,7 @@ const CertificateGridCard = ({
 
             border
 
-            
-            bg-primary
-            via-white
-            
+            bg-[#ECFDF5]
 
             p-5
           "

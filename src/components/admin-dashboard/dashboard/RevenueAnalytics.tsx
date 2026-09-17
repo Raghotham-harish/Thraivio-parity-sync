@@ -264,7 +264,7 @@ const RevenueAnalytics = ({
 
                 rounded-2xl
 
-                bg-blue-50
+                icon-bg
               "
             >
               <Wallet
@@ -310,18 +310,16 @@ const RevenueAnalytics = ({
             border
             border-border
 
-            
-
-            bg-primary
-            
-            
+            bg-card
 
             p-6
 
-            text-white
+            shadow-sm
           "
         >
-          <ArrowUpRight size={30} />
+          <div className="icon-bg flex h-16 w-16 items-center justify-center rounded-2xl">
+            <ArrowUpRight className="text-primary" size={30} />
+          </div>
 
           <h3
             className="
@@ -329,12 +327,13 @@ const RevenueAnalytics = ({
 
               text-4xl
               font-bold
+              text-foreground
             "
           >
             {currentMonth.month}
           </h3>
 
-          <p className="mt-2 text-blue-100">
+          <p className="mt-2 text-muted-foreground">
             Best Performing Month
           </p>
                     <div
@@ -343,11 +342,9 @@ const RevenueAnalytics = ({
 
               rounded-2xl
 
-              bg-card/10
+              bg-secondary
 
               p-4
-
-              backdrop-blur-sm
             "
           >
             <div
@@ -359,11 +356,11 @@ const RevenueAnalytics = ({
                 text-sm
               "
             >
-              <span className="text-blue-100">
+              <span className="text-muted-foreground">
                 Revenue
               </span>
 
-              <span className="font-semibold">
+              <span className="font-semibold text-foreground">
                 $
                 {currentMonth.revenue.toLocaleString()}
               </span>
@@ -379,7 +376,7 @@ const RevenueAnalytics = ({
 
                 rounded-full
 
-                bg-card/20
+                bg-card
               "
             >
               <div
@@ -388,7 +385,7 @@ const RevenueAnalytics = ({
 
                   rounded-full
 
-                  bg-card
+                  bg-primary
                 "
                 style={{
                   width: "88%",
@@ -402,7 +399,7 @@ const RevenueAnalytics = ({
 
                 text-sm
 
-                text-blue-100
+                text-muted-foreground
               "
             >
               Highest revenue generated

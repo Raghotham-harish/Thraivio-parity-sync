@@ -74,16 +74,6 @@ const EventsEmptyState = ({
 
             <div
               className="
-                absolute
-                inset-0
-                rounded-full
-                bg-blue-500/20
-                blur-3xl
-              "
-            />
-
-            <div
-              className="
                 relative
                 flex
                 h-36
@@ -91,15 +81,10 @@ const EventsEmptyState = ({
                 items-center
                 justify-center
                 rounded-full
-                
-                bg-primary
-                
-                
-                text-white
-                shadow-2xl
+                icon-bg
               "
             >
-              <CalendarX2 className="h-20 w-20" />
+              <CalendarX2 className="h-20 w-20 text-primary" />
             </div>
 
           </div>
@@ -454,13 +439,9 @@ const EventsEmptyState = ({
               mt-14
               rounded-2xl
               border
-              
-              bg-primary
-              
-              
+              border-border
+              bg-secondary
               p-8
-              text-white
-              shadow-xl
             "
           >
 
@@ -468,27 +449,19 @@ const EventsEmptyState = ({
 
               <div>
 
-                <div className="inline-flex items-center gap-2 rounded-full bg-card/10 px-4 py-2 text-sm backdrop-blur">
-
-                  <Sparkles className="h-4 w-4" />
-
-                  CoachCoaching Events
-
-                </div>
-
-                <h3 className="mt-5 text-3xl font-bold">
+                <h3 className="text-2xl font-medium text-foreground" style={{ fontFamily: "var(--font-heading)" }}>
 
                   Start Managing Professional Events
 
                 </h3>
 
-                <p className="mt-4 max-w-2xl text-blue-100 leading-8">
+                <p className="mt-4 max-w-2xl text-muted-foreground leading-8">
 
                   Build webinars, workshops, bootcamps,
                   masterclasses and live mentoring sessions.
                   Track registrations, revenue, attendance,
                   certificates and mentor performance from one
-                  premium dashboard.
+                  dashboard.
 
                 </p>
 
@@ -500,10 +473,10 @@ const EventsEmptyState = ({
                 className="
                   h-14
                   rounded-2xl
-                  bg-card
+                  bg-primary
                   px-8
-                  text-foreground
-                  hover:bg-secondary
+                  text-white
+                  hover:bg-primary/90
                 "
               >
                 Create Your First Event

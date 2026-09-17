@@ -334,7 +334,7 @@ const SystemHealth = ({
 
                       ${
                         healthy
-                          ? "bg-[#ECFDF5]0"
+                          ? "bg-[#ECFDF5]"
                           : "bg-[#F59E0B]"
                       }
                     `}
@@ -414,17 +414,12 @@ const SystemHealth = ({
 
           rounded-2xl
 
-          
+          border
+          border-border
 
-          bg-primary
-
-          
-
-          
+          bg-card
 
           p-8
-
-          text-white
         "
       >
         <div
@@ -447,27 +442,30 @@ const SystemHealth = ({
 
                 rounded-full
 
-                bg-card/10
+                bg-[#ECFDF5]
 
                 px-4
                 py-2
 
                 text-sm
+                font-semibold
+                text-[#065F46]
               "
             >
-              🚀 Infrastructure Status
+              Infrastructure Status
             </span>
 
             <h3
               className="
                 mt-5
 
-                text-4xl
-                font-bold
+                text-3xl
+                font-medium
+                text-foreground
               "
+              style={{ fontFamily: "var(--font-heading)" }}
             >
-              Platform is healthy
-              and running smoothly.
+              Platform is healthy and running smoothly.
             </h3>
 
             <p
@@ -476,7 +474,7 @@ const SystemHealth = ({
 
                 leading-8
 
-                text-emerald-100
+                text-muted-foreground
               "
             >
               Server uptime,
@@ -502,16 +500,16 @@ const SystemHealth = ({
               className="
                 rounded-2xl
 
-                bg-card/10
+                bg-secondary
 
                 p-6
               "
             >
-              <h4 className="text-4xl font-bold">
+              <h4 className="text-4xl font-bold text-foreground">
                 99.99%
               </h4>
 
-              <p className="mt-2 text-emerald-100">
+              <p className="mt-2 text-muted-foreground">
                 Uptime
               </p>
             </div>
@@ -520,16 +518,16 @@ const SystemHealth = ({
               className="
                 rounded-2xl
 
-                bg-card/10
+                bg-secondary
 
                 p-6
               "
             >
-              <h4 className="text-4xl font-bold">
+              <h4 className="text-4xl font-bold text-foreground">
                 42ms
               </h4>
 
-              <p className="mt-2 text-emerald-100">
+              <p className="mt-2 text-muted-foreground">
                 Avg Response
               </p>
             </div>
@@ -538,16 +536,16 @@ const SystemHealth = ({
               className="
                 rounded-2xl
 
-                bg-card/10
+                bg-secondary
 
                 p-6
               "
             >
-              <h4 className="text-4xl font-bold">
+              <h4 className="text-4xl font-bold text-foreground">
                 Secure
               </h4>
 
-              <p className="mt-2 text-emerald-100">
+              <p className="mt-2 text-muted-foreground">
                 SSL Enabled
               </p>
             </div>
@@ -556,16 +554,16 @@ const SystemHealth = ({
               className="
                 rounded-2xl
 
-                bg-card/10
+                bg-secondary
 
                 p-6
               "
             >
-              <h4 className="text-4xl font-bold">
+              <h4 className="text-4xl font-bold text-foreground">
                 Live
               </h4>
 
-              <p className="mt-2 text-emerald-100">
+              <p className="mt-2 text-muted-foreground">
                 Monitoring
               </p>
             </div>

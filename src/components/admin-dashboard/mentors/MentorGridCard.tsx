@@ -69,7 +69,7 @@ export default function MentorGridCard({
         <div className="absolute right-4 top-4">
 
           {mentor.verification === "verified" && (
-            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ECFDF5]0 text-white shadow-lg">
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#ECFDF5] text-white shadow-lg">
 
               <ShieldCheck className="h-5 w-5" />
 

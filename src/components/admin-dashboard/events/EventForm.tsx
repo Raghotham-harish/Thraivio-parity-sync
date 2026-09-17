@@ -38,44 +38,36 @@ const EventForm = ({
 
       <div
         className="
+          flex
+          items-center
+          gap-5
           rounded-2xl
-          
-          bg-primary
-          
-          
-          p-8
-          text-white
+          border
+          border-border
+          bg-card
+          p-6
         "
       >
-
-        <div className="flex items-center gap-3">
-
-          <Sparkles className="h-6 w-6" />
-
-          <span className="font-semibold">
-
-            CoachCoaching Events
-
-          </span>
-
+        <div className="icon-bg flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl">
+          <Sparkles className="h-7 w-7 text-primary" />
         </div>
 
-        <h2 className="mt-5 text-3xl font-bold">
+        <div>
+          <h2
+            className="text-xl font-medium text-foreground"
+            style={{ fontFamily: "var(--font-heading)" }}
+          >
+            {isEdit
+              ? "Edit Event"
+              : "Create New Event"}
+          </h2>
 
-          {isEdit
-            ? "Edit Event"
-            : "Create New Event"}
-
-        </h2>
-
-        <p className="mt-3 text-blue-100">
-
-          {isEdit
-            ? "Update your event information."
-            : "Create a professional event for mentors and users."}
-
-        </p>
-
+          <p className="mt-1 text-sm text-muted-foreground">
+            {isEdit
+              ? "Update your event information."
+              : "Create a professional event for mentors and users."}
+          </p>
+        </div>
       </div>
 
       {/* Banner */}

@@ -1088,7 +1088,7 @@ export default function PaymentDetailsDrawer({
 
                 <div className="flex gap-4">
 
-                  <div className="mt-1 h-3 w-3 rounded-full bg-[#ECFDF5]0" />
+                  <div className="mt-1 h-3 w-3 rounded-full bg-[#ECFDF5]" />
 
                   <div className="flex-1">
 

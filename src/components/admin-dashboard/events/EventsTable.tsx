@@ -138,7 +138,7 @@ const EventsTable = ({
 
         <div className="flex items-center gap-2">
 
-          <div className="h-2 w-2 rounded-full bg-[#ECFDF5]0" />
+          <div className="h-2 w-2 rounded-full bg-[#ECFDF5]" />
 
           <span className="text-sm text-muted-foreground">
 

@@ -62,6 +62,7 @@ export default function ProgramDetailsDrawer({
 
           <button
             onClick={onClose}
+            aria-label="Close"
             className="absolute right-6 top-6 rounded-full bg-card/20 p-3 text-white backdrop-blur transition hover:bg-card/30"
           >
             <X className="h-6 w-6" />
@@ -69,7 +70,7 @@ export default function ProgramDetailsDrawer({
 
           <div className="absolute bottom-8 left-8">
 
-            <span className="rounded-full bg-[#EFF6FF]0 px-4 py-1 text-xs font-semibold text-white">
+            <span className="rounded-full bg-[#EFF6FF] px-4 py-1 text-xs font-semibold text-white">
 
               {mentor.category}
 
@@ -215,15 +216,15 @@ export default function ProgramDetailsDrawer({
 
           {/* Revenue */}
 
-          <div className="rounded-2xl  bg-primary  p-6 text-white">
+          <div className="rounded-2xl bg-secondary p-6">
 
-            <p className="text-indigo-100">
+            <p className="text-muted-foreground">
 
               Estimated Revenue
 
             </p>
 
-            <h3 className="mt-3 text-4xl font-bold">
+            <h3 className="mt-3 text-4xl font-bold text-foreground">
 
               ₹{revenue.toLocaleString()}
 

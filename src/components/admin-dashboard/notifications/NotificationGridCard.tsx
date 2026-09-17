@@ -80,7 +80,7 @@ export default function NotificationGridCard({
     switch (notification.status) {
       case "sent":
         return (
-          <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
+          <Badge className="bg-[#ECFDF5] hover:bg-[#ECFDF5]">
             <CheckCheck className="mr-1 h-3 w-3" />
             Sent
           </Badge>

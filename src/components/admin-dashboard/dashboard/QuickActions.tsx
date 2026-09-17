@@ -361,7 +361,7 @@ const DashboardQuickActions = ({
 
                     rounded-full
 
-                    bg-[#ECFDF5]0
+                    bg-[#ECFDF5]
                   "
                 />
               </div>

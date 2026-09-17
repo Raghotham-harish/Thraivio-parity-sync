@@ -51,7 +51,7 @@ export default function CMSTableRow({
     switch (page.status) {
       case "published":
         return (
-          <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
+          <Badge className="bg-[#ECFDF5] hover:bg-[#ECFDF5]">
             <Globe className="mr-1 h-3 w-3" />
             Published
           </Badge>

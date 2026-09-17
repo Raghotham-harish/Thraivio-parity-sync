@@ -69,7 +69,7 @@ export default function ProgramGridCard({
 
         <div className="absolute left-5 top-5 flex gap-2">
 
-          <span className="rounded-full bg-[#ECFDF5]0 px-3 py-1 text-xs font-semibold text-white">
+          <span className="rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold text-white">
 
             Published
 

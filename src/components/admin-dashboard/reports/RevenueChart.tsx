@@ -50,7 +50,7 @@ export default function RevenueChart({
 
           </div>
 
-          <div className="rounded-2xl bg-[#ECFDF5]0/10 p-3">
+          <div className="rounded-2xl bg-[#ECFDF5]/10 p-3">
 
             <TrendingUp className="h-6 w-6 text-[#0F8F65]" />
 
@@ -84,7 +84,7 @@ export default function RevenueChart({
 
           </div>
 
-          <div className="rounded-full bg-[#ECFDF5]0/10 px-4 py-2 text-sm font-semibold text-[#0F8F65]">
+          <div className="rounded-full bg-[#ECFDF5]/10 px-4 py-2 text-sm font-semibold text-[#0F8F65]">
 
             +{growth}% Growth
 

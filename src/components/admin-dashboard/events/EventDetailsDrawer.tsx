@@ -169,7 +169,7 @@ const EventDetailsDrawer = ({
                 <span
                   className="
                     rounded-full
-                    bg-[#ECFDF5]0
+                    bg-[#ECFDF5]
                     px-4
                     py-2
                     text-xs

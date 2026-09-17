@@ -99,7 +99,7 @@ export default function TransactionsChart({
               <div className="flex h-60 items-end gap-1">
 
                 <div
-                  className="w-4 rounded-t-xl bg-[#ECFDF5]0 transition-all"
+                  className="w-4 rounded-t-xl bg-[#ECFDF5] transition-all"
                   style={{
                     height: `${
                       (item.successful / maxValue) * 100

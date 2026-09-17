@@ -8,12 +8,10 @@ import {
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogFooter,
-  DialogHeader,
-  DialogTitle,
 } from "@/components/ui/dialog";
 
+import { DialogHeaderBand } from "@/components/admin-dashboard/shared/DialogHeaderBand";
 import { mentors } from "@/data/mentors";
 
 interface CreateProgramDialogProps {
@@ -85,40 +83,11 @@ export default function CreateProgramDialog({
 
         {/* Header */}
 
-        <div className=" bg-primary   p-8 text-white">
-
-          <div className="flex items-center gap-5">
-
-            <div className="rounded-2xl bg-card/20 p-4">
-
-              <BookPlus className="h-10 w-10" />
-
-            </div>
-
-            <div>
-
-              <DialogHeader>
-
-                <DialogTitle className="text-3xl font-bold text-white">
-
-                  Create Program
-
-                </DialogTitle>
-
-                <DialogDescription className="mt-2 text-indigo-100">
-
-                  Create a new coaching program that
-                  can be published across the platform.
-
-                </DialogDescription>
-
-              </DialogHeader>
-
-            </div>
-
-          </div>
-
-        </div>
+        <DialogHeaderBand
+          icon={BookPlus}
+          title="Create Program"
+          description="Create a new coaching program that can be published across the platform."
+        />
 
         {/* Body */}
 

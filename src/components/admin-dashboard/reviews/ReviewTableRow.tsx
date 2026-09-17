@@ -46,7 +46,7 @@ export default function ReviewTableRow({
     switch (review.status) {
       case "approved":
         return (
-          <Badge className="bg-[#ECFDF5]0 hover:bg-[#ECFDF5]0">
+          <Badge className="bg-[#ECFDF5] hover:bg-[#ECFDF5]">
             <CheckCircle2 className="mr-1 h-3 w-3" />
             Approved
           </Badge>
