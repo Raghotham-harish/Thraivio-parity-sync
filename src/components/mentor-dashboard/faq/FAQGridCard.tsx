@@ -1,330 +1,59 @@
 import { useState } from "react";
-
-import {
-  ChevronDown,
-  HelpCircle,
-  Pencil,
-  Trash2,
-} from "lucide-react";
+import { ChevronDown, Pencil, Trash2 } from "lucide-react";
 
 import type { FAQ } from "@/types/faq";
 
 interface FAQGridCardProps {
   faq: FAQ;
 
-  onEdit: (
-    faq: FAQ
-  ) => void;
+  onEdit: (faq: FAQ) => void;
 
-  onDelete: (
-    faq: FAQ
-  ) => void;
+  onDelete: (faq: FAQ) => void;
 }
 
-const FAQGridCard = ({
-  faq,
-  onEdit,
-  onDelete,
-}: FAQGridCardProps) => {
-  const [isOpen, setIsOpen] =
-    useState(false);
+const FAQGridCard = ({ faq, onEdit, onDelete }: FAQGridCardProps) => {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div
-      className="
-        bg-white
-
-        border
-        border-slate-200
-
-        rounded-3xl
-
-        overflow-hidden
-
-        hover:border-blue-300
-        hover:shadow-xl
-
-        transition-all
-        duration-300
-      "
-    >
-      {/* Top */}
-
-      <div className="p-6">
-
-        <div
-          className="
-            flex
-            items-start
-            justify-between
-            gap-4
-          "
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:shadow-md">
+      <div className="flex items-start justify-between gap-2">
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex min-w-0 flex-1 items-start gap-2 text-left"
         >
-          <div
-            className="
-              flex
-              items-start
-              gap-4
-            "
-          >
-            <div
-              className="
-                h-12
-                w-12
-
-                rounded-2xl
-
-                bg-blue-50
-
-                flex
-                items-center
-                justify-center
-
-                shrink-0
-              "
-            >
-              <HelpCircle
-                size={22}
-                className="
-                  text-blue-600
-                "
-              />
-            </div>
-
-            <div>
-
-              <h3
-                className="
-                  text-xl
-                  font-bold
-                  leading-8
-                "
-              >
-                {faq.question}
-              </h3>
-
-              <p
-                className="
-                  text-slate-500
-                  text-sm
-
-                  mt-3
-                  line-clamp-2
-                "
-              >
-                {faq.answer}
-              </p>
-
-            </div>
-
-          </div>
-
+          <ChevronDown
+            className={`mt-0.5 h-4 w-4 shrink-0 text-muted-foreground transition-transform ${
+              isOpen ? "rotate-180" : ""
+            }`}
+          />
+          <h3 className="min-w-0 font-semibold text-foreground">{faq.question}</h3>
+        </button>
+        <div className="flex shrink-0 items-center gap-2">
           <button
-            onClick={() =>
-              setIsOpen(!isOpen)
-            }
-            className={`
-              h-10
-              w-10
-
-              rounded-full
-
-              bg-slate-100
-
-              flex
-              items-center
-              justify-center
-
-              transition
-
-              ${
-                isOpen
-                  ? "rotate-180 bg-blue-100"
-                  : ""
-              }
-            `}
+            type="button"
+            onClick={() => onEdit(faq)}
+            aria-label="Edit FAQ"
+            title="Edit"
+            className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
           >
-            <ChevronDown
-              size={18}
-              className="
-                text-slate-600
-              "
-            />
+            <Pencil className="h-4 w-4" />
           </button>
-
+          <button
+            type="button"
+            onClick={() => onDelete(faq)}
+            aria-label="Delete FAQ"
+            title="Delete"
+            className="rounded-lg border border-border p-2 text-red-600 transition-colors hover:bg-[#FFDAD6]"
+          >
+            <Trash2 className="h-4 w-4" />
+          </button>
         </div>
-
-        {/* Expanded */}
-
-        {isOpen && (
-          <div
-            className="
-              border-t
-
-              mt-5
-              pt-5
-            "
-          >
-            <p
-              className="
-                text-slate-600
-                leading-8
-              "
-            >
-              {faq.answer}
-            </p>
-
-            <div
-              className="
-                flex
-                flex-wrap
-                gap-2
-
-                mt-5
-              "
-            >
-              <span
-                className="
-                  bg-blue-50
-                  text-blue-700
-
-                  px-3
-                  py-1
-
-                  rounded-full
-
-                  text-xs
-                "
-              >
-                Mentorship
-              </span>
-
-              <span
-                className="
-                  bg-slate-100
-                  text-slate-700
-
-                  px-3
-                  py-1
-
-                  rounded-full
-
-                  text-xs
-                "
-              >
-                Career
-              </span>
-
-              <span
-                className="
-                  bg-blue-50
-                  text-blue-700
-
-                  px-3
-                  py-1
-
-                  rounded-full
-
-                  text-xs
-                "
-              >
-                Guidance
-              </span>
-
-            </div>
-
-          </div>
-        )}
-
-        {/* Footer */}
-
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-
-            mt-6
-          "
-        >
-          <span
-            className="
-              text-sm
-              text-slate-500
-            "
-          >
-            FAQ Item
-          </span>
-
-          <div
-            className="
-              flex
-              gap-3
-            "
-          >
-            <button
-              onClick={() =>
-                onEdit(faq)
-              }
-              className="
-                border
-                border-blue-600
-
-                text-blue-600
-
-                px-5
-                py-3
-
-                rounded-2xl
-
-                flex
-                items-center
-                gap-2
-
-                hover:bg-blue-600
-                hover:text-white
-
-                transition
-              "
-            >
-              <Pencil size={18} />
-
-              Edit
-            </button>
-
-            <button
-              onClick={() =>
-                onDelete(faq)
-              }
-              className="
-                bg-red-600
-                hover:bg-red-700
-
-                text-white
-
-                px-5
-                py-3
-
-                rounded-2xl
-
-                flex
-                items-center
-                gap-2
-
-                transition
-              "
-            >
-              <Trash2 size={18} />
-
-              Delete
-            </button>
-
-          </div>
-
-        </div>
-
       </div>
 
+      {isOpen && (
+        <p className="mt-2 pl-6 text-sm text-muted-foreground">{faq.answer}</p>
+      )}
     </div>
   );
 };
