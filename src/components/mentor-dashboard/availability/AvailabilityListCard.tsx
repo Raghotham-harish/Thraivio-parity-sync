@@ -1,333 +1,60 @@
-import {
-  CalendarDays,
-  Clock3,
-  Pencil,
-  Trash2,
-} from "lucide-react";
+import { Clock3, Pencil, Trash2 } from "lucide-react";
 
+import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { Availability } from "@/types/availability";
 
 interface AvailabilityListCardProps {
   availability: Availability;
 
-  onEdit: (
-    availability: Availability
-  ) => void;
+  onEdit: (availability: Availability) => void;
 
-  onDelete: (
-    availability: Availability
-  ) => void;
+  onDelete: (availability: Availability) => void;
 }
 
-const AvailabilityListCard = ({
-  availability,
-  onEdit,
-  onDelete,
-}: AvailabilityListCardProps) => {
+const AvailabilityListCard = ({ availability, onEdit, onDelete }: AvailabilityListCardProps) => {
   return (
-    <div
-      className="
-        bg-white
+    <div className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition-colors hover:bg-secondary/40">
+      <h3 className="w-24 shrink-0 text-sm font-semibold text-foreground">{availability.day}</h3>
 
-        border
-        border-slate-200
+      <div className="flex min-w-0 flex-1 flex-wrap items-center gap-1.5">
+        {availability.slots.length > 0 ? (
+          availability.slots.map((slot, i) => (
+            <span
+              key={i}
+              className="inline-flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-xs text-muted-foreground"
+            >
+              <Clock3 className="h-3 w-3" />
+              {slot.start} – {slot.end}
+            </span>
+          ))
+        ) : (
+          <span className="text-xs text-muted-foreground">No time slots set</span>
+        )}
+      </div>
 
-        rounded-3xl
+      <StatusBadge variant={availability.enabled ? "success" : "neutral"} className="shrink-0">
+        {availability.enabled ? "Available" : "Off"}
+      </StatusBadge>
 
-        overflow-hidden
-
-        hover:shadow-xl
-
-        transition-all
-        duration-300
-      "
-    >
-      <div
-        className="
-          flex
-          flex-col
-
-          xl:flex-row
-        "
-      >
-        {/* Left Day */}
-
-        <div
-          className="
-            bg-gradient-to-br
-            from-blue-600
-            to-blue-700
-
-            text-white
-
-            xl:w-[240px]
-
-            flex
-            flex-col
-            items-center
-            justify-center
-
-            py-10
-          "
+      <div className="flex shrink-0 items-center gap-1.5">
+        <button
+          type="button"
+          onClick={() => onEdit(availability)}
+          aria-label="Edit availability"
+          title="Edit"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
-          <CalendarDays
-            size={40}
-          />
-
-          <h2
-            className="
-              text-4xl
-              font-bold
-
-              mt-4
-            "
-          >
-            {availability.day}
-          </h2>
-
-          <p className="mt-2 opacity-90">
-            Available Day
-          </p>
-        </div>
-
-        {/* Right */}
-
-        <div
-          className="
-            flex-1
-            p-6
-          "
+          <Pencil className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onDelete(availability)}
+          aria-label="Delete availability"
+          title="Delete"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
         >
-          <div
-            className="
-              flex
-              flex-col
-
-              lg:flex-row
-              lg:justify-between
-
-              gap-4
-            "
-          >
-            <div>
-              <span
-                className={`
-                  px-3
-                  py-1
-
-                  rounded-full
-
-                  text-xs
-                  font-semibold
-
-                  ${
-                    availability.enabled
-                      ? "bg-green-100 text-green-700"
-                      : "bg-slate-100 text-slate-600"
-                  }
-                `}
-              >
-                {availability.enabled
-                  ? "🟢 Available"
-                  : "⚪ Disabled"}
-              </span>
-
-              <h2
-                className="
-                  text-3xl
-                  font-bold
-
-                  mt-4
-                "
-              >
-                {availability.day}
-              </h2>
-            </div>
-
-            <div>
-              <span
-                className="
-                  bg-blue-50
-                  text-blue-700
-
-                  px-4
-                  py-2
-
-                  rounded-full
-
-                  text-sm
-                  font-semibold
-                "
-              >
-                {availability.slots.length}
-                {" "}
-                Slots
-              </span>
-            </div>
-          </div>
-
-          {/* Slots */}
-
-          <div className="mt-8">
-            <div
-              className="
-                flex
-                items-center
-                gap-2
-
-                mb-4
-              "
-            >
-              <Clock3 size={18} />
-
-              <span className="font-medium">
-                Available Slots
-              </span>
-            </div>
-
-            <div
-              className="
-                flex
-                flex-wrap
-                gap-2
-              "
-            >
-              {availability.slots.map(
-                (slot, index) => (
-                  <span
-                    key={`${slot.start}-${slot.end}-${index}`}
-                    className="
-                      bg-blue-50
-                      text-blue-700
-
-                      px-3
-                      py-2
-
-                      rounded-xl
-
-                      text-sm
-                    "
-                  >
-                    {slot.start} - {slot.end}
-                  </span>
-                )
-              )}
-            </div>
-          </div>
-
-          {/* Footer */}
-
-          <div
-            className="
-              flex
-              flex-col
-
-              lg:flex-row
-              lg:items-center
-              lg:justify-between
-
-              gap-5
-
-              mt-8
-            "
-          >
-            <div
-              className="
-                bg-slate-50
-
-                rounded-2xl
-
-                p-4
-              "
-            >
-              <p
-                className="
-                  text-sm
-                  text-slate-500
-                "
-              >
-                Total Available Slots
-              </p>
-
-              <p
-                className="
-                  font-bold
-                  text-blue-600
-                "
-              >
-                {availability.slots.length}
-                {" "}
-                Slots
-              </p>
-            </div>
-
-            <div
-              className="
-                flex
-                gap-3
-              "
-            >
-              <button
-                onClick={() =>
-                  onEdit(
-                    availability
-                  )
-                }
-                className="
-                  border
-                  border-blue-600
-
-                  text-blue-600
-
-                  px-5
-                  py-3
-
-                  rounded-2xl
-
-                  flex
-                  items-center
-                  gap-2
-
-                  hover:bg-blue-600
-                  hover:text-white
-
-                  transition
-                "
-              >
-                <Pencil size={18} />
-                Edit
-              </button>
-
-              <button
-                onClick={() =>
-                  onDelete(
-                    availability
-                  )
-                }
-                className="
-                  bg-red-600
-                  hover:bg-red-700
-
-                  text-white
-
-                  px-5
-                  py-3
-
-                  rounded-2xl
-
-                  flex
-                  items-center
-                  gap-2
-
-                  transition
-                "
-              >
-                <Trash2 size={18} />
-                Delete
-              </button>
-            </div>
-          </div>
-        </div>
+          <Trash2 className="h-4 w-4" />
+        </button>
       </div>
     </div>
   );
