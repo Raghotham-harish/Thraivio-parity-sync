@@ -1,252 +1,59 @@
-import {
-  DollarSign,
-  Clock3,
-  Pencil,
-  Trash2,
-  Star,
-} from "lucide-react";
+import { Pencil, Star, Trash2 } from "lucide-react";
 
 import type { PricingPlan } from "@/types/pricing";
 
 interface PricingGridCardProps {
   pricing: PricingPlan;
 
-  onEdit: (
-    pricing: PricingPlan
-  ) => void;
+  onEdit: (pricing: PricingPlan) => void;
 
-  onDelete: (
-    pricing: PricingPlan
-  ) => void;
+  onDelete: (pricing: PricingPlan) => void;
 }
 
-const PricingGridCard = ({
-  pricing,
-  onEdit,
-  onDelete,
-}: PricingGridCardProps) => {
+const PricingGridCard = ({ pricing, onEdit, onDelete }: PricingGridCardProps) => {
   return (
     <div
-      className={`
-        relative
-
-        bg-white
-
-        border
-
-        rounded-3xl
-
-        p-6
-
-        transition-all
-        duration-300
-
-        hover:shadow-xl
-        hover:-translate-y-1
-
-        ${
-          pricing.popular
-            ? "border-blue-500 ring-2 ring-blue-100"
-            : "border-slate-200"
-        }
-      `}
+      className={`rounded-2xl border p-4 shadow-sm transition-all hover:shadow-md ${
+        pricing.popular ? "border-primary bg-[#EFF6FF]" : "border-border bg-card"
+      }`}
     >
-      {/* Popular */}
-
-      {pricing.popular && (
-        <div
-          className="
-            absolute
-            -top-3
-            left-1/2
-            -translate-x-1/2
-
-            bg-blue-600
-
-            text-white
-
-            px-4
-            py-1
-
-            rounded-full
-
-            text-xs
-            font-semibold
-          "
-        >
-          Most Popular
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <div className="flex items-center gap-1.5">
+            <h3 className="truncate font-semibold text-foreground">{pricing.title}</h3>
+            {pricing.popular && (
+              <span className="inline-flex shrink-0 items-center gap-1 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-bold text-foreground">
+                <Star className="h-3 w-3 fill-current" />
+                Popular
+              </span>
+            )}
+          </div>
+          <p className="truncate text-xs text-muted-foreground">{pricing.duration}</p>
         </div>
-      )}
-
-      {/* Top */}
-
-      <div
-        className="
-          flex
-          items-start
-          justify-between
-        "
-      >
-        <div
-          className="
-            h-14
-            w-14
-
-            rounded-2xl
-
-            bg-blue-50
-
-            flex
-            items-center
-            justify-center
-          "
-        >
-          <DollarSign
-            size={26}
-            className="
-              text-blue-600
-            "
-          />
-        </div>
-
-        {pricing.popular && (
-          <Star
-            size={20}
-            className="
-              text-amber-500
-            "
-          />
-        )}
+        <p className="shrink-0 text-lg font-bold text-foreground">${pricing.price}</p>
       </div>
 
-      {/* Content */}
+      <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">{pricing.description}</p>
 
-      <h3
-        className="
-          text-2xl
-          font-bold
-
-          mt-5
-        "
-      >
-        {pricing.title}
-      </h3>
-
-      <p
-        className="
-          text-slate-500
-
-          mt-3
-        "
-      >
-        {pricing.description}
-      </p>
-
-      <div
-        className="
-          mt-6
-        "
-      >
-        <h2
-          className="
-            text-5xl
-            font-bold
-
-            text-blue-600
-          "
-        >
-          ${pricing.price}
-        </h2>
-
-        <div
-          className="
-            flex
-            items-center
-            gap-2
-
-            text-slate-500
-
-            mt-3
-          "
-        >
-          <Clock3 size={18} />
-
-          {pricing.duration}
-        </div>
-
-      </div>
-
-      {/* Footer */}
-
-      <div
-        className="
-          flex
-          gap-3
-
-          mt-8
-        "
-      >
+      <div className="mt-3 flex items-center gap-2">
         <button
-          onClick={() =>
-            onEdit(pricing)
-          }
-          className="
-            flex-1
-
-            border
-            border-blue-600
-
-            text-blue-600
-
-            py-3
-
-            rounded-2xl
-
-            flex
-            items-center
-            justify-center
-            gap-2
-
-            hover:bg-blue-600
-            hover:text-white
-
-            transition
-          "
+          type="button"
+          onClick={() => onEdit(pricing)}
+          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
         >
-          <Pencil size={18} />
+          <Pencil className="h-4 w-4" />
           Edit
         </button>
-
         <button
-          onClick={() =>
-            onDelete(pricing)
-          }
-          className="
-            flex-1
-
-            bg-red-600
-            hover:bg-red-700
-
-            text-white
-
-            py-3
-
-            rounded-2xl
-
-            flex
-            items-center
-            justify-center
-            gap-2
-
-            transition
-          "
+          type="button"
+          onClick={() => onDelete(pricing)}
+          aria-label="Delete plan"
+          title="Delete"
+          className="rounded-lg border border-border p-2 text-red-600 transition-colors hover:bg-[#FFDAD6]"
         >
-          <Trash2 size={18} />
-          Delete
+          <Trash2 className="h-4 w-4" />
         </button>
-
       </div>
-
     </div>
   );
 };
