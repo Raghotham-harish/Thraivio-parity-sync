@@ -1,483 +1,84 @@
-import {
-  Star,
-  Users,
-  CalendarCheck,
-  Briefcase,
-  Heart,
-  ArrowRight,
-  BadgeCheck,
-} from "lucide-react";
-
+import { Heart, Star } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface SavedMentorGridCardProps {
   mentor: any;
 
-  onRemove: (
-    mentorId: number
-  ) => void;
+  onRemove: (mentorId: number) => void;
 }
 
-const SavedMentorGridCard = ({
-  mentor,
-  onRemove,
-}: SavedMentorGridCardProps) => {
+const SavedMentorGridCard = ({ mentor, onRemove }: SavedMentorGridCardProps) => {
   return (
-    <div
-      className="
-        group
-
-        bg-white
-
-        border
-        border-slate-200
-
-        rounded-[32px]
-
-        overflow-hidden
-
-        hover:shadow-2xl
-        hover:-translate-y-1
-
-        transition-all
-        duration-300
-      "
-    >
-      {/* Top Gradient */}
-
-      <div
-        className="
-          h-2
-
-          bg-gradient-to-r
-          from-blue-600
-          via-indigo-600
-          to-purple-600
-        "
-      />
-
-      <div className="p-6">
-
-        {/* Header */}
-
-        <div
-          className="
-            flex
-            items-start
-            justify-between
-          "
-        >
-          <div
-            className="
-              flex
-              items-center
-              gap-4
-            "
-          >
-            <div className="relative">
-
-              <img
-                src={mentor.image}
-                alt={mentor.name}
-                className="
-                  h-20
-                  w-20
-
-                  rounded-3xl
-
-                  object-cover
-
-                  border
-                "
-              />
-
-              <div
-                className="
-                  absolute
-                  bottom-0
-                  right-0
-
-                  h-4
-                  w-4
-
-                  rounded-full
-
-                  bg-green-500
-
-                  border-2
-                  border-white
-                "
-              />
-            </div>
-
-            <div>
-
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-2
-                "
-              >
-                <h3
-                  className="
-                    text-lg
-                    font-bold
-                  "
-                >
-                  {mentor.name}
-                </h3>
-
-                {mentor.featured && (
-                  <BadgeCheck
-                    size={18}
-                    className="
-                      text-blue-600
-                    "
-                  />
-                )}
-              </div>
-
-              <p
-                className="
-                  text-sm
-                  text-slate-600
-
-                  mt-1
-                "
-              >
-                {mentor.role}
-              </p>
-
-              <p
-                className="
-                  text-sm
-                  text-slate-500
-
-                  mt-1
-                "
-              >
-                {mentor.company}
-              </p>
-
-            </div>
-          </div>
-
-          <button
-            onClick={() =>
-              onRemove(
-                mentor.id
-              )
-            }
-            className="
-              h-11
-              w-11
-
-              rounded-2xl
-
-              bg-red-50
-
-              flex
-              items-center
-              justify-center
-
-              text-red-600
-
-              hover:bg-red-100
-
-              transition
-            "
-          >
-            <Heart
-              size={18}
-              fill="currentColor"
-            />
-          </button>
-
-        </div>
-
-        {/* Rating */}
-
-        <div
-          className="
-            flex
-            items-center
-            gap-3
-
-            mt-6
-          "
-        >
-          <div
-            className="
-              flex
-              items-center
-              gap-1
-
-              text-amber-500
-            "
-          >
-            <Star
-              size={16}
-              fill="currentColor"
-            />
-
-            <span
-              className="
-                font-semibold
-              "
-            >
-              {mentor.rating}
-            </span>
-          </div>
-
-          <span
-            className="
-              text-slate-400
-            "
-          >
-            •
-          </span>
-
-          <span
-            className="
-              text-sm
-              text-slate-500
-            "
-          >
-            {mentor.reviewsCount}
-            {" "}
-            Reviews
-          </span>
-        </div>
-
-        {/* Stats */}
-
-        <div
-          className="
-            grid
-            grid-cols-3
-
-            gap-3
-
-            mt-6
-          "
-        >
-          <div
-            className="
-              bg-slate-50
-
-              rounded-2xl
-
-              p-4
-            "
-          >
-            <Briefcase
-              size={18}
-              className="
-                text-blue-600
-              "
-            />
-
-            <p
-              className="
-                text-xs
-                text-slate-500
-
-                mt-2
-              "
-            >
-              Experience
-            </p>
-
-            <h4
-              className="
-                font-bold
-
-                mt-1
-              "
-            >
-              {mentor.experience}
-            </h4>
-          </div>
-
-          <div
-            className="
-              bg-slate-50
-
-              rounded-2xl
-
-              p-4
-            "
-          >
-            <Users
-              size={18}
-              className="
-                text-green-600
-              "
-            />
-
-            <p
-              className="
-                text-xs
-                text-slate-500
-
-                mt-2
-              "
-            >
-              Students
-            </p>
-
-            <h4
-              className="
-                font-bold
-
-                mt-1
-              "
-            >
-              {mentor.studentsCoached}
-            </h4>
-          </div>
-
-          <div
-            className="
-              bg-slate-50
-
-              rounded-2xl
-
-              p-4
-            "
-          >
-            <CalendarCheck
-              size={18}
-              className="
-                text-purple-600
-              "
-            />
-
-            <p
-              className="
-                text-xs
-                text-slate-500
-
-                mt-2
-              "
-            >
-              Sessions
-            </p>
-
-            <h4
-              className="
-                font-bold
-
-                mt-1
-              "
-            >
-              {mentor.sessionsCompleted}
-            </h4>
-          </div>
-        </div>
-
-        {/* Skills */}
-
-        <div
-          className="
-            flex
-            flex-wrap
-
-            gap-2
-
-            mt-6
-          "
-        >
-          {mentor.skills
-            ?.slice(0, 4)
-            .map(
-              (
-                skill: string
-              ) => (
-                <span
-                  key={skill}
-                  className="
-                    px-3
-                    py-2
-
-                    rounded-full
-
-                    bg-blue-50
-
-                    text-blue-700
-
-                    text-xs
-                    font-medium
-                  "
-                >
-                  {skill}
-                </span>
-              )
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:shadow-md">
+      {/* Identity */}
+      <div className="flex items-start gap-3">
+        <img
+          src={mentor.image}
+          alt={mentor.name}
+          className="h-11 w-11 shrink-0 rounded-full object-cover"
+        />
+        <div className="min-w-0 flex-1">
+          <div className="flex items-center gap-1.5">
+            <h3 className="truncate font-semibold text-foreground">{mentor.name}</h3>
+            {mentor.featured && (
+              <span className="shrink-0 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-bold text-foreground">
+                Featured
+              </span>
             )}
+          </div>
+          <p className="truncate text-sm text-muted-foreground">
+            {mentor.role} · {mentor.company}
+          </p>
         </div>
-
-        {/* CTA */}
-
-        <div
-          className="
-            grid
-            grid-cols-2
-
-            gap-3
-
-            mt-8
-          "
+        <button
+          type="button"
+          onClick={() => onRemove(mentor.id)}
+          aria-label="Remove from saved mentors"
+          title="Remove"
+          className="shrink-0 rounded-lg p-2 text-red-600 transition-colors hover:bg-[#FFDAD6]"
         >
-          <Link
-            to={`/mentor/${mentor.id}`}
-            className="
-              border
-
-              py-3
-
-              rounded-2xl
-
-              flex
-              items-center
-              justify-center
-              gap-2
-
-              font-medium
-
-              hover:bg-slate-50
-
-              transition
-            "
-          >
-            View Profile
-
-            <ArrowRight
-              size={16}
-            />
-          </Link>
-
-          <button
-            className="
-              bg-blue-600
-              hover:bg-blue-700
-
-              text-white
-
-              py-3
-
-              rounded-2xl
-
-              font-medium
-
-              transition
-            "
-          >
-            Book Session
-          </button>
-        </div>
-
+          <Heart className="h-4 w-4 fill-current" />
+        </button>
       </div>
+
+      {/* Stat strip */}
+      <div className="mt-3 grid grid-cols-3 divide-x divide-border rounded-xl bg-secondary py-2 text-center">
+        <div>
+          <p className="flex items-center justify-center gap-0.5 text-xs font-bold text-foreground">
+            <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
+            {mentor.rating}
+          </p>
+          <p className="text-[10px] text-muted-foreground">{mentor.reviewsCount} reviews</p>
+        </div>
+        <div>
+          <p className="text-xs font-bold text-foreground">{mentor.studentsCoached}</p>
+          <p className="text-[10px] text-muted-foreground">Students</p>
+        </div>
+        <div>
+          <p className="text-xs font-bold text-foreground">{mentor.sessionsCompleted}</p>
+          <p className="text-[10px] text-muted-foreground">Sessions</p>
+        </div>
+      </div>
+
+      {/* Skills */}
+      <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs">
+        {mentor.skills?.slice(0, 3).map((skill: string) => (
+          <span
+            key={skill}
+            className="rounded-full bg-secondary px-2.5 py-1 text-[11px] text-muted-foreground"
+          >
+            {skill}
+          </span>
+        ))}
+      </div>
+
+      {/* Actions */}
+      <Link
+        to={`/mentor/${mentor.id}`}
+        className="mt-3 inline-flex w-full items-center justify-center rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
+      >
+        View Profile
+      </Link>
     </div>
   );
 };
