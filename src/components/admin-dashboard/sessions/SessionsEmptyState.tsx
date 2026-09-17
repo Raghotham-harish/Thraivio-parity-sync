@@ -74,27 +74,9 @@ const SessionsEmptyState = ({
 
             rounded-full
 
-            
-            bg-primary
-            
-            
+            icon-bg
           "
         >
-          <div
-            className="
-              absolute
-
-              h-28
-              w-28
-
-              rounded-full
-
-              bg-card
-
-              shadow-lg
-            "
-          />
-
           <SearchX
             size={60}
             className="

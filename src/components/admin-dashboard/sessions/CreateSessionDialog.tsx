@@ -129,55 +129,54 @@ const CreateSessionDialog = ({
             items-center
             justify-between
 
-            
-            bg-primary
-            
-            
+            gap-5
 
-            p-8
+            border-b
+            border-border
+            bg-card
 
-            text-white
+            p-6
           "
         >
-          <div>
-            <h2
-              className="
-                text-3xl
-                font-bold
-              "
-            >
-              Create Session
-            </h2>
+          <div className="flex items-center gap-5">
+            <div className="icon-bg flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl">
+              <CalendarDays className="h-7 w-7 text-primary" />
+            </div>
 
-            <p
-              className="
-                mt-2
-                text-blue-100
-              "
-            >
-              Schedule a new mentorship session.
-            </p>
+            <div>
+              <h2
+                className="text-xl font-medium text-foreground"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Create Session
+              </h2>
+
+              <p className="mt-1 text-sm text-muted-foreground">
+                Schedule a new mentorship session.
+              </p>
+            </div>
           </div>
 
           <button
             onClick={onClose}
+            aria-label="Close"
             className="
               flex
-              h-11
-              w-11
+              h-9
+              w-9
               items-center
               justify-center
 
               rounded-full
 
-              bg-card/20
+              bg-secondary
 
               transition
 
-              hover:bg-card/30
+              hover:bg-muted
             "
           >
-            <X size={20} />
+            <X size={18} />
           </button>
         </div>
 
@@ -257,9 +256,9 @@ const CreateSessionDialog = ({
 
                   outline-none
 
-                  focus:border-indigo-500
+                  focus:border-primary
                   focus:ring-2
-                  focus:ring-indigo-100
+                  focus:ring-primary/20
                 "
               >
                 <option value="">
@@ -337,9 +336,9 @@ const CreateSessionDialog = ({
 
                   outline-none
 
-                  focus:border-indigo-500
+                  focus:border-primary
                   focus:ring-2
-                  focus:ring-indigo-100
+                  focus:ring-primary/20
                 "
               >
                 <option value="">
@@ -456,7 +455,7 @@ const CreateSessionDialog = ({
 
                     disabled:bg-secondary
 
-                    focus:border-indigo-500
+                    focus:border-primary
                   "
                 >
                   <option value="">
@@ -523,7 +522,7 @@ const CreateSessionDialog = ({
 
                     outline-none
 
-                    focus:border-indigo-500
+                    focus:border-primary
                   "
                 />
               </div>
@@ -567,7 +566,7 @@ const CreateSessionDialog = ({
 
                     outline-none
 
-                    focus:border-indigo-500
+                    focus:border-primary
                   "
                 >
                   {meetingPlatforms.map(
@@ -674,9 +673,9 @@ const CreateSessionDialog = ({
 
                       outline-none
 
-                      focus:border-indigo-500
+                      focus:border-primary
                       focus:ring-2
-                      focus:ring-indigo-100
+                      focus:ring-primary/20
                     "
                   />
                 </div>
@@ -718,7 +717,7 @@ const CreateSessionDialog = ({
 
                       outline-none
 
-                      focus:border-indigo-500
+                      focus:border-primary
                     "
                   />
                 </div>
@@ -759,7 +758,7 @@ const CreateSessionDialog = ({
 
                       outline-none
 
-                      focus:border-indigo-500
+                      focus:border-primary
                     "
                   >
                     <option>
@@ -822,7 +821,7 @@ const CreateSessionDialog = ({
 
                       outline-none
 
-                      focus:border-indigo-500
+                      focus:border-primary
                     "
                   />
                 </div>
@@ -839,10 +838,7 @@ const CreateSessionDialog = ({
                 border
                 border-border
 
-                
-                bg-primary
-                
-                
+                bg-secondary
 
                 p-6
               "
@@ -1058,9 +1054,9 @@ const CreateSessionDialog = ({
 
                 resize-none
 
-                focus:border-indigo-500
+                focus:border-primary
                 focus:ring-2
-                focus:ring-indigo-100
+                focus:ring-primary/20
               "
             />
           </div>
@@ -1103,9 +1099,9 @@ const CreateSessionDialog = ({
 
                 outline-none
 
-                focus:border-indigo-500
+                focus:border-primary
                 focus:ring-2
-                focus:ring-indigo-100
+                focus:ring-primary/20
               "
               defaultValue="scheduled"
             >

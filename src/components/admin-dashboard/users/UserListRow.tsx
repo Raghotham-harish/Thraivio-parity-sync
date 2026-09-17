@@ -52,7 +52,7 @@ function UserListRow({
             <span
               className={`absolute bottom-1 right-1 h-4 w-4 rounded-full border-2 border-white ${
                 user.status === "active"
-                  ? "bg-[#ECFDF5]0"
+                  ? "bg-[#ECFDF5]"
                   : user.status === "inactive"
                   ? "bg-slate-400"
                   : user.status === "blocked"
@@ -193,7 +193,7 @@ function UserListRow({
 
           </div>
 
-          <div className="rounded-2xl  bg-primary  p-4 text-center">
+          <div className="rounded-2xl bg-secondary p-4 text-center">
 
             <p className="text-xs text-muted-foreground">
               Total Spent

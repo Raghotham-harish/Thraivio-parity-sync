@@ -134,89 +134,56 @@ const AssignMentorDialog = ({
             items-center
             justify-between
 
-            
-            bg-primary
-            
-            
+            gap-5
 
-            p-8
+            border-b
+            border-border
+            bg-card
 
-            text-white
+            p-6
           "
         >
 
-          <div>
-
-            <div
-              className="
-                mb-3
-
-                inline-flex
-                items-center
-                gap-2
-
-                rounded-full
-
-                bg-card/20
-
-                px-4
-                py-2
-
-                text-sm
-              "
-            >
-
-              <ArrowRightLeft
-                size={18}
-              />
-
-              Mentor Assignment
-
+          <div className="flex items-center gap-5">
+            <div className="icon-bg flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl">
+              <ArrowRightLeft size={22} className="text-primary" />
             </div>
 
-            <h2
-              className="
-                text-3xl
-                font-bold
-              "
-            >
-              Reassign Mentor
-            </h2>
+            <div>
+              <h2
+                className="text-xl font-medium text-foreground"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Reassign Mentor
+              </h2>
 
-            <p
-              className="
-                mt-3
-
-                text-purple-100
-              "
-            >
-              Assign another mentor for this
-              booked session without losing
-              booking history.
-            </p>
-
+              <p className="mt-1 text-sm text-muted-foreground">
+                Assign another mentor for this booked session without losing booking history.
+              </p>
+            </div>
           </div>
 
           <button
             onClick={onClose}
+            aria-label="Close"
             className="
               flex
-              h-11
-              w-11
+              h-9
+              w-9
 
               items-center
               justify-center
 
               rounded-full
 
-              bg-card/20
+              bg-secondary
 
               transition
 
-              hover:bg-card/30
+              hover:bg-muted
             "
           >
-            <X size={20}/>
+            <X size={18}/>
           </button>
 
         </div>

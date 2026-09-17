@@ -266,15 +266,15 @@ function UserGridCard({
 
         {/* Spending */}
 
-        <div className="mt-4 rounded-xl bg-primary p-3">
+        <div className="mt-4 rounded-xl bg-secondary p-3">
 
-          <p className="text-sm text-white/80">
+          <p className="text-sm text-muted-foreground">
 
             Lifetime Spending
 
           </p>
 
-          <h3 className="mt-0.5 text-xl font-bold text-white">
+          <h3 className="mt-0.5 text-xl font-bold text-foreground">
 
             ₹{user.totalSpent.toLocaleString()}
 

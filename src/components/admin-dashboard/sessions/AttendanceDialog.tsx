@@ -131,89 +131,56 @@ const AttendanceDialog = ({
             items-center
             justify-between
 
-            
-            bg-primary
-            
-            
+            gap-5
 
-            p-8
+            border-b
+            border-border
+            bg-card
 
-            text-white
+            p-6
           "
         >
 
-          <div>
-
-            <div
-              className="
-                mb-3
-
-                inline-flex
-                items-center
-                gap-2
-
-                rounded-full
-
-                bg-card/20
-
-                px-4
-                py-2
-
-                text-sm
-              "
-            >
-
-              <ClipboardCheck
-                size={18}
-              />
-
-              Attendance Manager
-
+          <div className="flex items-center gap-5">
+            <div className="icon-bg flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl">
+              <ClipboardCheck size={22} className="text-primary" />
             </div>
 
-            <h2
-              className="
-                text-3xl
-                font-bold
-              "
-            >
-              Session Attendance
-            </h2>
+            <div>
+              <h2
+                className="text-xl font-medium text-foreground"
+                style={{ fontFamily: "var(--font-heading)" }}
+              >
+                Session Attendance
+              </h2>
 
-            <p
-              className="
-                mt-3
-
-                text-blue-100
-              "
-            >
-              Track mentor and student
-              attendance, session duration
-              and completion status.
-            </p>
-
+              <p className="mt-1 text-sm text-muted-foreground">
+                Track mentor and student attendance, session duration and completion status.
+              </p>
+            </div>
           </div>
 
           <button
             onClick={onClose}
+            aria-label="Close"
             className="
               flex
-              h-11
-              w-11
+              h-9
+              w-9
 
               items-center
               justify-center
 
               rounded-full
 
-              bg-card/20
+              bg-secondary
 
               transition
 
-              hover:bg-card/30
+              hover:bg-muted
             "
           >
-            <X size={20}/>
+            <X size={18}/>
           </button>
 
         </div>

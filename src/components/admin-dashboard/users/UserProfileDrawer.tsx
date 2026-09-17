@@ -55,6 +55,7 @@ function UserProfileDrawer({
 
           <button
             onClick={onClose}
+            aria-label="Close"
             className="absolute right-5 top-5 rounded-2xl bg-card p-3 shadow-lg transition hover:scale-105"
           >
             <X className="h-5 w-5" />
@@ -322,37 +323,37 @@ function UserProfileDrawer({
 
           <div className="mt-6 grid gap-5 md:grid-cols-2">
 
-            <div className="rounded-[28px]  bg-primary  p-6 text-white">
+            <div className="rounded-2xl bg-secondary p-6">
 
-              <p className="text-blue-100">
+              <p className="text-muted-foreground">
                 Lifetime Spending
               </p>
 
-              <h3 className="mt-3 text-3xl font-bold">
+              <h3 className="mt-3 text-3xl font-bold text-foreground">
 
                 ₹{user.totalSpent.toLocaleString()}
 
               </h3>
 
-              <p className="mt-2 text-sm text-blue-100">
+              <p className="mt-2 text-sm text-muted-foreground">
                 Total purchases made on the platform.
               </p>
 
             </div>
 
-            <div className="rounded-[28px]  bg-[#10B981]  p-6 text-white">
+            <div className="rounded-2xl bg-[#ECFDF9] p-6">
 
-              <p className="text-emerald-100">
+              <p className="text-[#0F8F65]">
                 Favorite Mentors
               </p>
 
-              <h3 className="mt-3 text-3xl font-bold">
+              <h3 className="mt-3 text-3xl font-bold text-foreground">
 
                 {user.favoriteMentors}
 
               </h3>
 
-              <p className="mt-2 text-sm text-emerald-100">
+              <p className="mt-2 text-sm text-[#0F8F65]">
                 Mentors added to favourites.
               </p>
 

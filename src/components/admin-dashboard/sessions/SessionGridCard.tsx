@@ -991,11 +991,7 @@ const SessionGridCard = ({
 
             rounded-2xl
 
-            
-
-            bg-primary
-            
-            
+            bg-secondary
 
             p-5
           "

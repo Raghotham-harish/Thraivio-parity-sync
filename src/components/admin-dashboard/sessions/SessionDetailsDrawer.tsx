@@ -95,15 +95,11 @@ const SessionDetailsDrawer = ({
 
         <div
           className="
-            
+            border-b
+            border-border
+            bg-card
 
-            bg-primary
-            
-            
-
-            p-8
-
-            text-white
+            p-6
           "
         >
           <div
@@ -129,8 +125,6 @@ const SessionDetailsDrawer = ({
                   text-xs
                   font-semibold
 
-                  bg-card
-
                   ${
                     statusStyles[
                       session.status
@@ -143,21 +137,24 @@ const SessionDetailsDrawer = ({
 
               <h2
                 className="
-                  mt-5
+                  mt-4
 
-                  text-3xl
+                  text-2xl
 
-                  font-bold
+                  font-medium
+                  text-foreground
                 "
+                style={{ fontFamily: "var(--font-heading)" }}
               >
                 {session.programTitle}
               </h2>
 
               <p
                 className="
-                  mt-2
+                  mt-1
 
-                  text-blue-100
+                  text-sm
+                  text-muted-foreground
                 "
               >
                 {session.sessionType}
@@ -167,25 +164,26 @@ const SessionDetailsDrawer = ({
 
             <button
               onClick={onClose}
+              aria-label="Close"
               className="
                 flex
 
-                h-11
-                w-11
+                h-9
+                w-9
 
                 items-center
                 justify-center
 
                 rounded-full
 
-                bg-card/20
+                bg-secondary
 
                 transition
 
-                hover:bg-card/30
+                hover:bg-muted
               "
             >
-              <X size={20} />
+              <X size={18} />
             </button>
 
           </div>

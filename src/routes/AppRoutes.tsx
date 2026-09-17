@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "@/layouts/MainLayout";
 
@@ -46,22 +47,38 @@ import UserSurveys from "@/pages/user-dashboard/Surveys";
 
 import AdminDashboardLayout from "../layouts/AdminDashboardLayout";
 
-import AdminDashboard from "@/pages/admin-dashboard/Dashboard";
-import MentorsManagement from "@/pages/admin-dashboard/MentorsManagement";
-import UsersManagement from "@/pages/admin-dashboard/UsersManagement";
-import ProgramsManagement from "@/pages/admin-dashboard/ProgramsManagement";
-import SessionsManagement from "@/pages/admin-dashboard/SessionsManagement";
-import EventsManagement from "@/pages/admin-dashboard/EventsManagement";
-import CertificatesManagement from "@/pages/admin-dashboard/CertificatesManagement";
-import PaymentsManagement from "@/pages/admin-dashboard/PaymentsManagement";
-import ReportsManagement from "@/pages/admin-dashboard/ReportsManagement";
-import ReviewsManagement from "@/pages/admin-dashboard/ReviewsManagement";
-import NotificationsManagement from "@/pages/admin-dashboard/NotificationsManagement";
-import CMSManagement from "@/pages/admin-dashboard/CMSManagement";
-import SupportManagement from "@/pages/admin-dashboard/SupportManagement";
-import RolesPermissions from "@/pages/admin-dashboard/RolesPermissions";
-import AdminSettings from "@/pages/admin-dashboard/AdminSettings";
-import SurveysManagement from "@/pages/admin-dashboard/SurveysManagement";
+// Lazy-loaded: the admin panel is a large, distinct part of the app that
+// most visitors (mentors/coachees on the public site) never load. Splitting
+// it out keeps the main bundle from shipping ~16 admin pages' worth of code
+// to every visitor up front.
+const AdminDashboard = lazy(() => import("@/pages/admin-dashboard/Dashboard"));
+const MentorsManagement = lazy(() => import("@/pages/admin-dashboard/MentorsManagement"));
+const UsersManagement = lazy(() => import("@/pages/admin-dashboard/UsersManagement"));
+const ProgramsManagement = lazy(() => import("@/pages/admin-dashboard/ProgramsManagement"));
+const SessionsManagement = lazy(() => import("@/pages/admin-dashboard/SessionsManagement"));
+const EventsManagement = lazy(() => import("@/pages/admin-dashboard/EventsManagement"));
+const CertificatesManagement = lazy(() => import("@/pages/admin-dashboard/CertificatesManagement"));
+const PaymentsManagement = lazy(() => import("@/pages/admin-dashboard/PaymentsManagement"));
+const ReportsManagement = lazy(() => import("@/pages/admin-dashboard/ReportsManagement"));
+const ReviewsManagement = lazy(() => import("@/pages/admin-dashboard/ReviewsManagement"));
+const NotificationsManagement = lazy(() => import("@/pages/admin-dashboard/NotificationsManagement"));
+const CMSManagement = lazy(() => import("@/pages/admin-dashboard/CMSManagement"));
+const SupportManagement = lazy(() => import("@/pages/admin-dashboard/SupportManagement"));
+const RolesPermissions = lazy(() => import("@/pages/admin-dashboard/RolesPermissions"));
+const AdminSettings = lazy(() => import("@/pages/admin-dashboard/AdminSettings"));
+const SurveysManagement = lazy(() => import("@/pages/admin-dashboard/SurveysManagement"));
+
+function AdminRouteFallback() {
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background">
+      <div
+        className="h-10 w-10 animate-spin rounded-full border-4 border-secondary border-t-primary"
+        role="status"
+        aria-label="Loading"
+      />
+    </div>
+  );
+}
 
 const AppRoutes = () => {
   return (
@@ -283,8 +300,14 @@ const AppRoutes = () => {
 </Route>
 
 
-<Route path="/admin"
-       element={<AdminDashboardLayout />}>
+<Route
+  path="/admin"
+  element={
+    <Suspense fallback={<AdminRouteFallback />}>
+      <AdminDashboardLayout />
+    </Suspense>
+  }
+>
 <Route
     index
     element={<AdminDashboard />}
