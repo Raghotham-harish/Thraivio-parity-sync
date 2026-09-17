@@ -10,7 +10,7 @@ import {
   Trash2,
 } from "lucide-react";
 
-import { StatusBadge, type StatusBadgeVariant } from "@/components/admin-dashboard/shared/StatusBadge";
+import { StatusBadge, type StatusBadgeVariant } from "@/components/shared/StatusBadge";
 import type { AdminCertificate } from "@/types/admin-certificate";
 
 interface CertificateGridCardProps {

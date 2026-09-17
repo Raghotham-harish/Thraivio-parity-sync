@@ -11,7 +11,7 @@ import {
   XCircle,
 } from "lucide-react";
 
-import { StatusBadge, type StatusBadgeVariant } from "@/components/admin-dashboard/shared/StatusBadge";
+import { StatusBadge, type StatusBadgeVariant } from "@/components/shared/StatusBadge";
 import type { AdminEvent } from "@/types/admin-events";
 
 interface EventGridCardProps {

@@ -6,7 +6,7 @@ import {
   XCircle,
 } from "lucide-react";
 
-import { StatusBadge } from "@/components/admin-dashboard/shared/StatusBadge";
+import { StatusBadge } from "@/components/shared/StatusBadge";
 import type { AdminMentor } from "@/types/admin-mentors";
 
 interface MentorListRowProps {

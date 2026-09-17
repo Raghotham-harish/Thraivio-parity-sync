@@ -9,7 +9,7 @@ import {
   XCircle,
 } from "lucide-react";
 
-import { StatusBadge, type StatusBadgeVariant } from "@/components/admin-dashboard/shared/StatusBadge";
+import { StatusBadge, type StatusBadgeVariant } from "@/components/shared/StatusBadge";
 import type { AdminSession } from "@/types/admin-session";
 
 interface SessionGridCardProps {
