@@ -1,6 +1,4 @@
 import {
-  ArrowRight,
-  BadgeCheck,
   Check,
   Eye,
   Pencil,
@@ -33,6 +31,13 @@ const statusVariant: Record<AdminSession["status"], StatusBadgeVariant> = {
   missed: "neutral",
 };
 
+const attendanceVariant: Record<AdminSession["attendance"], StatusBadgeVariant> = {
+  waiting: "warning",
+  joined: "info",
+  completed: "success",
+  absent: "error",
+};
+
 const paymentVariant: Record<AdminSession["paymentStatus"], StatusBadgeVariant> = {
   paid: "success",
   pending: "warning",
@@ -48,121 +53,147 @@ const SessionListRow = ({
   onDelete,
 }: SessionListRowProps) => {
   return (
-    <div className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition-colors hover:bg-secondary/40">
-      {/* Program */}
-      <div className="min-w-0 flex-1">
-        <h3 className="truncate text-sm font-semibold text-foreground">
+    <tr className="border-b border-border transition-colors hover:bg-secondary/40">
+      {/* Session */}
+      <td className="px-4 py-3">
+        <p className="max-w-[10rem] truncate text-sm font-semibold text-foreground">
           {session.programTitle}
-        </h3>
-        <p className="truncate text-xs text-muted-foreground">
+        </p>
+        <p className="max-w-[10rem] truncate text-xs text-muted-foreground">
           {session.sessionType}
         </p>
-      </div>
+      </td>
 
-      {/* Mentor -> Student */}
-      <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
-        <img
-          src={session.mentorImage}
-          alt={session.mentorName}
-          className="h-7 w-7 rounded-full object-cover"
-        />
-        <span className="max-w-[8rem] truncate text-xs font-medium text-foreground">
-          {session.mentorName}
-        </span>
-        <ArrowRight className="h-3 w-3 text-muted-foreground" />
-        <img
-          src={session.studentImage}
-          alt={session.studentName}
-          className="h-7 w-7 rounded-full object-cover"
-        />
-        <span className="max-w-[8rem] truncate text-xs font-medium text-foreground">
-          {session.studentName}
-        </span>
-      </div>
+      {/* Mentor */}
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2">
+          <img
+            src={session.mentorImage}
+            alt={session.mentorName}
+            className="h-8 w-8 shrink-0 rounded-full object-cover"
+          />
+          <div className="min-w-0">
+            <p className="max-w-[9rem] truncate text-sm font-medium text-foreground">
+              {session.mentorName}
+            </p>
+            <p className="max-w-[9rem] truncate text-xs text-muted-foreground">
+              {session.mentorCompany}
+            </p>
+          </div>
+        </div>
+      </td>
+
+      {/* Student */}
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2">
+          <img
+            src={session.studentImage}
+            alt={session.studentName}
+            className="h-8 w-8 shrink-0 rounded-full object-cover"
+          />
+          <div className="min-w-0">
+            <p className="max-w-[9rem] truncate text-sm font-medium text-foreground">
+              {session.studentName}
+            </p>
+            <p className="max-w-[9rem] truncate text-xs text-muted-foreground">
+              {session.studentEmail}
+            </p>
+          </div>
+        </div>
+      </td>
 
       {/* Schedule */}
-      <div className="hidden shrink-0 text-center text-xs text-muted-foreground lg:block">
+      <td className="px-4 py-3 text-sm">
         <p className="font-semibold text-foreground">{session.date}</p>
-        {session.time}
-      </div>
+        <p className="text-xs text-muted-foreground">
+          {session.time} · {session.duration}
+        </p>
+      </td>
 
-      {/* Amount */}
-      <div className="hidden w-16 shrink-0 text-right text-xs xl:block">
-        <span className="font-semibold text-foreground">
-          ₹{session.amount.toLocaleString()}
+      {/* Platform */}
+      <td className="px-4 py-3">
+        <span className="rounded-full bg-[#EFF6FF] px-2.5 py-1 text-xs font-semibold text-primary">
+          {session.meetingPlatform}
         </span>
-        <p className="text-muted-foreground">{session.duration}</p>
-      </div>
+      </td>
 
-      {/* Payment + certificate */}
-      <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
+      {/* Payment */}
+      <td className="px-4 py-3">
         <StatusBadge variant={paymentVariant[session.paymentStatus]}>
           {session.paymentStatus}
         </StatusBadge>
-        {session.certificateIssued && (
-          <BadgeCheck
-            className="h-4 w-4 text-[#065F46]"
-            aria-label="Certificate issued"
-          />
-        )}
-      </div>
+        <p className="mt-1 text-xs font-semibold text-foreground">
+          ₹{session.amount.toLocaleString()}
+        </p>
+      </td>
+
+      {/* Attendance */}
+      <td className="px-4 py-3">
+        <StatusBadge variant={attendanceVariant[session.attendance]}>
+          {session.attendance}
+        </StatusBadge>
+      </td>
 
       {/* Status */}
-      <StatusBadge variant={statusVariant[session.status]} className="hidden shrink-0 sm:inline-flex">
-        {session.status}
-      </StatusBadge>
+      <td className="px-4 py-3">
+        <StatusBadge variant={statusVariant[session.status]}>
+          {session.status}
+        </StatusBadge>
+      </td>
 
       {/* Actions */}
-      <div className="flex shrink-0 items-center gap-1.5">
-        <button
-          type="button"
-          onClick={() => onView(session)}
-          aria-label="View session"
-          title="View"
-          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
-        >
-          <Eye className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          onClick={() => onEdit(session)}
-          aria-label="Edit session"
-          title="Edit"
-          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
-        >
-          <Pencil className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          onClick={() => onComplete(session)}
-          disabled={session.status === "completed"}
-          aria-label="Mark session complete"
-          title="Complete"
-          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#ECFDF5] hover:text-[#065F46] disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          <Check className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          onClick={() => onCancel(session)}
-          disabled={session.status === "cancelled"}
-          aria-label="Cancel session"
-          title="Cancel"
-          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFFBEB] hover:text-[#B45309] disabled:cursor-not-allowed disabled:opacity-40"
-        >
-          <XCircle className="h-4 w-4" />
-        </button>
-        <button
-          type="button"
-          onClick={() => onDelete(session)}
-          aria-label="Delete session"
-          title="Delete"
-          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
-        >
-          <Trash2 className="h-4 w-4" />
-        </button>
-      </div>
-    </div>
+      <td className="px-4 py-3">
+        <div className="flex items-center justify-end gap-1">
+          <button
+            type="button"
+            onClick={() => onView(session)}
+            aria-label="View session"
+            title="View"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
+          >
+            <Eye className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onEdit(session)}
+            aria-label="Edit session"
+            title="Edit"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+          >
+            <Pencil className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onComplete(session)}
+            disabled={session.status === "completed"}
+            aria-label="Mark session complete"
+            title="Complete"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#ECFDF5] hover:text-[#065F46] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <Check className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onCancel(session)}
+            disabled={session.status === "cancelled"}
+            aria-label="Cancel session"
+            title="Cancel"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFFBEB] hover:text-[#B45309] disabled:cursor-not-allowed disabled:opacity-40"
+          >
+            <XCircle className="h-4 w-4" />
+          </button>
+          <button
+            type="button"
+            onClick={() => onDelete(session)}
+            aria-label="Delete session"
+            title="Delete"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
+          >
+            <Trash2 className="h-4 w-4" />
+          </button>
+        </div>
+      </td>
+    </tr>
   );
 };
 
