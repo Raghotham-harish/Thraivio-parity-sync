@@ -1,340 +1,54 @@
-import {
-  PlayCircle,
-  Pencil,
-  Trash2,
-  Video,
-  Eye,
-} from "lucide-react";
+import { Pencil, Play, Trash2 } from "lucide-react";
 
 import type { Video as VideoType } from "@/types/video";
 
 interface VideoGridCardProps {
   video: VideoType;
 
-  onEdit: (
-    video: VideoType
-  ) => void;
+  onEdit: (video: VideoType) => void;
 
-  onDelete: (
-    video: VideoType
-  ) => void;
+  onDelete: (video: VideoType) => void;
 }
 
-const VideoGridCard = ({
-  video,
-  onEdit,
-  onDelete,
-}: VideoGridCardProps) => {
+const VideoGridCard = ({ video, onEdit, onDelete }: VideoGridCardProps) => {
   return (
-    <div
-      className="
-        group
-
-        bg-white
-
-        border
-        border-slate-200
-
-        rounded-3xl
-
-        overflow-hidden
-
-        hover:border-blue-300
-        hover:shadow-xl
-        hover:-translate-y-1
-
-        transition-all
-        duration-300
-      "
-    >
-      {/* Thumbnail */}
-
-      <div
-        className="
-          relative
-
-          overflow-hidden
-        "
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-md">
+      <a
+        href={video.url}
+        target="_blank"
+        rel="noreferrer"
+        className="relative block h-28 overflow-hidden bg-secondary"
       >
-        <img
-          src={video.thumbnail}
-          alt={video.title}
-          className="
-            h-60
-            w-full
-
-            object-cover
-
-            transition
-            duration-500
-
-            group-hover:scale-105
-          "
-        />
-
-        <div
-          className="
-            absolute
-            inset-0
-
-            bg-black/30
-
-            flex
-            items-center
-            justify-center
-          "
-        >
-          <div
-            className="
-              h-16
-              w-16
-
-              rounded-full
-
-              bg-white
-
-              shadow-xl
-
-              flex
-              items-center
-              justify-center
-
-              transition
-
-              group-hover:scale-110
-            "
-          >
-            <PlayCircle
-              size={38}
-              className="
-                text-blue-600
-              "
-            />
+        <img src={video.thumbnail} alt={video.title} className="h-full w-full object-cover" />
+        <div className="absolute inset-0 flex items-center justify-center bg-black/30">
+          <div className="flex h-9 w-9 items-center justify-center rounded-full bg-white/90">
+            <Play className="h-4 w-4 fill-current text-foreground" />
           </div>
         </div>
+      </a>
 
-        <div
-          className="
-            absolute
-            top-4
-            left-4
-          "
-        >
-          <span
-            className="
-              bg-red-600
-
-              text-white
-
-              px-3
-              py-1
-
-              rounded-full
-
-              text-xs
-              font-semibold
-            "
+      <div className="p-3">
+        <h3 className="truncate text-sm font-semibold text-foreground">{video.title}</h3>
+        <div className="mt-2 flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => onEdit(video)}
+            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
           >
-            ▶ VIDEO
-          </span>
+            <Pencil className="h-4 w-4" />
+            Edit
+          </button>
+          <button
+            type="button"
+            onClick={() => onDelete(video)}
+            aria-label="Delete video"
+            title="Delete"
+            className="rounded-lg border border-border p-2 text-red-600 transition-colors hover:bg-[#FFDAD6]"
+          >
+            <Trash2 className="h-4 w-4" />
+          </button>
         </div>
-
       </div>
-
-      {/* Content */}
-
-      <div className="p-6">
-
-        <div
-          className="
-            flex
-            items-center
-            gap-2
-
-            text-blue-600
-          "
-        >
-          <Video size={18} />
-
-          <span
-            className="
-              text-sm
-              font-medium
-            "
-          >
-            Mentor Content
-          </span>
-
-        </div>
-
-        <h3
-          className="
-            text-xl
-            font-bold
-
-            mt-4
-          "
-        >
-          {video.title}
-        </h3>
-
-        {/* Stats */}
-
-        <div
-          className="
-            flex
-            flex-wrap
-            gap-2
-
-            mt-4
-          "
-        >
-          <span
-            className="
-              bg-blue-50
-              text-blue-700
-
-              px-3
-              py-1
-
-              rounded-full
-
-              text-xs
-            "
-          >
-            👀 12K Views
-          </span>
-
-          <span
-            className="
-              bg-green-50
-              text-green-700
-
-              px-3
-              py-1
-
-              rounded-full
-
-              text-xs
-            "
-          >
-            ⭐ 4.9 Rating
-          </span>
-
-          <span
-            className="
-              bg-slate-100
-              text-slate-700
-
-              px-3
-              py-1
-
-              rounded-full
-
-              text-xs
-            "
-          >
-            🎥 HD
-          </span>
-
-        </div>
-
-        {/* Bottom */}
-
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-
-            mt-8
-          "
-        >
-          <div
-            className="
-              flex
-              items-center
-              gap-2
-
-              text-slate-500
-            "
-          >
-            <Eye size={16} />
-
-            <span className="text-sm">
-              Watch Video
-            </span>
-
-          </div>
-
-        <div
-  className="
-    flex
-    gap-3
-  "
->
-  <button
-    onClick={() =>
-      onEdit(video)
-    }
-    className="
-      border
-      border-blue-600
-
-      text-blue-600
-
-      px-5
-      py-3
-
-      rounded-2xl
-
-      flex
-      items-center
-      gap-2
-
-      hover:bg-blue-600
-      hover:text-white
-
-      transition
-    "
-  >
-    <Pencil size={18} />
-
-    Edit
-  </button>
-
-  <button
-    onClick={() =>
-      onDelete(video)
-    }
-    className="
-      bg-red-600
-      hover:bg-red-700
-
-      text-white
-
-      px-5
-      py-3
-
-      rounded-2xl
-
-      flex
-      items-center
-      gap-2
-
-      transition
-    "
-  >
-    <Trash2 size={18} />
-
-    Delete
-  </button>
-</div>
-
-        </div>
-
-      </div>
-
     </div>
   );
 };
