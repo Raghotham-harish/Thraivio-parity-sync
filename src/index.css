@@ -204,6 +204,13 @@ textarea:focus-visible {
   background: linear-gradient(135deg, #ECFDF9 0%, #E6F7F4 50%, #EBF0F9 100%);
 }
 
+/* ── Hero Depth: navy anchored with a teal-to-blue sweep ──
+   Source: Thraivio/src/index.css. Used for the one app-level hero band
+   (DashboardHero) -- not a per-page or per-card treatment. */
+.bg-gradient-hero {
+  background: linear-gradient(140deg, #0A192F 0%, #0D2347 35%, #0A2D5A 65%, #062550 100%);
+}
+
 /* ── Styled underline accent — brand brush stroke under italic display text ──
    Usage: wrap the key word in <span class="accent-underline">word</span> */
 .accent-underline {
