@@ -88,7 +88,7 @@ const FeedbackCard = ({
             "
           >
             Your suggestions help us
-            improve CoachCoaching. Tell us
+            improve Thraivio. Tell us
             what you love or what we can do
             better.
           </p>
@@ -326,7 +326,7 @@ const FeedbackCard = ({
             >
               Every suggestion is reviewed
               by our product team to improve
-              CoachCoaching for all
+              Thraivio for all
               learners.
             </p>
           </div>

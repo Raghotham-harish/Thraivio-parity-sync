@@ -323,7 +323,7 @@ const NotificationSettings = ({
                   "
                 >
                   Get instant updates while
-                  using CoachCoaching.
+                  using Thraivio.
                 </p>
               </div>
             </div>
@@ -1103,7 +1103,7 @@ const NotificationSettings = ({
               text-slate-500
             "
           >
-            Customize how CoachCoaching
+            Customize how Thraivio
             keeps you informed. Enable only
             the notifications that matter to
             you while reducing unnecessary

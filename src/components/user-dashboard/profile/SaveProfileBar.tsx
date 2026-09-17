@@ -124,7 +124,7 @@ const SaveProfileBar = ({
               You have unsaved profile
               changes. Save them now to
               update your account across
-              CoachCoaching.
+              Thraivio.
             </p>
 
           </div>
@@ -250,7 +250,7 @@ const SaveProfileBar = ({
 
         Your changes will be securely
         saved and synced across your
-        CoachCoaching account.
+        Thraivio account.
       </div>
     </div>
   );

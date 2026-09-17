@@ -103,7 +103,7 @@ const RevenueAnalytics = ({
             Track monthly revenue,
             bookings and business
             growth across the
-            CoachCoaching platform.
+            Thraivio platform.
           </p>
         </div>
 

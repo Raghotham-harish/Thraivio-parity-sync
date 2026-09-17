@@ -51,7 +51,7 @@ const CreateEventDialog = ({
 
             Create a new webinar, workshop,
             bootcamp, masterclass or mentoring
-            event for CoachCoaching.
+            event for Thraivio.
 
           </DialogDescription>
 

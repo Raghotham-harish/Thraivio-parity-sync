@@ -148,7 +148,7 @@ const PlatformOverview = ({
             "
           >
             Monitor the complete
-            CoachCoaching ecosystem
+            Thraivio ecosystem
             including mentors,
             learners, programs,
             events and platform health.

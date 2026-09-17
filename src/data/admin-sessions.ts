@@ -175,7 +175,7 @@ export const adminSessions: AdminSession[] =
 
           mentorEmail: `${mentor.name
             .toLowerCase()
-            .replace(/\s+/g, ".")}@coachcoaching.com`,
+            .replace(/\s+/g, ".")}@thraivio.com`,
 
           /* ---------------- Student ---------------- */
 

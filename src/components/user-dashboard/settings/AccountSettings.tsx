@@ -820,7 +820,7 @@ const AccountSettings = ({
             Keep your personal information
             accurate and up to date. This
             information is used across your
-            CoachCoaching profile, mentorship
+            Thraivio profile, mentorship
             sessions and learning activities.
           </p>
         </div>

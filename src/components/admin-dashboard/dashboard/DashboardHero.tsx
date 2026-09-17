@@ -104,7 +104,7 @@ const DashboardHero = ({
 
             <br />
 
-            CoachCoaching Admin
+            Thraivio Admin
           </h2>
 
           {/* Description */}

@@ -551,7 +551,7 @@ const CertificatesEmptyState = ({
                 >
                   <ShieldCheck className="h-4 w-4" />
 
-                  CoachCoaching Certificates
+                  Thraivio Certificates
 
                 </div>
 

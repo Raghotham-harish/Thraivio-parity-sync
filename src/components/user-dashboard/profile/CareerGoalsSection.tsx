@@ -98,7 +98,7 @@ const CareerGoalsSection = ({
             "
           >
             Share your career aspirations so
-            CoachCoaching can recommend the
+            Thraivio can recommend the
             right mentors, programs, events
             and learning opportunities.
           </p>
@@ -550,7 +550,7 @@ const CareerGoalsSection = ({
             "
           >
             Keep your career goals updated so
-            CoachCoaching can recommend the
+            Thraivio can recommend the
             most relevant mentors, programs,
             live sessions and career
             opportunities aligned with your

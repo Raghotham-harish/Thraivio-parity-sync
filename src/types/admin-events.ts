@@ -1,6 +1,6 @@
 /* ===========================================================
    Admin Events Types
-   CoachCoaching Admin Dashboard
+   Thraivio Admin Dashboard
 =========================================================== */
 
 export type EventStatus =

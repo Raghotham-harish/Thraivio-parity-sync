@@ -100,7 +100,7 @@ const PrivacySettings = ({
             profile, learning progress,
             achievements and personal
             information across the
-            CoachCoaching platform.
+            Thraivio platform.
           </p>
 
         </div>
@@ -528,7 +528,7 @@ const PrivacySettings = ({
           >
             Control how your activity and
             profile information are shared
-            across CoachCoaching.
+            across Thraivio.
           </p>
 
           <div
@@ -950,7 +950,7 @@ const PrivacySettings = ({
                   >
                     Share limited profile
                     information with trusted
-                    CoachCoaching partners.
+                    Thraivio partners.
                   </p>
                 </div>
               </div>
@@ -1034,7 +1034,7 @@ const PrivacySettings = ({
             Your privacy preferences are
             securely stored and automatically
             synchronized across all your
-            CoachCoaching devices. You can
+            Thraivio devices. You can
             update these settings anytime.
           </p>
         </div>

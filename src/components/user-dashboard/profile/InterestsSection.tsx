@@ -539,7 +539,7 @@ const InterestsSection = ({
               text-slate-500
             "
           >
-            Your interests help CoachCoaching recommend
+            Your interests help Thraivio recommend
             the most relevant mentors, learning programs,
             live sessions and career opportunities based
             on your goals.

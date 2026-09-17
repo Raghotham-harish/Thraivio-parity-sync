@@ -75,7 +75,7 @@ const SettingsHeader = ({
           Manage your account preferences,
           security, notifications,
           privacy, connected accounts and
-          personalize your CoachCoaching
+          personalize your Thraivio
           experience.
         </p>
       </div>

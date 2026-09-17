@@ -508,7 +508,7 @@ const CertificateForm = ({
                     e.target.value,
                 })
               }
-              placeholder="https://coachcoaching.com/verify/..."
+              placeholder="https://thraivio.com/verify/..."
               className="h-12 rounded-2xl"
             />
 

@@ -244,14 +244,14 @@ const certificates: UserCertificate[] = [
   {
     id: "CERT-1001",
     title: "Leadership Excellence",
-    issuedBy: "CoachCoaching Academy",
+    issuedBy: "Thraivio Academy",
     issuedDate: "2026-05-18",
     certificateUrl: "#",
   },
   {
     id: "CERT-1002",
     title: "Career Growth",
-    issuedBy: "CoachCoaching Academy",
+    issuedBy: "Thraivio Academy",
     issuedDate: "2026-03-28",
     certificateUrl: "#",
   },
@@ -1266,7 +1266,7 @@ export const users: AdminUser[] = [
 
     occupation: "Career Coach",
 
-    company: "CoachCoaching",
+    company: "Thraivio",
 
     website: "https://meerakhanna.dev",
 

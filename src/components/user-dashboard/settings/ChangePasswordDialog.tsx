@@ -142,7 +142,7 @@ const ChangePasswordDialog = ({
               "
             >
               Update your account password
-              to keep your CoachCoaching
+              to keep your Thraivio
               account secure.
             </p>
 

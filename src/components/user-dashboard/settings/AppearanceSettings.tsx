@@ -98,7 +98,7 @@ const AppearanceSettings = ({
             "
           >
             Personalize the appearance of
-            CoachCoaching with themes,
+            Thraivio with themes,
             colors, layout preferences and
             accessibility options.
           </p>
@@ -970,7 +970,7 @@ const AppearanceSettings = ({
           >
             Your appearance preferences are
             automatically saved and applied
-            across your CoachCoaching
+            across your Thraivio
             dashboard, providing a consistent
             experience on every device.
           </p>

@@ -563,7 +563,7 @@ const CertificatesPreview = ({
             Your certificates showcase
             completed learning milestones
             and verified achievements
-            across CoachCoaching.
+            across Thraivio.
           </p>
         </div>
 

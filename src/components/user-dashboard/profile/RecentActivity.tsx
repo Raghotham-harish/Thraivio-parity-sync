@@ -536,7 +536,7 @@ const RecentActivity = ({
             mentorship sessions,
             certificates and important
             milestones throughout your
-            CoachCoaching journey.
+            Thraivio journey.
           </p>
         </div>
 

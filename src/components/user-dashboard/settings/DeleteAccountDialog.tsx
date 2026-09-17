@@ -129,7 +129,7 @@ const DeleteAccountDialog = ({
               "
             >
               This action permanently deletes
-              your CoachCoaching account and
+              your Thraivio account and
               all associated data.
             </p>
 
@@ -227,7 +227,7 @@ const DeleteAccountDialog = ({
                   "
                 >
                   Once your account is
-                  deleted, CoachCoaching
+                  deleted, Thraivio
                   permanently removes all
                   associated data from your
                   account.
@@ -505,7 +505,7 @@ const DeleteAccountDialog = ({
                   certificates, mentor
                   sessions and profile cannot
                   be restored by
-                  CoachCoaching Support.
+                  Thraivio Support.
                 </p>
               </div>
             </div>

@@ -291,7 +291,7 @@ const NotificationDetailsModal = ({
                   <InfoCard
                     icon={<Globe size={18} />}
                     title="Platform"
-                    value="CoachCoaching"
+                    value="Thraivio"
                   />
                 </div>
               </div>

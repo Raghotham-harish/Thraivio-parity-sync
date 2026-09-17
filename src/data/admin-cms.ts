@@ -39,10 +39,10 @@ export const cmsPages: AdminCMSPage[] = [
       "Main landing page with hero banner, featured mentors, testimonials and CTA sections.",
 
     seoTitle:
-      "CoachCoaching | Learn From Industry Experts",
+      "Thraivio | Learn From Industry Experts",
 
     seoDescription:
-      "Join CoachCoaching to learn from experienced mentors through live sessions, programs and events.",
+      "Join Thraivio to learn from experienced mentors through live sessions, programs and events.",
 
     views: 425680,
 
@@ -78,10 +78,10 @@ export const cmsPages: AdminCMSPage[] = [
       "Company overview, mission, vision and platform journey.",
 
     seoTitle:
-      "About CoachCoaching",
+      "About Thraivio",
 
     seoDescription:
-      "Know more about CoachCoaching, our mission and our community of mentors.",
+      "Know more about Thraivio, our mission and our community of mentors.",
 
     views: 82640,
 
@@ -116,7 +116,7 @@ export const cmsPages: AdminCMSPage[] = [
       "Central blog listing page for articles, tutorials and platform news.",
 
     seoTitle:
-      "CoachCoaching Blog",
+      "Thraivio Blog",
 
     seoDescription:
       "Read the latest articles, career guidance and technology insights from industry experts.",
@@ -155,10 +155,10 @@ export const cmsPages: AdminCMSPage[] = [
       "Frequently asked questions about mentors, sessions, payments and certificates.",
 
     seoTitle:
-      "CoachCoaching FAQ",
+      "Thraivio FAQ",
 
     seoDescription:
-      "Find answers to common questions about using the CoachCoaching platform.",
+      "Find answers to common questions about using the Thraivio platform.",
 
     views: 95420,
 
@@ -193,10 +193,10 @@ export const cmsPages: AdminCMSPage[] = [
       "Privacy policy explaining how user data is collected, stored and protected.",
 
     seoTitle:
-      "Privacy Policy | CoachCoaching",
+      "Privacy Policy | Thraivio",
 
     seoDescription:
-      "Read the CoachCoaching privacy policy and understand how we handle your information securely.",
+      "Read the Thraivio privacy policy and understand how we handle your information securely.",
 
     views: 36480,
 
@@ -232,10 +232,10 @@ export const cmsPages: AdminCMSPage[] = [
       "Archived version of platform terms and conditions kept for historical reference.",
 
     seoTitle:
-      "Terms & Conditions | CoachCoaching",
+      "Terms & Conditions | Thraivio",
 
     seoDescription:
-      "Review the terms and conditions governing the use of the CoachCoaching platform.",
+      "Review the terms and conditions governing the use of the Thraivio platform.",
 
     views: 22815,
 

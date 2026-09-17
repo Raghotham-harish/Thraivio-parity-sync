@@ -92,17 +92,17 @@ export default function PaymentInvoiceDialog({
                   <Building2 className="h-5 w-5 text-primary" />
 
                   <h3 className="text-xl font-bold">
-                    CoachCoaching
+                    Thraivio
                   </h3>
 
                 </div>
 
                 <p className="mt-3 text-sm text-muted-foreground">
-                  support@coachcoaching.com
+                  support@thraivio.com
                 </p>
 
                 <p className="text-sm text-muted-foreground">
-                  www.coachcoaching.com
+                  www.thraivio.com
                 </p>
 
               </div>
@@ -333,7 +333,7 @@ export default function PaymentInvoiceDialog({
 
               <p className="mt-2 text-sm leading-7 text-muted-foreground">
 
-                Thank you for choosing CoachCoaching.
+                Thank you for choosing Thraivio.
                 This invoice is generated automatically
                 after successful payment and serves as
                 proof of purchase.

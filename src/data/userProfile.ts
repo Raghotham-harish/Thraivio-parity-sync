@@ -140,7 +140,7 @@ export const userProfile: UserProfile = {
       title:
         "React Advanced Certification",
 
-      issuer: "CoachCoaching",
+      issuer: "Thraivio",
 
       issueDate: "12 Jun 2026",
 
@@ -156,7 +156,7 @@ export const userProfile: UserProfile = {
       title:
         "Node.js Professional",
 
-      issuer: "CoachCoaching",
+      issuer: "Thraivio",
 
       issueDate: "02 Apr 2026",
 
@@ -172,7 +172,7 @@ export const userProfile: UserProfile = {
       title:
         "MongoDB Developer",
 
-      issuer: "CoachCoaching",
+      issuer: "Thraivio",
 
       issueDate: "15 Jan 2026",
 

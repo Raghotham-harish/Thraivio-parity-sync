@@ -114,7 +114,7 @@ const ConnectedAccounts = ({
             Connect your professional
             accounts to sign in faster,
             sync achievements and improve
-            your CoachCoaching profile.
+            your Thraivio profile.
           </p>
 
         </div>
@@ -730,7 +730,7 @@ const ConnectedAccounts = ({
           Link multiple providers to make
           sign in easier, improve account
           recovery and securely sync your
-          CoachCoaching profile.
+          Thraivio profile.
         </p>
 
         <button
@@ -809,7 +809,7 @@ const ConnectedAccounts = ({
               faster authentication,
               stronger account recovery and
               additional security for your
-              CoachCoaching profile.
+              Thraivio profile.
             </p>
           </div>
 

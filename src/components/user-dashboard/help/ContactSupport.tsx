@@ -420,7 +420,7 @@ const ContactSupport = () => {
                 text-slate-500
               "
             >
-              support@coachcoaching.com
+              support@thraivio.com
             </p>
           </div>
 

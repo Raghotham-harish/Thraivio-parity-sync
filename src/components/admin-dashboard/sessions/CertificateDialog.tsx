@@ -960,7 +960,7 @@ const CertificateDialog = ({
 
                 <input
                   readOnly
-                  value={`https://coachcoaching.com/verify/${certificateId}`}
+                  value={`https://thraivio.com/verify/${certificateId}`}
                   className="
                     h-12
 

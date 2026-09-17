@@ -90,7 +90,7 @@ const DangerZone = ({
             "
           >
             These actions permanently affect
-            your CoachCoaching account.
+            your Thraivio account.
             Please review each option
             carefully before continuing.
           </p>
@@ -412,7 +412,7 @@ const DangerZone = ({
                 "
               >
                 This action permanently
-                removes your CoachCoaching
+                removes your Thraivio
                 account, certificates,
                 sessions, saved mentors,
                 profile data and all related
@@ -642,7 +642,7 @@ const DangerZone = ({
               certificates, achievements,
               saved mentors, settings and
               every piece of associated data
-              from CoachCoaching. This
+              from Thraivio. This
               operation cannot be reversed,
               so please make sure you have
               exported everything you need

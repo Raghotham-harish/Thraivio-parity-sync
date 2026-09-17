@@ -91,7 +91,7 @@ export const adminCertificates: AdminCertificate[] = [
     viewCount: 112,
 
     issuedBy:
-      "CoachCoaching Admin",
+      "Thraivio Admin",
 
     lastDownloaded:
       "18 Jun 2026",
@@ -185,7 +185,7 @@ export const adminCertificates: AdminCertificate[] = [
     viewCount: 68,
 
     issuedBy:
-      "CoachCoaching Admin",
+      "Thraivio Admin",
 
     lastDownloaded:
       "05 Jul 2026",
@@ -281,7 +281,7 @@ export const adminCertificates: AdminCertificate[] = [
     viewCount: 154,
 
     issuedBy:
-      "CoachCoaching Admin",
+      "Thraivio Admin",
 
     lastDownloaded:
       "19 May 2026",
@@ -373,7 +373,7 @@ export const adminCertificates: AdminCertificate[] = [
     viewCount: 14,
 
     issuedBy:
-      "CoachCoaching Admin",
+      "Thraivio Admin",
 
     createdAt:
       "28 Apr 2026",
@@ -475,7 +475,7 @@ export const adminCertificates: AdminCertificate[] = [
     viewCount: 81,
 
     issuedBy:
-      "CoachCoaching Admin",
+      "Thraivio Admin",
 
     lastDownloaded:
       "20 Mar 2026",

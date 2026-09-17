@@ -4,13 +4,13 @@ import type {
 
 export const adminSettings: AdminSettingsData = {
   general: {
-    platformName: "CoachCoaching",
+    platformName: "Thraivio",
 
     platformDescription:
       "Premium mentor marketplace platform.",
 
     platformUrl:
-      "https://coachcoaching.com",
+      "https://thraivio.com",
 
     language: "English",
 
@@ -38,16 +38,16 @@ export const adminSettings: AdminSettingsData = {
     smtpPort: 587,
 
     smtpUsername:
-      "support@coachcoaching.com",
+      "support@thraivio.com",
 
     smtpPassword:
       "••••••••••",
 
     senderName:
-      "CoachCoaching",
+      "Thraivio",
 
     senderEmail:
-      "support@coachcoaching.com",
+      "support@thraivio.com",
   },
     notifications: {
     emailNotifications: true,

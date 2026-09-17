@@ -98,7 +98,7 @@ const DeviceSessions = ({
             "
           >
             Review all devices currently
-            signed in to your CoachCoaching
+            signed in to your Thraivio
             account. Remove any session you
             don't recognize to keep your
             account secure.
@@ -528,7 +528,7 @@ const DeviceSessions = ({
               Review your active sessions
               regularly. Remove devices that
               you no longer use to keep your
-              CoachCoaching account secure.
+              Thraivio account secure.
             </p>
           </div>
 
@@ -797,7 +797,7 @@ const DeviceSessions = ({
             managed across all devices.
             Regularly reviewing connected
             devices helps keep your
-            CoachCoaching account safe from
+            Thraivio account safe from
             unauthorized access.
           </p>
         </div>

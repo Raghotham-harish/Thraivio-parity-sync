@@ -1232,7 +1232,7 @@ const CreateSessionDialog = ({
                       .replaceAll(
                         " ",
                         "."
-                      )}@coachcoaching.com`,
+                      )}@thraivio.com`,
 
                     studentId:
                       student.id,
