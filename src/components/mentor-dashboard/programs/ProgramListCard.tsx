@@ -1,445 +1,79 @@
-import {
-  Clock3,
-  Users,
-  Star,
-  Pencil,
-  Trash2,
-} from "lucide-react";
+import { Pencil, Star, Trash2 } from "lucide-react";
 
 import type { Program } from "@/types/program";
 
 interface ProgramListCardProps {
   program: Program;
 
-  onEdit: (
-    program: Program
-  ) => void;
+  onEdit: (program: Program) => void;
 
-  onDelete: (
-    program: Program
-  ) => void;
+  onDelete: (program: Program) => void;
 }
 
-const ProgramListCard = ({
-  program,
-  onEdit,
-  onDelete,
-}: ProgramListCardProps) => {
+const ProgramListCard = ({ program, onEdit, onDelete }: ProgramListCardProps) => {
   return (
-    <div
-      className="
-        bg-white
-        border
-        border-slate-200
-        rounded-3xl
-        overflow-hidden
-
-        hover:shadow-xl
-
-        transition-all
-        duration-300
-      "
-    >
-      <div
-        className="
-          flex
-          flex-col
-
-          xl:flex-row
-        "
-      >
-        {/* Image */}
-
-        <div
-          className="
-            relative
-
-            xl:w-[340px]
-            shrink-0
-          "
-        >
-          <img
-            src={
-              program.image ||
-              "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=900"
-            }
-            alt={program.title}
-            className="
-              h-full
-              w-full
-              object-cover
-              min-h-[280px]
-            "
-          />
-
-          <div
-            className="
-              absolute
-              inset-0
-              bg-gradient-to-t
-              from-black/60
-              to-transparent
-            "
-          />
-
-          <span
-            className="
-              absolute
-              top-4
-              left-4
-
-              bg-white/20
-              backdrop-blur
-
-              px-3
-              py-1
-
-              rounded-full
-
-              text-xs
-              text-white
-              font-semibold
-            "
-          >
-            {program.level}
-          </span>
-
+    <div className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition-colors hover:bg-secondary/40">
+      {program.image && (
+        <img
+          src={program.image}
+          alt={program.title}
+          className="h-10 w-10 shrink-0 rounded-lg object-cover"
+        />
+      )}
+      <div className="min-w-0 flex-1">
+        <div className="flex items-center gap-1.5">
+          <h3 className="truncate text-sm font-semibold text-foreground">{program.title}</h3>
           {program.featured && (
-            <span
-              className="
-                absolute
-                top-4
-                right-4
-
-                bg-blue-600
-                text-white
-
-                px-3
-                py-1
-
-                rounded-full
-
-                text-xs
-                font-semibold
-              "
-            >
-              🔥 Best Seller
+            <span className="shrink-0 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-bold text-foreground">
+              Featured
             </span>
           )}
-
-          <div
-            className="
-              absolute
-              bottom-5
-              left-5
-              text-white
-            "
-          >
-            <p
-              className="
-                text-xs
-                uppercase
-                tracking-wider
-              "
-            >
-              Career Accelerator
-            </p>
-
-            <h3
-              className="
-                text-2xl
-                font-bold
-                mt-1
-              "
-            >
-              {program.title}
-            </h3>
-
-          </div>
-
         </div>
+        <p className="truncate text-xs text-muted-foreground">
+          {program.level} · {program.duration}
+        </p>
+      </div>
 
-        {/* Content */}
+      <div className="hidden shrink-0 items-center gap-4 text-center text-xs text-muted-foreground sm:flex">
+        <div>
+          <p className="font-semibold text-foreground">{program.students}</p>
+          Students
+        </div>
+        <div>
+          <p className="flex items-center justify-center gap-0.5 font-semibold text-foreground">
+            <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
+            {program.rating ?? "—"}
+          </p>
+          Rating
+        </div>
+      </div>
 
-        <div
-          className="
-            flex-1
-            p-6
-          "
+      <div className="hidden w-14 shrink-0 text-right text-xs lg:block">
+        <span className="font-semibold text-foreground">${program.price}</span>
+        {typeof program.seatsLeft === "number" && (
+          <p className="text-muted-foreground">{program.seatsLeft} left</p>
+        )}
+      </div>
+
+      <div className="flex shrink-0 items-center gap-1.5">
+        <button
+          type="button"
+          onClick={() => onEdit(program)}
+          aria-label="Edit program"
+          title="Edit"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
-          {/* Top */}
-
-          <div
-            className="
-              flex
-              flex-col
-
-              lg:flex-row
-              lg:justify-between
-
-              gap-5
-            "
-          >
-            <div>
-
-              <h2
-                className="
-                  text-2xl
-                  font-bold
-                "
-              >
-                {program.title}
-              </h2>
-
-              <p
-                className="
-                  mt-3
-                  text-slate-500
-                  max-w-2xl
-                "
-              >
-                {program.description ||
-                  "Structured mentorship program designed to accelerate your career growth with personalized coaching, practical projects and industry guidance."}
-              </p>
-
-            </div>
-
-            <div>
-
-              <p
-                className="
-                  text-sm
-                  text-slate-500
-                "
-              >
-                Program Fee
-              </p>
-
-              <h2
-                className="
-                  text-4xl
-                  font-bold
-                  text-blue-600
-                "
-              >
-                ${program.price}
-              </h2>
-
-            </div>
-
-          </div>
-
-          {/* Stats */}
-
-          <div
-            className="
-              flex
-              flex-wrap
-              gap-6
-              mt-6
-            "
-          >
-            <div
-              className="
-                flex
-                items-center
-                gap-2
-              "
-            >
-              <Clock3 size={18} />
-
-              {program.duration}
-            </div>
-
-            <div
-              className="
-                flex
-                items-center
-                gap-2
-              "
-            >
-              <Users size={18} />
-
-              {program.students}
-              + Students
-            </div>
-
-            <div
-              className="
-                flex
-                items-center
-                gap-2
-              "
-            >
-              <Star
-                size={18}
-                fill="currentColor"
-                className="
-                  text-yellow-500
-                "
-              />
-
-              {program.rating || 4.9}
-
-              <span
-                className="
-                  text-slate-500
-                "
-              >
-                (
-                {program.reviews ||
-                  120}
-                Reviews)
-              </span>
-
-            </div>
-
-          </div>
-
-          {/* Features */}
-
-          <div
-            className="
-              grid
-              md:grid-cols-2
-              gap-3
-              mt-6
-            "
-          >
-            <div>
-              ✅ Weekly Live Sessions
-            </div>
-
-            <div>
-              ✅ Resume Review
-            </div>
-
-            <div>
-              ✅ Mock Interviews
-            </div>
-
-            <div>
-              ✅ Priority Community Access
-            </div>
-          </div>
-
-          {/* Bottom */}
-
-          <div
-            className="
-              flex
-              flex-col
-
-              lg:flex-row
-              lg:items-center
-              lg:justify-between
-
-              gap-5
-
-              mt-8
-            "
-          >
-            <div
-              className="
-                bg-amber-50
-                rounded-2xl
-                p-4
-              "
-            >
-              <p
-                className="
-                  text-sm
-                  text-slate-500
-                "
-              >
-                Seats Remaining
-              </p>
-
-              <p
-                className="
-                  font-semibold
-                  text-amber-700
-                "
-              >
-                Only
-                {" "}
-                {program.seatsLeft ||
-                  8}
-                {" "}
-                Spots Left
-              </p>
-
-            </div>
-
-            <div
-              className="
-                flex
-                gap-3
-              "
-            >
-              <button
-                onClick={() =>
-                  onEdit(program)
-                }
-                className="
-                  border
-                  border-blue-600
-
-                  text-blue-600
-
-                  px-5
-                  py-3
-
-                  rounded-xl
-
-                  flex
-                  items-center
-                  gap-2
-
-                  hover:bg-blue-600
-                  hover:text-white
-
-                  transition
-                "
-              >
-                <Pencil size={18} />
-
-                Edit
-              </button>
-
-              <button
-                onClick={() =>
-                  onDelete(program)
-                }
-                className="
-                  bg-red-600
-                  hover:bg-red-700
-
-                  text-white
-
-                  px-5
-                  py-3
-
-                  rounded-xl
-
-                  flex
-                  items-center
-                  gap-2
-
-                  transition
-                "
-              >
-                <Trash2 size={18} />
-
-                Delete
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
+          <Pencil className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onDelete(program)}
+          aria-label="Delete program"
+          title="Delete"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
+        >
+          <Trash2 className="h-4 w-4" />
+        </button>
       </div>
     </div>
   );
