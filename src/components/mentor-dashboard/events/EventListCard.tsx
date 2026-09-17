@@ -1,424 +1,61 @@
-import {
-  CalendarDays,
-  Clock3,
-  MapPin,
-  Users,
-  Pencil,
-  Trash2,
-} from "lucide-react";
+import { Pencil, Trash2, Users } from "lucide-react";
 
 import type { Event } from "@/types/event";
 
 interface EventListCardProps {
   event: Event;
 
-  onEdit: (
-    event: Event
-  ) => void;
+  onEdit: (event: Event) => void;
 
-  onDelete: (
-    event: Event
-  ) => void;
+  onDelete: (event: Event) => void;
 }
 
-const EventListCard = ({
-  event,
-  onEdit,
-  onDelete,
-}: EventListCardProps) => {
+const EventListCard = ({ event, onEdit, onDelete }: EventListCardProps) => {
   return (
-    <div
-      className="
-        bg-white
+    <div className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition-colors hover:bg-secondary/40">
+      <div className="flex h-11 w-11 shrink-0 flex-col items-center justify-center rounded-lg bg-secondary">
+        <span className="text-[10px] font-semibold uppercase text-muted-foreground">
+          {event.month}
+        </span>
+        <span className="text-sm font-bold text-foreground">{event.day}</span>
+      </div>
 
-        border
-        border-slate-200
+      <div className="min-w-0 flex-1">
+        <h3 className="truncate text-sm font-semibold text-foreground">{event.title}</h3>
+        <p className="truncate text-xs text-muted-foreground">
+          {event.type} · {event.mode}
+        </p>
+      </div>
 
-        rounded-3xl
+      <div className="hidden shrink-0 text-center text-xs text-muted-foreground sm:block">
+        <p className="font-semibold text-foreground">{event.weekday}</p>
+        {event.time}
+      </div>
 
-        overflow-hidden
+      <div className="hidden shrink-0 items-center gap-1 text-xs text-muted-foreground lg:flex">
+        <Users className="h-3.5 w-3.5" />
+        {event.registered} registered · {event.seatsLeft} left
+      </div>
 
-        hover:shadow-xl
-
-        transition-all
-        duration-300
-      "
-    >
-      <div
-        className="
-          flex
-          flex-col
-
-          xl:flex-row
-        "
-      >
-        {/* Calendar */}
-
-        <div
-          className="
-            bg-gradient-to-br
-            from-blue-600
-            to-blue-700
-
-            text-white
-
-            xl:w-[220px]
-
-            flex
-            flex-col
-            items-center
-            justify-center
-
-            py-10
-          "
+      <div className="flex shrink-0 items-center gap-1.5">
+        <button
+          type="button"
+          onClick={() => onEdit(event)}
+          aria-label="Edit event"
+          title="Edit"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
-          <p
-            className="
-              text-lg
-              font-semibold
-              tracking-widest
-            "
-          >
-            {event.month}
-          </p>
-
-          <h2
-            className="
-              text-6xl
-              font-bold
-            "
-          >
-            {event.day}
-          </h2>
-
-          <p
-            className="
-              mt-2
-              opacity-90
-            "
-          >
-            {event.weekday}
-          </p>
-
-        </div>
-
-        {/* Content */}
-
-        <div
-          className="
-            flex-1
-            p-6
-          "
+          <Pencil className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onDelete(event)}
+          aria-label="Delete event"
+          title="Delete"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
         >
-          {/* Top */}
-
-          <div
-            className="
-              flex
-              flex-col
-
-              lg:flex-row
-              lg:justify-between
-
-              gap-4
-            "
-          >
-            <div>
-
-              <span
-                className="
-                  bg-red-100
-                  text-red-600
-
-                  px-3
-                  py-1
-
-                  rounded-full
-
-                  text-xs
-                  font-semibold
-                "
-              >
-                🔴 LIVE EVENT
-              </span>
-
-              <h2
-                className="
-                  text-3xl
-                  font-bold
-                  mt-4
-                "
-              >
-                {event.title}
-              </h2>
-
-            </div>
-
-            <div>
-
-              <span
-                className="
-                  bg-blue-50
-                  text-blue-700
-
-                  px-4
-                  py-2
-
-                  rounded-full
-
-                  text-sm
-                  font-semibold
-                "
-              >
-                {event.type}
-              </span>
-
-            </div>
-
-          </div>
-
-          {/* Details */}
-
-          <div
-            className="
-              grid
-              md:grid-cols-2
-              gap-4
-
-              mt-6
-            "
-          >
-            <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
-            >
-              <CalendarDays size={18} />
-
-              {event.date}
-            </div>
-
-            <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
-            >
-              <Clock3 size={18} />
-
-              {event.time}
-            </div>
-
-            <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
-            >
-              <MapPin size={18} />
-
-              {event.mode}
-            </div>
-
-            <div
-              className="
-                flex
-                items-center
-                gap-3
-              "
-            >
-              <Users size={18} />
-
-              {event.registered}
-              +
-              Registered
-            </div>
-
-          </div>
-
-          {/* Features */}
-
-          <div
-            className="
-              flex
-              flex-wrap
-              gap-2
-
-              mt-6
-            "
-          >
-            <span
-              className="
-                bg-blue-50
-                text-blue-700
-
-                px-3
-                py-1
-
-                rounded-full
-
-                text-xs
-              "
-            >
-              🎤 Live Q&A
-            </span>
-
-            <span
-              className="
-                bg-slate-100
-                text-slate-700
-
-                px-3
-                py-1
-
-                rounded-full
-
-                text-xs
-              "
-            >
-              📹 Recording
-            </span>
-
-            <span
-              className="
-                bg-green-50
-                text-green-700
-
-                px-3
-                py-1
-
-                rounded-full
-
-                text-xs
-              "
-            >
-              📜 Certificate
-            </span>
-
-          </div>
-
-          {/* Bottom */}
-
-          <div
-            className="
-              flex
-              flex-col
-
-              lg:flex-row
-              lg:items-center
-              lg:justify-between
-
-              gap-5
-
-              mt-8
-            "
-          >
-            <div
-              className="
-                bg-amber-50
-
-                rounded-2xl
-
-                p-4
-              "
-            >
-              <p
-                className="
-                  text-sm
-                  text-slate-500
-                "
-              >
-                Seats Remaining
-              </p>
-
-              <p
-                className="
-                  font-bold
-                  text-red-600
-                "
-              >
-                Only
-                {" "}
-                {event.seatsLeft}
-                {" "}
-                Seats Left
-              </p>
-
-            </div>
-
-            <div
-              className="
-                flex
-                gap-3
-              "
-            >
-              <button
-                onClick={() =>
-                  onEdit(event)
-                }
-                className="
-                  border
-                  border-blue-600
-
-                  text-blue-600
-
-                  px-5
-                  py-3
-
-                  rounded-2xl
-
-                  flex
-                  items-center
-                  gap-2
-
-                  hover:bg-blue-600
-                  hover:text-white
-
-                  transition
-                "
-              >
-                <Pencil size={18} />
-
-                Edit
-              </button>
-
-              <button
-                onClick={() =>
-                  onDelete(event)
-                }
-                className="
-                  bg-red-600
-                  hover:bg-red-700
-
-                  text-white
-
-                  px-5
-                  py-3
-
-                  rounded-2xl
-
-                  flex
-                  items-center
-                  gap-2
-
-                  transition
-                "
-              >
-                <Trash2 size={18} />
-
-                Delete
-              </button>
-
-            </div>
-
-          </div>
-
-        </div>
-
+          <Trash2 className="h-4 w-4" />
+        </button>
       </div>
     </div>
   );
