@@ -1,28 +1,28 @@
 import {
   Award,
-  BadgeCheck,
-  Building2,
   Download,
   Eye,
+  ShieldCheck,
 } from "lucide-react";
 
+import { StatusBadge, type StatusBadgeVariant } from "@/components/shared/StatusBadge";
 import type { Certificate } from "@/types/certificate";
 
 interface CertificateGridCardProps {
   certificate: Certificate;
 
-  onView: (
-    certificate: Certificate
-  ) => void;
+  onView: (certificate: Certificate) => void;
 
-  onDownload: (
-    certificate: Certificate
-  ) => void;
+  onDownload: (certificate: Certificate) => void;
 
-  onVerify: (
-    certificate: Certificate
-  ) => void;
+  onVerify: (certificate: Certificate) => void;
 }
+
+const statusVariant: Record<Certificate["status"], StatusBadgeVariant> = {
+  issued: "success",
+  pending: "warning",
+  expired: "error",
+};
 
 const CertificateGridCard = ({
   certificate,
@@ -30,520 +30,98 @@ const CertificateGridCard = ({
   onDownload,
   onVerify,
 }: CertificateGridCardProps) => {
-  const statusStyles = {
-    issued:
-      "bg-green-100 text-green-700",
-
-    pending:
-      "bg-amber-100 text-amber-700",
-
-    expired:
-      "bg-red-100 text-red-700",
-  };
-
   return (
-    <div
-      className="
-        group
-
-        bg-white
-
-        border
-        border-slate-200
-
-        rounded-[32px]
-
-        overflow-hidden
-
-        hover:shadow-2xl
-        hover:-translate-y-1
-
-        transition-all
-        duration-300
-      "
-    >
-      {/* Top Gradient */}
-
-      <div
-        className="
-          h-2
-
-          bg-gradient-to-r
-          from-amber-500
-          via-orange-500
-          to-yellow-500
-        "
-      />
-
-      {/* Header */}
-
-      <div className="p-6">
-
-        <div
-          className="
-            flex
-            justify-between
-            items-start
-
-            gap-4
-          "
-        >
-          <div
-            className="
-              flex
-              items-center
-
-              gap-4
-            "
-          >
-            <img
-              src={
-                certificate.mentorImage
-              }
-              alt={
-                certificate.mentorName
-              }
-              className="
-                h-16
-                w-16
-
-                rounded-2xl
-
-                object-cover
-
-                border-2
-                border-slate-100
-              "
-            />
-
-            <div>
-              <h3
-                className="
-                  text-lg
-                  font-bold
-                "
-              >
-                {
-                  certificate.mentorName
-                }
-              </h3>
-
-              <div
-                className="
-                  flex
-                  items-center
-                  gap-2
-
-                  text-sm
-                  text-slate-500
-
-                  mt-1
-                "
-              >
-                <Building2
-                  size={14}
-                />
-
-                {
-                  certificate.mentorCompany
-                }
-              </div>
-
-              <p
-                className="
-                  text-xs
-                  text-slate-400
-
-                  mt-1
-                "
-              >
-                {
-                  certificate.mentorRole
-                }
-              </p>
-            </div>
+    <div className="rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:shadow-md">
+      {/* Title + status */}
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex min-w-0 items-start gap-2">
+          <div className="icon-bg mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg">
+            <Award className="h-4 w-4 text-primary" />
           </div>
+          <div className="min-w-0">
+            <h3 className="truncate font-semibold text-foreground">{certificate.title}</h3>
+            <p className="truncate text-xs text-muted-foreground">
+              {certificate.category} · {certificate.credentialId}
+            </p>
+          </div>
+        </div>
+        <StatusBadge variant={statusVariant[certificate.status]} className="shrink-0">
+          {certificate.status}
+        </StatusBadge>
+      </div>
 
+      {/* Mentor */}
+      <div className="mt-3 flex items-center gap-2 rounded-xl bg-secondary px-3 py-2">
+        <img
+          src={certificate.mentorImage}
+          alt={certificate.mentorName}
+          className="h-6 w-6 shrink-0 rounded-full object-cover"
+        />
+        <span className="min-w-0 flex-1 truncate text-sm font-medium text-foreground">
+          {certificate.mentorName}
+        </span>
+        <span className="shrink-0 text-xs text-muted-foreground">{certificate.mentorCompany}</span>
+      </div>
+
+      {/* Stat strip */}
+      <div className="mt-3 grid grid-cols-2 divide-x divide-border rounded-xl bg-secondary py-2 text-center">
+        <div>
+          <p className="text-xs font-bold text-foreground">{certificate.issueDate}</p>
+          <p className="text-[10px] text-muted-foreground">Issued</p>
+        </div>
+        <div>
+          <p className="text-xs font-bold text-foreground">{certificate.score ?? "—"}</p>
+          <p className="text-[10px] text-muted-foreground">Score</p>
+        </div>
+      </div>
+
+      {/* Skills */}
+      <div className="mt-3 flex flex-wrap items-center gap-1.5 text-xs">
+        {certificate.skills.slice(0, 3).map((skill) => (
           <span
-            className={`
-              px-3
-              py-1.5
-
-              rounded-full
-
-              text-xs
-              font-semibold
-
-              ${
-                statusStyles[
-                  certificate.status
-                ]
-              }
-            `}
+            key={skill}
+            className="rounded-full bg-secondary px-2.5 py-1 text-[11px] text-muted-foreground"
           >
-            {
-              certificate.status
-            }
+            {skill}
           </span>
-        </div>
+        ))}
+        {certificate.skills.length > 3 && (
+          <span className="text-[11px] text-muted-foreground">
+            +{certificate.skills.length - 3}
+          </span>
+        )}
+      </div>
 
-        {/* Certificate Badge */}
-
-        <div
-          className="
-            mt-6
-
-            bg-gradient-to-r
-            from-amber-50
-            to-orange-50
-
-            border
-            border-amber-200
-
-            rounded-3xl
-
-            p-5
-          "
+      {/* Actions */}
+      <div className="mt-3 flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => onView(certificate)}
+          className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
         >
-          <div
-            className="
-              flex
-              items-center
-              gap-3
-            "
-          >
-            <div
-              className="
-                h-12
-                w-12
+          <Eye className="h-4 w-4" />
+          View
+        </button>
 
-                rounded-2xl
-
-                bg-white
-
-                flex
-                items-center
-                justify-center
-              "
-            >
-              <Award
-                size={24}
-                className="
-                  text-amber-600
-                "
-              />
-            </div>
-
-            <div>
-              <p
-                className="
-                  text-xs
-                  text-slate-500
-                "
-              >
-                Certificate
-              </p>
-
-              <h4
-                className="
-                  font-bold
-                  text-lg
-                "
-              >
-                {
-                  certificate.title
-                }
-              </h4>
-            </div>
-          </div>
-        </div>
-
-        {/* Info */}
-
-        <div
-          className="
-            mt-6
-
-            space-y-4
-          "
+        <button
+          type="button"
+          onClick={() => onDownload(certificate)}
+          aria-label="Download certificate"
+          title="Download"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
         >
-          <div
-            className="
-              flex
-              justify-between
-            "
-          >
-            <span
-              className="
-                text-slate-500
-                text-sm
-              "
-            >
-              Category
-            </span>
+          <Download className="h-4 w-4" />
+        </button>
 
-            <span
-              className="
-                font-semibold
-              "
-            >
-              {
-                certificate.category
-              }
-            </span>
-          </div>
-
-          <div
-            className="
-              flex
-              justify-between
-            "
-          >
-            <span
-              className="
-                text-slate-500
-                text-sm
-              "
-            >
-              Issue Date
-            </span>
-
-            <span
-              className="
-                font-semibold
-              "
-            >
-              {
-                certificate.issueDate
-              }
-            </span>
-          </div>
-
-          <div
-            className="
-              flex
-              justify-between
-            "
-          >
-            <span
-              className="
-                text-slate-500
-                text-sm
-              "
-            >
-              Score
-            </span>
-
-            <span
-              className="
-                font-semibold
-                text-green-600
-              "
-            >
-              {certificate.score ||
-                "N/A"}
-            </span>
-          </div>
-        </div>
-
-        {/* Credential */}
-
-        <div
-          className="
-            mt-6
-
-            bg-slate-50
-
-            rounded-2xl
-
-            p-4
-          "
+        <button
+          type="button"
+          onClick={() => onVerify(certificate)}
+          aria-label="Verify credential"
+          title="Verify"
+          className="rounded-lg border border-border p-2 text-primary transition-colors hover:bg-[#EFF6FF]"
         >
-          <p
-            className="
-              text-xs
-              text-slate-500
-            "
-          >
-            Credential ID
-          </p>
-
-          <p
-            className="
-              font-mono
-              text-sm
-              font-semibold
-
-              mt-1
-            "
-          >
-            {
-              certificate.credentialId
-            }
-          </p>
-        </div>
-
-        {/* Skills */}
-
-        <div
-          className="
-            mt-6
-          "
-        >
-          <p
-            className="
-              text-sm
-              text-slate-500
-
-              mb-3
-            "
-          >
-            Skills Earned
-          </p>
-
-          <div
-            className="
-              flex
-              flex-wrap
-
-              gap-2
-            "
-          >
-            {certificate.skills
-              .slice(0, 4)
-              .map((skill) => (
-                <span
-                  key={skill}
-                  className="
-                    px-3
-                    py-1
-
-                    bg-blue-50
-                    text-blue-700
-
-                    rounded-full
-
-                    text-xs
-                    font-medium
-                  "
-                >
-                  {skill}
-                </span>
-              ))}
-          </div>
-        </div>
-
-        {/* Footer */}
-
-        <div
-          className="
-            mt-8
-            pt-6
-
-            border-t
-
-            space-y-3
-          "
-        >
-          <button
-            onClick={() =>
-              onView(
-                certificate
-              )
-            }
-            className="
-              w-full
-
-              border
-
-              py-3
-
-              rounded-xl
-
-              font-medium
-
-              flex
-              items-center
-              justify-center
-              gap-2
-
-              hover:bg-slate-50
-
-              transition
-            "
-          >
-            <Eye size={18} />
-            View Certificate
-          </button>
-
-          <button
-            onClick={() =>
-              onDownload(
-                certificate
-              )
-            }
-            className="
-              w-full
-
-              bg-blue-600
-              hover:bg-blue-700
-
-              text-white
-
-              py-3
-
-              rounded-xl
-
-              font-medium
-
-              flex
-              items-center
-              justify-center
-              gap-2
-
-              transition
-            "
-          >
-            <Download
-              size={18}
-            />
-            Download Certificate
-          </button>
-
-          <button
-            onClick={() =>
-              onVerify(
-                certificate
-              )
-            }
-            className="
-              w-full
-
-              bg-green-600
-              hover:bg-green-700
-
-              text-white
-
-              py-3
-
-              rounded-xl
-
-              font-medium
-
-              flex
-              items-center
-              justify-center
-              gap-2
-
-              transition
-            "
-          >
-            <BadgeCheck
-              size={18}
-            />
-            Verify Credential
-          </button>
-        </div>
+          <ShieldCheck className="h-4 w-4" />
+        </button>
       </div>
     </div>
   );
