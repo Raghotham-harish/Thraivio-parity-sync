@@ -1,13 +1,17 @@
 import { memo } from "react";
 
 import {
-  CalendarDays,
-  Clock3,
-  Building2,
-  Star,
   BadgeCheck,
+  CalendarDays,
+  Check,
+  Eye,
+  Pencil,
+  Star,
+  Trash2,
+  XCircle,
 } from "lucide-react";
 
+import { StatusBadge, type StatusBadgeVariant } from "@/components/admin-dashboard/shared/StatusBadge";
 import type { AdminEvent } from "@/types/admin-events";
 
 interface EventGridCardProps {
@@ -24,27 +28,13 @@ interface EventGridCardProps {
   onDelete: (event: AdminEvent) => void;
 }
 
-const statusClasses: Record<
-  AdminEvent["status"],
-  string
-> = {
-  draft:
-    "bg-secondary text-foreground",
-
-  published:
-    "bg-[#EFF6FF] text-[#2563EB]",
-
-  live:
-    "bg-[#FFDAD6] text-red-600",
-
-  upcoming:
-    "bg-[#FFFBEB] text-[#B45309]",
-
-  completed:
-    "bg-[#ECFDF5] text-[#065F46]",
-
-  cancelled:
-    "bg-rose-100 text-rose-700",
+const statusVariant: Record<AdminEvent["status"], StatusBadgeVariant> = {
+  draft: "neutral",
+  published: "info",
+  live: "error",
+  upcoming: "warning",
+  completed: "success",
+  cancelled: "error",
 };
 
 const EventGridCard = ({
@@ -55,807 +45,159 @@ const EventGridCard = ({
   onCancel,
   onDelete,
 }: EventGridCardProps) => {
+  const registrationPct = event.capacity
+    ? Math.round((event.registered / event.capacity) * 100)
+    : 0;
+
   return (
-    <article
-      className="
-        group
-        overflow-hidden
-        rounded-[28px]
-        border
-        bg-card
-        shadow-sm
-        transition-all
-        duration-300
-        hover:-translate-y-1
-        hover:shadow-xl
-      "
-    >
+    <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all hover:shadow-md">
       {/* Banner */}
-
-      <div className="relative h-56 overflow-hidden">
-
+      <div className="relative h-28 overflow-hidden">
         <img
           src={event.banner}
           alt={event.title}
-          className="
-            h-full
-            w-full
-            object-cover
-            transition-transform
-            duration-500
-            group-hover:scale-105
-          "
+          className="h-full w-full object-cover"
         />
-
-        <div className="absolute inset-0  from-black/70 via-black/20 to-transparent" />
-
-        {/* Top Badges */}
-
-        <div className="absolute left-5 top-5 flex flex-wrap gap-2">
-
-          <span
-            className={`
-              rounded-full
-              px-3
-              py-1
-              text-xs
-              font-semibold
-              capitalize
-              ${statusClasses[event.status]}
-            `}
-          >
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+        <div className="absolute left-2 top-2 flex flex-wrap gap-1.5">
+          <StatusBadge variant={statusVariant[event.status]}>
             {event.status}
-          </span>
-
+          </StatusBadge>
           {event.featured && (
-
-            <span
-              className="
-                rounded-full
-                bg-yellow-400
-                px-3
-                py-1
-                text-xs
-                font-semibold
-                text-foreground
-              "
-            >
-              ⭐ Featured
+            <span className="inline-flex items-center gap-1 rounded-full bg-amber-400 px-2.5 py-1 text-[11px] font-bold text-foreground">
+              <Star className="h-3 w-3 fill-current" />
+              Featured
             </span>
-
           )}
-
-          {event.published && (
-
-            <span
-              className="
-                rounded-full
-                bg-[#ECFDF5]
-                px-3
-                py-1
-                text-xs
-                font-semibold
-                text-white
-              "
-            >
-              Published
-            </span>
-
-          )}
-
         </div>
-
-        {/* Category */}
-
-        <div className="absolute bottom-5 left-5">
-
-          <span
-            className="
-              rounded-full
-              bg-card/15
-              px-4
-              py-2
-              text-sm
-              font-medium
-              text-white
-              backdrop-blur-md
-            "
-          >
-            {event.category}
-          </span>
-
-        </div>
-
+        <span className="absolute bottom-2 left-2 rounded-full bg-black/50 px-2.5 py-1 text-[11px] font-semibold text-white backdrop-blur-sm">
+          {event.category}
+        </span>
       </div>
 
-      {/* Content */}
-
-      <div className="space-y-6 p-6">
-
-        {/* Title */}
-
-        <div>
-
-          <h3
-            className="
-              line-clamp-2
-              text-2xl
-              font-bold
-              tracking-tight
-            "
-          >
-            {event.title}
-          </h3>
-
-          <p
-            className="
-              mt-3
-              line-clamp-2
-              text-sm
-              leading-6
-              text-muted-foreground
-            "
-          >
-            {event.shortDescription}
-          </p>
-
-        </div>
-
-        {/* Mentor */}
-
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-          "
-        >
-
-          <div className="flex items-center gap-3">
-
-            <img
-              src={event.mentorAvatar}
-              alt={event.mentorName}
-              className="
-                h-12
-                w-12
-                rounded-full
-                object-cover
-                ring-2
-                ring-slate-100
-              "
-            />
-
-            <div>
-
-              <h4 className="font-semibold">
-
-                {event.mentorName}
-
-              </h4>
-
-              <div
-                className="
-                  mt-1
-                  flex
-                  items-center
-                  gap-1
-                  text-sm
-                  text-muted-foreground
-                "
-              >
-
-                <Building2 className="h-4 w-4" />
-
-                {event.mentorCompany}
-
-              </div>
-
-            </div>
-
-          </div>
-
-          <BadgeCheck
-            className="
-              h-6
-              w-6
-              text-primary
-            "
+      <div className="p-4">
+        {/* Title + mentor */}
+        <h3 className="truncate font-semibold text-foreground">{event.title}</h3>
+        <div className="mt-1.5 flex items-center gap-1.5">
+          <img
+            src={event.mentorAvatar}
+            alt={event.mentorName}
+            className="h-5 w-5 shrink-0 rounded-full object-cover"
           />
-
-        </div>
-
-        {/* Date Time */}
-
-        <div
-          className="
-            grid
-            gap-4
-            sm:grid-cols-2
-          "
-        >
-
-          <div className="flex items-center gap-3">
-
-            <CalendarDays
-              className="
-                h-5
-                w-5
-                text-primary
-              "
-            />
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-                Date
-              </p>
-
-              <p className="font-medium">
-                {event.date}
-              </p>
-
-            </div>
-
-          </div>
-
-          <div className="flex items-center gap-3">
-
-            <Clock3
-              className="
-                h-5
-                w-5
-                text-primary
-              "
-            />
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-                Time
-              </p>
-
-              <p className="font-medium">
-                {event.time}
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Type */}
-
-        <div className="flex flex-wrap gap-2">
-
-          <span
-            className="
-              rounded-full
-              bg-secondary
-              px-3
-              py-1
-              text-xs
-              font-medium
-            "
-          >
-            {event.type}
+          <span className="truncate text-xs text-muted-foreground">
+            {event.mentorName} · {event.mentorCompany}
           </span>
-
-          <span
-            className="
-              rounded-full
-              bg-blue-50
-              px-3
-              py-1
-              text-xs
-              font-medium
-              text-[#2563EB]
-            "
-          >
-            {event.mode}
-          </span>
-
-          <span
-            className="
-              rounded-full
-              bg-amber-50
-              px-3
-              py-1
-              text-xs
-              font-medium
-              text-[#B45309]
-            "
-          >
-            <Star className="mr-1 inline h-3 w-3" />
-
-            {event.feedback.averageRating}
-          </span>
-
-        </div>
-                {/* Metrics */}
-
-        <div className="grid grid-cols-2 gap-4">
-
-          {/* Registered */}
-
-          <div
-            className="
-              rounded-2xl
-              border
-              bg-secondary
-              p-4
-            "
-          >
-            <p className="text-xs text-muted-foreground">
-              Registered
-            </p>
-
-            <h4 className="mt-2 text-2xl font-bold">
-              {event.registered}
-            </h4>
-
-            <p className="mt-1 text-xs text-[#0F8F65]">
-              Active Registrations
-            </p>
-          </div>
-
-          {/* Capacity */}
-
-          <div
-            className="
-              rounded-2xl
-              border
-              bg-secondary
-              p-4
-            "
-          >
-            <p className="text-xs text-muted-foreground">
-              Capacity
-            </p>
-
-            <h4 className="mt-2 text-2xl font-bold">
-              {event.capacity}
-            </h4>
-
-            <p className="mt-1 text-xs text-muted-foreground">
-              Total Seats
-            </p>
-          </div>
-
         </div>
 
-        {/* Registration Progress */}
+        {/* Meta line */}
+        <div className="mt-2 flex items-center gap-1.5 text-xs text-muted-foreground">
+          <CalendarDays className="h-3.5 w-3.5 shrink-0" />
+          <span className="truncate">
+            {event.date} · {event.time} · {event.type} · {event.mode}
+          </span>
+        </div>
 
-        <div>
-
-          <div className="mb-2 flex items-center justify-between">
-
-            <span className="text-sm font-medium">
-              Registration Progress
-            </span>
-
-            <span className="text-sm text-muted-foreground">
-
-              {Math.round(
-                (event.registered /
-                  event.capacity) *
-                  100
-              )}
-              %
-
-            </span>
-
+        {/* Stat strip */}
+        <div className="mt-3 grid grid-cols-3 divide-x divide-border rounded-xl bg-secondary py-2 text-center">
+          <div>
+            <p className="text-xs font-bold text-foreground">{event.registered}</p>
+            <p className="text-[10px] text-muted-foreground">Registered</p>
           </div>
+          <div>
+            <p className="text-xs font-bold text-foreground">{event.capacity}</p>
+            <p className="text-[10px] text-muted-foreground">Capacity</p>
+          </div>
+          <div>
+            <p className="flex items-center justify-center gap-0.5 text-xs font-bold text-foreground">
+              <Star className="h-3 w-3 fill-amber-500 text-amber-500" />
+              {event.feedback.averageRating}
+            </p>
+            <p className="text-[10px] text-muted-foreground">Rating</p>
+          </div>
+        </div>
 
-          <div
-            className="
-              h-2.5
-              overflow-hidden
-              rounded-full
-              bg-secondary
-            "
-          >
-
+        {/* Registration progress */}
+        <div className="mt-2.5 flex items-center gap-2">
+          <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-secondary">
             <div
-              className="
-                h-full
-                rounded-full
-                
-                bg-primary
-                
-                transition-all
-              "
-              style={{
-                width: `${Math.min(
-                  100,
-                  Math.round(
-                    (event.registered /
-                      event.capacity) *
-                      100
-                  )
-                )}%`,
-              }}
+              className="h-full rounded-full bg-primary"
+              style={{ width: `${Math.min(registrationPct, 100)}%` }}
             />
-
           </div>
-
+          <span className="shrink-0 text-[11px] font-semibold text-muted-foreground">
+            {registrationPct}%
+          </span>
         </div>
 
-        {/* Revenue */}
-
-        <div
-          className="
-            rounded-2xl
-            border
-            
-            bg-[#10B981]
-            
-            p-5
-          "
-        >
-
-          <div className="flex items-center justify-between">
-
-            <div>
-
-              <p className="text-sm text-muted-foreground">
-                Gross Revenue
-              </p>
-
-              <h3 className="mt-2 text-3xl font-bold text-[#065F46]">
-
-                $
-                {event.revenue.grossRevenue.toLocaleString()}
-
-              </h3>
-
-            </div>
-
-            <div
-              className="
-                rounded-2xl
-                bg-[#ECFDF5]
-                p-3
-              "
-            >
-
-              💰
-
-            </div>
-
-          </div>
-
-          <div className="mt-5 grid grid-cols-2 gap-4">
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-                Mentor Payout
-              </p>
-
-              <p className="font-semibold">
-
-                $
-                {event.revenue.mentorPayout.toLocaleString()}
-
-              </p>
-
-            </div>
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-                Platform Fee
-              </p>
-
-              <p className="font-semibold">
-
-                $
-                {event.revenue.platformFee.toLocaleString()}
-
-              </p>
-
-            </div>
-
-          </div>
-
+        {/* Revenue + certificate */}
+        <div className="mt-2.5 flex items-center justify-between text-xs">
+          <span className="font-semibold text-foreground">
+            ₹{event.revenue.grossRevenue.toLocaleString()} gross
+          </span>
+          {event.certificate.issued > 0 && (
+            <span className="inline-flex items-center gap-1 text-[#065F46]">
+              <BadgeCheck className="h-3.5 w-3.5" />
+              {event.certificate.issued} certified
+            </span>
+          )}
         </div>
 
-        {/* Analytics */}
-
-        <div
-          className="
-            grid
-            grid-cols-2
-            gap-4
-          "
-        >
-
-          <div
-            className="
-              rounded-2xl
-              border
-              p-4
-            "
-          >
-
-            <p className="text-xs text-muted-foreground">
-
-              Attendance
-
-            </p>
-
-            <h4 className="mt-2 text-xl font-bold">
-
-              {event.analytics.attendees}
-
-            </h4>
-
-            <p className="mt-1 text-xs text-[#0F8F65]">
-
-              {event.analytics.attendanceRate}% Present
-
-            </p>
-
-          </div>
-
-          <div
-            className="
-              rounded-2xl
-              border
-              p-4
-            "
-          >
-
-            <p className="text-xs text-muted-foreground">
-
-              Certificates
-
-            </p>
-
-            <h4 className="mt-2 text-xl font-bold">
-
-              {event.certificate.issued}
-
-            </h4>
-
-            <p className="mt-1 text-xs text-primary">
-
-              Generated
-
-            </p>
-
-          </div>
-
-        </div>
-
-        {/* Quick Analytics */}
-
-        <div
-          className="
-            rounded-2xl
-            border
-            bg-secondary
-            p-5
-          "
-        >
-
-          <h4 className="font-semibold">
-
-            Performance
-
-          </h4>
-
-          <div className="mt-4 grid grid-cols-3 gap-4">
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-
-                Views
-
-              </p>
-
-              <h5 className="mt-1 font-bold">
-
-                {event.analytics.views}
-
-              </h5>
-
-            </div>
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-
-                Completion
-
-              </p>
-
-              <h5 className="mt-1 font-bold">
-
-                {event.analytics.completionRate}%
-
-              </h5>
-
-            </div>
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-
-                Reviews
-
-              </p>
-
-              <h5 className="mt-1 font-bold">
-
-                {event.feedback.totalReviews}
-
-              </h5>
-
-            </div>
-
-          </div>
-
-        </div>
-                {/* Action Buttons */}
-
-        <div className="grid grid-cols-2 gap-3">
-
+        {/* Actions */}
+        <div className="mt-3 flex items-center gap-2">
           <button
+            type="button"
             onClick={() => onView(event)}
-            className="
-              rounded-2xl
-              border
-              bg-card
-              px-4
-              py-3
-              text-sm
-              font-semibold
-              transition-all
-              hover:border-blue-500
-              hover:bg-blue-50
-              hover:text-[#2563EB]
-            "
+            className="inline-flex flex-1 items-center justify-center gap-1.5 rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
           >
-            👁 View Details
+            <Eye className="h-4 w-4" />
+            View
           </button>
 
           <button
+            type="button"
             onClick={() => onEdit(event)}
-            className="
-              rounded-2xl
-              border
-              bg-card
-              px-4
-              py-3
-              text-sm
-              font-semibold
-              transition-all
-              hover:border-amber-500
-              hover:bg-amber-50
-              hover:text-[#B45309]
-            "
+            aria-label="Edit event"
+            title="Edit"
+            className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
           >
-            ✏ Edit Event
+            <Pencil className="h-4 w-4" />
           </button>
-
-        </div>
-
-        <div className="grid grid-cols-2 gap-3">
 
           {event.published ? (
-
             <button
+              type="button"
               onClick={() => onCancel(event)}
-              className="
-                rounded-2xl
-                bg-rose-600
-                px-4
-                py-3
-                text-sm
-                font-semibold
-                text-white
-                transition-all
-                hover:bg-rose-700
-              "
+              disabled={event.status === "cancelled"}
+              aria-label="Cancel event"
+              title="Cancel"
+              className="rounded-lg border border-border p-2 text-[#B45309] transition-colors hover:bg-[#FFFBEB] disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Cancel Event
+              <XCircle className="h-4 w-4" />
             </button>
-
           ) : (
-
             <button
+              type="button"
               onClick={() => onPublish(event)}
-              className="
-                rounded-2xl
-                bg-[#10B981]
-                px-4
-                py-3
-                text-sm
-                font-semibold
-                text-white
-                transition-all
-                hover:bg-[#0da271]
-              "
+              aria-label="Publish event"
+              title="Publish"
+              className="rounded-lg border border-border p-2 text-[#065F46] transition-colors hover:bg-[#ECFDF5]"
             >
-              Publish Event
+              <Check className="h-4 w-4" />
             </button>
-
           )}
 
           <button
+            type="button"
             onClick={() => onDelete(event)}
-            className="
-              rounded-2xl
-              bg-slate-900
-              px-4
-              py-3
-              text-sm
-              font-semibold
-              text-white
-              transition-all
-              hover:bg-black
-            "
+            aria-label="Delete event"
+            title="Delete"
+            className="rounded-lg border border-border p-2 text-red-600 transition-colors hover:bg-[#FFDAD6]"
           >
-            Delete
+            <Trash2 className="h-4 w-4" />
           </button>
-
         </div>
-
-        {/* Footer */}
-
-        <div
-          className="
-            flex
-            items-center
-            justify-between
-            rounded-2xl
-            border-t
-            pt-5
-          "
-        >
-
-          <div>
-
-            <p className="text-xs text-muted-foreground">
-
-              Created
-
-            </p>
-
-            <p className="font-medium">
-
-              {event.createdAt}
-
-            </p>
-
-          </div>
-
-          <div className="text-right">
-
-            <p className="text-xs text-muted-foreground">
-
-              Updated
-
-            </p>
-
-            <p className="font-medium">
-
-              {event.updatedAt}
-
-            </p>
-
-          </div>
-
-        </div>
-
       </div>
-
-    </article>
-
+    </div>
   );
 };
 

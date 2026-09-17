@@ -2,12 +2,15 @@ import { memo } from "react";
 
 import {
   BadgeCheck,
-  Building2,
-  CalendarDays,
-  Clock3,
+  Check,
+  Eye,
+  Pencil,
   Star,
+  Trash2,
+  XCircle,
 } from "lucide-react";
 
+import { StatusBadge, type StatusBadgeVariant } from "@/components/admin-dashboard/shared/StatusBadge";
 import type { AdminEvent } from "@/types/admin-events";
 
 interface EventListRowProps {
@@ -24,27 +27,13 @@ interface EventListRowProps {
   onDelete: (event: AdminEvent) => void;
 }
 
-const statusClasses: Record<
-  AdminEvent["status"],
-  string
-> = {
-  draft:
-    "bg-secondary text-foreground",
-
-  published:
-    "bg-[#EFF6FF] text-[#2563EB]",
-
-  live:
-    "bg-[#FFDAD6] text-red-600",
-
-  upcoming:
-    "bg-[#FFFBEB] text-[#B45309]",
-
-  completed:
-    "bg-[#ECFDF5] text-[#065F46]",
-
-  cancelled:
-    "bg-rose-100 text-rose-700",
+const statusVariant: Record<AdminEvent["status"], StatusBadgeVariant> = {
+  draft: "neutral",
+  published: "info",
+  live: "error",
+  upcoming: "warning",
+  completed: "success",
+  cancelled: "error",
 };
 
 const EventListRow = ({
@@ -55,618 +44,163 @@ const EventListRow = ({
   onCancel,
   onDelete,
 }: EventListRowProps) => {
+  const registrationPct = event.capacity
+    ? Math.round((event.registered / event.capacity) * 100)
+    : 0;
+
   return (
-    <tr className="border-b transition hover:bg-secondary">
-
+    <tr className="border-b border-border transition-colors hover:bg-secondary/40">
       {/* Event */}
-
-      <td className="px-5 py-5">
-
-        <div className="flex gap-5">
-
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-3">
           <img
             src={event.banner}
             alt={event.title}
-            className="
-              h-24
-              w-36
-              rounded-2xl
-              object-cover
-              shadow-sm
-            "
+            className="h-10 w-14 shrink-0 rounded-lg object-cover"
           />
-
-          <div className="min-w-[280px]">
-
-            <div className="flex flex-wrap gap-2">
-
-              <span
-                className={`
-                  rounded-full
-                  px-3
-                  py-1
-                  text-xs
-                  font-semibold
-                  capitalize
-                  ${statusClasses[event.status]}
-                `}
-              >
-                {event.status}
-              </span>
-
+          <div className="min-w-0">
+            <div className="flex items-center gap-1.5">
+              <h3 className="max-w-[220px] truncate text-sm font-semibold text-foreground">
+                {event.title}
+              </h3>
               {event.featured && (
-
-                <span
-                  className="
-                    rounded-full
-                    bg-yellow-100
-                    px-3
-                    py-1
-                    text-xs
-                    font-semibold
-                    text-yellow-700
-                  "
-                >
-                  ⭐ Featured
-                </span>
-
+                <Star className="h-3.5 w-3.5 shrink-0 fill-amber-400 text-amber-400" />
               )}
-
-              {event.published && (
-
-                <span
-                  className="
-                    rounded-full
-                    bg-[#ECFDF5]
-                    px-3
-                    py-1
-                    text-xs
-                    font-semibold
-                    text-[#065F46]
-                  "
-                >
-                  Published
-                </span>
-
-              )}
-
             </div>
-
-            <h3 className="mt-4 text-xl font-bold">
-
-              {event.title}
-
-            </h3>
-
-            <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
-
-              {event.shortDescription}
-
-            </p>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-
-              <span className="rounded-full bg-secondary px-3 py-1 text-xs font-medium">
-                {event.category}
+            <div className="mt-0.5 flex items-center gap-1.5">
+              <StatusBadge variant={statusVariant[event.status]}>
+                {event.status}
+              </StatusBadge>
+              <span className="text-xs text-muted-foreground">
+                {event.type} · {event.mode}
               </span>
-
-              <span className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-[#2563EB]">
-                {event.type}
-              </span>
-
-              <span className="rounded-full bg-[#EFF6FF] px-3 py-1 text-xs font-medium text-[#2563EB]">
-                {event.mode}
-              </span>
-
             </div>
-
           </div>
-
         </div>
-
       </td>
 
       {/* Mentor */}
-
-      <td className="px-5 py-5">
-
-        <div className="flex items-center gap-4">
-
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-2">
           <img
             src={event.mentorAvatar}
             alt={event.mentorName}
-            className="
-              h-14
-              w-14
-              rounded-full
-              object-cover
-            "
+            className="h-8 w-8 shrink-0 rounded-full object-cover"
           />
-
-          <div>
-
-            <div className="flex items-center gap-2">
-
-              <h4 className="font-semibold">
-
-                {event.mentorName}
-
-              </h4>
-
-              <BadgeCheck
-                className="
-                  h-4
-                  w-4
-                  text-primary
-                "
-              />
-
-            </div>
-
-            <div className="mt-2 flex items-center gap-2 text-sm text-muted-foreground">
-
-              <Building2 className="h-4 w-4" />
-
-              {event.mentorCompany}
-
-            </div>
-
-            <p className="mt-2 text-xs text-muted-foreground">
-
-              {event.mentorCategory}
-
+          <div className="min-w-0">
+            <p className="max-w-[9rem] truncate text-sm font-medium text-foreground">
+              {event.mentorName}
             </p>
-
+            <p className="max-w-[9rem] truncate text-xs text-muted-foreground">
+              {event.mentorCompany}
+            </p>
           </div>
-
         </div>
-
       </td>
 
-      {/* Date */}
-
-      <td className="px-5 py-5">
-
-        <div className="space-y-4">
-
-          <div className="flex items-center gap-3">
-
-            <CalendarDays
-              className="
-                h-5
-                w-5
-                text-primary
-              "
-            />
-
-            <div>
-
-              <p className="font-medium">
-
-                {event.date}
-
-              </p>
-
-              <p className="text-xs text-muted-foreground">
-
-                {event.weekday}
-
-              </p>
-
-            </div>
-
-          </div>
-
-          <div className="flex items-center gap-3">
-
-            <Clock3
-              className="
-                h-5
-                w-5
-                text-primary
-              "
-            />
-
-            <div>
-
-              <p className="font-medium">
-
-                {event.time}
-
-              </p>
-
-              <p className="text-xs text-muted-foreground">
-
-                {event.duration}
-
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
+      {/* Schedule */}
+      <td className="px-4 py-3 text-sm">
+        <p className="font-semibold text-foreground">{event.date}</p>
+        <p className="text-xs text-muted-foreground">{event.time}</p>
       </td>
 
       {/* Rating */}
-
-      <td className="px-5 py-5">
-
-        <div className="flex items-center gap-2">
-
-          <Star
-            className="
-              h-4
-              w-4
-              fill-yellow-400
-              text-yellow-400
-            "
-          />
-
-          <span className="font-semibold">
-
-            {event.feedback.averageRating}
-
-          </span>
-
-        </div>
-
-        <p className="mt-2 text-xs text-muted-foreground">
-
-          {event.feedback.totalReviews} Reviews
-
+      <td className="px-4 py-3 text-sm">
+        <p className="flex items-center gap-1 font-semibold text-foreground">
+          <Star className="h-3.5 w-3.5 fill-amber-500 text-amber-500" />
+          {event.feedback.averageRating}
         </p>
-        </td>
-              {/* Registration */}
+        <p className="text-xs text-muted-foreground">
+          {event.feedback.totalReviews} reviews
+        </p>
+      </td>
 
-      <td className="px-5 py-5">
-
-        <div className="min-w-[220px]">
-
-          <div className="flex items-center justify-between">
-
-            <span className="text-sm font-medium">
-              Registered
-            </span>
-
-            <span className="font-bold">
-              {event.registered}/{event.capacity}
-            </span>
-
-          </div>
-
-          <div className="mt-3 h-2 overflow-hidden rounded-full bg-secondary">
-
-            <div
-              className="
-                h-full
-                rounded-full
-                
-                bg-primary
-                
-              "
-              style={{
-                width: `${Math.min(
-                  100,
-                  (event.registered / event.capacity) * 100
-                )}%`,
-              }}
-            />
-
-          </div>
-
-          <div className="mt-3 flex justify-between text-xs text-muted-foreground">
-
-            <span>
-              {event.registered} Registered
-            </span>
-
-            <span>
-              {event.seatsLeft} Seats Left
-            </span>
-
-          </div>
-
+      {/* Registration */}
+      <td className="px-4 py-3 text-sm">
+        <p className="font-semibold text-foreground">
+          {event.registered}/{event.capacity}
+        </p>
+        <div className="mt-1 h-1.5 w-20 overflow-hidden rounded-full bg-secondary">
+          <div
+            className="h-full rounded-full bg-primary"
+            style={{ width: `${Math.min(registrationPct, 100)}%` }}
+          />
         </div>
-
       </td>
 
       {/* Revenue */}
-
-      <td className="px-5 py-5">
-
-        <div className="min-w-[220px] space-y-3">
-
-          <div>
-
-            <p className="text-xs text-muted-foreground">
-              Gross Revenue
-            </p>
-
-            <h4 className="mt-1 text-xl font-bold text-[#065F46]">
-              ${event.revenue.grossRevenue.toLocaleString()}
-            </h4>
-
-          </div>
-
-          <div className="grid grid-cols-2 gap-3">
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-                Platform
-              </p>
-
-              <p className="font-medium">
-                ${event.revenue.platformFee.toLocaleString()}
-              </p>
-
-            </div>
-
-            <div>
-
-              <p className="text-xs text-muted-foreground">
-                Mentor
-              </p>
-
-              <p className="font-medium">
-                ${event.revenue.mentorPayout.toLocaleString()}
-              </p>
-
-            </div>
-
-          </div>
-
-        </div>
-
+      <td className="px-4 py-3 text-sm">
+        <p className="font-semibold text-foreground">
+          ₹{event.revenue.grossRevenue.toLocaleString()}
+        </p>
+        <p className="text-xs text-muted-foreground">gross</p>
       </td>
 
       {/* Analytics */}
-
-      <td className="px-5 py-5">
-
-        <div className="min-w-[240px] grid grid-cols-2 gap-4">
-
-          <div
-            className="
-              rounded-xl
-              border
-              bg-secondary
-              p-3
-            "
-          >
-
-            <p className="text-xs text-muted-foreground">
-              Attendance
-            </p>
-
-            <h5 className="mt-2 text-lg font-bold">
-              {event.analytics.attendees}
-            </h5>
-
-            <p className="text-xs text-[#0F8F65]">
-              {event.analytics.attendanceRate}% Present
-            </p>
-
-          </div>
-
-          <div
-            className="
-              rounded-xl
-              border
-              bg-secondary
-              p-3
-            "
-          >
-
-            <p className="text-xs text-muted-foreground">
-              Certificates
-            </p>
-
-            <h5 className="mt-2 text-lg font-bold">
-              {event.certificate.issued}
-            </h5>
-
-            <p className="text-xs text-primary">
-              Issued
-            </p>
-
-          </div>
-
-        </div>
-
-        <div className="mt-4 grid grid-cols-3 gap-3 text-center">
-
-          <div>
-
-            <p className="text-xs text-muted-foreground">
-              Views
-            </p>
-
-            <p className="font-semibold">
-              {event.analytics.views}
-            </p>
-
-          </div>
-
-          <div>
-
-            <p className="text-xs text-muted-foreground">
-              Completion
-            </p>
-
-            <p className="font-semibold">
-              {event.analytics.completionRate}%
-            </p>
-
-          </div>
-
-          <div>
-
-            <p className="text-xs text-muted-foreground">
-              Rating
-            </p>
-
-            <p className="font-semibold">
-              {event.feedback.averageRating}
-            </p>
-
-          </div>
-
-        </div>
-
+      <td className="px-4 py-3 text-sm">
+        <p className="text-foreground">{event.analytics.attendanceRate}% attend</p>
+        {event.certificate.issued > 0 && (
+          <p className="flex items-center gap-1 text-xs text-[#065F46]">
+            <BadgeCheck className="h-3.5 w-3.5" />
+            {event.certificate.issued} certified
+          </p>
+        )}
       </td>
-            {/* Actions */}
 
-      <td className="px-5 py-5">
-
-        <div className="flex min-w-[220px] flex-wrap gap-2">
-
+      {/* Actions */}
+      <td className="px-4 py-3">
+        <div className="flex items-center gap-1">
           <button
+            type="button"
             onClick={() => onView(event)}
-            className="
-              rounded-xl
-              border
-              bg-card
-              px-3
-              py-2
-              text-xs
-              font-semibold
-              transition-all
-              hover:border-blue-500
-              hover:bg-blue-50
-              hover:text-[#2563EB]
-            "
+            aria-label="View event"
+            title="View"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
           >
-            👁 View
+            <Eye className="h-4 w-4" />
           </button>
-
           <button
+            type="button"
             onClick={() => onEdit(event)}
-            className="
-              rounded-xl
-              border
-              bg-card
-              px-3
-              py-2
-              text-xs
-              font-semibold
-              transition-all
-              hover:border-amber-500
-              hover:bg-amber-50
-              hover:text-[#B45309]
-            "
+            aria-label="Edit event"
+            title="Edit"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
           >
-            ✏ Edit
+            <Pencil className="h-4 w-4" />
           </button>
-
           {event.published ? (
-
             <button
+              type="button"
               onClick={() => onCancel(event)}
-              className="
-                rounded-xl
-                bg-rose-600
-                px-3
-                py-2
-                text-xs
-                font-semibold
-                text-white
-                transition-all
-                hover:bg-rose-700
-              "
+              disabled={event.status === "cancelled"}
+              aria-label="Cancel event"
+              title="Cancel"
+              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFFBEB] hover:text-[#B45309] disabled:cursor-not-allowed disabled:opacity-40"
             >
-              Cancel
+              <XCircle className="h-4 w-4" />
             </button>
-
           ) : (
-
             <button
+              type="button"
               onClick={() => onPublish(event)}
-              className="
-                rounded-xl
-                bg-[#10B981]
-                px-3
-                py-2
-                text-xs
-                font-semibold
-                text-white
-                transition-all
-                hover:bg-[#0da271]
-              "
+              aria-label="Publish event"
+              title="Publish"
+              className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#ECFDF5] hover:text-[#065F46]"
             >
-              Publish
+              <Check className="h-4 w-4" />
             </button>
-
           )}
-
           <button
+            type="button"
             onClick={() => onDelete(event)}
-            className="
-              rounded-xl
-              bg-slate-900
-              px-3
-              py-2
-              text-xs
-              font-semibold
-              text-white
-              transition-all
-              hover:bg-black
-            "
+            aria-label="Delete event"
+            title="Delete"
+            className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
           >
-            Delete
+            <Trash2 className="h-4 w-4" />
           </button>
-
         </div>
-
-        <div
-          className="
-            mt-5
-            rounded-xl
-            border
-            bg-secondary
-            p-3
-            text-xs
-          "
-        >
-
-          <div className="flex justify-between">
-
-            <span className="text-muted-foreground">
-
-              Created
-
-            </span>
-
-            <span className="font-medium">
-
-              {event.createdAt}
-
-            </span>
-
-          </div>
-
-          <div className="mt-2 flex justify-between">
-
-            <span className="text-muted-foreground">
-
-              Updated
-
-            </span>
-
-            <span className="font-medium">
-
-              {event.updatedAt}
-
-            </span>
-
-          </div>
-
-        </div>
-
       </td>
-
     </tr>
   );
 };

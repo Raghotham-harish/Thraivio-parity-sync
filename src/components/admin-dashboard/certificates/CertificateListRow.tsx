@@ -1,75 +1,47 @@
 import { memo } from "react";
 
 import {
-  Award,
-  BadgeCheck,
-  Building2,
-  User2,
-  MoreVertical,
-  ShieldCheck,
-  Eye,
+  Ban,
   Download,
+  Eye,
+  Pencil,
+  ShieldCheck,
+  Trash2,
 } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
-
-import type {
-  AdminCertificate,
-} from "@/types/admin-certificate";
+import { StatusBadge, type StatusBadgeVariant } from "@/components/admin-dashboard/shared/StatusBadge";
+import type { AdminCertificate } from "@/types/admin-certificate";
 
 interface CertificateListRowProps {
   certificate: AdminCertificate;
 
-  onView: (
-    certificate: AdminCertificate
-  ) => void;
+  onView: (certificate: AdminCertificate) => void;
 
-  onEdit: (
-    certificate: AdminCertificate
-  ) => void;
+  onEdit: (certificate: AdminCertificate) => void;
 
-  onDelete: (
-    certificate: AdminCertificate
-  ) => void;
+  onDelete: (certificate: AdminCertificate) => void;
 
-  onVerify: (
-    certificate: AdminCertificate
-  ) => void;
+  onVerify: (certificate: AdminCertificate) => void;
 
-  onRevoke: (
-    certificate: AdminCertificate
-  ) => void;
+  onRevoke: (certificate: AdminCertificate) => void;
 
-  onDownload: (
-    certificate: AdminCertificate
-  ) => void;
+  onDownload: (certificate: AdminCertificate) => void;
 }
 
-const statusStyles = {
-  issued:
-    "bg-[#ECFDF5] text-[#065F46]",
-
-  pending:
-    "bg-[#FFFBEB] text-[#B45309]",
-
-  revoked:
-    "bg-[#FFDAD6] text-[#BA1A1A]",
-
-  expired:
-    "bg-secondary text-foreground",
+const statusVariant: Record<AdminCertificate["status"], StatusBadgeVariant> = {
+  issued: "success",
+  pending: "warning",
+  revoked: "error",
+  expired: "neutral",
 };
 
-const verificationStyles = {
-  verified:
-    "bg-[#EFF6FF] text-[#2563EB]",
-
-  unverified:
-    "bg-orange-100 text-orange-700",
+const verificationVariant: Record<AdminCertificate["verificationStatus"], StatusBadgeVariant> = {
+  verified: "info",
+  unverified: "warning",
 };
 
 const CertificateListRow = ({
   certificate,
-
   onView,
   onEdit,
   onDelete,
@@ -78,671 +50,117 @@ const CertificateListRow = ({
   onDownload,
 }: CertificateListRowProps) => {
   return (
-    <article
-      className="
-        rounded-2xl
-        border
-        bg-card
-        p-6
-        shadow-sm
-        transition-all
-        duration-300
-        hover:shadow-xl
-      "
-    >
-      <div
-        className="
-          flex
-          flex-col
-          gap-8
-
-          2xl:flex-row
-          2xl:items-start
-          2xl:justify-between
-        "
-      >
-        {/* Left */}
-
-        <div className="flex-1">
-
-          {/* Header */}
-
-          <div className="flex items-start justify-between">
-
-            <div className="flex items-center gap-5">
-
-              <div
-                className="
-                  flex
-                  h-20
-                  w-20
-                  items-center
-                  justify-center
-                  rounded-2xl
-                  
-                  bg-[#F59E0B]
-                  
-                "
-              >
-                <Award
-                  className="
-                    h-10
-                    w-10
-                    text-amber-600
-                  "
-                />
-              </div>
-
-              <div>
-
-                <h2
-                  className="
-                    text-2xl
-                    font-bold
-                  "
-                >
-                  {certificate.title}
-                </h2>
-
-                <div
-                  className="
-                    mt-3
-                    flex
-                    flex-wrap
-                    gap-2
-                  "
-                >
-                  <span
-                    className={`
-                      rounded-full
-                      px-3
-                      py-1
-                      text-xs
-                      font-semibold
-                      ${
-                        statusStyles[
-                          certificate.status
-                        ]
-                      }
-                    `}
-                  >
-                    {certificate.status}
-                  </span>
-
-                  <span
-                    className={`
-                      rounded-full
-                      px-3
-                      py-1
-                      text-xs
-                      font-semibold
-                      ${
-                        verificationStyles[
-                          certificate
-                            .verificationStatus
-                        ]
-                      }
-                    `}
-                  >
-                    {
-                      certificate.verificationStatus
-                    }
-                  </span>
-
-                  <span
-                    className="
-                      rounded-full
-                      bg-secondary
-                      px-3
-                      py-1
-                      text-xs
-                      font-medium
-                    "
-                  >
-                    {certificate.category}
-                  </span>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-xl"
-            >
-              <MoreVertical
-                className="
-                  h-5
-                  w-5
-                "
-              />
-            </Button>
-
-          </div>
-
-          {/* Student + Mentor */}
-
-          <div
-            className="
-              mt-8
-              grid
-              gap-5
-              lg:grid-cols-2
-            "
-          >
-            {/* Student */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                bg-secondary
-                p-5
-              "
-            >
-              <div className="flex items-center gap-4">
-
-                <img
-                  src={certificate.studentImage}
-                  alt={certificate.studentName}
-                  className="
-                    h-16
-                    w-16
-                    rounded-2xl
-                    object-cover
-                  "
-                />
-
-                <div>
-
-                  <div className="flex items-center gap-2">
-
-                    <User2 className="h-4 w-4 text-muted-foreground" />
-
-                    <span className="text-xs text-muted-foreground">
-                      Student
-                    </span>
-
-                  </div>
-
-                  <h3 className="mt-2 font-bold">
-                    {certificate.studentName}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground">
-                    {certificate.studentEmail}
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Mentor */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                p-5
-              "
-            >
-              <div className="flex items-center gap-4">
-
-                <img
-                  src={certificate.mentorImage}
-                  alt={certificate.mentorName}
-                  className="
-                    h-16
-                    w-16
-                    rounded-2xl
-                    object-cover
-                  "
-                />
-
-                <div>
-
-                  <div className="flex items-center gap-2">
-
-                    <Building2 className="h-4 w-4 text-muted-foreground" />
-
-                    <span className="text-xs text-muted-foreground">
-                      Mentor
-                    </span>
-
-                  </div>
-
-                  <h3 className="mt-2 font-bold">
-                    {certificate.mentorName}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground">
-                    {certificate.mentorRole}
-                  </p>
-
-                  <p className="text-xs text-muted-foreground">
-                    {certificate.mentorCompany}
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-                    {/* Certificate Details */}
-
-          <div
-            className="
-              mt-8
-
-              grid
-
-              gap-5
-
-              md:grid-cols-2
-              xl:grid-cols-4
-            "
-          >
-            {/* Certificate Number */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                bg-secondary
-                p-5
-              "
-            >
-              <p className="text-xs text-muted-foreground">
-                Certificate Number
-              </p>
-
-              <p
-                className="
-                  mt-2
-                  break-all
-                  text-sm
-                  font-bold
-                "
-              >
-                {certificate.certificateNumber}
-              </p>
-            </div>
-
-            {/* Credential */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                bg-secondary
-                p-5
-              "
-            >
-              <p className="text-xs text-muted-foreground">
-                Credential ID
-              </p>
-
-              <p
-                className="
-                  mt-2
-                  break-all
-                  text-sm
-                  font-bold
-                "
-              >
-                {certificate.credentialId}
-              </p>
-            </div>
-
-            {/* Issue Date */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                bg-secondary
-                p-5
-              "
-            >
-              <p className="text-xs text-muted-foreground">
-                Issue Date
-              </p>
-
-              <p
-                className="
-                  mt-2
-                  font-semibold
-                "
-              >
-                {certificate.issueDate}
-              </p>
-            </div>
-
-            {/* Score */}
-
-            <div
-              className="
-                rounded-2xl
-                border
-                bg-secondary
-                p-5
-              "
-            >
-              <p className="text-xs text-muted-foreground">
-                Score
-              </p>
-
-              <p
-                className="
-                  mt-2
-                  text-lg
-                  font-bold
-                  text-[#0F8F65]
-                "
-              >
-                {certificate.score ?? "--"}
-              </p>
-            </div>
-
-          </div>
-
-          {/* Skills */}
-
-          <div className="mt-8">
-
-            <h4
-              className="
-                text-sm
-                font-semibold
-              "
-            >
-              Skills Earned
-            </h4>
-
-            <div
-              className="
-                mt-4
-                flex
-                flex-wrap
-                gap-2
-              "
-            >
-              {certificate.skills.map(
-                (skill) => (
-                  <span
-                    key={skill}
-                    className="
-                      rounded-full
-                      bg-blue-50
-                      px-3
-                      py-1
-                      text-xs
-                      font-medium
-                      text-[#2563EB]
-                    "
-                  >
-                    {skill}
-                  </span>
-                )
-              )}
-            </div>
-
-          </div>
-
-        </div>
-
-        {/* Right Sidebar */}
-
-        <aside
-          className="
-            w-full
-
-            xl:w-[330px]
-
-            shrink-0
-          "
-        >
-          {/* Analytics */}
-
-          <div
-            className="
-              rounded-2xl
-              border
-              bg-secondary
-              p-6
-            "
-          >
-            <h3
-              className="
-                text-lg
-                font-bold
-              "
-            >
-              Analytics
-            </h3>
-
-            <div
-              className="
-                mt-6
-                grid
-                grid-cols-2
-                gap-4
-              "
-            >
-              <div
-                className="
-                  rounded-2xl
-                  bg-card
-                  p-5
-                  text-center
-                "
-              >
-                <p className="text-3xl font-bold">
-                  {certificate.viewCount}
-                </p>
-
-                <p className="mt-2 text-xs text-muted-foreground">
-                  Views
-                </p>
-              </div>
-
-              <div
-                className="
-                  rounded-2xl
-                  bg-card
-                  p-5
-                  text-center
-                "
-              >
-                <p className="text-3xl font-bold">
-                  {certificate.downloadCount}
-                </p>
-
-                <p className="mt-2 text-xs text-muted-foreground">
-                  Downloads
-                </p>
-              </div>
-
-            </div>
-
-          </div>
-                    {/* Verification */}
-
-          <div
-            className="
-              mt-6
-
-              rounded-2xl
-
-              border
-
-              bg-[#ECFDF5]
-
-              p-6
-            "
-          >
-            <div
-              className="
-                flex
-                items-center
-                justify-between
-              "
-            >
-              <div>
-
-                <div className="flex items-center gap-2">
-
-                  <ShieldCheck
-                    className="
-                      h-5
-                      w-5
-                      text-[#0F8F65]
-                    "
-                  />
-
-                  <span className="font-semibold">
-                    Verification
-                  </span>
-
-                </div>
-
-                <p
-                  className="
-                    mt-2
-                    text-sm
-                    text-muted-foreground
-                  "
-                >
-                  Public QR verification enabled
-                </p>
-
-              </div>
-
-              <div
-                className="
-                  flex
-                  h-24
-                  w-24
-                  items-center
-                  justify-center
-                  rounded-2xl
-                  border-2
-                  border-dashed
-                  bg-card
-                  text-xs
-                  font-semibold
-                "
-              >
-                QR
-              </div>
-
-            </div>
-
-          </div>
-
-          {/* Actions */}
-
-          <div
-            className="
-              mt-6
-
-              grid
-
-              gap-3
-            "
-          >
-            <Button
-              variant="outline"
-              onClick={() =>
-                onView(
-                  certificate
-                )
-              }
-            >
-              <Eye className="mr-2 h-4 w-4" />
-
-              View Certificate
-
-            </Button>
-
-            <Button
-              variant="outline"
-              onClick={() =>
-                onEdit(
-                  certificate
-                )
-              }
-            >
-              Edit Certificate
-            </Button>
-
-            <Button
-              onClick={() =>
-                onVerify(
-                  certificate
-                )
-              }
-            >
-              <BadgeCheck className="mr-2 h-4 w-4" />
-
-              Verify Certificate
-
-            </Button>
-
-            <Button
-              variant="secondary"
-              onClick={() =>
-                onDownload(
-                  certificate
-                )
-              }
-            >
-              <Download className="mr-2 h-4 w-4" />
-
-              Download PDF
-
-            </Button>
-
-            <Button
-              variant="destructive"
-              onClick={() =>
-                onRevoke(
-                  certificate
-                )
-              }
-            >
-              Revoke Certificate
-            </Button>
-
-            <Button
-              variant="destructive"
-              onClick={() =>
-                onDelete(
-                  certificate
-                )
-              }
-            >
-              Delete Certificate
-            </Button>
-
-          </div>
-
-        </aside>
-
+    <div className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition-colors hover:bg-secondary/40">
+      {/* Identity */}
+      <img
+        src={certificate.studentImage}
+        alt={certificate.studentName}
+        className="h-10 w-10 shrink-0 rounded-full object-cover"
+      />
+      <div className="min-w-0 flex-1">
+        <h3 className="truncate text-sm font-semibold text-foreground">
+          {certificate.title}
+        </h3>
+        <p className="truncate text-xs text-muted-foreground">
+          {certificate.studentName} · {certificate.certificateNumber}
+        </p>
       </div>
 
-    </article>
+      {/* Mentor */}
+      <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
+        <img
+          src={certificate.mentorImage}
+          alt={certificate.mentorName}
+          className="h-7 w-7 rounded-full object-cover"
+        />
+        <span className="max-w-[8rem] truncate text-xs text-muted-foreground">
+          {certificate.mentorName}
+        </span>
+      </div>
 
+      {/* Issue date + score */}
+      <div className="hidden shrink-0 text-center text-xs text-muted-foreground lg:block">
+        <p className="font-semibold text-foreground">{certificate.issueDate}</p>
+        {certificate.score ?? "—"}
+      </div>
+
+      {/* Downloads */}
+      <div className="hidden w-16 shrink-0 text-right text-xs xl:block">
+        <span className="font-semibold text-foreground">{certificate.downloadCount}</span>
+        <p className="text-muted-foreground">downloads</p>
+      </div>
+
+      {/* Verification */}
+      <StatusBadge variant={verificationVariant[certificate.verificationStatus]} className="hidden shrink-0 sm:inline-flex">
+        {certificate.verificationStatus}
+      </StatusBadge>
+
+      {/* Status */}
+      <StatusBadge variant={statusVariant[certificate.status]} className="shrink-0">
+        {certificate.status}
+      </StatusBadge>
+
+      {/* Actions */}
+      <div className="flex shrink-0 items-center gap-1.5">
+        <button
+          type="button"
+          onClick={() => onView(certificate)}
+          aria-label="View certificate"
+          title="View"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
+        >
+          <Eye className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onDownload(certificate)}
+          aria-label="Download certificate"
+          title="Download"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        >
+          <Download className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onEdit(certificate)}
+          aria-label="Edit certificate"
+          title="Edit"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        >
+          <Pencil className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onVerify(certificate)}
+          disabled={certificate.verificationStatus === "verified"}
+          aria-label="Verify certificate"
+          title="Verify"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#EFF6FF] hover:text-primary disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <ShieldCheck className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onRevoke(certificate)}
+          disabled={certificate.status === "revoked"}
+          aria-label="Revoke certificate"
+          title="Revoke"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFFBEB] hover:text-[#B45309] disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <Ban className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onDelete(certificate)}
+          aria-label="Delete certificate"
+          title="Delete"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
+        >
+          <Trash2 className="h-4 w-4" />
+        </button>
+      </div>
+    </div>
   );
 };
 
-export default memo(
-  CertificateListRow
-);
+export default memo(CertificateListRow);

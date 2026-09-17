@@ -1,14 +1,14 @@
 import {
+  ArrowRight,
   BadgeCheck,
-  Building2,
-  CalendarDays,
-  Clock3,
-  GraduationCap,
-  IndianRupee,
-  MonitorPlay,
-  UserRound,
+  Check,
+  Eye,
+  Pencil,
+  Trash2,
+  XCircle,
 } from "lucide-react";
 
+import { StatusBadge, type StatusBadgeVariant } from "@/components/admin-dashboard/shared/StatusBadge";
 import type { AdminSession } from "@/types/admin-session";
 
 interface SessionListRowProps {
@@ -25,46 +25,18 @@ interface SessionListRowProps {
   onDelete: (session: AdminSession) => void;
 }
 
-const statusStyles = {
-  scheduled:
-    "bg-[#EFF6FF] text-[#2563EB]",
-
-  live:
-    "bg-[#ECFDF5] text-[#065F46]",
-
-  completed:
-    "bg-secondary text-muted-foreground",
-
-  cancelled:
-    "bg-[#FFDAD6] text-[#BA1A1A]",
-
-  missed:
-    "bg-secondary text-foreground",
+const statusVariant: Record<AdminSession["status"], StatusBadgeVariant> = {
+  scheduled: "info",
+  live: "success",
+  completed: "neutral",
+  cancelled: "error",
+  missed: "neutral",
 };
 
-const attendanceStyles = {
-  waiting:
-    "bg-[#FFFBEB] text-[#B45309]",
-
-  joined:
-    "bg-[#EFF6FF] text-[#2563EB]",
-
-  completed:
-    "bg-[#ECFDF5] text-[#065F46]",
-
-  absent:
-    "bg-[#FFDAD6] text-[#BA1A1A]",
-};
-
-const paymentStyles = {
-  paid:
-    "bg-[#ECFDF5] text-[#065F46]",
-
-  pending:
-    "bg-[#FFFBEB] text-[#B45309]",
-
-  refunded:
-    "bg-[#FFDAD6] text-[#BA1A1A]",
+const paymentVariant: Record<AdminSession["paymentStatus"], StatusBadgeVariant> = {
+  paid: "success",
+  pending: "warning",
+  refunded: "error",
 };
 
 const SessionListRow = ({
@@ -76,836 +48,120 @@ const SessionListRow = ({
   onDelete,
 }: SessionListRowProps) => {
   return (
-    <div
-      className="
-        group
-
-        overflow-hidden
-
-        rounded-2xl
-
-        border
-        border-border
-
-        bg-card
-
-        transition-all
-        duration-300
-
-        hover:shadow-xl
-      "
-    >
-      {/* Top Border */}
-
-      <div
-        className="
-          h-2
-
-          
-
-          bg-primary
-          
-          
-        "
-      />
-
-      <div className="p-6">
-
-        <div
-          className="
-            flex
-
-            flex-col
-
-            gap-8
-
-            xl:flex-row
-            xl:items-center
-          "
-        >
-          {/* Mentor */}
-
-          <div
-            className="
-              flex
-
-              gap-4
-
-              xl:w-[340px]
-            "
-          >
-            <img
-              src={session.mentorImage}
-              alt={session.mentorName}
-              className="
-                h-20
-                w-20
-
-                rounded-2xl
-
-                object-cover
-
-                border
-              "
-            />
-
-            <div className="flex-1">
-
-              <div
-                className="
-                  flex
-                  items-center
-
-                  gap-2
-                "
-              >
-                <UserRound
-                  size={16}
-                  className="text-primary"
-                />
-
-                <span
-                  className="
-                    text-xs
-
-                    font-semibold
-
-                    uppercase
-
-                    tracking-wide
-
-                    text-muted-foreground
-                  "
-                >
-                  Mentor
-                </span>
-
-              </div>
-
-              <h3
-                className="
-                  mt-2
-
-                  text-xl
-                  font-bold
-                "
-              >
-                {session.mentorName}
-              </h3>
-
-              <div
-                className="
-                  mt-2
-
-                  flex
-                  items-center
-
-                  gap-2
-
-                  text-sm
-
-                  text-muted-foreground
-                "
-              >
-                <Building2 size={15} />
-
-                {session.mentorCompany}
-              </div>
-
-              <p
-                className="
-                  mt-2
-
-                  text-sm
-
-                  text-muted-foreground
-                "
-              >
-                {session.mentorRole}
-              </p>
-
-            </div>
-
-          </div>
-                    {/* Center */}
-
-          <div
-            className="
-              flex-1
-
-              grid
-
-              gap-5
-
-              md:grid-cols-2
-              xl:grid-cols-4
-            "
-          >
-            {/* Student */}
-
-            <div
-              className="
-                rounded-2xl
-
-                bg-secondary
-
-                p-4
-              "
-            >
-              <div
-                className="
-                  flex
-                  items-center
-
-                  gap-3
-                "
-              >
-                <img
-                  src={session.studentImage}
-                  alt={session.studentName}
-                  className="
-                    h-12
-                    w-12
-
-                    rounded-2xl
-
-                    object-cover
-                  "
-                />
-
-                <div>
-                  <div
-                    className="
-                      flex
-                      items-center
-
-                      gap-2
-                    "
-                  >
-                    <GraduationCap
-                      size={14}
-                      className="text-[#0F8F65]"
-                    />
-
-                    <span
-                      className="
-                        text-xs
-
-                        font-medium
-
-                        text-muted-foreground
-                      "
-                    >
-                      Student
-                    </span>
-                  </div>
-
-                  <h4
-                    className="
-                      mt-1
-
-                      font-semibold
-                    "
-                  >
-                    {session.studentName}
-                  </h4>
-
-                  <p
-                    className="
-                      mt-1
-
-                      text-xs
-
-                      break-all
-
-                      text-muted-foreground
-                    "
-                  >
-                    {session.studentEmail}
-                  </p>
-
-                </div>
-
-              </div>
-            </div>
-
-            {/* Program */}
-
-            <div
-              className="
-                rounded-2xl
-
-                bg-secondary
-
-                p-4
-              "
-            >
-              <p
-                className="
-                  text-xs
-
-                  text-muted-foreground
-                "
-              >
-                Program
-              </p>
-
-              <h4
-                className="
-                  mt-2
-
-                  font-bold
-                "
-              >
-                {session.programTitle}
-              </h4>
-
-              <p
-                className="
-                  mt-2
-
-                  text-sm
-
-                  text-muted-foreground
-                "
-              >
-                {session.sessionType}
-              </p>
-
-              <span
-                className={`
-                  mt-3
-
-                  inline-flex
-
-                  rounded-full
-
-                  px-3
-                  py-1
-
-                  text-xs
-                  font-semibold
-
-                  ${
-                    statusStyles[
-                      session.status
-                    ]
-                  }
-                `}
-              >
-                {session.status}
-              </span>
-
-            </div>
-
-            {/* Schedule */}
-
-            <div
-              className="
-                rounded-2xl
-
-                bg-secondary
-
-                p-4
-              "
-            >
-              <div
-                className="
-                  flex
-                  items-center
-
-                  gap-2
-                "
-              >
-                <CalendarDays
-                  size={16}
-                  className="text-primary"
-                />
-
-                <span
-                  className="
-                    text-xs
-
-                    text-muted-foreground
-                  "
-                >
-                  Date
-                </span>
-              </div>
-
-              <h4
-                className="
-                  mt-2
-
-                  font-semibold
-                "
-              >
-                {session.date}
-              </h4>
-
-              <div
-                className="
-                  mt-4
-
-                  flex
-                  items-center
-
-                  gap-2
-                "
-              >
-                <Clock3
-                  size={16}
-                  className="text-primary"
-                />
-
-                <span
-                  className="
-                    text-xs
-
-                    text-muted-foreground
-                  "
-                >
-                  Time
-                </span>
-              </div>
-
-              <h4
-                className="
-                  mt-2
-
-                  font-semibold
-                "
-              >
-                {session.time}
-              </h4>
-
-              <p
-                className="
-                  mt-2
-
-                  text-sm
-
-                  text-muted-foreground
-                "
-              >
-                {session.duration}
-              </p>
-
-            </div>
-
-            {/* Platform & Amount */}
-
-            <div
-              className="
-                rounded-2xl
-
-                bg-secondary
-
-                p-4
-              "
-            >
-              <div
-                className="
-                  flex
-                  items-center
-
-                  gap-2
-                "
-              >
-                <MonitorPlay
-                  size={16}
-                  className="text-primary"
-                />
-
-                <span
-                  className="
-                    text-xs
-
-                    text-muted-foreground
-                  "
-                >
-                  Platform
-                </span>
-              </div>
-
-              <h4
-                className="
-                  mt-2
-
-                  font-semibold
-                "
-              >
-                {session.meetingPlatform}
-              </h4>
-
-              <div
-                className="
-                  mt-5
-
-                  flex
-                  items-center
-
-                  gap-2
-                "
-              >
-                <IndianRupee
-                  size={16}
-                  className="text-[#0F8F65]"
-                />
-
-                <span
-                  className="
-                    text-xs
-
-                    text-muted-foreground
-                  "
-                >
-                  Amount
-                </span>
-              </div>
-
-              <h4
-                className="
-                  mt-2
-
-                  text-xl
-                  font-bold
-
-                  text-[#0F8F65]
-                "
-              >
-                ₹{session.amount}
-              </h4>
-
-            </div>
-
-          </div>
-                    {/* Right Side */}
-
-          <div
-            className="
-              xl:w-[300px]
-
-              shrink-0
-            "
-          >
-            <div
-              className="
-                rounded-2xl
-
-                bg-secondary
-
-                p-5
-              "
-            >
-              {/* Booking */}
-
-              <div
-                className="
-                  flex
-                  items-center
-                  justify-between
-                "
-              >
-                <div>
-                  <p
-                    className="
-                      text-xs
-
-                      text-muted-foreground
-                    "
-                  >
-                    Booking ID
-                  </p>
-
-                  <h4
-                    className="
-                      mt-1
-
-                      font-semibold
-                    "
-                  >
-                    {session.bookingReference}
-                  </h4>
-                </div>
-
-                <BadgeCheck
-                  size={22}
-                  className="text-primary"
-                />
-              </div>
-
-              {/* Attendance */}
-
-              <div className="mt-5">
-
-                <p
-                  className="
-                    mb-2
-
-                    text-xs
-
-                    text-muted-foreground
-                  "
-                >
-                  Attendance
-                </p>
-
-                <span
-                  className={`
-                    inline-flex
-
-                    rounded-full
-
-                    px-3
-                    py-1.5
-
-                    text-xs
-                    font-semibold
-
-                    ${
-                      attendanceStyles[
-                        session.attendance
-                      ]
-                    }
-                  `}
-                >
-                  {session.attendance}
-                </span>
-
-              </div>
-
-              {/* Payment */}
-
-              <div className="mt-5">
-
-                <p
-                  className="
-                    mb-2
-
-                    text-xs
-
-                    text-muted-foreground
-                  "
-                >
-                  Payment
-                </p>
-
-                <span
-                  className={`
-                    inline-flex
-
-                    rounded-full
-
-                    px-3
-                    py-1.5
-
-                    text-xs
-                    font-semibold
-
-                    ${
-                      paymentStyles[
-                        session.paymentStatus
-                      ]
-                    }
-                  `}
-                >
-                  {session.paymentStatus}
-                </span>
-
-              </div>
-
-              {/* Certificate */}
-
-              {session.certificateIssued && (
-                <div
-                  className="
-                    mt-5
-
-                    rounded-2xl
-
-                    border
-                    border-[#A7E8CE]
-
-                    bg-[#ECFDF5]
-
-                    p-3
-
-                    text-center
-                  "
-                >
-                  <p
-                    className="
-                      text-xs
-
-                      font-semibold
-
-                      text-[#065F46]
-                    "
-                  >
-                    ✓ Certificate Issued
-                  </p>
-                </div>
-              )}
-
-              {/* Actions */}
-
-              <div
-                className="
-                  mt-6
-
-                  grid
-
-                  grid-cols-2
-
-                  gap-3
-                "
-              >
-                <button
-                  onClick={() =>
-                    onView(session)
-                  }
-                  className="
-                    rounded-xl
-
-                    border
-
-                    py-3
-
-                    text-sm
-                    font-semibold
-
-                    transition
-
-                    hover:bg-card
-                  "
-                >
-                  View
-                </button>
-
-                <button
-                  onClick={() =>
-                    onEdit(session)
-                  }
-                  className="
-                    rounded-xl
-
-                    bg-primary
-
-                    py-3
-
-                    text-sm
-                    font-semibold
-
-                    text-white
-
-                    transition
-
-                    hover:bg-primary/90
-                  "
-                >
-                  Edit
-                </button>
-
-                <button
-                  onClick={() =>
-                    onComplete(session)
-                  }
-                  disabled={
-                    session.status ===
-                    "completed"
-                  }
-                  className="
-                    rounded-xl
-
-                    bg-[#10B981]
-
-                    py-3
-
-                    text-sm
-                    font-semibold
-
-                    text-white
-
-                    transition
-
-                    hover:bg-[#0da271]
-
-                    disabled:bg-muted
-                    disabled:cursor-not-allowed
-                  "
-                >
-                  Complete
-                </button>
-
-                <button
-                  onClick={() =>
-                    onCancel(session)
-                  }
-                  disabled={
-                    session.status ===
-                    "cancelled"
-                  }
-                  className="
-                    rounded-xl
-
-                    bg-[#F59E0B]
-
-                    py-3
-
-                    text-sm
-                    font-semibold
-
-                    text-white
-
-                    transition
-
-                    hover:bg-[#D97706]
-
-                    disabled:bg-muted
-                    disabled:cursor-not-allowed
-                  "
-                >
-                  Cancel
-                </button>
-
-              </div>
-
-              <button
-                onClick={() =>
-                  onDelete(session)
-                }
-                className="
-                  mt-3
-
-                  w-full
-
-                  rounded-xl
-
-                  bg-destructive
-
-                  py-3
-
-                  text-sm
-                  font-semibold
-
-                  text-white
-
-                  transition
-
-                  hover:bg-destructive/90
-                "
-              >
-                Delete Session
-              </button>
-
-            </div>
-          </div>
-
-        </div>
-
+    <div className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition-colors hover:bg-secondary/40">
+      {/* Program */}
+      <div className="min-w-0 flex-1">
+        <h3 className="truncate text-sm font-semibold text-foreground">
+          {session.programTitle}
+        </h3>
+        <p className="truncate text-xs text-muted-foreground">
+          {session.sessionType}
+        </p>
       </div>
 
+      {/* Mentor -> Student */}
+      <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
+        <img
+          src={session.mentorImage}
+          alt={session.mentorName}
+          className="h-7 w-7 rounded-full object-cover"
+        />
+        <span className="max-w-[8rem] truncate text-xs font-medium text-foreground">
+          {session.mentorName}
+        </span>
+        <ArrowRight className="h-3 w-3 text-muted-foreground" />
+        <img
+          src={session.studentImage}
+          alt={session.studentName}
+          className="h-7 w-7 rounded-full object-cover"
+        />
+        <span className="max-w-[8rem] truncate text-xs font-medium text-foreground">
+          {session.studentName}
+        </span>
+      </div>
+
+      {/* Schedule */}
+      <div className="hidden shrink-0 text-center text-xs text-muted-foreground lg:block">
+        <p className="font-semibold text-foreground">{session.date}</p>
+        {session.time}
+      </div>
+
+      {/* Amount */}
+      <div className="hidden w-16 shrink-0 text-right text-xs xl:block">
+        <span className="font-semibold text-foreground">
+          ₹{session.amount.toLocaleString()}
+        </span>
+        <p className="text-muted-foreground">{session.duration}</p>
+      </div>
+
+      {/* Payment + certificate */}
+      <div className="hidden shrink-0 items-center gap-1.5 sm:flex">
+        <StatusBadge variant={paymentVariant[session.paymentStatus]}>
+          {session.paymentStatus}
+        </StatusBadge>
+        {session.certificateIssued && (
+          <BadgeCheck
+            className="h-4 w-4 text-[#065F46]"
+            aria-label="Certificate issued"
+          />
+        )}
+      </div>
+
+      {/* Status */}
+      <StatusBadge variant={statusVariant[session.status]} className="hidden shrink-0 sm:inline-flex">
+        {session.status}
+      </StatusBadge>
+
+      {/* Actions */}
+      <div className="flex shrink-0 items-center gap-1.5">
+        <button
+          type="button"
+          onClick={() => onView(session)}
+          aria-label="View session"
+          title="View"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
+        >
+          <Eye className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onEdit(session)}
+          aria-label="Edit session"
+          title="Edit"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
+        >
+          <Pencil className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onComplete(session)}
+          disabled={session.status === "completed"}
+          aria-label="Mark session complete"
+          title="Complete"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#ECFDF5] hover:text-[#065F46] disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <Check className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onCancel(session)}
+          disabled={session.status === "cancelled"}
+          aria-label="Cancel session"
+          title="Cancel"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFFBEB] hover:text-[#B45309] disabled:cursor-not-allowed disabled:opacity-40"
+        >
+          <XCircle className="h-4 w-4" />
+        </button>
+        <button
+          type="button"
+          onClick={() => onDelete(session)}
+          aria-label="Delete session"
+          title="Delete"
+          className="rounded-lg p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
+        >
+          <Trash2 className="h-4 w-4" />
+        </button>
+      </div>
     </div>
   );
 };
