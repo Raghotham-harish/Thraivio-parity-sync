@@ -29,6 +29,7 @@ import Videos from "@/pages/mentor-dashboard/Videos";
 import FAQ from "@/pages/mentor-dashboard/FAQ";
 import Bookings from "@/pages/mentor-dashboard/Bookings";
 import Journal from "@/pages/mentor-dashboard/Journal";
+import MentorMessages from "@/pages/mentor-dashboard/Messages";
 import Settings from "@/pages/mentor-dashboard/Settings";
 
 
@@ -39,6 +40,7 @@ import UserSessions from "@/pages/user-dashboard/MySessions";
 import UserPrograms from "@/pages/user-dashboard/MyPrograms";
 import UserEvents from "@/pages/user-dashboard/MyEvents";
 import SavedMentors from "@/pages/user-dashboard/SavedMentors";
+import UserMessages from "@/pages/user-dashboard/Messages";
 import Certificates from "@/pages/user-dashboard/MyCertificates";
 import Payments from "@/pages/user-dashboard/MyPayments";
 import Notifications from "@/pages/user-dashboard/Notifications";
@@ -234,6 +236,11 @@ const AppRoutes = () => {
 />
 
    <Route
+  path="messages"
+  element={<MentorMessages />}
+/>
+
+   <Route
    path="settings"
    element={<Settings />}
 />
@@ -272,6 +279,11 @@ const AppRoutes = () => {
   <Route
     path="saved-mentors"
     element={<SavedMentors />}
+  />
+
+  <Route
+    path="messages"
+    element={<UserMessages />}
   />
 
   <Route

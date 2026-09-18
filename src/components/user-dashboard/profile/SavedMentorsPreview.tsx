@@ -6,7 +6,7 @@ import {
   MessageCircle,
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import type {
   SavedMentorPreview,
@@ -19,6 +19,8 @@ interface SavedMentorsPreviewProps {
 const SavedMentorsPreview = ({
   mentors,
 }: SavedMentorsPreviewProps) => {
+  const navigate = useNavigate();
+
   const previewMentors =
     mentors.slice(0, 3);
 
@@ -320,6 +322,11 @@ const SavedMentorsPreview = ({
                   "
                 >
                   <button
+                    onClick={() =>
+                      navigate(
+                        `/user-dashboard/messages?with=${encodeURIComponent(mentor.name)}`
+                      )
+                    }
                     className="
                       inline-flex
                       items-center

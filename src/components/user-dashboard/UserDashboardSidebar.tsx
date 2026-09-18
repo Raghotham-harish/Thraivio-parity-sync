@@ -13,6 +13,7 @@ import {
   Settings,
   CircleHelp,
   ClipboardList,
+  MessageCircle,
 } from "lucide-react";
 
 import { MobileNavDrawer } from "@/components/shared/MobileNavDrawer";
@@ -26,6 +27,7 @@ const menuItems = [
   { title: "My Programs", path: "/user-dashboard/programs", icon: BookOpen },
   { title: "My Events", path: "/user-dashboard/events", icon: CalendarDays },
   { title: "Saved Mentors", path: "/user-dashboard/saved-mentors", icon: Heart },
+  { title: "Messages", path: "/user-dashboard/messages", icon: MessageCircle },
   { title: "My Certificates", path: "/user-dashboard/certificates", icon: Award },
   { title: "My Payments", path: "/user-dashboard/payments", icon: CreditCard },
   { title: "Notifications", path: "/user-dashboard/notifications", icon: Bell },
