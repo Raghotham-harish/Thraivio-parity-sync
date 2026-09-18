@@ -31,6 +31,7 @@ interface ProgramsToolbarProps {
   onViewChange: (view: "grid" | "list") => void;
 
   onRefresh: () => void;
+  isLoading?: boolean;
 }
 
 export default function ProgramsToolbar({
@@ -47,6 +48,7 @@ export default function ProgramsToolbar({
   view,
   onViewChange,
   onRefresh,
+  isLoading = false,
 }: ProgramsToolbarProps) {
   return (
     <section className="rounded-2xl border border-border bg-card p-6 shadow-sm">
@@ -67,11 +69,11 @@ export default function ProgramsToolbar({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Categories</SelectItem>
-            <SelectItem value="Career">Career</SelectItem>
-            <SelectItem value="Business">Business</SelectItem>
-            <SelectItem value="Technology">Technology</SelectItem>
-            <SelectItem value="Leadership">Leadership</SelectItem>
-            <SelectItem value="Personal Development">Personal Development</SelectItem>
+            <SelectItem value="development">Development</SelectItem>
+            <SelectItem value="design">Design</SelectItem>
+            <SelectItem value="business">Business</SelectItem>
+            <SelectItem value="marketing">Marketing</SelectItem>
+            <SelectItem value="career">Career</SelectItem>
           </SelectContent>
         </Select>
 
@@ -81,9 +83,9 @@ export default function ProgramsToolbar({
           </SelectTrigger>
           <SelectContent>
             <SelectItem value="all">All Levels</SelectItem>
-            <SelectItem value="Beginner">Beginner</SelectItem>
-            <SelectItem value="Intermediate">Intermediate</SelectItem>
-            <SelectItem value="Advanced">Advanced</SelectItem>
+            <SelectItem value="beginner">Beginner</SelectItem>
+            <SelectItem value="intermediate">Intermediate</SelectItem>
+            <SelectItem value="advanced">Advanced</SelectItem>
           </SelectContent>
         </Select>
 
@@ -103,17 +105,20 @@ export default function ProgramsToolbar({
             <SelectValue placeholder="Status" />
           </SelectTrigger>
           <SelectContent>
-            <SelectItem value="all">All Status</SelectItem>
-            <SelectItem value="published">Published</SelectItem>
+            <SelectItem value="all">All Statuses</SelectItem>
             <SelectItem value="draft">Draft</SelectItem>
+            <SelectItem value="pending">Pending</SelectItem>
+            <SelectItem value="published">Published</SelectItem>
+            <SelectItem value="rejected">Rejected</SelectItem>
+            <SelectItem value="inactive">Inactive</SelectItem>
             <SelectItem value="archived">Archived</SelectItem>
           </SelectContent>
         </Select>
       </div>
 
       <div className="mt-6 flex flex-col gap-4 border-t border-border pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <Button variant="outline" className="rounded-xl" onClick={onRefresh}>
-          <RefreshCcw className="mr-2 h-4 w-4" />
+        <Button variant="outline" className="rounded-xl" onClick={onRefresh} disabled={isLoading}>
+          <RefreshCcw className={`mr-2 h-4 w-4 ${isLoading ? "animate-spin" : ""}`} />
           Refresh
         </Button>
 

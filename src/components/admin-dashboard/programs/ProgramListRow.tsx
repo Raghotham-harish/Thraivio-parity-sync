@@ -1,261 +1,113 @@
+import { Eye, Pencil, Star, Trash2, UploadCloud } from "lucide-react";
+
+import type { Program } from "@/services/program.service";
+import StatusBadge from "@/components/shared/StatusBadge";
 import {
-  BookOpen,
-  Clock3,
-  Eye,
-  Pencil,
-  Star,
-  Trash2,
-  UploadCloud,
-  Users,
-} from "lucide-react";
-
-import { mentors } from "@/data/mentors";
-
-type Mentor = (typeof mentors)[number];
+  formatStatus,
+  programImage,
+  programPrice,
+  programRating,
+  programStudents,
+  statusVariant,
+} from "@/components/shared/programDisplay";
 
 interface ProgramListRowProps {
-  mentor: Mentor;
-
-  program: Mentor["programs"][number];
-
-  onView: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
-
-  onEdit: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
-
-  onPublish: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
-
-  onDelete: (
-    mentor: Mentor,
-    program: Mentor["programs"][number]
-  ) => void;
+  program: Program;
+  onView: (program: Program) => void;
+  onEdit: (program: Program) => void;
+  onPublish: (program: Program) => void;
+  onDelete: (program: Program) => void;
 }
 
+const iconButton =
+  "rounded-lg border border-border p-2 text-muted-foreground transition-colors";
+
+// Rendered inside ProgramsTable's <tbody>, so this must stay a <tr>.
 export default function ProgramListRow({
-  mentor,
   program,
   onView,
   onEdit,
   onPublish,
   onDelete,
 }: ProgramListRowProps) {
-  const estimatedRevenue =
-    program.price * program.students;
+  const canPublish = program.status === "draft" || program.status === "published";
 
   return (
-    <tr className="border-b border-border transition hover:bg-secondary">
-
-      {/* Program */}
-
-      <td className="px-4 py-3">
-
-        <div className="flex items-center gap-4">
-
-          <img
-            src={mentor.image}
-            alt={program.title}
-            className="h-11 w-11 rounded-xl object-cover"
-          />
-
-          <div>
-
-            <h3 className="font-semibold text-foreground">
-
-              {program.title}
-
-            </h3>
-
-            <div className="mt-2 flex flex-wrap gap-2">
-
-              <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold text-[#2563EB]">
-
-                {mentor.category}
-
-              </span>
-
-              <span className="rounded-full bg-[#ECFDF5] px-3 py-1 text-xs font-semibold text-[#065F46]">
-
-                Published
-
-              </span>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </td>
-
-      {/* Mentor */}
-
-      <td className="px-4 py-3">
-
+    <tr className="border-b border-border transition-colors hover:bg-secondary/60">
+      <td className="px-6 py-3">
         <div className="flex items-center gap-3">
-
           <img
-            src={mentor.image}
-            alt={mentor.name}
-            className="h-9 w-9 rounded-full object-cover"
+            src={programImage(program)}
+            alt={program.thumbnail?.alt || program.title}
+            className="h-10 w-10 shrink-0 rounded-lg object-cover"
           />
-
-          <div>
-
-            <h4 className="font-semibold text-foreground">
-
-              {mentor.name}
-
-            </h4>
-
-            <p className="text-sm text-muted-foreground">
-
-              {mentor.company}
-
-            </p>
-
+          <div className="min-w-0">
+            <p className="max-w-[260px] truncate font-semibold text-foreground">{program.title}</p>
+            <p className="text-xs text-muted-foreground">{program.category || "General"}</p>
           </div>
-
         </div>
-
       </td>
 
-      {/* Duration */}
-
-      <td className="px-4 py-3">
-
-        <div className="flex items-center gap-2">
-
-          <Clock3 className="h-4 w-4 text-muted-foreground" />
-
-          {program.duration}
-
-        </div>
-
+      <td className="px-6 py-3">
+        <StatusBadge variant={statusVariant(program.status)}>
+          {formatStatus(program.status)}
+        </StatusBadge>
       </td>
 
-      {/* Students */}
+      <td className="px-6 py-3 text-sm capitalize text-foreground">{program.level}</td>
+      <td className="px-6 py-3 text-sm text-foreground">{programStudents(program)}</td>
 
-      <td className="px-4 py-3">
-
-        <div className="flex items-center gap-2">
-
-          <Users className="h-4 w-4 text-muted-foreground" />
-
-          {program.students}
-
-        </div>
-
+      <td className="px-6 py-3">
+        <span className="flex items-center gap-1 text-sm text-foreground">
+          <Star className="h-3.5 w-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+          {programRating(program).toFixed(1)}
+        </span>
       </td>
 
-      {/* Level */}
+      <td className="px-6 py-3 text-sm font-semibold text-foreground">{programPrice(program)}</td>
 
-      <td className="px-4 py-3">
-
-        <div className="flex items-center gap-2">
-
-          <BookOpen className="h-4 w-4 text-muted-foreground" />
-
-          {program.level}
-
-        </div>
-
-      </td>
-
-      {/* Rating */}
-
-      <td className="px-4 py-3">
-
-        <div className="flex items-center gap-2">
-
-          <Star className="h-4 w-4 fill-[#F59E0B] text-[#F59E0B]" />
-
-          {mentor.rating}
-
-        </div>
-
-      </td>
-
-      {/* Price */}
-
-      <td className="px-4 py-3 font-semibold text-primary">
-
-        ₹{program.price.toLocaleString()}
-
-      </td>
-
-      {/* Revenue */}
-
-      <td className="px-4 py-3 font-bold text-[#0F8F65]">
-
-        ₹{estimatedRevenue.toLocaleString()}
-
-      </td>
-            {/* Actions */}
-
-      <td className="px-4 py-3">
-
-        <div className="flex items-center gap-2">
-
+      <td className="px-6 py-3">
+        <div className="flex items-center justify-center gap-1.5">
           <button
             type="button"
-            onClick={() =>
-              onView(mentor, program)
-            }
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-border bg-card text-foreground transition hover:bg-secondary"
+            onClick={() => onView(program)}
             aria-label="View program"
-            title="View Program"
+            title="View"
+            className={`${iconButton} hover:bg-[#EFF6FF] hover:text-primary`}
           >
             <Eye className="h-4 w-4" />
           </button>
-
           <button
             type="button"
-            onClick={() =>
-              onEdit(mentor, program)
-            }
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-amber-200 bg-amber-50 text-[#B45309] transition hover:bg-[#FFFBEB]"
+            onClick={() => onEdit(program)}
             aria-label="Edit program"
-            title="Edit Program"
+            title="Edit"
+            className={`${iconButton} hover:bg-[#FFFBEB] hover:text-[#B45309]`}
           >
             <Pencil className="h-4 w-4" />
           </button>
-
+          {canPublish && (
+            <button
+              type="button"
+              onClick={() => onPublish(program)}
+              aria-label={program.status === "draft" ? "Publish program" : "Manage program status"}
+              title={program.status === "draft" ? "Publish" : "Manage status"}
+              className={`${iconButton} hover:bg-[#ECFDF5] hover:text-[#065F46]`}
+            >
+              <UploadCloud className="h-4 w-4" />
+            </button>
+          )}
           <button
             type="button"
-            onClick={() =>
-              onPublish(mentor, program)
-            }
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#A7E8CE] bg-[#ECFDF5] text-[#065F46] transition hover:bg-[#ECFDF5]"
-            aria-label="Publish program"
-            title="Publish Program"
-          >
-            <UploadCloud className="h-4 w-4" />
-          </button>
-
-          <button
-            type="button"
-            onClick={() =>
-              onDelete(mentor, program)
-            }
-            className="flex h-8 w-8 items-center justify-center rounded-lg border border-red-200 bg-red-50 text-[#BA1A1A] transition hover:bg-[#FFDAD6]"
+            onClick={() => onDelete(program)}
             aria-label="Delete program"
-            title="Delete Program"
+            title="Delete"
+            className="rounded-lg border border-border p-2 text-[#BA1A1A] transition-colors hover:bg-[#FFDAD6]"
           >
             <Trash2 className="h-4 w-4" />
           </button>
-
         </div>
-
       </td>
-
     </tr>
   );
 }

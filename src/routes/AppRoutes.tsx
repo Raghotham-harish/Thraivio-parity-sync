@@ -7,6 +7,7 @@ import MentorProfilePage from "@/pages/MentorProfile";
 import BecomeMentorPage from "@/pages/BecomeCoach";
 import CategoriesPage from "@/pages/Categories";
 import MentorProgramsPage from "@/pages/MentorProgramsPage";
+import ProgramDetailsPage from "@/pages/ProgramDetailsPage";
 import MentorEventsPage from "@/pages/MentorEventsPage";
 import MentorCertificationsPage from "@/pages/MentorCertificationsPage";
 import MentorAchievementsPage from "@/pages/MentorAchievementsPage";
@@ -106,6 +107,12 @@ const AppRoutes = () => {
           path="/mentors/:id"
           element={<MentorProfilePage />}
         />
+
+        {/* Individual Program Details */}
+<Route
+  path="/program/:slug"
+  element={<ProgramDetailsPage />}
+/>
 
         <Route
   path="/mentor/:id/programs"

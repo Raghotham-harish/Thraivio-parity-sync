@@ -1,74 +1,69 @@
-import { BadgeCheck, Eye } from "lucide-react";
+import { Eye, Star, Users } from "lucide-react";
 
-import { StatusBadge, type StatusBadgeVariant } from "@/components/shared/StatusBadge";
-import type { UserProgram } from "@/types/userProgram";
+import type { Program } from "@/types/program";
+import StatusBadge from "@/components/shared/StatusBadge";
+import {
+  formatStatus,
+  programDuration,
+  programImage,
+  programIsFeatured,
+  programPrice,
+  programRating,
+  programStudents,
+  statusVariant,
+} from "@/components/shared/programDisplay";
 
 interface ProgramListCardProps {
-  program: UserProgram;
-
-  onView: (program: UserProgram) => void;
+  program: Program;
+  onView: (program: Program) => void;
 }
 
-const statusVariant: Record<UserProgram["status"], StatusBadgeVariant> = {
-  active: "info",
-  completed: "success",
-  paused: "warning",
-  upcoming: "neutral",
-};
-
 const ProgramListCard = ({ program, onView }: ProgramListCardProps) => {
-  const progressPct = program.totalLessons
-    ? Math.round((program.completedLessons / program.totalLessons) * 100)
-    : program.progress;
-
   return (
-    <div className="flex items-center gap-4 rounded-xl border border-border bg-card px-4 py-3 shadow-sm transition-colors hover:bg-secondary/40">
-      <img
-        src={program.mentorImage}
-        alt={program.mentorName}
-        className="h-10 w-10 shrink-0 rounded-full object-cover"
-      />
-      <div className="min-w-0 flex-1">
-        <div className="flex items-center gap-1.5">
-          <h3 className="truncate text-sm font-semibold text-foreground">{program.title}</h3>
-          {program.certificateAvailable && (
-            <BadgeCheck className="h-3.5 w-3.5 shrink-0 text-[#065F46]" />
-          )}
+    <div className="flex flex-col gap-3 rounded-2xl border border-border bg-card p-4 shadow-sm transition-all hover:shadow-md lg:flex-row lg:items-center lg:gap-6">
+      <div className="flex min-w-0 flex-1 items-center gap-3">
+        <img
+          src={programImage(program)}
+          alt={program.thumbnail?.alt || program.title}
+          className="h-12 w-12 shrink-0 rounded-lg object-cover"
+        />
+        <div className="min-w-0">
+          <div className="flex items-center gap-1.5">
+            <h3 className="truncate font-semibold text-foreground">{program.title}</h3>
+            {programIsFeatured(program) && (
+              <span className="shrink-0 rounded-full bg-amber-400 px-2 py-0.5 text-[10px] font-bold text-foreground">
+                Featured
+              </span>
+            )}
+          </div>
+          <p className="truncate text-xs capitalize text-muted-foreground">
+            {program.category || "General"} · {program.level} · {programDuration(program)}
+          </p>
         </div>
-        <p className="truncate text-xs text-muted-foreground">
-          {program.mentorName} · {program.level}
-        </p>
       </div>
 
-      <div className="hidden shrink-0 items-center gap-2 sm:flex">
-        <div className="h-1.5 w-20 overflow-hidden rounded-full bg-secondary">
-          <div
-            className="h-full rounded-full bg-primary"
-            style={{ width: `${Math.min(progressPct, 100)}%` }}
-          />
-        </div>
-        <span className="text-xs text-muted-foreground">
-          {program.completedLessons}/{program.totalLessons}
+      <div className="flex items-center gap-5 text-sm">
+        <StatusBadge variant={statusVariant(program.status)}>
+          {formatStatus(program.status)}
+        </StatusBadge>
+        <span className="flex items-center gap-1 text-foreground">
+          <Users className="h-3.5 w-3.5 text-muted-foreground" />
+          {programStudents(program)}
         </span>
+        <span className="flex items-center gap-1 text-foreground">
+          <Star className="h-3.5 w-3.5 fill-[#F59E0B] text-[#F59E0B]" />
+          {programRating(program).toFixed(1)}
+        </span>
+        <span className="font-semibold text-foreground">{programPrice(program)}</span>
       </div>
-
-      <div className="hidden w-16 shrink-0 text-right text-xs lg:block">
-        <span className="font-semibold text-foreground">${program.price}</span>
-        <p className="text-muted-foreground">{program.duration}</p>
-      </div>
-
-      <StatusBadge variant={statusVariant[program.status]} className="shrink-0">
-        {program.status}
-      </StatusBadge>
 
       <button
         type="button"
         onClick={() => onView(program)}
-        aria-label="View program"
-        title="View"
-        className="shrink-0 rounded-lg p-2 text-muted-foreground transition-colors hover:bg-secondary hover:text-primary"
+        className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-primary px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-primary/90"
       >
         <Eye className="h-4 w-4" />
+        View
       </button>
     </div>
   );

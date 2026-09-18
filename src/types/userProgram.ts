@@ -1,7 +1,7 @@
 export interface UserProgram {
   id: string;
 
-  mentorId: number;
+  mentorId: string;
 
   mentorName: string;
 

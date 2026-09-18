@@ -1,25 +1,21 @@
-import {
-  BookOpen,
-  Users,
-  Star,
-  IndianRupee,
-} from "lucide-react";
+import { Archive, BookOpen, FilePen, Star, UploadCloud } from "lucide-react";
 
 import { StatCard, type StatCardAccent } from "@/components/admin-dashboard/shared/StatCard";
 
 interface ProgramsStatsProps {
   totalPrograms: number;
-  publishedPrograms: number;
-  totalStudents: number;
-  averageRating: number;
-  estimatedRevenue: number;
+  published: number;
+  drafts: number;
+  featured: number;
+  archived: number;
 }
 
 export default function ProgramsStats({
   totalPrograms,
-  publishedPrograms,
-  averageRating,
-  estimatedRevenue,
+  published,
+  drafts,
+  featured,
+  archived,
 }: ProgramsStatsProps) {
   const stats: {
     title: string;
@@ -28,13 +24,14 @@ export default function ProgramsStats({
     accent: StatCardAccent;
   }[] = [
     { title: "Total Programs", value: totalPrograms.toLocaleString(), icon: BookOpen, accent: "default" },
-    { title: "Published", value: publishedPrograms.toLocaleString(), icon: Users, accent: "success" },
-    { title: "Average Rating", value: averageRating.toFixed(1), icon: Star, accent: "default" },
-    { title: "Estimated Revenue", value: `₹${estimatedRevenue.toLocaleString()}`, icon: IndianRupee, accent: "success" },
+    { title: "Published", value: published.toLocaleString(), icon: UploadCloud, accent: "success" },
+    { title: "Drafts", value: drafts.toLocaleString(), icon: FilePen, accent: "default" },
+    { title: "Featured", value: featured.toLocaleString(), icon: Star, accent: "default" },
+    { title: "Archived", value: archived.toLocaleString(), icon: Archive, accent: "default" },
   ];
 
   return (
-    <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+    <section className="grid gap-6 md:grid-cols-2 xl:grid-cols-5">
       {stats.map((stat) => (
         <StatCard
           key={stat.title}

@@ -5,22 +5,20 @@ import {
 
 interface ProgramsPaginationProps {
   currentPage: number;
-
   totalPages: number;
-
-  totalItems: number;
-
-  pageSize: number;
-
+  totalItems?: number;
+  pageSize?: number;
   onPageChange: (page: number) => void;
+  isLoading?: boolean;
 }
 
 export default function ProgramsPagination({
   currentPage,
   totalPages,
-  totalItems,
-  pageSize,
+  totalItems = 0,
+  pageSize = 10,
   onPageChange,
+  isLoading = false,
 }: ProgramsPaginationProps) {
   const start =
     totalItems === 0
@@ -77,7 +75,7 @@ export default function ProgramsPagination({
 
         <button
           type="button"
-          disabled={currentPage === 1}
+          disabled={currentPage === 1 || isLoading}
           onClick={() =>
             onPageChange(currentPage - 1)
           }
@@ -109,7 +107,7 @@ export default function ProgramsPagination({
         <button
           type="button"
           disabled={
-            currentPage === totalPages
+            currentPage === totalPages || isLoading
           }
           onClick={() =>
             onPageChange(currentPage + 1)
