@@ -255,44 +255,44 @@ const MyPrograms = () => {
       {isLoading ? (
         <div
           className="
-            bg-white
-            border
-            border-slate-200
-            rounded-[32px]
+ bg-card
+ border
+ border-border
+ rounded-2xl
             p-12
             text-center
           "
         >
-          <p className="text-slate-500">
+          <p className="text-muted-foreground">
             Loading programs...
           </p>
         </div>
       ) : error ? (
         <div
           className="
-            bg-white
-            border
-            border-red-200
-            rounded-[32px]
+ bg-card
+ border
+ border-[#BA1A1A]
+ rounded-2xl
             p-12
             text-center
           "
         >
           <h2
             className="
-              text-2xl
-              font-bold
-              text-slate-800
-            "
+ text-2xl
+ font-bold
+ text-foreground
+ "
           >
             Unable to Load Programs
           </h2>
 
           <p
             className="
-              text-slate-500
-              mt-3
-            "
+ text-muted-foreground
+ mt-3
+ "
           >
             {error}
           </p>
@@ -312,10 +312,10 @@ const MyPrograms = () => {
           {view === "grid" && (
             <div
               className="
-                grid
-                md:grid-cols-2
-                xl:grid-cols-3
-                gap-6
+ grid
+ md:grid-cols-2
+ xl:grid-cols-3
+ gap-6
               "
             >
               {filteredPrograms.map(
@@ -339,8 +339,8 @@ const MyPrograms = () => {
           {view === "list" && (
             <div
               className="
-                space-y-6
-              "
+ space-y-6
+ "
             >
               {filteredPrograms.map(
                 (program) => (

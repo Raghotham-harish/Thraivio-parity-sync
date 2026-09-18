@@ -48,10 +48,10 @@ const MyProgramsStats = ({
   return (
     <div
       className="
-        grid
-        grid-cols-1
-        sm:grid-cols-2
-        xl:grid-cols-4
+ grid
+ grid-cols-1
+ sm:grid-cols-2
+ xl:grid-cols-4
 
         gap-4
         lg:gap-6
@@ -64,12 +64,12 @@ const MyProgramsStats = ({
           <div
             key={stat.title}
             className="
-              bg-white
+ bg-card
 
-              border
-              border-slate-200
+ border
+ border-border
 
-              rounded-2xl
+ rounded-2xl
 
               p-5
 
@@ -82,33 +82,33 @@ const MyProgramsStats = ({
           >
             <div
               className="
-                flex
-                items-start
-                justify-between
+ flex
+ items-start
+ justify-between
 
-                gap-4
+ gap-4
               "
             >
               <div>
                 <p
                   className="
-                    text-sm
-                    font-medium
+ text-sm
+ font-medium
 
-                    text-slate-500
-                  "
+ text-muted-foreground
+ "
                 >
                   {stat.title}
                 </p>
 
                 <p
                   className="
-                    text-2xl
-                    lg:text-3xl
+ text-2xl
+ lg:text-3xl
 
-                    font-bold
+ font-bold
 
-                    text-slate-900
+ text-foreground
 
                     mt-2
                   "
@@ -118,12 +118,12 @@ const MyProgramsStats = ({
 
                 <p
                   className="
-                    text-xs
+ text-xs
 
-                    text-slate-400
+ text-muted-foreground
 
-                    mt-1
-                  "
+ mt-1
+ "
                 >
                   {stat.description}
                 </p>
@@ -131,13 +131,13 @@ const MyProgramsStats = ({
 
               <div
                 className="
-                  h-11
-                  w-11
+ h-11
+ w-11
 
-                  rounded-xl
+ rounded-xl
 
-                  bg-blue-50
-                  text-blue-600
+ bg-[#EFF6FF]
+                  text-primary
 
                   flex
                   items-center

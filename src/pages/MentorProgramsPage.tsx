@@ -165,18 +165,18 @@ const MentorProgramsPage = () => {
 
   if (isLoading) {
     return (
-      <section className="py-32 bg-slate-50 min-h-screen">
+      <section className="py-32 bg-secondary min-h-screen">
         <div className="max-w-7xl mx-auto px-4 text-center">
 
           <div className="text-5xl mb-4">
             ⏳
           </div>
 
-          <h1 className="text-3xl font-bold text-slate-900">
+          <h1 className="text-3xl font-bold text-foreground">
             Loading Programs...
           </h1>
 
-          <p className="mt-4 text-slate-500">
+          <p className="mt-4 text-muted-foreground">
             Please wait while we load the mentor's coaching programs.
           </p>
 
@@ -187,14 +187,14 @@ const MentorProgramsPage = () => {
 
   if (error || !mentor) {
     return (
-      <section className="py-32 bg-slate-50 min-h-screen">
+      <section className="py-32 bg-secondary min-h-screen">
         <div className="max-w-7xl mx-auto px-4 text-center">
 
-          <h1 className="text-4xl font-bold text-slate-900">
+          <h1 className="text-4xl font-bold text-foreground">
             Mentor Not Found
           </h1>
 
-          <p className="mt-4 text-slate-500">
+          <p className="mt-4 text-muted-foreground">
             {error ||
               "Unable to find this mentor."}
           </p>
@@ -205,17 +205,17 @@ const MentorProgramsPage = () => {
               navigate("/mentors")
             }
             className="
-              mt-8
-              inline-flex
-              items-center
-              gap-2
-              bg-blue-600
+ mt-8
+ inline-flex
+ items-center
+ gap-2
+              bg-primary
               text-white
               px-6
               py-3
               rounded-xl
               font-semibold
-              hover:bg-blue-700
+              hover:bg-primary/90
               transition
             "
           >
@@ -230,7 +230,7 @@ const MentorProgramsPage = () => {
   }
 
   return (
-    <section className="py-16 bg-slate-50 min-h-screen">
+    <section className="py-16 bg-secondary min-h-screen">
 
       <div className="max-w-7xl mx-auto px-4">
 
@@ -238,7 +238,7 @@ const MentorProgramsPage = () => {
 
         <Link
           to={`/mentors/${id}`}
-          className="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 transition-colors"
+          className="inline-flex items-center gap-2 text-primary font-medium hover:text-primary transition-colors"
         >
           <ArrowLeft size={18} />
 
@@ -249,7 +249,7 @@ const MentorProgramsPage = () => {
 
         <div className="text-center">
 
-          <span className="inline-block bg-blue-50 border border-blue-200 text-blue-700 px-4 py-1 rounded-full text-sm font-medium">
+          <span className="inline-block bg-[#EFF6FF] border border-primary text-primary px-4 py-1 rounded-full text-sm font-medium">
             All Programs
           </span>
 
@@ -257,7 +257,7 @@ const MentorProgramsPage = () => {
            {mentor.name}'s Coaching Programs
           </h1>
 
-          <p className="mt-4 text-slate-500 max-w-3xl mx-auto">
+          <p className="mt-4 text-muted-foreground max-w-3xl mx-auto">
             Explore every coaching program offered by this mentor
             and choose the learning journey that best fits your
             career goals.
@@ -268,17 +268,17 @@ const MentorProgramsPage = () => {
         {/* Empty State */}
 
         {programs.length === 0 ? (
-          <div className="mt-14 bg-white border border-slate-200 rounded-3xl p-12 text-center">
+          <div className="mt-14 bg-card border border-border rounded-2xl p-12 text-center">
 
             <div className="text-5xl mb-5">
               📚
             </div>
 
-            <h2 className="text-2xl font-bold text-slate-900">
+            <h2 className="text-2xl font-bold text-foreground">
               No Programs Available
             </h2>
 
-            <p className="mt-3 text-slate-500 max-w-xl mx-auto">
+            <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
               This mentor has not published any coaching
               programs yet.
             </p>
@@ -290,21 +290,21 @@ const MentorProgramsPage = () => {
 
             <div className="grid md:grid-cols-3 gap-5 mt-10 mb-12">
 
-              <div className="bg-blue-50 border border-blue-100 rounded-2xl p-5 text-center">
+              <div className="bg-[#EFF6FF] border border-blue-100 rounded-2xl p-5 text-center">
 
-                <h3 className="text-3xl font-bold text-blue-600">
+                <h3 className="text-3xl font-bold text-primary">
                   {programStats.count}
                 </h3>
 
-                <p className="text-slate-500">
+                <p className="text-muted-foreground">
                   Coaching Programs
                 </p>
 
               </div>
 
-              <div className="bg-green-50 border border-green-100 rounded-2xl p-5 text-center">
+              <div className="bg-[#ECFDF5] border border-[#10B981] rounded-2xl p-5 text-center">
 
-                <h3 className="text-3xl font-bold text-green-600">
+                <h3 className="text-3xl font-bold text-[#065F46]">
                   {programStats.averageRating > 0
                     ? programStats.averageRating.toFixed(
                         1
@@ -312,19 +312,19 @@ const MentorProgramsPage = () => {
                     : "—"}
                 </h3>
 
-                <p className="text-slate-500">
+                <p className="text-muted-foreground">
                   Average Rating
                 </p>
 
               </div>
 
-              <div className="bg-purple-50 border border-purple-100 rounded-2xl p-5 text-center">
+              <div className="bg-[#EFF6FF] border border-purple-100 rounded-2xl p-5 text-center">
 
-                <h3 className="text-3xl font-bold text-purple-600">
+                <h3 className="text-3xl font-bold text-primary">
                   100%
                 </h3>
 
-                <p className="text-slate-500">
+                <p className="text-muted-foreground">
                   Career Focused
                 </p>
 
@@ -366,13 +366,13 @@ const MentorProgramsPage = () => {
                     <div
                       key={program.id}
                       className="
-                        bg-white
-                        border
-                        border-slate-200
-                        rounded-3xl
+ bg-card
+ border
+ border-border
+ rounded-2xl
                         overflow-hidden
                         shadow-sm
-                        hover:border-blue-200
+                        hover:border-primary
                         hover:-translate-y-2
                         hover:shadow-xl
                         transition-all
@@ -394,10 +394,10 @@ const MentorProgramsPage = () => {
                             program.title
                           }
                           className="
-                            w-full
-                            h-full
-                            object-cover
-                            transition-transform
+ w-full
+ h-full
+ object-cover
+ transition-transform
                             duration-500
                             hover:scale-105
                           "
@@ -417,12 +417,12 @@ const MentorProgramsPage = () => {
 
                         <div className="absolute inset-0 bg-black/40" />
 
-                        <span className="absolute top-4 left-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-semibold">
+                        <span className="absolute top-4 left-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-semibold">
                           {program.level}
                         </span>
 
                         {program.isFeatured && (
-                          <span className="absolute top-4 right-4 bg-white text-slate-700 px-3 py-1 rounded-full text-xs font-semibold">
+                          <span className="absolute top-4 right-4 bg-card text-foreground px-3 py-1 rounded-full text-xs font-semibold">
                             🔥 Featured
                           </span>
                         )}
@@ -437,7 +437,7 @@ const MentorProgramsPage = () => {
                           {program.title}
                         </h2>
 
-                        <div className="flex items-center justify-between mt-5 bg-slate-50 rounded-xl p-3">
+                        <div className="flex items-center justify-between mt-5 bg-secondary rounded-xl p-3">
 
                           <div className="flex items-center gap-2">
 
@@ -461,12 +461,12 @@ const MentorProgramsPage = () => {
 
                         </div>
 
-                        <div className="inline-flex items-center gap-1 mt-5 bg-yellow-50 border border-yellow-100 px-3 py-2 rounded-full">
+                        <div className="inline-flex items-center gap-1 mt-5 bg-[#FFFBEB] border border-[#F59E0B] px-3 py-2 rounded-full">
 
                           <Star
                             size={16}
                             fill="currentColor"
-                            className="text-yellow-500"
+                            className="text-[#B45309]"
                           />
 
                           <span>
@@ -480,18 +480,18 @@ const MentorProgramsPage = () => {
                         </div>
 
                         {displayRating > 0 && (
-                          <p className="text-sm text-slate-500 mt-2">
+                          <p className="text-sm text-muted-foreground mt-2">
                             {displayReviews} Reviews
                           </p>
                         )}
 
                         <div className="mt-6">
 
-                          <p className="text-sm text-slate-500">
+                          <p className="text-sm text-muted-foreground">
                             Program Fee
                           </p>
 
-                          <h3 className="text-4xl font-bold text-blue-600 leading-none">
+                          <h3 className="text-4xl font-bold text-primary leading-none">
 
                             {program.isFree
                               ? "Free"
@@ -501,7 +501,7 @@ const MentorProgramsPage = () => {
 
                         </div>
 
-                        <div className="space-y-2 mt-6 text-sm text-slate-600">
+                        <div className="space-y-2 mt-6 text-sm text-muted-foreground">
 
                           <p>
                             ✅ Weekly Live Sessions
@@ -529,16 +529,16 @@ const MentorProgramsPage = () => {
                             )
                           }
                           className="
-                            mt-8
-                            w-full
-                            flex
-                            justify-center
-                            bg-blue-600
+ mt-8
+ w-full
+ flex
+ justify-center
+                            bg-primary
                             text-white
                             py-3
                             rounded-xl
                             font-semibold
-                            hover:bg-blue-700
+                            hover:bg-primary/90
                             transition-all
                             duration-300
                             hover:-translate-y-1
@@ -559,15 +559,15 @@ const MentorProgramsPage = () => {
           </>
         )}
 
-        <div className="mt-16 border-t border-slate-200 pt-10 text-center">
+        <div className="mt-16 border-t border-border pt-10 text-center">
 
-          <div className="h-1 w-24 bg-blue-600 rounded-full mx-auto mb-6"></div>
+          <div className="h-1 w-24 bg-primary rounded-full mx-auto mb-6"></div>
 
           <h3 className="text-3xl font-bold">
             Personalized Learning Journeys
           </h3>
 
-          <p className="text-slate-500 mt-4 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
             Every coaching program is carefully designed to provide
             practical guidance, structured learning, and real-world
             strategies that help professionals achieve their career goals.

@@ -328,10 +328,10 @@ const ProgramFormModal = ({
   return (
     <div
       className="
-        fixed
-        inset-0
-        z-50
-        bg-black/50
+ fixed
+ inset-0
+ z-50
+ bg-black/50
         flex
         items-center
         justify-center
@@ -340,10 +340,10 @@ const ProgramFormModal = ({
     >
       <div
         className="
-          bg-white
-          w-full
-          max-w-4xl
-          rounded-3xl
+ bg-card
+ w-full
+ max-w-4xl
+ rounded-2xl
           max-h-[90vh]
           overflow-y-auto
           p-8
@@ -353,18 +353,18 @@ const ProgramFormModal = ({
 
         <div
           className="
-            flex
-            items-center
-            justify-between
-            mb-8
+ flex
+ items-center
+ justify-between
+ mb-8
           "
         >
           <div>
             <h2
               className="
-                text-3xl
-                font-bold
-              "
+ text-3xl
+ font-bold
+ "
             >
               {program
                 ? "Edit Program"
@@ -373,9 +373,9 @@ const ProgramFormModal = ({
 
             <p
               className="
-                text-slate-500
-                mt-2
-              "
+ text-muted-foreground
+ mt-2
+ "
             >
               Manage your coaching
               program information.
@@ -387,10 +387,10 @@ const ProgramFormModal = ({
             onClick={onClose}
             disabled={isSubmitting}
             className="
-              text-2xl
-              text-slate-500
-              hover:text-slate-900
-              disabled:opacity-50
+ text-2xl
+ text-muted-foreground
+ hover:text-foreground
+ disabled:opacity-50
             "
           >
             ✕
@@ -402,15 +402,15 @@ const ProgramFormModal = ({
         {submitError && (
           <div
             className="
-              mb-6
-              rounded-xl
-              border
-              border-red-200
-              bg-red-50
+ mb-6
+ rounded-xl
+ border
+ border-[#BA1A1A]
+              bg-[#FFDAD6]
               px-4
               py-3
               text-sm
-              text-red-600
+              text-[#BA1A1A]
             "
           >
             {submitError}
@@ -442,10 +442,10 @@ const ProgramFormModal = ({
                 )
               }
               className="
-                w-full
-                mt-2
-                border
-                rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                 p-3
               "
               placeholder="Complete MERN Stack Bootcamp"
@@ -474,10 +474,10 @@ const ProgramFormModal = ({
                 )
               }
               className="
-                w-full
-                mt-2
-                border
-                rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                 p-3
               "
               placeholder="Learn MERN Stack from beginner to advanced"
@@ -506,10 +506,10 @@ const ProgramFormModal = ({
                 )
               }
               className="
-                w-full
-                mt-2
-                border
-                rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                 p-3
               "
               placeholder="Describe your coaching program..."
@@ -538,10 +538,10 @@ const ProgramFormModal = ({
                 )
               }
               className="
-                w-full
-                mt-2
-                border
-                rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                 p-3
               "
               placeholder="https://example.com/program-image.jpg"
@@ -553,10 +553,10 @@ const ProgramFormModal = ({
 
           <div
             className="
-              grid
-              md:grid-cols-2
-              gap-5
-            "
+ grid
+ md:grid-cols-2
+ gap-5
+ "
           >
             <div>
               <label
@@ -577,10 +577,10 @@ const ProgramFormModal = ({
                   )
                 }
                 className="
-                  w-full
-                  mt-2
-                  border
-                  rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                   p-3
                 "
                 placeholder="Web Development"
@@ -607,10 +607,10 @@ const ProgramFormModal = ({
                   )
                 }
                 className="
-                  w-full
-                  mt-2
-                  border
-                  rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                   p-3
                 "
                 placeholder="MERN Stack"
@@ -623,10 +623,10 @@ const ProgramFormModal = ({
 
           <div
             className="
-              grid
-              md:grid-cols-3
-              gap-5
-            "
+ grid
+ md:grid-cols-3
+ gap-5
+ "
           >
             <div>
               <label
@@ -644,10 +644,10 @@ const ProgramFormModal = ({
                   )
                 }
                 className="
-                  w-full
-                  mt-2
-                  border
-                  rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                   p-3
                 "
               >
@@ -685,10 +685,10 @@ const ProgramFormModal = ({
                   )
                 }
                 className="
-                  w-full
-                  mt-2
-                  border
-                  rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                   p-3
                 "
                 required
@@ -713,10 +713,10 @@ const ProgramFormModal = ({
                   )
                 }
                 className="
-                  w-full
-                  mt-2
-                  border
-                  rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                   p-3
                 "
               >
@@ -743,10 +743,10 @@ const ProgramFormModal = ({
 
           <div
             className="
-              grid
-              md:grid-cols-2
-              gap-5
-            "
+ grid
+ md:grid-cols-2
+ gap-5
+ "
           >
             <div>
               <label
@@ -767,10 +767,10 @@ const ProgramFormModal = ({
                   )
                 }
                 className="
-                  w-full
-                  mt-2
-                  border
-                  rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                   p-3
                 "
                 placeholder="English, Hindi"
@@ -778,10 +778,10 @@ const ProgramFormModal = ({
 
               <p
                 className="
-                  text-xs
-                  text-slate-500
-                  mt-1
-                "
+ text-xs
+ text-muted-foreground
+ mt-1
+ "
               >
                 Separate multiple languages
                 with commas.
@@ -805,10 +805,10 @@ const ProgramFormModal = ({
                   )
                 }
                 className="
-                  w-full
-                  mt-2
-                  border
-                  rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                   p-3
                 "
                 placeholder="MERN, React, Node.js"
@@ -816,10 +816,10 @@ const ProgramFormModal = ({
 
               <p
                 className="
-                  text-xs
-                  text-slate-500
-                  mt-1
-                "
+ text-xs
+ text-muted-foreground
+ mt-1
+ "
               >
                 Separate multiple tags
                 with commas.
@@ -831,28 +831,28 @@ const ProgramFormModal = ({
 
           <div
             className="
-              border
-              border-slate-200
-              rounded-2xl
-              p-5
+ border
+ border-border
+ rounded-2xl
+ p-5
             "
           >
             <h3
               className="
-                text-lg
-                font-semibold
-                mb-5
-              "
+ text-lg
+ font-semibold
+ mb-5
+ "
             >
               Pricing
             </h3>
 
             <div
               className="
-                grid
-                md:grid-cols-3
-                gap-5
-              "
+ grid
+ md:grid-cols-3
+ gap-5
+ "
             >
               <div>
                 <label
@@ -877,12 +877,12 @@ const ProgramFormModal = ({
                     )
                   }
                   className="
-                    w-full
-                    mt-2
-                    border
-                    rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                     p-3
-                    disabled:bg-slate-100
+                    disabled:bg-secondary
                   "
                 />
               </div>
@@ -910,12 +910,12 @@ const ProgramFormModal = ({
                     )
                   }
                   className="
-                    w-full
-                    mt-2
-                    border
-                    rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                     p-3
-                    disabled:bg-slate-100
+                    disabled:bg-secondary
                   "
                 />
               </div>
@@ -939,10 +939,10 @@ const ProgramFormModal = ({
                     )
                   }
                   className="
-                    w-full
-                    mt-2
-                    border
-                    rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                     p-3
                   "
                   placeholder="USD"
@@ -953,18 +953,18 @@ const ProgramFormModal = ({
 
             <div
               className="
-                mt-5
-                flex
-                flex-col
-                gap-4
+ mt-5
+ flex
+ flex-col
+ gap-4
               "
             >
               <label
                 className="
-                  flex
-                  items-center
-                  gap-3
-                "
+ flex
+ items-center
+ gap-3
+ "
               >
                 <input
                   type="checkbox"
@@ -986,10 +986,10 @@ const ProgramFormModal = ({
 
               <label
                 className="
-                  flex
-                  items-center
-                  gap-3
-                "
+ flex
+ items-center
+ gap-3
+ "
               >
                 <input
                   type="checkbox"
@@ -1015,28 +1015,28 @@ const ProgramFormModal = ({
 
           <div
             className="
-              border
-              border-slate-200
-              rounded-2xl
-              p-5
+ border
+ border-border
+ rounded-2xl
+ p-5
             "
           >
             <h3
               className="
-                text-lg
-                font-semibold
-                mb-5
-              "
+ text-lg
+ font-semibold
+ mb-5
+ "
             >
               Enrollment Settings
             </h3>
 
             <div
               className="
-                grid
-                md:grid-cols-2
-                gap-5
-              "
+ grid
+ md:grid-cols-2
+ gap-5
+ "
             >
               <div>
                 <label
@@ -1058,20 +1058,20 @@ const ProgramFormModal = ({
                     )
                   }
                   className="
-                    w-full
-                    mt-2
-                    border
-                    rounded-xl
+ w-full
+ mt-2
+ border
+ rounded-xl
                     p-3
                   "
                 />
 
                 <p
                   className="
-                    text-xs
-                    text-slate-500
-                    mt-1
-                  "
+ text-xs
+ text-muted-foreground
+ mt-1
+ "
                 >
                   Use 0 for unlimited
                   enrollments.
@@ -1080,16 +1080,16 @@ const ProgramFormModal = ({
 
               <div
                 className="
-                  flex
-                  items-center
-                "
+ flex
+ items-center
+ "
               >
                 <label
                   className="
-                    flex
-                    items-center
-                    gap-3
-                  "
+ flex
+ items-center
+ gap-3
+ "
                 >
                   <input
                     type="checkbox"
@@ -1116,10 +1116,10 @@ const ProgramFormModal = ({
 
           <div
             className="
-              flex
-              justify-end
-              gap-3
-              pt-6
+ flex
+ justify-end
+ gap-3
+ pt-6
             "
           >
             <button
@@ -1127,10 +1127,10 @@ const ProgramFormModal = ({
               onClick={onClose}
               disabled={isSubmitting}
               className="
-                border
-                px-6
-                py-3
-                rounded-xl
+ border
+ px-6
+ py-3
+ rounded-xl
                 disabled:opacity-50
               "
             >
@@ -1141,10 +1141,10 @@ const ProgramFormModal = ({
               type="submit"
               disabled={isSubmitting}
               className="
-                bg-blue-600
-                hover:bg-blue-700
-                text-white
-                px-6
+ bg-primary
+ hover:bg-primary/90
+ text-white
+ px-6
                 py-3
                 rounded-xl
                 disabled:opacity-50

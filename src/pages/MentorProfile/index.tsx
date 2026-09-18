@@ -132,7 +132,7 @@ const MentorProfilePage = () => {
           Loading Mentor Profile...
         </h1>
 
-        <p className="mt-4 text-slate-500">
+        <p className="mt-4 text-muted-foreground">
           Please wait while we load the mentor details.
         </p>
 
@@ -148,7 +148,7 @@ const MentorProfilePage = () => {
           Mentor Not Found
         </h1>
 
-        <p className="mt-4 text-slate-500">
+        <p className="mt-4 text-muted-foreground">
           {error ||
             "The mentor profile you're looking for does not exist."}
         </p>

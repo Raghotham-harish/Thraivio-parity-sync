@@ -22,11 +22,11 @@ const DeleteProgramDialog = ({
   return (
     <div
       className="
-        fixed
-        inset-0
-        z-50
+ fixed
+ inset-0
+ z-50
 
-        bg-black/50
+ bg-black/50
 
         flex
         items-center
@@ -37,12 +37,12 @@ const DeleteProgramDialog = ({
     >
       <div
         className="
-          bg-white
+ bg-card
 
-          w-full
-          max-w-md
+ w-full
+ max-w-md
 
-          rounded-3xl
+ rounded-2xl
 
           p-8
         "
@@ -51,14 +51,14 @@ const DeleteProgramDialog = ({
 
         <div
           className="
-            h-20
-            w-20
+ h-20
+ w-20
 
-            mx-auto
+ mx-auto
 
-            rounded-full
+ rounded-full
 
-            bg-red-100
+            bg-[#FFDAD6]
 
             flex
             items-center
@@ -68,8 +68,8 @@ const DeleteProgramDialog = ({
           <Trash2
             size={36}
             className="
-              text-red-600
-            "
+ text-[#BA1A1A]
+ "
           />
         </div>
 
@@ -79,46 +79,46 @@ const DeleteProgramDialog = ({
 
           <h2
             className="
-              text-2xl
-              font-bold
-            "
+ text-2xl
+ font-bold
+ "
           >
             Delete Program?
           </h2>
 
           <p
             className="
-              text-slate-500
-              mt-3
-            "
+ text-muted-foreground
+ mt-3
+ "
           >
             You are about to delete:
           </p>
 
           <div
             className="
-              mt-5
+ mt-5
 
-              bg-slate-50
+ bg-secondary
 
-              rounded-2xl
+ rounded-2xl
 
-              p-4
+ p-4
             "
           >
             <h3
               className="
-                font-semibold
-              "
+ font-semibold
+ "
             >
               {program.title}
             </h3>
 
-            <p className="text-sm text-slate-500 mt-1">
+            <p className="text-sm text-muted-foreground mt-1">
   {program.duration} {program.durationUnit}
 </p>
 
-<p className="text-sm text-blue-600 mt-2">
+<p className="text-sm text-primary mt-2">
   {program.isFree ? "Free" : `$${program.finalPrice}`}
 </p>
 
@@ -126,10 +126,10 @@ const DeleteProgramDialog = ({
 
           <p
             className="
-              text-red-500
-              text-sm
-              mt-5
-            "
+ text-[#BA1A1A]
+ text-sm
+ mt-5
+ "
           >
             This action cannot be undone.
           </p>
@@ -140,23 +140,23 @@ const DeleteProgramDialog = ({
 
         <div
           className="
-            grid
-            grid-cols-2
-            gap-3
+ grid
+ grid-cols-2
+ gap-3
 
-            mt-8
+ mt-8
           "
         >
           <button
             onClick={onClose}
             className="
-              border
+ border
 
-              py-3
+ py-3
 
-              rounded-xl
+ rounded-xl
 
-              font-medium
+ font-medium
             "
           >
             Cancel
@@ -165,12 +165,12 @@ const DeleteProgramDialog = ({
           <button
             onClick={onConfirm}
             className="
-              bg-red-600
-              hover:bg-red-700
+ bg-[#BA1A1A]
+ hover:bg-[#BA1A1A]
 
-              text-white
+ text-white
 
-              py-3
+ py-3
 
               rounded-xl
 

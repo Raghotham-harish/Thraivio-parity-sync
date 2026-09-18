@@ -73,7 +73,7 @@ export default function MentorGridCard({
 
         <div className="flex shrink-0 flex-col items-end gap-1">
           {mentor.featured && (
-            <span className="rounded-full bg-amber-100 px-2 py-0.5 text-[10px] font-semibold text-amber-700">
+            <span className="rounded-full bg-[#FFFBEB] px-2 py-0.5 text-[10px] font-semibold text-[#B45309]">
               Featured
             </span>
           )}
@@ -181,7 +181,7 @@ export default function MentorGridCard({
           onClick={() => onReject(mentor)}
           aria-label="Reject mentor"
           title="Reject"
-          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-red-600"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-[#FFDAD6] hover:text-[#BA1A1A]"
         >
           <XCircle className="h-4 w-4" />
         </button>
@@ -191,9 +191,9 @@ export default function MentorGridCard({
           onClick={() => (mentor.featured ? onUnfeature(mentor) : onFeature(mentor))}
           aria-label={mentor.featured ? "Unfeature mentor" : "Feature mentor"}
           title={mentor.featured ? "Unfeature" : "Feature"}
-          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-amber-50 hover:text-amber-600"
+          className="rounded-lg border border-border p-2 text-muted-foreground transition-colors hover:bg-[#FFFBEB] hover:text-[#B45309]"
         >
-          <Star className={`h-4 w-4 ${mentor.featured ? "fill-current text-amber-500" : ""}`} />
+          <Star className={`h-4 w-4 ${mentor.featured ? "fill-current text-[#B45309]" : ""}`} />
         </button>
       </div>
     </div>

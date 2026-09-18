@@ -214,20 +214,20 @@ export default function EditProgramDialog({
     >
       <DialogContent
         className="
-          flex
-          max-h-[92vh]
-          w-[calc(100%-1.5rem)]
-          max-w-3xl
+ flex
+ max-h-[92vh]
+ w-[calc(100%-1.5rem)]
+ max-w-3xl
           flex-col
           overflow-hidden
-          rounded-3xl
+          rounded-2xl
           border-0
-          bg-white
+          bg-card
           p-0
         "
       >
         {/* Header */}
-        <div className="shrink-0 bg-gradient-to-r from-indigo-600 via-violet-600 to-purple-600 px-5 py-6 text-white sm:px-8">
+        <div className="shrink-0 bg-primary px-5 py-6 text-white sm:px-8">
           <DialogHeader>
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-4">
@@ -264,17 +264,17 @@ export default function EditProgramDialog({
           {/* Basic Information */}
           <section className="space-y-4">
             <div>
-              <h3 className="text-base font-bold text-slate-900">
+              <h3 className="text-base font-bold text-foreground">
                 Basic Information
               </h3>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-muted-foreground">
                 Update the main program details.
               </p>
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Program Title *
               </label>
 
@@ -283,12 +283,12 @@ export default function EditProgramDialog({
                 onChange={(event) =>
                   updateField("title", event.target.value)
                 }
-                className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Short Description *
               </label>
 
@@ -300,12 +300,12 @@ export default function EditProgramDialog({
                     event.target.value
                   )
                 }
-                className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Description *
               </label>
 
@@ -318,20 +318,20 @@ export default function EditProgramDialog({
                     event.target.value
                   )
                 }
-                className="w-full resize-none rounded-xl border border-slate-200 p-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="w-full resize-none rounded-xl border border-border p-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
             </div>
           </section>
 
           {/* Classification */}
           <section className="space-y-4">
-            <h3 className="text-base font-bold text-slate-900">
+            <h3 className="text-base font-bold text-foreground">
               Classification
             </h3>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Category *
                 </label>
 
@@ -343,12 +343,12 @@ export default function EditProgramDialog({
                       event.target.value
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Sub Category
                 </label>
 
@@ -360,12 +360,12 @@ export default function EditProgramDialog({
                       event.target.value
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Level
                 </label>
 
@@ -377,7 +377,7 @@ export default function EditProgramDialog({
                       event.target.value as ProgramLevel
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border bg-card px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 >
                   <option value="beginner">Beginner</option>
                   <option value="intermediate">
@@ -388,7 +388,7 @@ export default function EditProgramDialog({
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Tags
                 </label>
 
@@ -398,7 +398,7 @@ export default function EditProgramDialog({
                     updateField("tags", event.target.value)
                   }
                   placeholder="React, Node.js, MongoDB"
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 />
               </div>
             </div>
@@ -406,13 +406,13 @@ export default function EditProgramDialog({
 
           {/* Duration and Pricing */}
           <section className="space-y-4">
-            <h3 className="text-base font-bold text-slate-900">
+            <h3 className="text-base font-bold text-foreground">
               Duration & Pricing
             </h3>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Duration
                 </label>
 
@@ -426,12 +426,12 @@ export default function EditProgramDialog({
                       Number(event.target.value)
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Duration Unit
                 </label>
 
@@ -443,7 +443,7 @@ export default function EditProgramDialog({
                       event.target.value as ProgramDurationUnit
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border bg-card px-4 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 >
                   <option value="hours">Hours</option>
                   <option value="days">Days</option>
@@ -453,7 +453,7 @@ export default function EditProgramDialog({
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Original Price (INR)
                 </label>
 
@@ -468,12 +468,12 @@ export default function EditProgramDialog({
                       Number(event.target.value)
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 disabled:bg-slate-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100 disabled:bg-secondary"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Discount Price (INR)
                 </label>
 
@@ -488,12 +488,12 @@ export default function EditProgramDialog({
                       Number(event.target.value)
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 disabled:bg-slate-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100 disabled:bg-secondary"
                 />
               </div>
             </div>
 
-            <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-border bg-secondary p-4">
               <input
                 type="checkbox"
                 checked={form.isFree}
@@ -503,7 +503,7 @@ export default function EditProgramDialog({
                 className="h-4 w-4 rounded accent-indigo-600"
               />
 
-              <span className="text-sm font-semibold text-slate-700">
+              <span className="text-sm font-semibold text-foreground">
                 This is a free program
               </span>
             </label>
@@ -511,12 +511,12 @@ export default function EditProgramDialog({
 
           {/* Thumbnail */}
           <section className="space-y-4">
-            <h3 className="text-base font-bold text-slate-900">
+            <h3 className="text-base font-bold text-foreground">
               Program Image
             </h3>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Thumbnail URL
               </label>
 
@@ -529,12 +529,12 @@ export default function EditProgramDialog({
                   )
                 }
                 placeholder="https://example.com/image.jpg"
-                className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Image Alt Text
               </label>
 
@@ -547,19 +547,19 @@ export default function EditProgramDialog({
                   )
                 }
                 placeholder="Program image description"
-                className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
             </div>
           </section>
         </div>
 
         {/* Footer */}
-        <DialogFooter className="shrink-0 gap-3 border-t border-slate-200 bg-white px-5 py-4 sm:px-8">
+        <DialogFooter className="shrink-0 gap-3 border-t border-border bg-card px-5 py-4 sm:px-8">
           <button
             type="button"
             onClick={handleClose}
             disabled={isLoading}
-            className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:opacity-50"
+            className="rounded-xl border border-border px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-secondary disabled:opacity-50"
           >
             Cancel
           </button>
@@ -568,7 +568,7 @@ export default function EditProgramDialog({
             type="button"
             onClick={handleSubmit}
             disabled={isLoading}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
           >
             <Save className="h-4 w-4" />
 

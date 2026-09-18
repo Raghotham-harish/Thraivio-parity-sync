@@ -194,7 +194,7 @@ const MentorPrograms = ({
 
       <div className="max-w-7xl mx-auto px-4">
 
-        <div className="bg-white border border-slate-200 rounded-2xl p-10 shadow-sm">
+        <div className="bg-card border border-border rounded-2xl p-10 shadow-sm">
 
           {/* Heading */}
 
@@ -202,11 +202,11 @@ const MentorPrograms = ({
 
             <span
               className="
-                inline-block
-                bg-blue-50
-                border
-                border-blue-200
-                text-blue-700
+ inline-block
+ bg-[#EFF6FF]
+ border
+ border-primary
+                text-primary
                 px-4
                 py-1
                 rounded-lg
@@ -217,11 +217,11 @@ const MentorPrograms = ({
               Premium Programs
             </span>
 
-            <h2 className="text-4xl font-semibold tracking-tight text-slate-900 mt-4">
+            <h2 className="text-4xl font-semibold tracking-tight text-foreground mt-4">
               Structured Coaching Programs
             </h2>
 
-            <p className="text-slate-600 leading-7 mt-3 max-w-2xl mx-auto">
+            <p className="text-muted-foreground leading-7 mt-3 max-w-2xl mx-auto">
               Join mentor-led learning experiences designed
               to accelerate your career and help you achieve
               measurable results faster.
@@ -238,7 +238,7 @@ const MentorPrograms = ({
                 ⏳
               </div>
 
-              <p className="text-slate-500">
+              <p className="text-muted-foreground">
                 Loading programs...
               </p>
 
@@ -251,7 +251,7 @@ const MentorPrograms = ({
             error && (
               <div className="mt-10 py-16 text-center">
 
-                <p className="text-slate-500">
+                <p className="text-muted-foreground">
                   {error}
                 </p>
 
@@ -269,11 +269,11 @@ const MentorPrograms = ({
                   📚
                 </div>
 
-                <h3 className="text-xl font-semibold text-slate-900">
+                <h3 className="text-xl font-semibold text-foreground">
                   No Programs Available
                 </h3>
 
-                <p className="mt-2 text-slate-500">
+                <p className="mt-2 text-muted-foreground">
                   This mentor has not published any
                   coaching programs yet.
                 </p>
@@ -336,11 +336,11 @@ const MentorPrograms = ({
 
                       <div
                         className="
-                          group
-                          bg-white
-                          rounded-2xl
-                          border
-                          border-slate-200
+ group
+ bg-card
+ rounded-2xl
+ border
+                          border-border
                           overflow-hidden
                           hover:shadow-md
                           transition-all
@@ -362,10 +362,10 @@ const MentorPrograms = ({
                               `${program.title} program`
                             }
                             className="
-                              h-full
-                              w-full
-                              object-cover
-                            "
+ h-full
+ w-full
+ object-cover
+ "
                             onError={(event) => {
                               const image =
                                 event.currentTarget;
@@ -380,18 +380,18 @@ const MentorPrograms = ({
                             }}
                           />
 
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                          <div className="absolute inset-0 from-black/50 " />
 
                           <span
                             className="
-                              absolute
-                              top-4
-                              left-4
-                              bg-white
+ absolute
+ top-4
+ left-4
+ bg-card
                               px-3
                               py-1
                               rounded-lg
-                              text-slate-700
+                              text-foreground
                               text-xs
                               font-semibold
                             "
@@ -402,10 +402,10 @@ const MentorPrograms = ({
                           {program.isFeatured && (
                             <span
                               className="
-                                absolute
-                                top-4
-                                right-4
-                                bg-blue-600
+ absolute
+ top-4
+ right-4
+ bg-primary
                                 text-white
                                 px-3
                                 py-1
@@ -438,7 +438,7 @@ const MentorPrograms = ({
 
                           <div className="flex items-center justify-between">
 
-                            <div className="flex items-center gap-2 text-slate-600">
+                            <div className="flex items-center gap-2 text-muted-foreground">
 
                               <Clock3 size={18} />
 
@@ -450,7 +450,7 @@ const MentorPrograms = ({
 
                             </div>
 
-                            <div className="flex items-center gap-2 text-slate-600">
+                            <div className="flex items-center gap-2 text-muted-foreground">
 
                               <Users size={18} />
 
@@ -469,34 +469,34 @@ const MentorPrograms = ({
                             <Star
                               size={16}
                               fill="currentColor"
-                              className="text-yellow-500"
+                              className="text-[#B45309]"
                             />
 
                             <Star
                               size={16}
                               fill="currentColor"
-                              className="text-yellow-500"
+                              className="text-[#B45309]"
                             />
 
                             <Star
                               size={16}
                               fill="currentColor"
-                              className="text-yellow-500"
+                              className="text-[#B45309]"
                             />
 
                             <Star
                               size={16}
                               fill="currentColor"
-                              className="text-yellow-500"
+                              className="text-[#B45309]"
                             />
 
                             <Star
                               size={16}
                               fill="currentColor"
-                              className="text-yellow-500"
+                              className="text-[#B45309]"
                             />
 
-                            <span className="ml-2 text-sm text-slate-500">
+                            <span className="ml-2 text-sm text-muted-foreground">
                               {program.displayRating > 0
                                 ? `${program.displayRating.toFixed(
                                     1
@@ -508,23 +508,23 @@ const MentorPrograms = ({
 
                           <div className="mt-6">
 
-                            <p className="text-sm text-slate-500">
+                            <p className="text-sm text-muted-foreground">
                               Program Fee
                             </p>
 
-                            <h2 className="text-4xl font-bold text-slate-900 mt-1">
+                            <h2 className="text-4xl font-bold text-foreground mt-1">
                               {program.isFree
                                 ? "Free"
                                 : `$${program.displayPrice}`}
                             </h2>
 
-                            <p className="text-sm text-slate-500 mt-1">
+                            <p className="text-sm text-muted-foreground mt-1">
                               Flexible payment options available
                             </p>
 
                           </div>
 
-                          <div className="mt-6 space-y-2 text-sm text-slate-600">
+                          <div className="mt-6 space-y-2 text-sm text-muted-foreground">
 
                             <p>
                               ✅ Weekly Live Sessions
@@ -546,25 +546,25 @@ const MentorPrograms = ({
 
                           <div
                             className="
-                              mt-6
-                              flex
-                              items-center
-                              justify-between
+ mt-6
+ flex
+ items-center
+ justify-between
                               rounded-2xl
-                              bg-slate-50
+                              bg-secondary
                               border
-                              border-slate-200
+                              border-border
                               p-4
                             "
                           >
 
                             <div>
 
-                              <p className="text-sm text-slate-500">
+                              <p className="text-sm text-muted-foreground">
                                 Seats Remaining
                               </p>
 
-                              <p className="font-semibold text-slate-900">
+                              <p className="font-semibold text-foreground">
                                 Only 8 Spots Left
                               </p>
 
@@ -572,10 +572,10 @@ const MentorPrograms = ({
 
                             <span
                               className="
-                                bg-blue-50
-                                text-blue-700
-                                px-3
-                                py-1
+ bg-[#EFF6FF]
+ text-primary
+ px-3
+ py-1
                                 rounded-lg
                                 text-xs
                                 font-semibold
@@ -598,13 +598,13 @@ const MentorPrograms = ({
                                 )
                               }
                               className="
-                                border
-                                border-blue-600
-                                text-blue-600
-                                py-3
+ border
+ border-primary
+ text-primary
+ py-3
                                 rounded-lg
                                 font-medium
-                                hover:bg-blue-600
+                                hover:bg-primary
                                 hover:text-white
                                 hover:shadow-sm
                                 transition
@@ -620,16 +620,16 @@ const MentorPrograms = ({
                               target="_blank"
                               rel="noreferrer"
                               className="
-                                bg-blue-600
-                                text-white
-                                rounded-lg
-                                py-3
+ bg-primary
+ text-white
+ rounded-lg
+ py-3
                                 font-medium
                                 flex
                                 items-center
                                 justify-center
                                 gap-2
-                                hover:bg-blue-700
+                                hover:bg-primary/90
                                 hover:shadow-sm
                                 transition
                               "
@@ -660,11 +660,11 @@ const MentorPrograms = ({
 
           <div className="mt-14 text-center">
 
-            <h3 className="text-3xl font-semibold tracking-tight text-slate-900">
+            <h3 className="text-3xl font-semibold tracking-tight text-foreground">
               Want to Explore More Programs?
             </h3>
 
-            <p className="mt-3 text-slate-500 max-w-2xl mx-auto">
+            <p className="mt-3 text-muted-foreground max-w-2xl mx-auto">
               Browse all coaching programs offered by this mentor in one
               dedicated place. Compare options and find the perfect
               learning path for your goals.
@@ -678,17 +678,17 @@ const MentorPrograms = ({
                 )
               }
               className="
-                mt-8
-                inline-flex
-                items-center
-                gap-2
-                bg-blue-600
+ mt-8
+ inline-flex
+ items-center
+ gap-2
+                bg-primary
                 text-white
                 px-8
                 py-4
                 rounded-lg
                 font-semibold
-                hover:bg-blue-700
+                hover:bg-primary/90
                 transition
                 duration-300
                 hover:shadow-sm

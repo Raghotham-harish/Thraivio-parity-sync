@@ -90,11 +90,11 @@ const ProgramDetailsModal = ({
   return (
     <div
       className="
-        fixed
-        inset-0
-        z-50
+ fixed
+ inset-0
+ z-50
 
-        bg-black/60
+ bg-black/60
         backdrop-blur-sm
 
         flex
@@ -108,12 +108,12 @@ const ProgramDetailsModal = ({
     >
       <div
         className="
-          bg-white
+ bg-card
 
-          w-full
-          max-w-6xl
+ w-full
+ max-w-6xl
 
-          rounded-[32px]
+ rounded-2xl
 
           overflow-hidden
 
@@ -133,23 +133,23 @@ const ProgramDetailsModal = ({
 
         <div
           className="
-            relative
+ relative
 
-            bg-gradient-to-r
-            from-blue-600
-            via-indigo-600
-            to-purple-600
+ 
+ bg-primary
+ 
+            
 
             text-white
           "
         >
           <div
             className="
-              h-56
-              overflow-hidden
+ h-56
+ overflow-hidden
 
-              opacity-30
-            "
+ opacity-30
+ "
           >
             <img
               src={image}
@@ -158,23 +158,23 @@ const ProgramDetailsModal = ({
                 program.title
               }
               className="
-                w-full
-                h-full
+ w-full
+ h-full
 
-                object-cover
-              "
+ object-cover
+ "
             />
           </div>
 
           <div
             className="
-              absolute
-              inset-0
+ absolute
+ inset-0
 
-              bg-gradient-to-r
-              from-blue-600/95
-              via-indigo-600/90
-              to-purple-600/90
+ 
+ bg-primary
+              
+              
             "
           />
 
@@ -183,11 +183,11 @@ const ProgramDetailsModal = ({
             onClick={onClose}
             aria-label="Close program details"
             className="
-              absolute
-              top-6
-              right-6
+ absolute
+ top-6
+ right-6
 
-              h-10
+ h-10
               w-10
 
               rounded-full
@@ -210,11 +210,11 @@ const ProgramDetailsModal = ({
 
           <div
             className="
-              absolute
-              inset-0
+ absolute
+ inset-0
 
-              flex
-              items-center
+ flex
+ items-center
 
               p-8
             "
@@ -222,27 +222,27 @@ const ProgramDetailsModal = ({
             <div className="max-w-4xl pr-12">
               <div
                 className="
-                  flex
-                  flex-wrap
+ flex
+ flex-wrap
 
-                  items-center
-                  gap-2
+ items-center
+ gap-2
                 "
               >
                 <span
                   className="
-                    inline-flex
+ inline-flex
 
-                    px-4
-                    py-2
+ px-4
+ py-2
 
-                    rounded-full
+ rounded-full
 
                     text-sm
                     font-semibold
 
-                    bg-white
-                    text-blue-700
+                    bg-card
+                    text-primary
                   "
                 >
                   {program.status}
@@ -250,12 +250,12 @@ const ProgramDetailsModal = ({
 
                 <span
                   className="
-                    inline-flex
+ inline-flex
 
-                    px-4
-                    py-2
+ px-4
+ py-2
 
-                    rounded-full
+ rounded-full
 
                     text-sm
                     font-semibold
@@ -270,12 +270,12 @@ const ProgramDetailsModal = ({
                 {program.isFeatured && (
                   <span
                     className="
-                      inline-flex
+ inline-flex
 
-                      items-center
-                      gap-1
+ items-center
+ gap-1
 
-                      px-4
+ px-4
                       py-2
 
                       rounded-full
@@ -283,7 +283,7 @@ const ProgramDetailsModal = ({
                       text-sm
                       font-semibold
 
-                      bg-amber-400
+                      bg-[#F59E0B]
                       text-white
                     "
                   >
@@ -296,12 +296,12 @@ const ProgramDetailsModal = ({
               <h2
                 id="program-details-title"
                 className="
-                  text-3xl
-                  md:text-4xl
+ text-3xl
+ md:text-4xl
 
-                  font-bold
+ font-bold
 
-                  mt-5
+ mt-5
                 "
               >
                 {program.title}
@@ -309,12 +309,12 @@ const ProgramDetailsModal = ({
 
               <p
                 className="
-                  text-blue-100
+ text-blue-100
 
-                  mt-3
+ mt-3
 
-                  max-w-3xl
-                "
+ max-w-3xl
+ "
               >
                 {program.shortDescription}
               </p>
@@ -326,67 +326,67 @@ const ProgramDetailsModal = ({
 
         <div
           className="
-            overflow-y-auto
+ overflow-y-auto
 
-            flex-1
+ flex-1
 
-            p-8
-          "
+ p-8
+ "
         >
           <div
             className="
-              grid
-              xl:grid-cols-3
+ grid
+ xl:grid-cols-3
 
-              gap-8
-            "
+ gap-8
+ "
           >
             {/* Left */}
 
             <div
               className="
-                xl:col-span-2
+ xl:col-span-2
 
-                space-y-6
-              "
+ space-y-6
+ "
             >
               {/* Program Information */}
 
               <div
                 className="
-                  border
-                  border-slate-200
+ border
+ border-border
 
-                  rounded-3xl
+ rounded-2xl
 
-                  p-6
+ p-6
                 "
               >
                 <h3
                   className="
-                    text-xl
-                    font-bold
+ text-xl
+ font-bold
 
-                    mb-5
-                  "
+ mb-5
+ "
                 >
                   Program Information
                 </h3>
 
                 <div
                   className="
-                    grid
-                    md:grid-cols-2
+ grid
+ md:grid-cols-2
 
-                    gap-5
-                  "
+ gap-5
+ "
                 >
                   <div
                     className="
-                      flex
-                      items-center
-                      gap-3
-                    "
+ flex
+ items-center
+ gap-3
+ "
                   >
                     <Clock3 size={18} />
 
@@ -397,10 +397,10 @@ const ProgramDetailsModal = ({
 
                   <div
                     className="
-                      flex
-                      items-center
-                      gap-3
-                    "
+ flex
+ items-center
+ gap-3
+ "
                   >
                     <Users size={18} />
 
@@ -411,10 +411,10 @@ const ProgramDetailsModal = ({
 
                   <div
                     className="
-                      flex
-                      items-center
-                      gap-3
-                    "
+ flex
+ items-center
+ gap-3
+ "
                   >
                     <GraduationCap
                       size={18}
@@ -427,10 +427,10 @@ const ProgramDetailsModal = ({
 
                   <div
                     className="
-                      flex
-                      items-center
-                      gap-3
-                    "
+ flex
+ items-center
+ gap-3
+ "
                   >
                     <BookOpen size={18} />
 
@@ -442,21 +442,21 @@ const ProgramDetailsModal = ({
 
                 <div
                   className="
-                    flex
-                    flex-wrap
+ flex
+ flex-wrap
 
-                    gap-2
+ gap-2
 
-                    mt-5
+ mt-5
                   "
                 >
                   <span
                     className="
-                      bg-blue-50
-                      text-blue-700
+ bg-[#EFF6FF]
+ text-primary
 
-                      px-3
-                      py-1
+ px-3
+ py-1
 
                       rounded-full
 
@@ -470,11 +470,11 @@ const ProgramDetailsModal = ({
                   {program.subCategory && (
                     <span
                       className="
-                        bg-purple-50
-                        text-purple-700
+ bg-[#EFF6FF]
+ text-primary
 
-                        px-3
-                        py-1
+ px-3
+ py-1
 
                         rounded-full
 
@@ -491,11 +491,11 @@ const ProgramDetailsModal = ({
                       <span
                         key={language}
                         className="
-                          bg-slate-100
-                          text-slate-700
+ bg-secondary
+ text-foreground
 
-                          px-3
-                          py-1
+ px-3
+ py-1
 
                           rounded-full
 
@@ -514,31 +514,31 @@ const ProgramDetailsModal = ({
 
               <div
                 className="
-                  border
-                  border-slate-200
+ border
+ border-border
 
-                  rounded-3xl
+ rounded-2xl
 
-                  p-6
+ p-6
                 "
               >
                 <h3
                   className="
-                    text-xl
-                    font-bold
+ text-xl
+ font-bold
 
-                    mb-4
-                  "
+ mb-4
+ "
                 >
                   About This Program
                 </h3>
 
                 <p
                   className="
-                    text-slate-600
+ text-muted-foreground
 
-                    leading-7
-                  "
+ leading-7
+ "
                 >
                   {program.description}
                 </p>
@@ -549,29 +549,29 @@ const ProgramDetailsModal = ({
               {learningOutcomes.length > 0 && (
                 <div
                   className="
-                    border
-                    border-slate-200
+ border
+ border-border
 
-                    rounded-3xl
+ rounded-2xl
 
-                    p-6
+ p-6
                   "
                 >
                   <h3
                     className="
-                      text-xl
-                      font-bold
+ text-xl
+ font-bold
 
-                      mb-5
-                    "
+ mb-5
+ "
                   >
                     What You Will Learn
                   </h3>
 
                   <div
                     className="
-                      space-y-4
-                    "
+ space-y-4
+ "
                   >
                     {learningOutcomes.map(
                       (outcome) => (
@@ -580,16 +580,16 @@ const ProgramDetailsModal = ({
                             outcome.order
                           }
                           className="
-                            flex
-                            gap-3
-                          "
+ flex
+ gap-3
+ "
                         >
                           <CheckCircle2
                             className="
-                              text-green-600
-                              shrink-0
-                              mt-0.5
-                            "
+ text-[#065F46]
+ shrink-0
+ mt-0.5
+ "
                             size={20}
                           />
 
@@ -603,11 +603,11 @@ const ProgramDetailsModal = ({
                             {outcome.description && (
                               <p
                                 className="
-                                  text-sm
-                                  text-slate-500
+ text-sm
+ text-muted-foreground
 
-                                  mt-1
-                                "
+ mt-1
+ "
                               >
                                 {
                                   outcome.description
@@ -627,32 +627,32 @@ const ProgramDetailsModal = ({
               {benefits.length > 0 && (
                 <div
                   className="
-                    border
-                    border-slate-200
+ border
+ border-border
 
-                    rounded-3xl
+ rounded-2xl
 
-                    p-6
+ p-6
                   "
                 >
                   <h3
                     className="
-                      text-xl
-                      font-bold
+ text-xl
+ font-bold
 
-                      mb-5
-                    "
+ mb-5
+ "
                   >
                     Included Benefits
                   </h3>
 
                   <div
                     className="
-                      grid
-                      md:grid-cols-2
+ grid
+ md:grid-cols-2
 
-                      gap-4
-                    "
+ gap-4
+ "
                   >
                     {benefits.map(
                       (benefit) => (
@@ -661,15 +661,15 @@ const ProgramDetailsModal = ({
                             benefit.order
                           }
                           className="
-                            flex
-                            gap-3
-                          "
+ flex
+ gap-3
+ "
                         >
                           <CheckCircle2
                             className="
-                              text-green-600
-                              shrink-0
-                            "
+ text-[#065F46]
+ shrink-0
+ "
                             size={20}
                           />
 
@@ -683,11 +683,11 @@ const ProgramDetailsModal = ({
                             {benefit.description && (
                               <p
                                 className="
-                                  text-sm
-                                  text-slate-500
+ text-sm
+ text-muted-foreground
 
-                                  mt-1
-                                "
+ mt-1
+ "
                               >
                                 {
                                   benefit.description
@@ -707,29 +707,29 @@ const ProgramDetailsModal = ({
               {requirements.length > 0 && (
                 <div
                   className="
-                    border
-                    border-slate-200
+ border
+ border-border
 
-                    rounded-3xl
+ rounded-2xl
 
-                    p-6
+ p-6
                   "
                 >
                   <h3
                     className="
-                      text-xl
-                      font-bold
+ text-xl
+ font-bold
 
-                      mb-5
-                    "
+ mb-5
+ "
                   >
                     Requirements
                   </h3>
 
                   <div
                     className="
-                      space-y-4
-                    "
+ space-y-4
+ "
                   >
                     {requirements.map(
                       (requirement) => (
@@ -738,18 +738,18 @@ const ProgramDetailsModal = ({
                             requirement.order
                           }
                           className="
-                            flex
-                            gap-3
-                          "
+ flex
+ gap-3
+ "
                         >
                           <span
                             className="
-                              h-2
-                              w-2
+ h-2
+ w-2
 
-                              rounded-full
+ rounded-full
 
-                              bg-blue-600
+ bg-primary
 
                               mt-2
 
@@ -767,11 +767,11 @@ const ProgramDetailsModal = ({
                             {requirement.description && (
                               <p
                                 className="
-                                  text-sm
-                                  text-slate-500
+ text-sm
+ text-muted-foreground
 
-                                  mt-1
-                                "
+ mt-1
+ "
                               >
                                 {
                                   requirement.description
@@ -791,29 +791,29 @@ const ProgramDetailsModal = ({
               {sections.length > 0 && (
                 <div
                   className="
-                    border
-                    border-slate-200
+ border
+ border-border
 
-                    rounded-3xl
+ rounded-2xl
 
-                    p-6
+ p-6
                   "
                 >
                   <h3
                     className="
-                      text-xl
-                      font-bold
+ text-xl
+ font-bold
 
-                      mb-5
-                    "
+ mb-5
+ "
                   >
                     Curriculum Overview
                   </h3>
 
                   <div
                     className="
-                      space-y-4
-                    "
+ space-y-4
+ "
                   >
                     {sections.map(
                       (section) => (
@@ -822,20 +822,20 @@ const ProgramDetailsModal = ({
                             section.order
                           }
                           className="
-                            bg-slate-50
+ bg-secondary
 
-                            rounded-2xl
+ rounded-2xl
 
-                            p-5
-                          "
+ p-5
+ "
                         >
                           <div
                             className="
-                              flex
-                              items-start
-                              justify-between
+ flex
+ items-start
+ justify-between
 
-                              gap-4
+ gap-4
                             "
                           >
                             <div>
@@ -848,11 +848,11 @@ const ProgramDetailsModal = ({
                               {section.description && (
                                 <p
                                   className="
-                                    text-sm
-                                    text-slate-500
+ text-sm
+ text-muted-foreground
 
-                                    mt-1
-                                  "
+ mt-1
+ "
                                 >
                                   {
                                     section.description
@@ -863,11 +863,11 @@ const ProgramDetailsModal = ({
 
                             <span
                               className="
-                                text-xs
-                                text-slate-500
+ text-xs
+ text-muted-foreground
 
-                                whitespace-nowrap
-                              "
+ whitespace-nowrap
+ "
                             >
                               {
                                 section.lessons
@@ -881,9 +881,9 @@ const ProgramDetailsModal = ({
                             0 && (
                             <div
                               className="
-                                mt-4
-                                space-y-2
-                              "
+ mt-4
+ space-y-2
+ "
                             >
                               {section.lessons.map(
                                 (lesson) => (
@@ -892,13 +892,13 @@ const ProgramDetailsModal = ({
                                       lesson.order
                                     }
                                     className="
-                                      flex
-                                      items-center
-                                      justify-between
+ flex
+ items-center
+ justify-between
 
-                                      gap-4
+ gap-4
 
-                                      bg-white
+                                      bg-card
 
                                       rounded-xl
 
@@ -908,10 +908,10 @@ const ProgramDetailsModal = ({
                                   >
                                     <div
                                       className="
-                                        flex
-                                        items-center
-                                        gap-2
-                                      "
+ flex
+ items-center
+ gap-2
+ "
                                     >
                                       <BookOpen
                                         size={
@@ -928,10 +928,10 @@ const ProgramDetailsModal = ({
                                       {lesson.preview && (
                                         <span
                                           className="
-                                            text-xs
-                                            text-blue-600
-                                            font-medium
-                                          "
+ text-xs
+ text-primary
+ font-medium
+ "
                                         >
                                           Preview
                                         </span>
@@ -940,11 +940,11 @@ const ProgramDetailsModal = ({
 
                                     <span
                                       className="
-                                        text-xs
-                                        text-slate-500
+ text-xs
+ text-muted-foreground
 
-                                        whitespace-nowrap
-                                      "
+ whitespace-nowrap
+ "
                                     >
                                       {
                                         lesson.duration
@@ -968,29 +968,29 @@ const ProgramDetailsModal = ({
               {faqs.length > 0 && (
                 <div
                   className="
-                    border
-                    border-slate-200
+ border
+ border-border
 
-                    rounded-3xl
+ rounded-2xl
 
-                    p-6
+ p-6
                   "
                 >
                   <h3
                     className="
-                      text-xl
-                      font-bold
+ text-xl
+ font-bold
 
-                      mb-5
-                    "
+ mb-5
+ "
                   >
                     Frequently Asked Questions
                   </h3>
 
                   <div
                     className="
-                      space-y-5
-                    "
+ space-y-5
+ "
                   >
                     {faqs.map(
                       (faq) => (
@@ -1005,12 +1005,12 @@ const ProgramDetailsModal = ({
 
                           <p
                             className="
-                              text-sm
-                              text-slate-500
+ text-sm
+ text-muted-foreground
 
-                              mt-2
+ mt-2
 
-                              leading-6
+ leading-6
                             "
                           >
                             {faq.answer}
@@ -1028,24 +1028,24 @@ const ProgramDetailsModal = ({
             <div>
               <div
                 className="
-                  sticky
-                  top-0
+ sticky
+ top-0
 
-                  border
-                  border-slate-200
+ border
+ border-border
 
-                  rounded-3xl
+                  rounded-2xl
 
                   p-6
 
-                  bg-slate-50
+                  bg-secondary
                 "
               >
                 <h3
                   className="
-                    text-xl
-                    font-bold
-                  "
+ text-xl
+ font-bold
+ "
                 >
                   Program Summary
                 </h3>
@@ -1054,34 +1054,34 @@ const ProgramDetailsModal = ({
 
                 <div
                   className="
-                    flex
-                    items-center
-                    gap-2
+ flex
+ items-center
+ gap-2
 
-                    mt-5
+ mt-5
                   "
                 >
                   <Star
                     size={18}
                     fill="currentColor"
                     className="
-                      text-yellow-500
-                    "
+ text-[#B45309]
+ "
                   />
 
                   <span
                     className="
-                      font-bold
-                    "
+ font-bold
+ "
                   >
                     {rating.toFixed(1)}
                   </span>
 
                   <span
                     className="
-                      text-sm
-                      text-slate-500
-                    "
+ text-sm
+ text-muted-foreground
+ "
                   >
                     ({reviews} Reviews)
                   </span>
@@ -1091,20 +1091,20 @@ const ProgramDetailsModal = ({
 
                 <div
                   className="
-                    mt-6
+ mt-6
 
-                    space-y-3
-                  "
+ space-y-3
+ "
                 >
                   <div
                     className="
-                      bg-white
+ bg-card
 
-                      rounded-2xl
+ rounded-2xl
 
-                      p-4
+ p-4
 
-                      flex
+ flex
                       items-center
                       gap-3
                     "
@@ -1112,7 +1112,7 @@ const ProgramDetailsModal = ({
                     <Clock3 size={18} />
 
                     <div>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-muted-foreground">
                         Duration
                       </p>
 
@@ -1124,13 +1124,13 @@ const ProgramDetailsModal = ({
 
                   <div
                     className="
-                      bg-white
+ bg-card
 
-                      rounded-2xl
+ rounded-2xl
 
-                      p-4
+ p-4
 
-                      flex
+ flex
                       items-center
                       gap-3
                     "
@@ -1138,7 +1138,7 @@ const ProgramDetailsModal = ({
                     <Users size={18} />
 
                     <div>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-muted-foreground">
                         Enrollments
                       </p>
 
@@ -1150,13 +1150,13 @@ const ProgramDetailsModal = ({
 
                   <div
                     className="
-                      bg-white
+ bg-card
 
-                      rounded-2xl
+ rounded-2xl
 
-                      p-4
+ p-4
 
-                      flex
+ flex
                       items-center
                       gap-3
                     "
@@ -1164,7 +1164,7 @@ const ProgramDetailsModal = ({
                     <BookOpen size={18} />
 
                     <div>
-                      <p className="text-xs text-slate-500">
+                      <p className="text-xs text-muted-foreground">
                         Curriculum
                       </p>
 
@@ -1179,11 +1179,11 @@ const ProgramDetailsModal = ({
 
                 <div
                   className="
-                    mt-5
+ mt-5
 
-                    bg-gradient-to-r
-                    from-blue-50
-                    to-indigo-50
+ 
+ bg-[#EFF6FF]
+ 
 
                     rounded-2xl
 
@@ -1192,21 +1192,21 @@ const ProgramDetailsModal = ({
                 >
                   <p
                     className="
-                      text-sm
-                      text-slate-500
-                    "
+ text-sm
+ text-muted-foreground
+ "
                   >
                     Program Fee
                   </p>
 
                   <h3
                     className="
-                      text-3xl
-                      font-bold
+ text-3xl
+ font-bold
 
-                      text-blue-600
+ text-primary
 
-                      mt-1
+ mt-1
                     "
                   >
                     {price}
@@ -1216,12 +1216,12 @@ const ProgramDetailsModal = ({
                     !program.isFree && (
                       <p
                         className="
-                          text-sm
-                          text-slate-400
+ text-sm
+ text-muted-foreground
 
-                          line-through
+ line-through
 
-                          mt-1
+ mt-1
                         "
                       >
                         {program.pricing.currency}{" "}
@@ -1236,21 +1236,21 @@ const ProgramDetailsModal = ({
                   <div className="mt-5">
                     <p
                       className="
-                        text-sm
-                        text-slate-500
-                      "
+ text-sm
+ text-muted-foreground
+ "
                     >
                       Languages
                     </p>
 
                     <div
                       className="
-                        flex
-                        flex-wrap
+ flex
+ flex-wrap
 
-                        gap-2
+ gap-2
 
-                        mt-2
+ mt-2
                       "
                     >
                       {languages.map(
@@ -1260,12 +1260,12 @@ const ProgramDetailsModal = ({
                               language
                             }
                             className="
-                              bg-white
+ bg-card
 
-                              border
-                              border-slate-200
+ border
+ border-border
 
-                              rounded-full
+ rounded-full
 
                               px-3
                               py-1
@@ -1285,12 +1285,12 @@ const ProgramDetailsModal = ({
 
                 <div
                   className="
-                    mt-6
+ mt-6
 
-                    rounded-xl
+ rounded-xl
 
-                    px-4
-                    py-3
+ px-4
+ py-3
 
                     text-center
 
@@ -1301,12 +1301,12 @@ const ProgramDetailsModal = ({
                   {program.canEnroll ? (
                     <div
                       className="
-                        bg-green-50
-                        text-green-700
+ bg-[#ECFDF5]
+ text-[#065F46]
 
-                        rounded-xl
+ rounded-xl
 
-                        py-3
+ py-3
                       "
                     >
                       Enrollment Available
@@ -1314,12 +1314,12 @@ const ProgramDetailsModal = ({
                   ) : (
                     <div
                       className="
-                        bg-slate-100
-                        text-slate-500
+ bg-secondary
+ text-muted-foreground
 
-                        rounded-xl
+ rounded-xl
 
-                        py-3
+ py-3
                       "
                     >
                       Enrollment Unavailable
@@ -1331,21 +1331,21 @@ const ProgramDetailsModal = ({
 
                 <div
                   className="
-                    mt-6
+ mt-6
 
-                    space-y-3
-                  "
+ space-y-3
+ "
                 >
                   {program.canEnroll ? (
                     <button
                       type="button"
                       className="
-                        w-full
+ w-full
 
-                        bg-blue-600
-                        hover:bg-blue-700
+ bg-primary
+ hover:bg-primary/90
 
-                        text-white
+ text-white
 
                         py-3
 
@@ -1368,12 +1368,12 @@ const ProgramDetailsModal = ({
                   ) : (
                     <div
                       className="
-                        w-full
+ w-full
 
-                        bg-slate-100
-                        text-slate-500
+ bg-secondary
+ text-muted-foreground
 
-                        py-3
+ py-3
 
                         rounded-xl
 
@@ -1392,25 +1392,25 @@ const ProgramDetailsModal = ({
 
                 <div
                   className="
-                    mt-4
-                  "
+ mt-4
+ "
                 >
                   <button
                     type="button"
                     onClick={onClose}
                     className="
-                      w-full
+ w-full
 
-                      border
-                      border-slate-300
+ border
+ border-border
 
-                      py-3
+ py-3
 
                       rounded-xl
 
                       font-medium
 
-                      hover:bg-slate-100
+                      hover:bg-secondary
 
                       transition
                     "

@@ -419,7 +419,7 @@ export default function ProgramsManagement() {
                 )
               }
               onChange={toggleSelectAllVisible}
-              className="h-4 w-4 rounded border-gray-300"
+              className="h-4 w-4 rounded border-border"
               aria-label="Select all visible programs"
             />
             <span>{selectedProgramIds.length} selected</span>
@@ -467,7 +467,7 @@ export default function ProgramsManagement() {
                 type="checkbox"
                 checked={selectedProgramIds.includes(program.id)}
                 onChange={() => toggleProgramSelection(program.id)}
-                className="h-4 w-4 rounded border-gray-300"
+                className="h-4 w-4 rounded border-border"
               />
               <span className="truncate">{program.title}</span>
             </label>
@@ -508,7 +508,7 @@ export default function ProgramsManagement() {
       />
 
       {error && (
-        <div className="rounded-xl border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+        <div className="rounded-xl border border-[#BA1A1A] bg-[#FFDAD6] p-4 text-sm text-[#BA1A1A]">
           <span>{error}</span>
 
           <button

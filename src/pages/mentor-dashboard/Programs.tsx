@@ -228,19 +228,19 @@ const Programs = () => {
 
         <div
           className="
-            bg-white
-            border
-            border-slate-200
-            rounded-3xl
+ bg-card
+ border
+ border-border
+ rounded-2xl
             p-10
             text-center
           "
         >
           <p
             className="
-              text-slate-500
-              text-lg
-            "
+ text-muted-foreground
+ text-lg
+ "
           >
             Loading your programs...
           </p>
@@ -256,29 +256,29 @@ const Programs = () => {
 
         <div
           className="
-            bg-white
-            border
-            border-red-200
-            rounded-3xl
+ bg-card
+ border
+ border-[#BA1A1A]
+ rounded-2xl
             p-10
             text-center
           "
         >
           <h2
             className="
-              text-2xl
-              font-bold
-              text-slate-900
-            "
+ text-2xl
+ font-bold
+ text-foreground
+ "
           >
             Unable to Load Programs
           </h2>
 
           <p
             className="
-              text-slate-500
-              mt-3
-            "
+ text-muted-foreground
+ mt-3
+ "
           >
             {error}
           </p>
@@ -288,10 +288,10 @@ const Programs = () => {
               window.location.reload()
             }
             className="
-              mt-6
-              bg-blue-600
-              hover:bg-blue-700
-              text-white
+ mt-6
+ bg-primary
+ hover:bg-primary/90
+ text-white
               px-6
               py-3
               rounded-xl
@@ -346,10 +346,10 @@ const Programs = () => {
           {view === "grid" && (
             <div
               className="
-                grid
-                md:grid-cols-2
-                xl:grid-cols-3
-                gap-6
+ grid
+ md:grid-cols-2
+ xl:grid-cols-3
+ gap-6
               "
             >
               {filteredPrograms.map(
@@ -377,8 +377,8 @@ const Programs = () => {
           {view === "list" && (
             <div
               className="
-                space-y-6
-              "
+ space-y-6
+ "
             >
               {filteredPrograms.map(
                 (program) => (

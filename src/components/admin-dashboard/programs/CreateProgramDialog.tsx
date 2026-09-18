@@ -218,20 +218,20 @@ export default function CreateProgramDialog({
     >
       <DialogContent
         className="
-          flex
-          max-h-[92vh]
-          w-[calc(100%-1.5rem)]
-          max-w-3xl
+ flex
+ max-h-[92vh]
+ w-[calc(100%-1.5rem)]
+ max-w-3xl
           flex-col
           overflow-hidden
-          rounded-3xl
+          rounded-2xl
           border-0
-          bg-white
+          bg-card
           p-0
         "
       >
         {/* Header */}
-        <div className="shrink-0 bg-gradient-to-r from-violet-600 via-indigo-600 to-blue-600 px-5 py-6 text-white sm:px-8">
+        <div className="shrink-0 bg-primary px-5 py-6 text-white sm:px-8">
           <DialogHeader>
             <div className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-4">
@@ -268,17 +268,17 @@ export default function CreateProgramDialog({
           {/* Basic Information */}
           <section className="space-y-4">
             <div>
-              <h3 className="text-base font-bold text-slate-900">
+              <h3 className="text-base font-bold text-foreground">
                 Basic Information
               </h3>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-muted-foreground">
                 Add the main details of your program.
               </p>
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Program Title *
               </label>
 
@@ -288,12 +288,12 @@ export default function CreateProgramDialog({
                   updateField("title", event.target.value)
                 }
                 placeholder="Complete MERN Stack Bootcamp"
-                className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Short Description *
               </label>
 
@@ -306,12 +306,12 @@ export default function CreateProgramDialog({
                   )
                 }
                 placeholder="Learn full-stack web development"
-                className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
             </div>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Description *
               </label>
 
@@ -325,20 +325,20 @@ export default function CreateProgramDialog({
                 }
                 rows={5}
                 placeholder="Write complete program description..."
-                className="w-full resize-none rounded-xl border border-slate-200 p-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="w-full resize-none rounded-xl border border-border p-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
             </div>
           </section>
 
           {/* Category and Level */}
           <section className="space-y-4">
-            <h3 className="text-base font-bold text-slate-900">
+            <h3 className="text-base font-bold text-foreground">
               Classification
             </h3>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Category *
                 </label>
 
@@ -351,12 +351,12 @@ export default function CreateProgramDialog({
                     )
                   }
                   placeholder="Technology"
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Sub Category
                 </label>
 
@@ -369,12 +369,12 @@ export default function CreateProgramDialog({
                     )
                   }
                   placeholder="Web Development"
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Level
                 </label>
 
@@ -386,7 +386,7 @@ export default function CreateProgramDialog({
                       event.target.value as ProgramLevel
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border bg-card px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 >
                   <option value="beginner">Beginner</option>
                   <option value="intermediate">
@@ -397,7 +397,7 @@ export default function CreateProgramDialog({
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Tags
                 </label>
 
@@ -407,10 +407,10 @@ export default function CreateProgramDialog({
                     handleTagsChange(event.target.value)
                   }
                   placeholder="React, Node.js, MongoDB"
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 />
 
-                <p className="mt-1 text-xs text-slate-400">
+                <p className="mt-1 text-xs text-muted-foreground">
                   Separate tags with commas.
                 </p>
               </div>
@@ -419,13 +419,13 @@ export default function CreateProgramDialog({
 
           {/* Duration and Pricing */}
           <section className="space-y-4">
-            <h3 className="text-base font-bold text-slate-900">
+            <h3 className="text-base font-bold text-foreground">
               Duration & Pricing
             </h3>
 
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Duration
                 </label>
 
@@ -439,12 +439,12 @@ export default function CreateProgramDialog({
                       Number(event.target.value)
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Duration Unit
                 </label>
 
@@ -456,7 +456,7 @@ export default function CreateProgramDialog({
                       event.target.value as ProgramDurationUnit
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 bg-white px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                  className="h-12 w-full rounded-xl border border-border bg-card px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
                 >
                   <option value="hours">Hours</option>
                   <option value="days">Days</option>
@@ -466,7 +466,7 @@ export default function CreateProgramDialog({
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Price (INR)
                 </label>
 
@@ -481,12 +481,12 @@ export default function CreateProgramDialog({
                       Number(event.target.value)
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 disabled:bg-slate-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100 disabled:bg-secondary"
                 />
               </div>
 
               <div>
-                <label className="mb-2 block text-sm font-semibold text-slate-700">
+                <label className="mb-2 block text-sm font-semibold text-foreground">
                   Discount Price (INR)
                 </label>
 
@@ -501,12 +501,12 @@ export default function CreateProgramDialog({
                       Number(event.target.value)
                     )
                   }
-                  className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 disabled:bg-slate-100"
+                  className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100 disabled:bg-secondary"
                 />
               </div>
             </div>
 
-            <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <label className="flex cursor-pointer items-center gap-3 rounded-xl border border-border bg-secondary p-4">
               <input
                 type="checkbox"
                 checked={form.pricing.isFree}
@@ -516,7 +516,7 @@ export default function CreateProgramDialog({
                 className="h-4 w-4 rounded accent-indigo-600"
               />
 
-              <span className="text-sm font-semibold text-slate-700">
+              <span className="text-sm font-semibold text-foreground">
                 This is a free program
               </span>
             </label>
@@ -524,12 +524,12 @@ export default function CreateProgramDialog({
 
           {/* Thumbnail */}
           <section className="space-y-4">
-            <h3 className="text-base font-bold text-slate-900">
+            <h3 className="text-base font-bold text-foreground">
               Program Image
             </h3>
 
             <div>
-              <label className="mb-2 block text-sm font-semibold text-slate-700">
+              <label className="mb-2 block text-sm font-semibold text-foreground">
                 Thumbnail URL
               </label>
 
@@ -542,10 +542,10 @@ export default function CreateProgramDialog({
                   })
                 }
                 placeholder="https://example.com/program-image.jpg"
-                className="h-12 w-full rounded-xl border border-slate-200 px-4 text-sm outline-none transition focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100"
+                className="h-12 w-full rounded-xl border border-border px-4 text-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-indigo-100"
               />
 
-              <p className="mt-1 text-xs text-slate-400">
+              <p className="mt-1 text-xs text-muted-foreground">
                 Cloudinary upload integration can be added separately.
               </p>
             </div>
@@ -554,14 +554,14 @@ export default function CreateProgramDialog({
           {/* Program Settings */}
           <section className="space-y-4 rounded-2xl border border-indigo-100 bg-indigo-50/50 p-5">
             <div className="flex items-start gap-3">
-              <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-indigo-600" />
+              <Sparkles className="mt-0.5 h-5 w-5 shrink-0 text-primary" />
 
               <div>
-                <h3 className="font-bold text-slate-900">
+                <h3 className="font-bold text-foreground">
                   Program Settings
                 </h3>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-muted-foreground">
                   These settings control program visibility.
                 </p>
               </div>
@@ -579,15 +579,15 @@ export default function CreateProgramDialog({
                 className="h-4 w-4 rounded accent-indigo-600"
               />
 
-              <span className="text-sm text-slate-700">
+              <span className="text-sm text-foreground">
                 Keep pricing as free
               </span>
             </label>
 
-            <div className="flex items-start gap-3 rounded-xl bg-white p-4">
-              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+            <div className="flex items-start gap-3 rounded-xl bg-card p-4">
+              <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#065F46]" />
 
-              <p className="text-sm leading-6 text-slate-600">
+              <p className="text-sm leading-6 text-muted-foreground">
                 New programs will be created with draft status.
                 You can publish or activate them from the program
                 management actions.
@@ -597,12 +597,12 @@ export default function CreateProgramDialog({
         </div>
 
         {/* Footer */}
-        <DialogFooter className="shrink-0 gap-3 border-t border-slate-200 bg-white px-5 py-4 sm:px-8">
+        <DialogFooter className="shrink-0 gap-3 border-t border-border bg-card px-5 py-4 sm:px-8">
           <button
             type="button"
             onClick={handleClose}
             disabled={isLoading}
-            className="rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50"
+            className="rounded-xl border border-border px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-50"
           >
             Cancel
           </button>
@@ -611,7 +611,7 @@ export default function CreateProgramDialog({
             type="button"
             onClick={handleSubmit}
             disabled={isLoading}
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-indigo-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-indigo-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-white transition hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
           >
             <BookPlus className="h-4 w-4" />
 

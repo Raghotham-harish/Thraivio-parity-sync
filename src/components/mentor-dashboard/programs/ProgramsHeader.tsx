@@ -12,10 +12,10 @@ const ProgramsHeader = ({
   return (
     <div
       className="
-        flex
-        flex-col
-        lg:flex-row
-        lg:items-center
+ flex
+ flex-col
+ lg:flex-row
+ lg:items-center
         lg:justify-between
         gap-6
       "
@@ -26,13 +26,13 @@ const ProgramsHeader = ({
 
         <div
           className="
-            inline-flex
-            items-center
-            px-4
-            py-1.5
+ inline-flex
+ items-center
+ px-4
+ py-1.5
             rounded-full
-            bg-blue-50
-            text-blue-700
+            bg-[#EFF6FF]
+            text-primary
             text-sm
             font-medium
           "
@@ -42,20 +42,20 @@ const ProgramsHeader = ({
 
         <h1
           className="
-            text-4xl
-            font-bold
-            mt-4
-          "
+ text-4xl
+ font-bold
+ mt-4
+ "
         >
           Programs Management
         </h1>
 
         <p
           className="
-            mt-3
-            text-slate-500
-            max-w-2xl
-          "
+ mt-3
+ text-muted-foreground
+ max-w-2xl
+ "
         >
           Create, manage and monitor all your coaching
           programs from one place.
@@ -63,19 +63,19 @@ const ProgramsHeader = ({
 
         <div
           className="
-            mt-5
-            flex
-            flex-wrap
-            gap-3
+ mt-5
+ flex
+ flex-wrap
+ gap-3
           "
         >
           <div
             className="
-              px-4
-              py-2
-              rounded-xl
-              bg-slate-100
-              text-slate-700
+ px-4
+ py-2
+ rounded-xl
+ bg-secondary
+              text-foreground
               text-sm
               font-medium
             "
@@ -85,11 +85,11 @@ const ProgramsHeader = ({
 
           <div
             className="
-              px-4
-              py-2
-              rounded-xl
-              bg-green-50
-              text-green-700
+ px-4
+ py-2
+ rounded-xl
+ bg-[#ECFDF5]
+              text-[#065F46]
               text-sm
               font-medium
             "
@@ -106,10 +106,10 @@ const ProgramsHeader = ({
       <button
         onClick={onAddProgram}
         className="
-          bg-blue-600
-          hover:bg-blue-700
-          text-white
-          px-6
+ bg-primary
+ hover:bg-primary/90
+ text-white
+ px-6
           py-4
           rounded-2xl
           font-semibold

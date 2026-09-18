@@ -25,12 +25,12 @@ interface ProgramDetailsDrawerProps {
 }
 
 const statusStyles: Record<string, string> = {
-  draft: "bg-slate-100 text-slate-700",
-  pending: "bg-amber-100 text-amber-700",
-  published: "bg-emerald-100 text-emerald-700",
-  rejected: "bg-red-100 text-red-700",
-  inactive: "bg-orange-100 text-orange-700",
-  archived: "bg-gray-200 text-gray-700",
+  draft: "bg-secondary text-foreground",
+  pending: "bg-[#FFFBEB] text-[#B45309]",
+  published: "bg-[#ECFDF5] text-[#065F46]",
+  rejected: "bg-[#FFDAD6] text-[#BA1A1A]",
+  inactive: "bg-[#FFFBEB] text-[#B45309]",
+  archived: "bg-secondary text-gray-700",
 };
 
 const formatDate = (date?: string | null) => {
@@ -68,13 +68,13 @@ const InfoItem = ({
   value: React.ReactNode;
 }) => {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4">
-      <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500">
+    <div className="rounded-xl border border-border bg-card p-4">
+      <div className="mb-2 flex items-center gap-2 text-xs font-medium text-muted-foreground">
         <Icon className="h-4 w-4" />
         {label}
       </div>
 
-      <div className="text-sm font-semibold text-slate-900">
+      <div className="text-sm font-semibold text-foreground">
         {value}
       </div>
     </div>
@@ -90,8 +90,8 @@ const SectionTitle = ({
 }) => {
   return (
     <div className="mb-4 flex items-center gap-2">
-      <Icon className="h-5 w-5 text-indigo-600" />
-      <h3 className="text-base font-bold text-slate-900">{title}</h3>
+      <Icon className="h-5 w-5 text-primary" />
+      <h3 className="text-base font-bold text-foreground">{title}</h3>
     </div>
   );
 };
@@ -124,14 +124,14 @@ export default function ProgramDetailsDrawer({
         if (event.target === event.currentTarget) onClose();
       }}
     >
-      <aside className="flex h-full w-full max-w-3xl flex-col overflow-hidden bg-slate-50 shadow-2xl">
+      <aside className="flex h-full w-full max-w-3xl flex-col overflow-hidden bg-secondary shadow-2xl">
         {/* Header */}
-        <div className="flex shrink-0 items-center justify-between border-b border-slate-200 bg-white px-5 py-4 sm:px-6">
+        <div className="flex shrink-0 items-center justify-between border-b border-border bg-card px-5 py-4 sm:px-6">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-wider text-indigo-600">
+            <p className="text-xs font-semibold uppercase tracking-wider text-primary">
               Program Management
             </p>
-            <h2 className="mt-1 text-lg font-bold text-slate-900">
+            <h2 className="mt-1 text-lg font-bold text-foreground">
               Program Details
             </h2>
           </div>
@@ -140,7 +140,7 @@ export default function ProgramDetailsDrawer({
             type="button"
             onClick={onClose}
             aria-label="Close program details"
-            className="rounded-xl p-2 text-slate-500 transition hover:bg-slate-100 hover:text-slate-900"
+            className="rounded-xl p-2 text-muted-foreground transition hover:bg-secondary hover:text-foreground"
           >
             <X className="h-5 w-5" />
           </button>
@@ -150,8 +150,8 @@ export default function ProgramDetailsDrawer({
         <div className="min-h-0 flex-1 overflow-y-auto">
           <div className="space-y-6 p-5 sm:p-6">
             {/* Hero */}
-            <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white">
-              <div className="relative aspect-[16/7] w-full overflow-hidden bg-slate-100">
+            <section className="overflow-hidden rounded-2xl border border-border bg-card">
+              <div className="relative aspect-[16/7] w-full overflow-hidden bg-secondary">
                 {program.thumbnail?.url ? (
                   <img
                     src={program.thumbnail.url}
@@ -160,7 +160,7 @@ export default function ProgramDetailsDrawer({
                   />
                 ) : (
                   <div className="flex h-full items-center justify-center">
-                    <ImageIcon className="h-12 w-12 text-slate-300" />
+                    <ImageIcon className="h-12 w-12 text-muted-foreground" />
                   </div>
                 )}
 
@@ -168,7 +168,7 @@ export default function ProgramDetailsDrawer({
                   <span
                     className={`rounded-full px-3 py-1 text-xs font-bold ${
                       statusStyles[program.status] ||
-                      "bg-slate-100 text-slate-700"
+                      "bg-secondary text-foreground"
                     }`}
                   >
                     {getStatusLabel(program.status)}
@@ -177,32 +177,32 @@ export default function ProgramDetailsDrawer({
               </div>
 
               <div className="p-5 sm:p-6">
-                <div className="mb-3 flex flex-wrap items-center gap-2 text-xs font-medium text-slate-500">
-                  <span className="rounded-md bg-indigo-50 px-2 py-1 text-indigo-700">
+                <div className="mb-3 flex flex-wrap items-center gap-2 text-xs font-medium text-muted-foreground">
+                  <span className="rounded-md bg-[#EFF6FF] px-2 py-1 text-primary">
                     {program.category}
                   </span>
 
                   {program.subCategory && (
-                    <span className="rounded-md bg-slate-100 px-2 py-1">
+                    <span className="rounded-md bg-secondary px-2 py-1">
                       {program.subCategory}
                     </span>
                   )}
 
-                  <span className="rounded-md bg-slate-100 px-2 py-1">
+                  <span className="rounded-md bg-secondary px-2 py-1">
                     {program.level}
                   </span>
                 </div>
 
-                <h1 className="text-xl font-bold leading-tight text-slate-900 sm:text-2xl">
+                <h1 className="text-xl font-bold leading-tight text-foreground sm:text-2xl">
                   {program.title}
                 </h1>
 
-                <p className="mt-3 text-sm leading-6 text-slate-600">
+                <p className="mt-3 text-sm leading-6 text-muted-foreground">
                   {program.shortDescription}
                 </p>
 
                 {program.description && (
-                  <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-slate-600">
+                  <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-muted-foreground">
                     {program.description}
                   </p>
                 )}
@@ -283,14 +283,14 @@ export default function ProgramDetailsDrawer({
             <section>
               <SectionTitle icon={DollarSign} title="Pricing Details" />
 
-              <div className="rounded-2xl border border-slate-200 bg-white p-5">
+              <div className="rounded-2xl border border-border bg-card p-5">
                 <div className="flex flex-wrap items-center justify-between gap-4">
                   <div>
-                    <p className="text-xs font-medium text-slate-500">
+                    <p className="text-xs font-medium text-muted-foreground">
                       Current Price
                     </p>
 
-                    <p className="mt-1 text-2xl font-bold text-slate-900">
+                    <p className="mt-1 text-2xl font-bold text-foreground">
                       {price}
                     </p>
                   </div>
@@ -319,16 +319,16 @@ export default function ProgramDetailsDrawer({
                     </div>
                   )}
 
-                <div className="mt-4 flex flex-wrap gap-2 text-xs text-slate-500">
-                  <span className="rounded-md bg-slate-100 px-2 py-1">
+                <div className="mt-4 flex flex-wrap gap-2 text-xs text-muted-foreground">
+                  <span className="rounded-md bg-secondary px-2 py-1">
                     Currency: {pricing?.currency || "INR"}
                   </span>
 
-                  <span className="rounded-md bg-slate-100 px-2 py-1">
+                  <span className="rounded-md bg-secondary px-2 py-1">
                     Tax included: {pricing?.taxIncluded ? "Yes" : "No"}
                   </span>
 
-                  <span className="rounded-md bg-slate-100 px-2 py-1">
+                  <span className="rounded-md bg-secondary px-2 py-1">
                     Free program: {pricing?.isFree ? "Yes" : "No"}
                   </span>
                 </div>
@@ -344,18 +344,18 @@ export default function ProgramDetailsDrawer({
                   {program.benefits.map((benefit, index) => (
                     <div
                       key={`${benefit.title}-${index}`}
-                      className="rounded-xl border border-slate-200 bg-white p-4"
+                      className="rounded-xl border border-border bg-card p-4"
                     >
                       <div className="flex items-start gap-3">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-emerald-600" />
+                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#065F46]" />
 
                         <div>
-                          <h4 className="text-sm font-bold text-slate-900">
+                          <h4 className="text-sm font-bold text-foreground">
                             {benefit.title}
                           </h4>
 
                           {benefit.description && (
-                            <p className="mt-1 text-sm leading-5 text-slate-600">
+                            <p className="mt-1 text-sm leading-5 text-muted-foreground">
                               {benefit.description}
                             </p>
                           )}
@@ -376,23 +376,23 @@ export default function ProgramDetailsDrawer({
                   {program.requirements.map((requirement, index) => (
                     <div
                       key={`${requirement.title}-${index}`}
-                      className="rounded-xl border border-slate-200 bg-white p-4"
+                      className="rounded-xl border border-border bg-card p-4"
                     >
                       <div className="flex items-start justify-between gap-3">
                         <div>
-                          <h4 className="text-sm font-bold text-slate-900">
+                          <h4 className="text-sm font-bold text-foreground">
                             {requirement.title}
                           </h4>
 
                           {requirement.description && (
-                            <p className="mt-1 text-sm leading-5 text-slate-600">
+                            <p className="mt-1 text-sm leading-5 text-muted-foreground">
                               {requirement.description}
                             </p>
                           )}
                         </div>
 
                         {requirement.mandatory && (
-                          <span className="shrink-0 rounded-md bg-red-50 px-2 py-1 text-[10px] font-bold uppercase text-red-600">
+                          <span className="shrink-0 rounded-md bg-[#FFDAD6] px-2 py-1 text-[10px] font-bold uppercase text-[#BA1A1A]">
                             Required
                           </span>
                         )}
@@ -411,21 +411,21 @@ export default function ProgramDetailsDrawer({
                   title="Learning Outcomes"
                 />
 
-                <div className="space-y-2 rounded-2xl border border-slate-200 bg-white p-5">
+                <div className="space-y-2 rounded-2xl border border-border bg-card p-5">
                   {program.learningOutcomes.map((outcome, index) => (
                     <div
                       key={`${outcome.title}-${index}`}
-                      className="flex items-start gap-3 border-b border-slate-100 py-3 last:border-0"
+                      className="flex items-start gap-3 border-b border-border py-3 last:border-0"
                     >
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-indigo-600" />
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
 
                       <div>
-                        <p className="text-sm font-semibold text-slate-900">
+                        <p className="text-sm font-semibold text-foreground">
                           {outcome.title}
                         </p>
 
                         {outcome.description && (
-                          <p className="mt-1 text-sm text-slate-600">
+                          <p className="mt-1 text-sm text-muted-foreground">
                             {outcome.description}
                           </p>
                         )}
@@ -441,9 +441,9 @@ export default function ProgramDetailsDrawer({
               <SectionTitle icon={BookOpen} title="Curriculum" />
 
               {sections.length === 0 ? (
-                <div className="rounded-xl border border-dashed border-slate-300 bg-white p-6 text-center">
-                  <BookOpen className="mx-auto h-8 w-8 text-slate-300" />
-                  <p className="mt-2 text-sm text-slate-500">
+                <div className="rounded-xl border border-dashed border-border bg-card p-6 text-center">
+                  <BookOpen className="mx-auto h-8 w-8 text-muted-foreground" />
+                  <p className="mt-2 text-sm text-muted-foreground">
                     No curriculum sections available.
                   </p>
                 </div>
@@ -452,30 +452,30 @@ export default function ProgramDetailsDrawer({
                   {sections.map((section, sectionIndex) => (
                     <details
                       key={`${section.title}-${sectionIndex}`}
-                      className="group rounded-xl border border-slate-200 bg-white"
+                      className="group rounded-xl border border-border bg-card"
                       open={sectionIndex === 0}
                     >
                       <summary className="cursor-pointer list-none px-4 py-4">
                         <div className="flex items-center justify-between gap-3">
                           <div>
-                            <p className="text-xs font-medium text-slate-500">
+                            <p className="text-xs font-medium text-muted-foreground">
                               Section {sectionIndex + 1}
                             </p>
 
-                            <h4 className="mt-1 text-sm font-bold text-slate-900">
+                            <h4 className="mt-1 text-sm font-bold text-foreground">
                               {section.title}
                             </h4>
                           </div>
 
-                          <span className="rounded-md bg-slate-100 px-2 py-1 text-xs font-semibold text-slate-600">
+                          <span className="rounded-md bg-secondary px-2 py-1 text-xs font-semibold text-muted-foreground">
                             {section.lessons?.length ?? 0} lessons
                           </span>
                         </div>
                       </summary>
 
-                      <div className="border-t border-slate-100 px-4 pb-4">
+                      <div className="border-t border-border px-4 pb-4">
                         {section.description && (
-                          <p className="py-3 text-sm text-slate-600">
+                          <p className="py-3 text-sm text-muted-foreground">
                             {section.description}
                           </p>
                         )}
@@ -485,19 +485,19 @@ export default function ProgramDetailsDrawer({
                             (lesson, lessonIndex) => (
                               <div
                                 key={`${lesson.title}-${lessonIndex}`}
-                                className="rounded-lg bg-slate-50 p-3"
+                                className="rounded-lg bg-secondary p-3"
                               >
                                 <div className="flex items-start justify-between gap-3">
                                   <div className="flex items-start gap-2">
-                                    <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-slate-500" />
+                                    <BookOpen className="mt-0.5 h-4 w-4 shrink-0 text-muted-foreground" />
 
                                     <div>
-                                      <p className="text-sm font-semibold text-slate-800">
+                                      <p className="text-sm font-semibold text-foreground">
                                         {lesson.title}
                                       </p>
 
                                       {lesson.description && (
-                                        <p className="mt-1 text-xs leading-5 text-slate-500">
+                                        <p className="mt-1 text-xs leading-5 text-muted-foreground">
                                           {lesson.description}
                                         </p>
                                       )}
@@ -505,13 +505,13 @@ export default function ProgramDetailsDrawer({
                                   </div>
 
                                   {lesson.preview && (
-                                    <span className="shrink-0 rounded-md bg-indigo-100 px-2 py-1 text-[10px] font-bold text-indigo-700">
+                                    <span className="shrink-0 rounded-md bg-[#EFF6FF] px-2 py-1 text-[10px] font-bold text-primary">
                                       Preview
                                     </span>
                                   )}
                                 </div>
 
-                                <div className="mt-2 flex flex-wrap gap-2 text-[11px] text-slate-500">
+                                <div className="mt-2 flex flex-wrap gap-2 text-[11px] text-muted-foreground">
                                   <span>
                                     Duration: {lesson.duration ?? 0} min
                                   </span>
@@ -541,13 +541,13 @@ export default function ProgramDetailsDrawer({
                   {program.faqs.map((faq, index) => (
                     <details
                       key={`${faq.question}-${index}`}
-                      className="rounded-xl border border-slate-200 bg-white p-4"
+                      className="rounded-xl border border-border bg-card p-4"
                     >
-                      <summary className="cursor-pointer text-sm font-bold text-slate-900">
+                      <summary className="cursor-pointer text-sm font-bold text-foreground">
                         {faq.question}
                       </summary>
 
-                      <p className="mt-3 text-sm leading-6 text-slate-600">
+                      <p className="mt-3 text-sm leading-6 text-muted-foreground">
                         {faq.answer}
                       </p>
                     </details>
@@ -590,11 +590,11 @@ export default function ProgramDetailsDrawer({
         </div>
 
         {/* Footer */}
-        <div className="flex shrink-0 justify-end border-t border-slate-200 bg-white px-5 py-4 sm:px-6">
+        <div className="flex shrink-0 justify-end border-t border-border bg-card px-5 py-4 sm:px-6">
           <button
             type="button"
             onClick={onClose}
-            className="rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-slate-800"
+            className="rounded-xl bg-[#0A192F] px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-[#0A192F]"
           >
             Close Details
           </button>

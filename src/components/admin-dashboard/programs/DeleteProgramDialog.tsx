@@ -60,38 +60,38 @@ export default function DeleteProgramDialog({
     >
       <DialogContent
         className="
-          w-[calc(100%-2rem)]
-          max-w-md
-          overflow-hidden
-          rounded-3xl
+ w-[calc(100%-2rem)]
+ max-w-md
+ overflow-hidden
+ rounded-2xl
           border-0
-          bg-white
+          bg-card
           p-0
         "
       >
         {/* Header */}
-        <div className="relative bg-red-50 px-6 pb-5 pt-7 sm:px-8">
+        <div className="relative bg-[#FFDAD6] px-6 pb-5 pt-7 sm:px-8">
           <button
             type="button"
             onClick={handleClose}
             disabled={isLoading}
-            className="absolute right-4 top-4 rounded-xl p-2 text-slate-400 transition hover:bg-white hover:text-slate-700 disabled:opacity-50"
+            className="absolute right-4 top-4 rounded-xl p-2 text-muted-foreground transition hover:bg-card hover:text-foreground disabled:opacity-50"
             aria-label="Close dialog"
           >
             <X className="h-5 w-5" />
           </button>
 
           <div className="flex flex-col items-center text-center">
-            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
-              <AlertTriangle className="h-8 w-8 text-red-600" />
+            <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-[#FFDAD6]">
+              <AlertTriangle className="h-8 w-8 text-[#BA1A1A]" />
             </div>
 
             <DialogHeader>
-              <DialogTitle className="text-xl font-bold text-slate-900">
+              <DialogTitle className="text-xl font-bold text-foreground">
                 Delete Program?
               </DialogTitle>
 
-              <DialogDescription className="mt-2 text-sm leading-6 text-slate-500">
+              <DialogDescription className="mt-2 text-sm leading-6 text-muted-foreground">
                 This action cannot be undone. The selected program
                 will be permanently deleted.
               </DialogDescription>
@@ -101,30 +101,30 @@ export default function DeleteProgramDialog({
 
         {/* Program Information */}
         <div className="px-6 py-5 sm:px-8">
-          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-            <p className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+          <div className="rounded-2xl border border-border bg-secondary p-4">
+            <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Selected Program
             </p>
 
-            <h3 className="mt-2 line-clamp-2 text-base font-bold text-slate-900">
+            <h3 className="mt-2 line-clamp-2 text-base font-bold text-foreground">
               {program.title}
             </h3>
 
             <div className="mt-3 flex flex-wrap items-center gap-2">
-              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold capitalize text-slate-600 ring-1 ring-slate-200">
+              <span className="rounded-full bg-card px-3 py-1 text-xs font-semibold capitalize text-muted-foreground ring-1 ring-border">
                 {program.status}
               </span>
 
-              <span className="rounded-full bg-white px-3 py-1 text-xs font-semibold text-slate-600 ring-1 ring-slate-200">
+              <span className="rounded-full bg-card px-3 py-1 text-xs font-semibold text-muted-foreground ring-1 ring-border">
                 {program.category}
               </span>
             </div>
           </div>
 
-          <div className="mt-4 flex items-start gap-3 rounded-xl border border-amber-200 bg-amber-50 p-3">
-            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600" />
+          <div className="mt-4 flex items-start gap-3 rounded-xl border border-[#F59E0B] bg-[#FFFBEB] p-3">
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-[#B45309]" />
 
-            <p className="text-xs leading-5 text-amber-800">
+            <p className="text-xs leading-5 text-[#B45309]">
               Please verify that you want to remove this program
               before continuing.
             </p>
@@ -132,12 +132,12 @@ export default function DeleteProgramDialog({
         </div>
 
         {/* Footer */}
-        <DialogFooter className="flex-col gap-3 border-t border-slate-200 bg-white px-6 py-5 sm:flex-row sm:px-8">
+        <DialogFooter className="flex-col gap-3 border-t border-border bg-card px-6 py-5 sm:flex-row sm:px-8">
           <button
             type="button"
             onClick={handleClose}
             disabled={isLoading}
-            className="w-full rounded-xl border border-slate-200 px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
+            className="w-full rounded-xl border border-border px-5 py-3 text-sm font-semibold text-foreground transition hover:bg-secondary disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
           >
             Cancel
           </button>
@@ -146,7 +146,7 @@ export default function DeleteProgramDialog({
             type="button"
             onClick={handleConfirm}
             disabled={isLoading}
-            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-red-600 px-5 py-3 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#BA1A1A] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#BA1A1A] disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
           >
             {isLoading ? (
               <Loader2 className="h-4 w-4 animate-spin" />

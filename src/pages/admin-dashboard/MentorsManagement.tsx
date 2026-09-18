@@ -511,8 +511,8 @@ async function handleUnpublish(mentor: AdminMentor) {
       {/* Error */}
 
       {!loading && error && (
-        <div className="rounded-2xl border border-red-200 bg-red-50 p-10 text-center">
-          <p className="text-red-600">
+        <div className="rounded-2xl border border-[#BA1A1A] bg-[#FFDAD6] p-10 text-center">
+          <p className="text-[#BA1A1A]">
             {error}
           </p>
 

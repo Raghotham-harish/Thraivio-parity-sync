@@ -58,11 +58,11 @@ const MyProgramsToolbar = ({
   return (
     <div
       className="
-        flex
-        flex-col
-        lg:flex-row
+ flex
+ flex-col
+ lg:flex-row
 
-        lg:items-center
+ lg:items-center
         lg:justify-between
 
         gap-4
@@ -72,22 +72,22 @@ const MyProgramsToolbar = ({
 
       <div
         className="
-          relative
+ relative
 
-          w-full
-          lg:max-w-md
-        "
+ w-full
+ lg:max-w-md
+ "
       >
         <Search
           size={18}
           className="
-            absolute
-            left-4
-            top-1/2
+ absolute
+ left-4
+ top-1/2
 
-            -translate-y-1/2
+ -translate-y-1/2
 
-            text-slate-400
+            text-muted-foreground
           "
         />
 
@@ -101,28 +101,28 @@ const MyProgramsToolbar = ({
           }
           placeholder="Search programs..."
           className="
-            w-full
+ w-full
 
-            h-11
+ h-11
 
-            pl-11
-            pr-4
+ pl-11
+ pr-4
 
             rounded-xl
 
             border
-            border-slate-200
+            border-border
 
-            bg-white
+            bg-card
 
             text-sm
-            text-slate-900
+            text-foreground
 
-            placeholder:text-slate-400
+            placeholder:text-muted-foreground
 
             outline-none
 
-            focus:border-blue-500
+            focus:border-primary
             focus:ring-2
             focus:ring-blue-100
 
@@ -135,11 +135,11 @@ const MyProgramsToolbar = ({
 
       <div
         className="
-          flex
-          flex-col
-          sm:flex-row
+ flex
+ flex-col
+ sm:flex-row
 
-          sm:items-center
+ sm:items-center
 
           gap-3
         "
@@ -148,12 +148,12 @@ const MyProgramsToolbar = ({
 
         <div
           className="
-            flex
-            items-center
+ flex
+ items-center
 
-            gap-2
+ gap-2
 
-            overflow-x-auto
+ overflow-x-auto
 
             pb-1
           "
@@ -161,9 +161,9 @@ const MyProgramsToolbar = ({
           <SlidersHorizontal
             size={18}
             className="
-              text-slate-400
-              shrink-0
-            "
+ text-muted-foreground
+ shrink-0
+ "
           />
 
           {filters.map(
@@ -199,16 +199,16 @@ const MyProgramsToolbar = ({
                     ${
                       isSelected
                         ? `
-                          bg-blue-600
+                          bg-primary
                           text-white
                           shadow-sm
                         `
                         : `
-                          bg-white
-                          text-slate-600
+                          bg-card
+                          text-muted-foreground
                           border
-                          border-slate-200
-                          hover:bg-slate-50
+                          border-border
+                          hover:bg-secondary
                         `
                     }
                   `}
@@ -224,14 +224,14 @@ const MyProgramsToolbar = ({
 
         <div
           className="
-            flex
-            items-center
+ flex
+ items-center
 
-            p-1
+ p-1
 
-            rounded-xl
+ rounded-xl
 
-            bg-slate-100
+            bg-secondary
 
             shrink-0
           "
@@ -255,13 +255,13 @@ const MyProgramsToolbar = ({
               ${
                 view === "grid"
                   ? `
-                    bg-white
-                    text-slate-900
+                    bg-card
+                    text-foreground
                     shadow-sm
                   `
                   : `
-                    text-slate-500
-                    hover:text-slate-700
+                    text-muted-foreground
+                    hover:text-foreground
                   `
               }
             `}
@@ -288,13 +288,13 @@ const MyProgramsToolbar = ({
               ${
                 view === "list"
                   ? `
-                    bg-white
-                    text-slate-900
+                    bg-card
+                    text-foreground
                     shadow-sm
                   `
                   : `
-                    text-slate-500
-                    hover:text-slate-700
+                    text-muted-foreground
+                    hover:text-foreground
                   `
               }
             `}
