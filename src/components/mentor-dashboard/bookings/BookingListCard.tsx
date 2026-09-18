@@ -1,4 +1,4 @@
-import { Pencil, Trash2, User } from "lucide-react";
+import { NotebookPen, Pencil, Trash2, User } from "lucide-react";
 
 import { StatusBadge, type StatusBadgeVariant } from "@/components/shared/StatusBadge";
 import type { Booking } from "@/types/booking";
@@ -25,7 +25,12 @@ const BookingListCard = ({ booking, onEdit, onDelete }: BookingListCardProps) =>
         <User className="h-4 w-4 text-primary" />
       </div>
       <div className="min-w-0 flex-1">
-        <p className="truncate text-sm font-semibold text-foreground">{booking.studentName}</p>
+        <div className="flex items-center gap-1.5">
+          <p className="truncate text-sm font-semibold text-foreground">{booking.studentName}</p>
+          {booking.notes && (
+            <NotebookPen className="h-3.5 w-3.5 shrink-0 text-muted-foreground" aria-label="Has notes" />
+          )}
+        </div>
         <p className="truncate text-xs text-muted-foreground">{booking.sessionType}</p>
       </div>
 

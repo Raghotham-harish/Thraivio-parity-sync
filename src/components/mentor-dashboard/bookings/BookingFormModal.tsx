@@ -45,6 +45,8 @@ const BookingFormModal = ({
 
       status:
         "pending",
+
+      notes: "",
     });
 
   useEffect(() => {
@@ -72,6 +74,8 @@ const BookingFormModal = ({
 
         status:
           "pending",
+
+        notes: "",
       });
     }
   }, [booking]);
@@ -433,6 +437,32 @@ const BookingFormModal = ({
               />
             </div>
 
+          </div>
+
+          <div>
+            <label className="font-medium">
+              Session Notes
+            </label>
+
+            <textarea
+              value={formData.notes ?? ""}
+              onChange={(e) =>
+                setFormData({
+                  ...formData,
+                  notes: e.target.value,
+                })
+              }
+              rows={4}
+              placeholder="Private notes about this booking - progress, what to cover next time, follow-ups..."
+              className="
+                w-full
+                mt-2
+                border
+                rounded-xl
+                p-4
+                resize-none
+              "
+            />
           </div>
 
           <div

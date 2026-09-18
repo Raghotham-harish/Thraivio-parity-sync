@@ -20,4 +20,6 @@ export interface Booking {
     | "confirmed"
     | "completed"
     | "cancelled";
+
+  notes?: string;
 }

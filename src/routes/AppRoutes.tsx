@@ -28,6 +28,7 @@ import Pricing from "@/pages/mentor-dashboard/Pricing";
 import Videos from "@/pages/mentor-dashboard/Videos";
 import FAQ from "@/pages/mentor-dashboard/FAQ";
 import Bookings from "@/pages/mentor-dashboard/Bookings";
+import Journal from "@/pages/mentor-dashboard/Journal";
 import Settings from "@/pages/mentor-dashboard/Settings";
 
 
@@ -225,6 +226,11 @@ const AppRoutes = () => {
    <Route
   path="bookings"
   element={<Bookings />}
+/>
+
+   <Route
+  path="journal"
+  element={<Journal />}
 />
 
    <Route

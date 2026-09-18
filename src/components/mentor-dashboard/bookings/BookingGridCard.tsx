@@ -1,4 +1,4 @@
-import { Pencil, Trash2, User } from "lucide-react";
+import { NotebookPen, Pencil, Trash2, User } from "lucide-react";
 
 import { StatusBadge, type StatusBadgeVariant } from "@/components/shared/StatusBadge";
 import type { Booking } from "@/types/booking";
@@ -40,9 +40,14 @@ const BookingGridCard = ({ booking, onEdit, onDelete }: BookingGridCardProps) =>
       </div>
 
       {/* Session type */}
-      <p className="mt-3 truncate text-sm font-semibold text-foreground">
-        {booking.sessionType}
-      </p>
+      <div className="mt-3 flex items-center gap-1.5">
+        <p className="min-w-0 flex-1 truncate text-sm font-semibold text-foreground">
+          {booking.sessionType}
+        </p>
+        {booking.notes && (
+          <NotebookPen className="h-3.5 w-3.5 shrink-0 text-muted-foreground" aria-label="Has notes" />
+        )}
+      </div>
 
       {/* Stat strip */}
       <div className="mt-2 grid grid-cols-4 divide-x divide-border rounded-xl bg-secondary py-2 text-center">

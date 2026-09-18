@@ -13,6 +13,7 @@ import {
   HelpCircle,
   CalendarCheck,
   ClipboardList,
+  NotebookPen,
   Settings,
 } from "lucide-react";
 
@@ -33,6 +34,7 @@ const menuItems = [
   { title: "Videos", path: "/mentor-dashboard/videos", icon: Video },
   { title: "FAQ", path: "/mentor-dashboard/faq", icon: HelpCircle },
   { title: "Bookings", path: "/mentor-dashboard/bookings", icon: CalendarCheck },
+  { title: "Journal", path: "/mentor-dashboard/journal", icon: NotebookPen },
   { title: "Settings", path: "/mentor-dashboard/settings", icon: Settings },
 ];
 
