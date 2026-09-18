@@ -1,4 +1,6 @@
 import type { Survey } from "@/types/survey";
+import { EmptyState } from "@/components/shared/EmptyState";
+import taskIllustration from "@/assets/illustrations/task.svg";
 import UserSurveyCard from "./UserSurveyCard";
 
 interface UserSurveyListProps {
@@ -34,22 +36,11 @@ export default function UserSurveyList({
 }: UserSurveyListProps) {
   if (surveys.length === 0) {
     return (
-      <div className="flex min-h-[260px] items-center justify-center rounded-xl border border-dashed border-slate-300 bg-white px-6 py-12">
-        <div className="text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
-            <span className="text-xl text-slate-400">📋</span>
-          </div>
-
-          <h3 className="mt-4 text-base font-semibold text-slate-900">
-            No Surveys Available
-          </h3>
-
-          <p className="mt-1 max-w-sm text-sm leading-6 text-slate-500">
-            There are no surveys available for you at the moment.
-            New surveys will appear here when they become available.
-          </p>
-        </div>
-      </div>
+      <EmptyState
+        illustration={taskIllustration}
+        title="No Surveys Available"
+        description="New surveys will appear here when they become available."
+      />
     );
   }
 
