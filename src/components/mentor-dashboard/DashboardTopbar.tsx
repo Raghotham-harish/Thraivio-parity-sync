@@ -6,12 +6,17 @@ import {
 
 import { useEffect, useState } from "react";
 
+import { MobileNavTrigger } from "@/components/shared/MobileNavDrawer";
 import {
   getCurrentUser,
   type AuthUser,
 } from "@/services/auth.service";
 
-const DashboardTopbar = () => {
+interface DashboardTopbarProps {
+  onMenuClick: () => void;
+}
+
+const DashboardTopbar = ({ onMenuClick }: DashboardTopbarProps) => {
   const [user, setUser] =
     useState<AuthUser | null>(null);
 
@@ -41,10 +46,12 @@ const DashboardTopbar = () => {
         border-slate-200
         h-20
         shrink-0
-        px-8
+        px-4
+        lg:px-8
         flex
         items-center
         justify-between
+        gap-4
         sticky
         top-0
         z-30
@@ -52,14 +59,18 @@ const DashboardTopbar = () => {
     >
       {/* Left */}
 
-      <div>
-        <h1 className="text-2xl font-bold">
-          Welcome Back 👋
-        </h1>
+      <div className="flex items-center gap-4">
+        <MobileNavTrigger onClick={onMenuClick} />
 
-        <p className="text-slate-500 text-sm mt-1">
-          Manage your mentorship business
-        </p>
+        <div className="min-w-0">
+          <h1 className="truncate text-2xl font-bold">
+            Welcome Back 👋
+          </h1>
+
+          <p className="hidden text-slate-500 text-sm mt-1 sm:block">
+            Manage your mentorship business
+          </p>
+        </div>
       </div>
 
       {/* Right */}
