@@ -2,6 +2,7 @@ import {
   Home,
   GraduationCap,
   Users,
+  Building2,
   CalendarCheck,
   BookOpen,
   CalendarDays,
@@ -42,6 +43,12 @@ export const adminSidebarItems: AdminSidebarItem[] = [
     title: "Users",
     path: "/admin/users",
     icon: Users,
+  },
+
+  {
+    title: "Companies",
+    path: "/admin/companies",
+    icon: Building2,
   },
 
   {

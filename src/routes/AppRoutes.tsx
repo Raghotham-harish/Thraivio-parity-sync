@@ -57,6 +57,7 @@ import AdminDashboardLayout from "../layouts/AdminDashboardLayout";
 const AdminDashboard = lazy(() => import("@/pages/admin-dashboard/Dashboard"));
 const MentorsManagement = lazy(() => import("@/pages/admin-dashboard/MentorsManagement"));
 const UsersManagement = lazy(() => import("@/pages/admin-dashboard/UsersManagement"));
+const CompaniesManagement = lazy(() => import("@/pages/admin-dashboard/CompaniesManagement"));
 const ProgramsManagement = lazy(() => import("@/pages/admin-dashboard/ProgramsManagement"));
 const SessionsManagement = lazy(() => import("@/pages/admin-dashboard/SessionsManagement"));
 const EventsManagement = lazy(() => import("@/pages/admin-dashboard/EventsManagement"));
@@ -337,6 +338,10 @@ const AppRoutes = () => {
   <Route
   path="/admin/users"
   element={<UsersManagement />}
+/>
+  <Route
+  path="/admin/companies"
+  element={<CompaniesManagement />}
 />
 <Route
   path="/admin/sessions"
