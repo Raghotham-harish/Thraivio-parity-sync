@@ -2,69 +2,92 @@ import { NavLink } from "react-router-dom";
 
 import { LogOut } from "lucide-react";
 
+import { MobileNavDrawer } from "@/components/shared/MobileNavDrawer";
 import { ThraivioHorizontal } from "@/components/shared/ThraivioLogos";
 import { adminSidebarItems } from "@/data/admin-sidebar";
 import { cn } from "@/lib/utils";
 
-const AdminSidebar = () => {
+interface AdminSidebarContentProps {
+  onNavigate?: () => void;
+}
+
+const AdminSidebarContent = ({ onNavigate }: AdminSidebarContentProps) => (
+  <div className="flex h-full flex-col bg-card">
+    {/* Logo */}
+
+    <div className="flex h-20 items-center border-b border-border px-6">
+      <div>
+        <ThraivioHorizontal width={132} height={43} />
+        <p className="mt-0.5 text-xs font-medium text-muted-foreground">Admin Panel</p>
+      </div>
+    </div>
+
+    {/* Navigation */}
+
+    <div className="flex-1 overflow-y-auto p-4 scrollbar-thin">
+      <div className="space-y-2">
+        {adminSidebarItems.map((item) => {
+          const Icon = item.icon;
+
+          return (
+            <NavLink
+              key={item.title}
+              to={item.path}
+              end={item.path === "/admin"}
+              onClick={onNavigate}
+              className={({ isActive }) =>
+                cn(
+                  "flex items-center gap-3 rounded-2xl px-4 py-3 transition-all duration-300",
+                  isActive
+                    ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                    : "text-muted-foreground hover:bg-secondary hover:text-primary",
+                )
+              }
+            >
+              <Icon size={20} />
+              <span className="font-medium">{item.title}</span>
+            </NavLink>
+          );
+        })}
+      </div>
+    </div>
+
+    {/* Bottom */}
+
+    <div className="border-t border-border p-4">
+      <div className="rounded-2xl bg-secondary p-4">
+        <h4 className="font-semibold text-foreground">Platform Overview</h4>
+
+        <p className="mt-2 text-sm leading-6 text-muted-foreground">
+          Manage mentors, users, sessions, payments, reports and platform
+          settings from one place.
+        </p>
+
+        <button className="mt-5 flex items-center gap-2 rounded-xl border border-destructive/30 px-4 py-2 text-sm font-medium text-destructive transition hover:bg-destructive/10">
+          <LogOut size={18} />
+          Logout
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
+interface AdminSidebarProps {
+  mobileOpen: boolean;
+  onMobileOpenChange: (open: boolean) => void;
+}
+
+const AdminSidebar = ({ mobileOpen, onMobileOpenChange }: AdminSidebarProps) => {
   return (
-    <aside className="flex h-screen w-72 shrink-0 flex-col border-r border-border bg-card">
-      {/* Logo */}
+    <>
+      <aside className="hidden h-screen w-72 shrink-0 flex-col border-r border-border bg-card lg:flex">
+        <AdminSidebarContent />
+      </aside>
 
-      <div className="flex h-20 items-center border-b border-border px-6">
-        <div>
-          <ThraivioHorizontal width={132} height={43} />
-          <p className="mt-0.5 text-xs font-medium text-muted-foreground">Admin Panel</p>
-        </div>
-      </div>
-
-      {/* Navigation */}
-
-      <div className="flex-1 overflow-y-auto p-4 scrollbar-thin">
-        <div className="space-y-2">
-          {adminSidebarItems.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <NavLink
-                key={item.title}
-                to={item.path}
-                end={item.path === "/admin"}
-                className={({ isActive }) =>
-                  cn(
-                    "flex items-center gap-3 rounded-2xl px-4 py-3 transition-all duration-300",
-                    isActive
-                      ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
-                      : "text-muted-foreground hover:bg-secondary hover:text-primary",
-                  )
-                }
-              >
-                <Icon size={20} />
-                <span className="font-medium">{item.title}</span>
-              </NavLink>
-            );
-          })}
-        </div>
-      </div>
-
-      {/* Bottom */}
-
-      <div className="border-t border-border p-4">
-        <div className="rounded-2xl bg-secondary p-4">
-          <h4 className="font-semibold text-foreground">Platform Overview</h4>
-
-          <p className="mt-2 text-sm leading-6 text-muted-foreground">
-            Manage mentors, users, sessions, payments, reports and platform
-            settings from one place.
-          </p>
-
-          <button className="mt-5 flex items-center gap-2 rounded-xl border border-destructive/30 px-4 py-2 text-sm font-medium text-destructive transition hover:bg-destructive/10">
-            <LogOut size={18} />
-            Logout
-          </button>
-        </div>
-      </div>
-    </aside>
+      <MobileNavDrawer open={mobileOpen} onOpenChange={onMobileOpenChange} title="Admin navigation">
+        <AdminSidebarContent onNavigate={() => onMobileOpenChange(false)} />
+      </MobileNavDrawer>
+    </>
   );
 };
 

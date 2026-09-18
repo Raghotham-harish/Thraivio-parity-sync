@@ -1,6 +1,12 @@
 import { Bell, ChevronDown, Search } from "lucide-react";
 
-const AdminTopbar = () => {
+import { MobileNavTrigger } from "@/components/shared/MobileNavDrawer";
+
+interface AdminTopbarProps {
+  onMenuClick: () => void;
+}
+
+const AdminTopbar = ({ onMenuClick }: AdminTopbarProps) => {
   const today = new Date().toLocaleDateString("en-IN", {
     weekday: "long",
     day: "numeric",
@@ -9,10 +15,12 @@ const AdminTopbar = () => {
   });
 
   return (
-    <header className="flex h-20 items-center justify-between border-b border-border bg-card px-8">
+    <header className="flex h-20 items-center justify-between gap-4 border-b border-border bg-card px-4 lg:px-8">
       {/* Left */}
 
       <div className="flex items-center gap-6">
+        <MobileNavTrigger onClick={onMenuClick} />
+
         <div className="relative hidden lg:block">
           <Search
             size={18}
