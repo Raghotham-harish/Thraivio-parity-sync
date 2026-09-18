@@ -4,7 +4,13 @@ import {
   ChevronDown,
 } from "lucide-react";
 
-const UserDashboardTopbar = () => {
+import { MobileNavTrigger } from "@/components/shared/MobileNavDrawer";
+
+interface UserDashboardTopbarProps {
+  onMenuClick: () => void;
+}
+
+const UserDashboardTopbar = ({ onMenuClick }: UserDashboardTopbarProps) => {
   return (
     <header
       className="
@@ -16,13 +22,16 @@ const UserDashboardTopbar = () => {
         flex
         items-center
         justify-between
+        gap-4
 
-        px-8
+        px-4
+        lg:px-8
       "
     >
       {/* Left */}
 
       <div className="flex items-center gap-4">
+        <MobileNavTrigger onClick={onMenuClick} />
 
         <div
           className="
@@ -126,7 +135,7 @@ const UserDashboardTopbar = () => {
             "
           />
 
-          <div className="text-left">
+          <div className="hidden text-left md:block">
 
             <h4 className="font-semibold">
               Sunil Kumar
@@ -143,7 +152,7 @@ const UserDashboardTopbar = () => {
 
           </div>
 
-          <ChevronDown size={18} />
+          <ChevronDown size={18} className="hidden md:block" />
         </button>
 
       </div>
