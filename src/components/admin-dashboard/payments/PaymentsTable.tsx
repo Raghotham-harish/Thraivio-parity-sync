@@ -1,5 +1,6 @@
 import type { AdminPayment } from "@/types/admin-payment";
 import PaymentTableRow from "./PaymentTableRow";
+import PaymentGridCard from "./PaymentGridCard";
 
 interface PaymentsTableProps {
   payments: AdminPayment[];
@@ -31,6 +32,7 @@ export default function PaymentsTable({
         className,
       ].join(" ")}
     >
+      <div className="hidden lg:block">
       <div className="overflow-x-auto">
         <table className="w-full min-w-[1200px] border-collapse">
 
@@ -86,6 +88,20 @@ export default function PaymentsTable({
           </tbody>
 
         </table>
+      </div>
+      </div>
+
+      <div className="grid gap-3 lg:hidden">
+        {payments.map((payment) => (
+          <PaymentGridCard
+            key={payment.id}
+            payment={payment}
+            onView={onView}
+            onRefund={onRefund}
+            onStatusChange={onStatusChange}
+            onDelete={onDelete}
+          />
+        ))}
       </div>
     </div>
   );

@@ -4,6 +4,8 @@ import type {
 
 import CMSTableRow from "./CMSTableRow";
 
+import CMSGridCard from "./CMSGridCard";
+
 import {
   Card,
   CardContent,
@@ -44,6 +46,7 @@ export default function CMSTable({
 
       <CardContent className="p-0">
 
+        <div className="hidden lg:block">
         <div className="overflow-x-auto">
 
           <Table>
@@ -102,6 +105,19 @@ export default function CMSTable({
         </Table>
 
       </div>
+        </div>
+
+        <div className="grid gap-3 lg:hidden">
+          {pages.map((page) => (
+            <CMSGridCard
+              key={page.id}
+              page={page}
+              onView={onView}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
+          ))}
+        </div>
             </CardContent>
 
     </Card>

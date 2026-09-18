@@ -4,6 +4,8 @@ import type {
 
 import NotificationTableRow from "./NotificationTableRow";
 
+import NotificationGridCard from "./NotificationGridCard";
+
 import {
   Card,
   CardContent,
@@ -44,6 +46,7 @@ export default function NotificationsTable({
 
       <CardContent className="p-0">
 
+        <div className="hidden lg:block">
         <div className="overflow-x-auto">
 
           <Table>
@@ -102,6 +105,19 @@ export default function NotificationsTable({
         </Table>
 
       </div>
+        </div>
+
+        <div className="grid gap-3 lg:hidden">
+          {notifications.map((notification) => (
+            <NotificationGridCard
+              key={notification.id}
+              notification={notification}
+              onView={onView}
+              onSend={onSend}
+              onDelete={onDelete}
+            />
+          ))}
+        </div>
             </CardContent>
 
     </Card>

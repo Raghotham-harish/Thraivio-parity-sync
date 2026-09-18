@@ -2,6 +2,7 @@ import { memo } from "react";
 
 import type { AdminEvent } from "@/types/admin-events";
 
+import EventGridCard from "./EventGridCard";
 import EventListRow from "./EventListRow";
 
 interface EventsTableProps {
@@ -36,7 +37,21 @@ const EventsTable = ({
         shadow-sm
       "
     >
-      <div className="overflow-x-auto">
+      <div className="grid gap-3 p-4 lg:hidden">
+        {events.map((event) => (
+          <EventGridCard
+            key={event.id}
+            event={event}
+            onView={onView}
+            onEdit={onEdit}
+            onPublish={onPublish}
+            onCancel={onCancel}
+            onDelete={onDelete}
+          />
+        ))}
+      </div>
+
+      <div className="hidden overflow-x-auto lg:block">
 
         <table className="min-w-[1850px] w-full">
 

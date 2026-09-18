@@ -4,6 +4,8 @@ import type {
 
 import SupportTableRow from "./SupportTableRow";
 
+import SupportGridCard from "./SupportGridCard";
+
 import {
   Card,
   CardContent,
@@ -44,6 +46,7 @@ export default function SupportTable({
 
       <CardContent className="p-0">
 
+        <div className="hidden lg:block">
         <div className="overflow-x-auto">
 
           <Table>
@@ -102,6 +105,19 @@ export default function SupportTable({
         </Table>
 
       </div>
+        </div>
+
+        <div className="grid gap-3 lg:hidden">
+          {tickets.map((ticket) => (
+            <SupportGridCard
+              key={ticket.id}
+              ticket={ticket}
+              onView={onView}
+              onReply={onReply}
+              onClose={onClose}
+            />
+          ))}
+        </div>
             </CardContent>
 
     </Card>

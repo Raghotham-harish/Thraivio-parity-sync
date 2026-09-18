@@ -4,6 +4,8 @@ import type {
 
 import RoleTableRow from "./RoleTableRow";
 
+import RoleGridCard from "./RoleGridCard";
+
 import {
   Card,
   CardContent,
@@ -44,6 +46,7 @@ export default function RolesTable({
 
       <CardContent className="p-0">
 
+        <div className="hidden lg:block">
         <div className="overflow-x-auto">
 
           <Table>
@@ -102,6 +105,19 @@ export default function RolesTable({
         </Table>
 
       </div>
+        </div>
+
+        <div className="grid gap-3 lg:hidden">
+          {roles.map((role) => (
+            <RoleGridCard
+              key={role.id}
+              role={role}
+              onView={onView}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
+          ))}
+        </div>
             </CardContent>
 
     </Card>

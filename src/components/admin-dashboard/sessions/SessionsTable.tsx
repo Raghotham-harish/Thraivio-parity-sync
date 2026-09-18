@@ -1,5 +1,6 @@
 import type { AdminSession } from "@/types/admin-session";
 
+import SessionGridCard from "./SessionGridCard";
 import SessionListRow from "./SessionListRow";
 
 interface SessionsTableProps {
@@ -26,7 +27,21 @@ const SessionsTable = ({
 }: SessionsTableProps) => {
   return (
     <div className="overflow-hidden rounded-2xl border border-border bg-card">
-      <div className="overflow-x-auto">
+      <div className="grid gap-3 p-4 lg:hidden">
+        {sessions.map((session) => (
+          <SessionGridCard
+            key={session.id}
+            session={session}
+            onView={onView}
+            onEdit={onEdit}
+            onComplete={onComplete}
+            onCancel={onCancel}
+            onDelete={onDelete}
+          />
+        ))}
+      </div>
+
+      <div className="hidden overflow-x-auto lg:block">
         <table className="min-w-full">
           <thead className="border-b border-border bg-secondary">
             <tr>

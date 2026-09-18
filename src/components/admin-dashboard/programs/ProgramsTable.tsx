@@ -1,3 +1,4 @@
+import ProgramGridCard from "./ProgramGridCard";
 import ProgramListRow from "./ProgramListRow";
 
 import { mentors } from "@/data/mentors";
@@ -41,7 +42,21 @@ export default function ProgramsTable({
   return (
     <section className="overflow-hidden rounded-2xl border border-border bg-card shadow-sm">
 
-      <div className="overflow-x-auto">
+      <div className="grid gap-3 p-4 lg:hidden">
+        {items.map(({ mentor, program }) => (
+          <ProgramGridCard
+            key={`${mentor.id}-${program.title}`}
+            mentor={mentor}
+            program={program}
+            onView={onView}
+            onEdit={onEdit}
+            onPublish={onPublish}
+            onDelete={onDelete}
+          />
+        ))}
+      </div>
+
+      <div className="hidden overflow-x-auto lg:block">
 
         <table className="min-w-full">
 

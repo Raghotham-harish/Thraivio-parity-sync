@@ -1,5 +1,6 @@
 import type { AdminReview } from "@/types/admin-review";
 
+import ReviewGridCard from "./ReviewGridCard";
 import ReviewTableRow from "./ReviewTableRow";
 
 import {
@@ -36,7 +37,19 @@ export default function ReviewsTable({
 
       <CardContent className="p-0">
 
-        <div className="overflow-x-auto">
+        <div className="grid gap-3 p-4 lg:hidden">
+          {reviews.map((review) => (
+            <ReviewGridCard
+              key={review.id}
+              review={review}
+              onView={onView}
+              onStatus={onStatus}
+              onDelete={onDelete}
+            />
+          ))}
+        </div>
+
+        <div className="hidden overflow-x-auto lg:block">
 
           <Table>
 
