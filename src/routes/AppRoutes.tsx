@@ -2,6 +2,7 @@ import { lazy, Suspense } from "react";
 import { Routes, Route } from "react-router-dom";
 import MainLayout from "@/layouts/MainLayout";
 
+import Home from "@/pages/Home";
 import MentorsPage from "@/pages/mentors";
 import MentorProfilePage from "@/pages/MentorProfile";
 import BecomeMentorPage from "@/pages/BecomeCoach";
@@ -90,10 +91,10 @@ const AppRoutes = () => {
     <Routes>
       <Route element={<MainLayout />}>
 
-        {/* Home = Mentor Directory */}
+        {/* Home = Marketing landing page */}
         <Route
           path="/"
-          element={<MentorsPage />}
+          element={<Home />}
         />
 
         {/* Mentor Directory */}

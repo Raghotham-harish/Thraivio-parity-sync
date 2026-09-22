@@ -185,7 +185,7 @@ const Navbar = () => {
           "
         >
           <Link
-            to="/"
+            to="/mentors"
             className="
               text-[14px]
               font-semibold
@@ -195,7 +195,7 @@ const Navbar = () => {
               whitespace-nowrap
             "
           >
-            Explore Trivios
+            Find a Coach
           </Link>
 
           <Link
