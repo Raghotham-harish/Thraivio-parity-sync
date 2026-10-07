@@ -20,10 +20,10 @@ const TermsCheckbox = ({
             e.target.checked
           )
         }
-        className="mt-1 cursor-pointer"
+        className="mt-1 cursor-pointer accent-primary"
       />
 
-      <span className="text-sm text-slate-600">
+      <span className="text-sm text-muted-foreground font-body">
 
         I agree to the Terms of Service
         and Privacy Policy.

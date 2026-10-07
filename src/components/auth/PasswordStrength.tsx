@@ -14,20 +14,20 @@ const PasswordStrength = ({ password }: Props) => {
 
   return (
     <div className="mt-3">
-      <div className="h-2 rounded-full bg-slate-200 overflow-hidden">
+      <div className="h-2 rounded-full bg-secondary overflow-hidden">
         <div
           style={{
             width: `${strength}%`,
           }}
           className="
             h-full
-            bg-blue-600
+            bg-primary
             transition-all
           "
         />
       </div>
 
-      <p className="text-xs text-slate-500 mt-2">
+      <p className="text-xs text-muted-foreground mt-2">
         Password Strength
       </p>
     </div>

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, Mail } from "lucide-react";
 
+import AuthShell from "@/components/auth/AuthShell";
 import { forgotPassword } from "@/services/auth.service";
 
 const ForgotPasswordPage = () => {
@@ -70,70 +71,22 @@ const ForgotPasswordPage = () => {
   };
 
   return (
-    <section
-      className="
-        relative
-        min-h-screen
-        overflow-hidden
-        bg-gradient-to-br
-        from-slate-50
-        via-blue-50
-        to-indigo-50
-        flex
-        items-center
-        justify-center
-        px-4
-        py-20
-      "
-    >
-      {/* Background Blur Effects */}
-
-      <div
-        className="
-          absolute
-          -top-40
-          -left-40
-          h-96
-          w-96
-          rounded-full
-          bg-blue-300
-          opacity-20
-          blur-3xl
-        "
-      />
-
-      <div
-        className="
-          absolute
-          bottom-0
-          right-0
-          h-96
-          w-96
-          rounded-full
-          bg-indigo-300
-          opacity-20
-          blur-3xl
-        "
-      />
-
+    <AuthShell>
       {/* Card */}
 
       <div
         className="
           relative
           w-full
-          max-w-md
-          bg-white
+          
+          bg-card
           border
-          border-slate-200
-          rounded-3xl
-          shadow-2xl
+          border-border
+          rounded-2xl
+          shadow-sm
           overflow-hidden
         "
       >
-        {/* Top Accent */}
-
-        <div className="h-1 bg-blue-600 w-full" />
 
         <div className="p-8 lg:p-10">
 
@@ -150,18 +103,18 @@ const ForgotPasswordPage = () => {
                 items-center
                 justify-center
                 rounded-2xl
-                bg-blue-100
-                text-blue-600
+                icon-bg
+                text-primary
               "
             >
               <Mail size={28} />
             </div>
 
-            <h1 className="mt-5 text-3xl font-bold">
+            <h1 className="mt-5 font-heading text-[28px] font-medium text-foreground">
               Forgot Password?
             </h1>
 
-            <p className="mt-3 text-slate-500 leading-relaxed">
+            <p className="mt-3 text-muted-foreground leading-relaxed">
               Enter your email address and we'll
               send you a link to reset your password.
             </p>
@@ -193,14 +146,14 @@ const ForgotPasswordPage = () => {
                   w-full
                   rounded-xl
                   border
-                  border-slate-200
+                  border-border
                   px-4
                   py-3
                   outline-none
                   transition-all
-                  focus:border-blue-500
+                  focus:border-primary
                   focus:ring-4
-                  focus:ring-blue-100
+                  focus:ring-primary/20
                   disabled:opacity-70
                 "
               />
@@ -213,12 +166,12 @@ const ForgotPasswordPage = () => {
                 className="
                   rounded-xl
                   border
-                  border-green-200
-                  bg-green-50
+                  border-[#A7F3D0]
+                  bg-[#ECFDF5]
                   px-4
                   py-3
                   text-sm
-                  text-green-700
+                  text-[#065F46]
                 "
               >
                 {success}
@@ -232,12 +185,12 @@ const ForgotPasswordPage = () => {
                 className="
                   rounded-xl
                   border
-                  border-red-200
-                  bg-red-50
+                  border-destructive/20
+                  bg-destructive/10
                   px-4
                   py-3
                   text-sm
-                  text-red-600
+                  text-destructive
                 "
               >
                 {error}
@@ -252,13 +205,13 @@ const ForgotPasswordPage = () => {
               className="
                 w-full
                 rounded-xl
-                bg-blue-600
+                bg-primary
                 py-3.5
                 font-semibold
                 text-white
                 transition-all
                 duration-300
-                hover:bg-blue-700
+                hover:bg-primary/90
                 hover:shadow-xl
                 cursor-pointer
                 disabled:cursor-not-allowed
@@ -282,8 +235,8 @@ const ForgotPasswordPage = () => {
                 items-center
                 gap-2
                 font-semibold
-                text-blue-600
-                hover:text-blue-700
+                text-primary
+                hover:text-primary/80
                 hover:underline
                 cursor-pointer
               "
@@ -296,7 +249,7 @@ const ForgotPasswordPage = () => {
 
         </div>
       </div>
-    </section>
+    </AuthShell>
   );
 };
 
