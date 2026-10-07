@@ -1,52 +1,38 @@
 import { useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
-
-import RoleSelector from "./RoleSelector";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
 import PasswordStrength from "./PasswordStrength";
 import TermsCheckbox from "./TermsCheckbox";
-
-import type { SignupFormData } from "@/types/auth";
+import type { SignupFormData, UserRole } from "@/types/auth";
 import { registerUser } from "@/services/auth.service";
 
+const inputClass =
+  "w-full rounded-xl border border-input bg-card px-4 py-3 text-sm text-foreground outline-none transition-all placeholder:text-muted-foreground/60 focus:border-primary focus:ring-2 focus:ring-primary/25";
+
 interface SignupFormProps {
+  /** Chosen with the User / Member tabs above the form. */
+  role: Extract<UserRole, "user" | "mentor">;
   onSuccess?: (message: string) => void;
 }
 
-const SignupForm = ({
-  onSuccess,
-}: SignupFormProps) => {
-  const [formData, setFormData] =
-    useState<SignupFormData>({
-      role: "user",
-      fullName: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-      acceptedTerms: false,
-    });
+type FormFields = Omit<SignupFormData, "role">;
 
-  const [showPassword, setShowPassword] =
-    useState(false);
+const EMPTY: FormFields = {
+  fullName: "",
+  email: "",
+  password: "",
+  confirmPassword: "",
+  acceptedTerms: false,
+};
 
-  const [
-    showConfirmPassword,
-    setShowConfirmPassword,
-  ] = useState(false);
+const SignupForm = ({ role, onSuccess }: SignupFormProps) => {
+  const [formData, setFormData] = useState<FormFields>(EMPTY);
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const [loading, setLoading] =
-    useState(false);
-
-  const [error, setError] =
-    useState("");
-
-  const updateField = (
-    field: keyof SignupFormData,
-    value: string | boolean
-  ) => {
-    setFormData((prev) => ({
-      ...prev,
-      [field]: value,
-    }));
+  const updateField = (field: keyof FormFields, value: string | boolean) => {
+    setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
   const validateForm = () => {
@@ -54,55 +40,32 @@ const SignupForm = ({
       setError("Full name is required");
       return false;
     }
-
     if (!formData.email.trim()) {
       setError("Email is required");
       return false;
     }
-
-    const emailRegex =
-      /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (
-      !emailRegex.test(
-        formData.email.trim()
-      )
-    ) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email.trim())) {
       setError("Please enter a valid email");
       return false;
     }
-
     if (formData.password.length < 8) {
-      setError(
-        "Password must be at least 8 characters"
-      );
+      setError("Password must be at least 8 characters");
       return false;
     }
-
-    if (
-      formData.password !==
-      formData.confirmPassword
-    ) {
+    if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
       return false;
     }
-
     if (!formData.acceptedTerms) {
-      setError(
-        "Please accept Terms & Conditions"
-      );
+      setError("Please accept the Terms & Conditions");
       return false;
     }
-
     setError("");
     return true;
   };
 
-  const handleSubmit = async (
-    e: React.FormEvent
-  ) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     try {
@@ -110,44 +73,26 @@ const SignupForm = ({
       setError("");
 
       const response = await registerUser({
-        role: formData.role,
+        role,
         fullName: formData.fullName.trim(),
         email: formData.email.trim(),
         password: formData.password,
-        confirmPassword:
-          formData.confirmPassword,
-        acceptedTerms:
-          formData.acceptedTerms,
+        confirmPassword: formData.confirmPassword,
+        acceptedTerms: formData.acceptedTerms,
       });
 
       if (!response.success) {
-        throw new Error(
-          response.message ||
-            "Registration failed."
-        );
+        throw new Error(response.message || "Registration failed.");
       }
 
-      if (onSuccess) {
-        onSuccess(
-          response.message ||
-            "Your account has been created successfully."
-        );
-      }
-
-      setFormData({
-        role: "user",
-        fullName: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-        acceptedTerms: false,
-      });
+      onSuccess?.(response.message || "Your account has been created successfully.");
+      setFormData(EMPTY);
     } catch (error: any) {
-      const message =
-        error?.response?.data?.message ||
-        error?.message ||
-        "Something went wrong. Please try again.";
-
+      const message = error?.response
+        ? error.response.data?.message || "Something went wrong. Please try again."
+        : error?.message === "Network Error" || !error?.message
+          ? "We can't reach Thraivio right now. Please try again in a few minutes."
+          : error.message;
       setError(message);
     } finally {
       setLoading(false);
@@ -155,264 +100,113 @@ const SignupForm = ({
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-6"
-    >
-      {/* Role */}
-
-      <RoleSelector
-        value={formData.role}
-        onChange={(role) =>
-          updateField("role", role)
-        }
-      />
-
-      {/* Name */}
-
-      <div>
-        <label className="block text-sm font-semibold mb-2">
-          Full Name
-        </label>
-
-        <input
-          type="text"
-          value={formData.fullName}
-          onChange={(e) =>
-            updateField(
-              "fullName",
-              e.target.value
-            )
-          }
-          placeholder="Enter full name"
-          className="
-            w-full
-            border
-            border-slate-200
-            rounded-xl
-            px-4
-            py-3
-            focus:ring-4
-            focus:ring-blue-100
-            focus:border-blue-500
-            outline-none
-          "
-        />
-      </div>
-
-      {/* Email */}
-
-      <div>
-        <label className="block text-sm font-semibold mb-2">
-          Email Address
-        </label>
-
-        <input
-          type="email"
-          value={formData.email}
-          onChange={(e) =>
-            updateField(
-              "email",
-              e.target.value
-            )
-          }
-          placeholder="Enter email"
-          className="
-            w-full
-            border
-            border-slate-200
-            rounded-xl
-            px-4
-            py-3
-            focus:ring-4
-            focus:ring-blue-100
-            focus:border-blue-500
-            outline-none
-          "
-        />
-      </div>
-
-      {/* Password */}
-
-      <div>
-        <label className="block text-sm font-semibold mb-2">
-          Password
-        </label>
-
-        <div className="relative">
-          <input
-            type={
-              showPassword
-                ? "text"
-                : "password"
-            }
-            value={formData.password}
-            onChange={(e) =>
-              updateField(
-                "password",
-                e.target.value
-              )
-            }
-            placeholder="Create password"
-            className="
-              w-full
-              border
-              border-slate-200
-              rounded-xl
-              px-4
-              py-3
-              pr-12
-              focus:ring-4
-              focus:ring-blue-100
-              focus:border-blue-500
-              outline-none
-            "
-          />
-
-          <button
-            type="button"
-            onClick={() =>
-              setShowPassword(
-                !showPassword
-              )
-            }
-            className="
-              absolute
-              right-4
-              top-1/2
-              -translate-y-1/2
-              cursor-pointer
-            "
-          >
-            {showPassword ? (
-              <EyeOff size={20} />
-            ) : (
-              <Eye size={20} />
-            )}
-          </button>
-        </div>
-
-        <PasswordStrength
-          password={formData.password}
-        />
-      </div>
-
-      {/* Confirm Password */}
-
-      <div>
-        <label className="block text-sm font-semibold mb-2">
-          Confirm Password
-        </label>
-
-        <div className="relative">
-          <input
-            type={
-              showConfirmPassword
-                ? "text"
-                : "password"
-            }
-            value={
-              formData.confirmPassword
-            }
-            onChange={(e) =>
-              updateField(
-                "confirmPassword",
-                e.target.value
-              )
-            }
-            placeholder="Confirm password"
-            className="
-              w-full
-              border
-              border-slate-200
-              rounded-xl
-              px-4
-              py-3
-              pr-12
-              focus:ring-4
-              focus:ring-blue-100
-              focus:border-blue-500
-              outline-none
-            "
-          />
-
-          <button
-            type="button"
-            onClick={() =>
-              setShowConfirmPassword(
-                !showConfirmPassword
-              )
-            }
-            className="
-              absolute
-              right-4
-              top-1/2
-              -translate-y-1/2
-              cursor-pointer
-            "
-          >
-            {showConfirmPassword ? (
-              <EyeOff size={20} />
-            ) : (
-              <Eye size={20} />
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* Terms */}
-
-      <TermsCheckbox
-        checked={formData.acceptedTerms}
-        onChange={(value) =>
-          updateField(
-            "acceptedTerms",
-            value
-          )
-        }
-      />
-
-      {/* Error */}
-
+    <form onSubmit={handleSubmit} className="space-y-4" noValidate>
       {error && (
-        <div
-          className="
-            bg-red-50
-            border
-            border-red-200
-            text-red-600
-            rounded-xl
-            px-4
-            py-3
-            text-sm
-          "
-        >
+        <div role="alert" className="rounded-xl bg-destructive/10 px-4 py-3 text-sm font-semibold text-destructive">
           {error}
         </div>
       )}
 
-      {/* Submit */}
+      <div>
+        <label htmlFor="signup-name" className="mb-1.5 block text-sm font-semibold text-foreground">
+          Full name
+        </label>
+        <input
+          id="signup-name"
+          type="text"
+          autoComplete="name"
+          value={formData.fullName}
+          onChange={(e) => updateField("fullName", e.target.value)}
+          placeholder="Your full name"
+          className={inputClass}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="signup-email" className="mb-1.5 block text-sm font-semibold text-foreground">
+          Email address
+        </label>
+        <input
+          id="signup-email"
+          type="email"
+          autoComplete="email"
+          value={formData.email}
+          onChange={(e) => updateField("email", e.target.value)}
+          placeholder="you@email.com"
+          className={inputClass}
+        />
+      </div>
+
+      <div>
+        <label htmlFor="signup-password" className="mb-1.5 block text-sm font-semibold text-foreground">
+          Password
+        </label>
+        <div className="relative">
+          <input
+            id="signup-password"
+            type={showPassword ? "text" : "password"}
+            autoComplete="new-password"
+            value={formData.password}
+            onChange={(e) => updateField("password", e.target.value)}
+            placeholder="At least 8 characters"
+            className={`${inputClass} pr-12`}
+          />
+          <button
+            type="button"
+            onClick={() => setShowPassword(!showPassword)}
+            aria-label={showPassword ? "Hide password" : "Show password"}
+            className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-muted-foreground hover:text-foreground"
+          >
+            {showPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
+        </div>
+        <PasswordStrength password={formData.password} />
+      </div>
+
+      <div>
+        <label htmlFor="signup-confirm" className="mb-1.5 block text-sm font-semibold text-foreground">
+          Confirm password
+        </label>
+        <div className="relative">
+          <input
+            id="signup-confirm"
+            type={showConfirmPassword ? "text" : "password"}
+            autoComplete="new-password"
+            value={formData.confirmPassword}
+            onChange={(e) => updateField("confirmPassword", e.target.value)}
+            placeholder="Re-enter your password"
+            className={`${inputClass} pr-12`}
+          />
+          <button
+            type="button"
+            onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+            aria-label={showConfirmPassword ? "Hide password" : "Show password"}
+            className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-muted-foreground hover:text-foreground"
+          >
+            {showConfirmPassword ? <EyeOff size={18} /> : <Eye size={18} />}
+          </button>
+        </div>
+      </div>
+
+      <TermsCheckbox
+        checked={formData.acceptedTerms}
+        onChange={(value) => updateField("acceptedTerms", value)}
+      />
 
       <button
         type="submit"
         disabled={loading}
-        className="
-          w-full
-          bg-blue-600
-          hover:bg-blue-700
-          text-white
-          py-3.5
-          rounded-xl
-          font-semibold
-          transition-all
-          cursor-pointer
-          disabled:opacity-70
-          disabled:cursor-not-allowed
-        "
+        className="flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl bg-primary py-3.5 text-[15px] font-bold text-primary-foreground transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60"
       >
-        {loading
-          ? "Creating Account..."
-          : "Create Account"}
+        {loading ? (
+          <>
+            <Loader2 size={18} className="animate-spin" /> Creating account…
+          </>
+        ) : role === "mentor" ? (
+          "Create member account"
+        ) : (
+          "Create account"
+        )}
       </button>
     </form>
   );

@@ -16,6 +16,9 @@ import LoginPage from "@/pages/Login";
 import SignupPage from "@/pages/Signup";
 import ForgotPasswordPage from "@/pages/forgotPassword/index";
 import ResetPasswordPage from "@/pages/resetPassword/index";
+import ProgramsPage from "@/pages/Programs";
+import NotFoundPage from "@/pages/NotFound";
+import RequireAuth from "@/components/auth/RequireAuth";
 
 import MentorDashboardLayout from "@/layouts/MentorDashboardLayout";
 import Dashboard from "@/pages/mentor-dashboard/Dashboard";
@@ -135,6 +138,12 @@ const AppRoutes = () => {
   element={<MentorAchievementsPage />}
 />
 
+        {/* Programs & Events (public listing) */}
+        <Route
+          path="/programs"
+          element={<ProgramsPage />}
+        />
+
         {/* Categories */}
         <Route
           path="/categories"
@@ -145,6 +154,12 @@ const AppRoutes = () => {
         <Route
           path="/become-mentor"
           element={<BecomeMentorPage />}
+        />
+
+        {/* Anything unknown: a real "not found" page instead of a blank screen */}
+        <Route
+          path="*"
+          element={<NotFoundPage />}
         />
 
       </Route>
@@ -173,7 +188,7 @@ const AppRoutes = () => {
 
 <Route
   path="/mentor-dashboard"
-  element={<MentorDashboardLayout />}
+  element={<RequireAuth role="mentor"><MentorDashboardLayout /></RequireAuth>}
 >
   {/* Dashboard Home */}
   <Route
@@ -258,7 +273,7 @@ const AppRoutes = () => {
 
 <Route
   path="/user-dashboard"
-  element={<UserDashboardLayout />}
+  element={<RequireAuth role="user"><UserDashboardLayout /></RequireAuth>}
 >
   <Route
     index
@@ -330,9 +345,11 @@ const AppRoutes = () => {
 <Route
   path="/admin"
   element={
-    <Suspense fallback={<AdminRouteFallback />}>
-      <AdminDashboardLayout />
-    </Suspense>
+    <RequireAuth role="admin">
+      <Suspense fallback={<AdminRouteFallback />}>
+        <AdminDashboardLayout />
+      </Suspense>
+    </RequireAuth>
   }
 >
 <Route
