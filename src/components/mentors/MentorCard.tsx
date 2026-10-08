@@ -31,9 +31,8 @@ const MentorCard = ({
   const introPrice =
     mentor.pricing?.introCall ?? 0;
 
-  const profileUrl =
-    mentor.publicProfileUrl ||
-    `/mentor/${mentor.id}`;
+  // The profile page looks mentors up by slug (/mentors/:slug).
+  const profileUrl = `/mentors/${mentor.slug || mentor.id}`;
 
   return (
     <div

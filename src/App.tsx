@@ -1,7 +1,13 @@
 import AppRoutes from "./routes/AppRoutes";
+import ScrollManager from "./components/common/ScrollManager";
 
 function App() {
-  return <AppRoutes />;
+  return (
+    <>
+      <ScrollManager />
+      <AppRoutes />
+    </>
+  );
 }
 
 export default App;
