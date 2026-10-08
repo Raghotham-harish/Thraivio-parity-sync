@@ -16,6 +16,25 @@ import NavLogo from "./NavLogo";
 import MobileMenu from "./MobileMenu";
 import { logoutUser } from "@/services/auth.service";
 
+// "For Organisations" menu targets on the Enterprise page. Audience
+// segments (Enterprise, Mid-market, ...) aren't listed, so they fall back
+// to the contact form.
+const ORG_LINKS: Record<string, string> = {
+  "Leadership Pipeline": "/enterprise#leadership",
+  "Team Effectiveness": "/enterprise#teams",
+  "Executive Coaching": "/enterprise#executive",
+  "DEI & Belonging": "/enterprise#inclusion",
+  "Well-being at Scale": "/enterprise#wellbeing",
+  "Custom Learning Journeys": "/enterprise#custom",
+};
+
+const QUICK_LINKS = [
+  { label: "Request a Demo", to: "/enterprise#contact" },
+  { label: "How It Works", to: "/enterprise#how" },
+  { label: "All Solutions", to: "/enterprise#solutions" },
+  { label: "Help & Contact", to: "/help" },
+];
+
 const Navbar = () => {
   const navigate = useNavigate();
 
@@ -448,7 +467,7 @@ const Navbar = () => {
                     }) => (
                       <Link
                         key={title}
-                        to="#"
+                        to={ORG_LINKS[title] ?? "/enterprise#contact"}
                         className="
                           flex
                           gap-3
@@ -541,7 +560,7 @@ const Navbar = () => {
                     }) => (
                       <Link
                         key={title}
-                        to="#"
+                        to={ORG_LINKS[title] ?? "/enterprise#contact"}
                         className="
                           flex
                           gap-3
@@ -619,15 +638,10 @@ const Navbar = () => {
                 </p>
 
                 <div className="space-y-5">
-                  {[
-                    "Pricing",
-                    "Request a Demo",
-                    "Case Studies",
-                    "ROI Calculator",
-                  ].map((item) => (
+                  {QUICK_LINKS.map(({ label: item, to }) => (
                     <Link
                       key={item}
-                      to="#"
+                      to={to}
                       className="
                         flex
                         items-center
@@ -655,7 +669,7 @@ const Navbar = () => {
                   ))}
                 </div>
 
-                {/* CASE STUDY */}
+                {/* PILOT CTA */}
 
                 <div
                   className="
@@ -675,7 +689,7 @@ const Navbar = () => {
                       text-[#155DFC]
                     "
                   >
-                    CASE STUDY
+                    FOR ORGANISATIONS
                   </p>
 
                   <p
@@ -687,12 +701,11 @@ const Navbar = () => {
                       text-[#172033]
                     "
                   >
-                    Global tech firm cut senior
-                    attrition 34% in 12 months
+                    Start with a pilot cohort, then scale across your teams
                   </p>
 
                   <Link
-                    to="#"
+                    to="/enterprise"
                     className="
                       mt-3
                       inline-flex
@@ -705,7 +718,7 @@ const Navbar = () => {
                       transition-all
                     "
                   >
-                    Read more
+                    Talk to us
                     <ArrowRight size={16} />
                   </Link>
                 </div>
@@ -737,12 +750,11 @@ const Navbar = () => {
                   font-medium
                 "
               >
-                Trusted by 1,200+ organisations in 70+
-                countries
+                Coaching programs for teams of any size
               </p>
 
               <Link
-                to="#"
+                to="/enterprise"
                 className="
                   h-[38px]
                   px-5

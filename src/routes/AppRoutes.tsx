@@ -1,5 +1,5 @@
 import { lazy, Suspense } from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate, useParams } from "react-router-dom";
 import MainLayout from "@/layouts/MainLayout";
 
 import Home from "@/pages/Home";
@@ -18,6 +18,12 @@ import ForgotPasswordPage from "@/pages/forgotPassword/index";
 import ResetPasswordPage from "@/pages/resetPassword/index";
 import ProgramsPage from "@/pages/Programs";
 import NotFoundPage from "@/pages/NotFound";
+import HowItWorksPage from "@/pages/HowItWorks";
+import EnterprisePage from "@/pages/Enterprise";
+import AboutPage from "@/pages/About";
+import HelpPage from "@/pages/Help";
+import PrivacyPage from "@/pages/Legal/Privacy";
+import TermsPage from "@/pages/Legal/Terms";
 import RequireAuth from "@/components/auth/RequireAuth";
 
 import MentorDashboardLayout from "@/layouts/MentorDashboardLayout";
@@ -76,6 +82,12 @@ const SupportManagement = lazy(() => import("@/pages/admin-dashboard/SupportMana
 const RolesPermissions = lazy(() => import("@/pages/admin-dashboard/RolesPermissions"));
 const AdminSettings = lazy(() => import("@/pages/admin-dashboard/AdminSettings"));
 const SurveysManagement = lazy(() => import("@/pages/admin-dashboard/SurveysManagement"));
+
+// Older links used /mentor/:id for profiles; the profile page lives at /mentors/:id.
+function LegacyMentorRedirect() {
+  const { id } = useParams();
+  return <Navigate to={`/mentors/${id}`} replace />;
+}
 
 function AdminRouteFallback() {
   return (
@@ -155,6 +167,19 @@ const AppRoutes = () => {
           path="/become-mentor"
           element={<BecomeMentorPage />}
         />
+
+        <Route path="/how-it-works" element={<HowItWorksPage />} />
+        <Route path="/enterprise" element={<EnterprisePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/help" element={<HelpPage />} />
+        <Route path="/privacy" element={<PrivacyPage />} />
+        <Route path="/terms" element={<TermsPage />} />
+        <Route path="/mentor/:id" element={<LegacyMentorRedirect />} />
+
+        {/* Old standalone-site URLs */}
+        <Route path="/find-a-coach" element={<Navigate to="/mentors" replace />} />
+        <Route path="/find-coach" element={<Navigate to="/mentors" replace />} />
+        <Route path="/for-organisations" element={<Navigate to="/enterprise" replace />} />
 
         {/* Anything unknown: a real "not found" page instead of a blank screen */}
         <Route

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 interface Props {
   checked: boolean;
   onChange: (
@@ -25,8 +26,10 @@ const TermsCheckbox = ({
 
       <span className="text-sm text-muted-foreground font-body">
 
-        I agree to the Terms of Service
-        and Privacy Policy.
+        I agree to the{" "}
+        <Link to="/terms" target="_blank" className="font-semibold text-primary hover:underline">Terms of Service</Link>{" "}
+        and{" "}
+        <Link to="/privacy" target="_blank" className="font-semibold text-primary hover:underline">Privacy Policy</Link>.
 
       </span>
 

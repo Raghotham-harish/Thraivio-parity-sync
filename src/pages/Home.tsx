@@ -118,16 +118,16 @@ export default function Home() {
       if (cancelled) return;
 
       if (mentorsRes.status === "fulfilled") {
-        setMentorCount(mentorsRes.value.data.pagination.total);
+        setMentorCount(mentorsRes.value.data?.pagination?.total ?? null);
       }
       if (topMentorsRes.status === "fulfilled") {
-        setFeaturedMentors(topMentorsRes.value.data);
+        setFeaturedMentors(topMentorsRes.value.data ?? []);
       }
       if (programsRes.status === "fulfilled") {
-        setProgramCount(programsRes.value.data.pagination.total);
+        setProgramCount(programsRes.value.data?.pagination?.total ?? null);
       }
       if (featuredProgramsRes.status === "fulfilled") {
-        setFeaturedPrograms(featuredProgramsRes.value.data.slice(0, 3));
+        setFeaturedPrograms((featuredProgramsRes.value.data ?? []).slice(0, 3));
       }
     }
 
@@ -352,7 +352,7 @@ export default function Home() {
                 const price = formatPrice(m.pricing?.introCall);
                 return (
                   <Link
-                    to={`/mentors/${m.id}`}
+                    to={`/mentors/${m.slug || m.id}`}
                     key={m.id}
                     className="group cursor-pointer overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/30 hover:shadow-xl"
                   >
